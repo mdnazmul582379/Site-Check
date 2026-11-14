@@ -99,47 +99,101 @@
       if (C.DEMO_VIDEO) return { url: C.DEMO_VIDEO, fallback: null, demo: true };
       throw new Error("Stream API is not configured");
     }
+
+    // 1) Id-based play routes (if Worker has private link map)
     const paths = C.PLAY_PATHS || ["/play", "/stream", "/api/play"];
     let lastErr = null;
     for (const path of paths) {
-      const url = base + path + (path.includes("?") ? "&" : "?") + "id=" + encodeURIComponent(id);
+      const getUrl = base + path + (path.includes("?") ? "&" : "?") + "id=" + encodeURIComponent(id);
       try {
-        const r = await fetch(url, { headers: authHeaders(), cache: "no-store" });
-        if (r.status === 404) { lastErr = "Not found"; continue; }
-        if (!r.ok) { lastErr = "HTTP " + r.status; continue; }
-        const data = await r.json();
-        const extracted = extractPlayUrl(data);
-        if (extracted && extracted.url) return extracted;
-        // Some APIs return the URL as plain redirect info
-        if (data && data.status === "success") {
-          const ex = extractPlayUrl(data);
-          if (ex) return ex;
+        const r = await fetch(getUrl, { headers: authHeaders(), cache: "no-store" });
+        if (r.ok) {
+          const data = await r.json();
+          const extracted = extractPlayUrl(data);
+          if (extracted && extracted.url) return extracted;
+          lastErr = "No playable URL in response";
+        } else if (r.status !== 404) {
+          lastErr = "HTTP " + r.status;
         }
-        lastErr = "No playable URL in response";
       } catch (e) {
-        lastErr = e.message || "Network error";
+        lastErr = e.message || lastErr;
+      }
+      try {
+        const r = await fetch(base + path, {
+          method: "POST",
+          headers: { ...authHeaders(), "Content-Type": "application/json" },
+          body: JSON.stringify({ id }),
+          cache: "no-store",
+        });
+        if (r.ok) {
+          const data = await r.json();
+          const extracted = extractPlayUrl(data);
+          if (extracted && extracted.url) return extracted;
+        } else if (r.status !== 404) {
+          lastErr = "HTTP " + r.status;
+        }
+      } catch (e) {
+        lastErr = e.message || lastErr;
       }
     }
-    // POST fallback (some workers only accept POST)
-    try {
-      const r = await fetch(base + "/play", {
-        method: "POST",
-        headers: { ...authHeaders(), "Content-Type": "application/json" },
-        body: JSON.stringify({ id }),
-        cache: "no-store",
-      });
-      if (r.ok) {
-        const data = await r.json();
-        const extracted = extractPlayUrl(data);
-        if (extracted && extracted.url) return extracted;
-      } else lastErr = "HTTP " + r.status;
-    } catch (e) {
-      lastErr = e.message || lastErr;
+
+    // 2) Direct Terabox resolve when the catalog entry carries a share URL
+    const link = findShareLink(id);
+    if (link) {
+      const data = await callTeraboxApi(link);
+      const extracted = extractPlayUrl(data);
+      if (extracted && extracted.url) return extracted;
+      lastErr = "Terabox response had no stream URL";
     }
+
     if (C.DEMO_VIDEO) return { url: C.DEMO_VIDEO, fallback: null, demo: true };
-    throw new Error(lastErr || "Could not resolve stream");
+    throw new Error(lastErr || "Stream not available for this title (Worker needs /play?id= or a Terabox link)");
   }
 
+  function findShareLink(id) {
+    for (const it of S.items) {
+      if (it.id === id) {
+        return it.url || it.terabox || it.link || it.share || null;
+      }
+      if (it.versions) {
+        for (const v of it.versions) {
+          if (v.id === id) return v.url || v.terabox || v.link || it.url || it.terabox || null;
+        }
+      }
+      if (it.episodes) {
+        for (const e of it.episodes) {
+          if (e.id === id) return e.url || e.terabox || e.link || null;
+          if (e.versions) {
+            for (const v of e.versions) {
+              if (v.id === id) return v.url || v.terabox || v.link || null;
+            }
+          }
+        }
+      }
+    }
+    return null;
+  }
+
+  async function callTeraboxApi(link) {
+    const base = (C.API_BASE || "").replace(/\/$/, "");
+    const path = C.TERABOX_PATH || "/terabox";
+    const headers = { ...authHeaders(), "Content-Type": "application/json" };
+    const r = await fetch(base + path, {
+      method: "POST",
+      headers,
+      body: JSON.stringify({ url: link }),
+      cache: "no-store",
+    });
+    if (!r.ok) throw new Error("Terabox API HTTP " + r.status);
+    const data = await r.json();
+    if (data.status && data.status !== "success") {
+      throw new Error(data.error || data.message || "Terabox resolve failed");
+    }
+    if (!(data.list && data.list.length) && !data.url && !data.playUrl) {
+      throw new Error(data.message || data.error || "No files in Terabox response");
+    }
+    return data;
+  }
   function isHls(url) {
     return /\.m3u8($|\?)/i.test(url || "") || /m3u8/i.test(url || "");
   }
@@ -161,15 +215,24 @@
   }
 
   async function loadLibrary() {
-    try {
-      const url = C.API_BASE ? C.API_BASE.replace(/\/$/, "") + "/library/list" : C.LIBRARY_PATH;
-      const r = await fetch(url, { cache: "no-store" });
-      if (!r.ok) throw new Error("HTTP " + r.status);
-      S.items = normalize((await r.json()).items || []);
-    } catch (e) {
-      S.items = [];
-      main.innerHTML = emptyState("Could not load library. Check your connection and try again.");
+    const paths = [];
+    if (C.API_BASE) paths.push(C.API_BASE.replace(/\/$/, "") + "/library/list");
+    paths.push(C.LIBRARY_PATH || "data/library.json");
+    let lastErr = null;
+    for (const url of paths) {
+      try {
+        const r = await fetch(url, { cache: "no-store", headers: authHeaders() });
+        if (!r.ok) { lastErr = "HTTP " + r.status; continue; }
+        const data = await r.json();
+        const items = normalize(data.items || data || []);
+        if (items.length) { S.items = items; return; }
+        lastErr = "Empty library";
+      } catch (e) {
+        lastErr = e.message || String(e);
+      }
     }
+    S.items = [];
+    main.innerHTML = emptyState("Could not load library. " + (lastErr || ""));
   }
   const tabItems = () => (S.tab === "trending" ? S.items : S.items.filter((it) => it._type === S.tab));
   const groupsOf = (list) => {
