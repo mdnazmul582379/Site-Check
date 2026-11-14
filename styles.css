@@ -1,0 +1,120 @@
+:root{
+  --bg:#0e0f13; --bg2:#15161c; --card:#1c1d25; --line:rgba(255,255,255,.08);
+  --text:#f3f4f7; --muted:#9093a0; --brand:#22d3a6; --brand2:#2b7cff; --danger:#ff5a5f;
+  --r:12px; --safe-b:env(safe-area-inset-bottom,0px); --safe-t:env(safe-area-inset-top,0px);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0}
+.hidden{display:none!important}
+
+/* layout: মোবাইলে পুরো স্ক্রিন, বড় স্ক্রিনে মাঝখানে সীমাবদ্ধ */
+.app{max-width:1200px;margin:0 auto;min-height:100vh;padding-bottom:calc(74px + var(--safe-b));position:relative}
+.top{position:sticky;top:0;z-index:20;background:linear-gradient(var(--bg) 85%,transparent);padding:calc(10px + var(--safe-t)) 14px 0}
+.top-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.logo{display:flex;align-items:center;gap:8px;font-size:18px;letter-spacing:.2px}
+.logo b{font-weight:800}
+.logo-mark{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,var(--brand),var(--brand2));position:relative}
+.logo-mark::after{content:"";position:absolute;left:10px;top:7px;border-left:9px solid #fff;border-top:6px solid transparent;border-bottom:6px solid transparent}
+.avatar{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--card);border:1px solid var(--line)}
+.search{margin-top:10px;display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:0 14px;height:42px;color:var(--muted)}
+.search input{flex:1;background:none;border:0;outline:0;color:var(--text);font-size:15px;min-width:0}
+.search input::placeholder{color:var(--muted)}
+.tabs{display:flex;gap:18px;overflow-x:auto;margin:12px -14px 0;padding:0 14px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{white-space:nowrap;color:var(--muted);font-weight:600;font-size:15px;padding:8px 0 10px;border-bottom:2px solid transparent}
+.tabs button.active{color:var(--text);border-bottom-color:var(--brand)}
+.tabs .adult{color:#ff8a8f}
+
+main{padding:0 0 12px}
+
+/* হিরো */
+.hero{position:relative;margin:12px 14px 0;border-radius:var(--r);overflow:hidden;aspect-ratio:16/9;background:#222}
+.hero .art{position:absolute;inset:0}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(0,0,0,.85))}
+.hero .info{position:absolute;left:14px;right:14px;bottom:14px;z-index:1}
+.hero h1{font-size:20px;font-weight:800;line-height:1.2}
+.hero .meta{font-size:12px;color:#d6d8df;margin-top:4px}
+.hero .play{margin-top:10px;display:inline-flex;align-items:center;gap:6px;background:var(--brand);color:#06130f;font-weight:700;border-radius:999px;padding:9px 16px;font-size:14px}
+
+/* সেকশন */
+.section{margin-top:22px}
+.sec-head{display:flex;align-items:center;justify-content:space-between;padding:0 14px 10px}
+.sec-head h2{font-size:17px;font-weight:700}
+.sec-head button{color:var(--muted);font-size:13px;display:flex;align-items:center;gap:2px}
+.sec-head button:hover{color:var(--text)}
+
+/* ল্যান্ডস্কেপ কার্ড: সেকশনে ৪টি */
+.row{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:0 14px}
+.card{position:relative;border-radius:10px;overflow:hidden;background:var(--card);border:1px solid var(--line);cursor:pointer;text-align:left;width:100%}
+.card .art{aspect-ratio:16/9;width:100%;position:relative;display:flex;align-items:flex-end;padding:8px}
+.card .art span{font-size:11px;font-weight:700;background:rgba(0,0,0,.45);padding:2px 6px;border-radius:5px;position:absolute;top:6px;left:6px}
+.card .art em{position:absolute;inset:0;display:grid;place-items:center;font-style:normal;font-size:30px;font-weight:800;opacity:.35;text-shadow:0 2px 8px rgba(0,0,0,.4)}
+.card .title{padding:7px 9px 9px;font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card .sub{font-size:11px;color:var(--muted);padding:0 9px 9px;margin-top:-6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* গ্রিড পেজ */
+.page-head{display:flex;align-items:center;gap:10px;padding:14px}
+.page-head h2{font-size:18px}
+.back{font-size:24px;line-height:1;padding:2px 6px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:0 14px}
+.more{display:block;margin:20px auto 0;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:11px 26px;font-size:14px;font-weight:600}
+.empty{color:var(--muted);text-align:center;padding:60px 20px;font-size:14px}
+
+/* ডাউনলোড ও মি */
+.panel{margin:16px 14px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.panel .row-item{display:flex;align-items:center;justify-content:space-between;padding:15px 14px;border-top:1px solid var(--line);font-size:15px}
+.panel .row-item:first-child{border-top:0}
+.panel .row-item small{color:var(--muted)}
+.btn-primary{width:100%;background:linear-gradient(90deg,var(--brand),var(--brand2));color:#fff;font-weight:700;border-radius:10px;padding:13px;font-size:15px}
+.btn-primary:disabled{opacity:.6}
+
+/* নিচের মেনু */
+.bottom-nav{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;justify-content:space-around;background:rgba(18,19,25,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:8px 0 calc(8px + var(--safe-b))}
+.bottom-nav button{display:flex;flex-direction:column;align-items:center;gap:3px;color:var(--muted);font-size:11px;min-width:72px}
+.bottom-nav button.active{color:var(--text)}
+.bottom-nav button.active svg{stroke:var(--brand)}
+
+/* মডাল / শিট */
+.overlay{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.72);display:flex;align-items:flex-end;justify-content:center;animation:fade .2s ease}
+.sheet{width:100%;max-width:460px;background:var(--bg2);border-radius:18px 18px 0 0;padding:22px 18px calc(22px + var(--safe-b));animation:up .25s ease;max-height:92vh;overflow:auto}
+@media(min-width:640px){.overlay{align-items:center}.sheet{border-radius:18px}}
+.sheet h2{font-size:20px}
+.sheet .sub{color:var(--muted);font-size:13px;margin:6px 0 16px;line-height:1.5}
+.field{display:block;margin-bottom:12px}
+.field span{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}
+.field input{width:100%;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px;font-size:15px;outline:0}
+.field input:focus{border-color:var(--brand)}
+.err{color:var(--danger);font-size:13px;min-height:18px;margin:4px 0 10px}
+.link{display:block;width:100%;margin-top:12px;color:var(--brand);font-size:14px;padding:8px}
+.detail .dart{aspect-ratio:16/9;border-radius:12px;margin:-4px 0 14px;position:relative;overflow:hidden}
+.detail h2{font-size:19px}
+.detail .meta{color:var(--muted);font-size:13px;margin:6px 0 16px}
+.detail .acts{display:flex;gap:10px}
+.detail .acts .btn-primary{flex:1}
+.detail .ghost{flex:1;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px;font-weight:600;font-size:15px}
+.toast{position:fixed;left:50%;bottom:calc(90px + var(--safe-b));transform:translateX(-50%);background:#2a2c36;color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;pointer-events:none;transition:.25s;z-index:60;max-width:90vw;text-align:center}
+.toast.show{opacity:1}
+
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes up{from{transform:translateY(30px);opacity:0}to{transform:none;opacity:1}}
+
+/* বড় স্ক্রিন */
+@media(min-width:720px){
+  .row{grid-template-columns:repeat(4,1fr)}
+  .grid{grid-template-columns:repeat(4,1fr)}
+  .hero{max-width:none;margin:14px 14px 0}
+  .hero h1{font-size:30px}
+  .top{padding-left:24px;padding-right:24px}
+  .sec-head{padding:0 24px 10px}
+  .row{padding:0 24px}
+  .grid{padding:0 24px}
+  .page-head{padding:16px 24px}
+  .tabs{margin-left:-24px;margin-right:-24px;padding:0 24px}
+}
+@media(min-width:1024px){
+  .row{grid-template-columns:repeat(4,1fr);gap:14px}
+  .grid{grid-template-columns:repeat(5,1fr);gap:14px}
+  .app{padding-bottom:calc(74px + var(--safe-b))}
+}
