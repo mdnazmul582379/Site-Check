@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#0b0c10">
+<meta name="theme-color" content="#0a0a0c">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="TeraFast">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon.svg">
-<title>TeraFastPlay</title>
+<title>TeraFast Play</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -22,14 +22,14 @@
   <header class="top">
     <div class="top-row">
       <div class="logo"><span class="logo-mark"></span><b>TeraFast</b><span>Play</span></div>
-      <button class="avatar" id="avatarBtn" aria-label="প্রোফাইল">
+      <button class="avatar" id="avatarBtn" type="button" aria-label="Profile">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
       </button>
     </div>
     <form class="search" id="searchForm" autocomplete="off">
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
-      <input id="searchInput" type="search" placeholder="মুভি, সিরিজ খুঁজুন">
-      <button class="search-btn" type="submit">খুঁজুন</button>
+      <input id="searchInput" type="search" placeholder="Search movies, series..." enterkeyhint="search">
+      <button class="search-btn" type="submit">Search</button>
     </form>
     <nav class="tabs" id="tabs"></nav>
   </header>
@@ -43,20 +43,22 @@
   </main>
 
   <nav class="bottom-nav" id="bottomNav">
-    <button data-nav="home" class="active">
-      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg><span>Home</span></button>
-    <button data-nav="downloads">
-      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v7m0 0l-3-3m3 3l3-3"/></svg><span>Downloads</span></button>
-    <button data-nav="me">
-      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg><span>Me</span></button>
+    <button data-nav="home" class="active" type="button">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg><span>Home</span>
+    </button>
+    <button data-nav="downloads" type="button">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg><span>Downloads</span>
+    </button>
+    <button data-nav="me" type="button">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg><span>Me</span>
+    </button>
   </nav>
   <div class="toast" id="toast"></div>
 </div>
 
-<section class="player hidden" id="player" aria-label="ভিডিও প্লেয়ার"></section>
+<section class="player hidden" id="player" aria-label="Video player"></section>
 
-<!-- লগইন শিট: ক্রস নেই, বাইরে ট্যাপ করলে বন্ধ -->
-<div class="overlay hidden" id="loginOverlay"><div class="sheet" id="loginSheet"></div></div>
+<div class="overlay hidden" id="loginOverlay"><div class="sheet" id="loginSheet" role="dialog" aria-modal="true"></div></div>
 
 <script src="config.js"></script>
 <script src="app.js"></script>
