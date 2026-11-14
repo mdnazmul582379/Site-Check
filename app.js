@@ -21,7 +21,7 @@
   const S = {
     items: [], tab: "trending", view: "home", prev: "home",
     genre: "", page: 1, query: "", user: null,
-    season: null, playId: null, pending: null, authMode: "login",
+    season: null, playId: null, pending: null, authMode: "login", playlinks: {},
   };
   const $ = (s) => document.querySelector(s);
   const main = $("#main"), tabsEl = $("#tabs"), player = $("#player");
@@ -100,6 +100,18 @@
       throw new Error("Stream API is not configured");
     }
 
+    // Prefer direct Terabox share link for this id (fast path)
+    const shareEarly = findShareLink(id);
+    if (shareEarly && base) {
+      try {
+        const data = await callTeraboxApi(shareEarly);
+        const extracted = extractPlayUrl(data);
+        if (extracted && extracted.url) return extracted;
+      } catch (e) {
+        console.warn("Terabox early resolve failed", e);
+      }
+    }
+
     // 1) Id-based play routes (if Worker has private link map)
     const paths = C.PLAY_PATHS || ["/play", "/stream", "/api/play"];
     let lastErr = null;
@@ -151,9 +163,11 @@
   }
 
   function findShareLink(id) {
+    if (S.playlinks && S.playlinks[id]) return S.playlinks[id];
     for (const it of S.items) {
       if (it.id === id) {
-        return it.url || it.terabox || it.link || it.share || null;
+        const u = it.url || it.terabox || it.link || it.share || null;
+        if (u) return u;
       }
       if (it.versions) {
         for (const v of it.versions) {
@@ -162,7 +176,15 @@
       }
       if (it.episodes) {
         for (const e of it.episodes) {
-          if (e.id === id) return e.url || e.terabox || e.link || null;
+          if (e.id === id) {
+            const u = e.url || e.terabox || e.link || null;
+            if (u) return u;
+            if (e.versions) {
+              for (const v of e.versions) {
+                if (v.id === id) return v.url || v.terabox || v.link || null;
+              }
+            }
+          }
           if (e.versions) {
             for (const v of e.versions) {
               if (v.id === id) return v.url || v.terabox || v.link || null;
@@ -212,6 +234,16 @@
         await tryUrl(stream.fallback);
       }
     }, { once: true });
+  }
+
+  
+  async function loadPlaylinks() {
+    try {
+      const r = await fetch("data/playlinks.json", { cache: "no-store" });
+      if (!r.ok) return;
+      const data = await r.json();
+      S.playlinks = data && typeof data === "object" ? data : {};
+    } catch (_) { S.playlinks = S.playlinks || {}; }
   }
 
   async function loadLibrary() {
@@ -657,6 +689,7 @@
     restoreSession();
     skeleton();
     await loadLibrary();
+    await loadPlaylinks();
     render();
   }
   init();

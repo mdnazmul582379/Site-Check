@@ -3,7 +3,7 @@
     {
       "id": "jxvo49",
       "kind": "movie",
-      "title": "100 Awit Para Kay Stella",
+      "title": "100 Songs for Stella",
       "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/thumb_6977485fe42c4.jpg",
       "year": "2025",
@@ -14,15 +14,18 @@
           "id": "jxvo49",
           "quality": "1080p",
           "size": "2.46 GB",
-          "duration": "02:09:10"
+          "duration": "02:09:10",
+          "url": "https://1024terabox.com/s/1RLlzzox738tQ4ixxoQsUjw"
         },
         {
           "id": "mWxS50",
           "quality": "720p",
           "size": "1.47 GB",
-          "duration": "02:09:10"
+          "duration": "02:09:10",
+          "url": "https://1024terabox.com/s/1CiyOPcze5miDcvypz63UCw"
         }
       ],
+      "url": "https://1024terabox.com/s/1RLlzzox738tQ4ixxoQsUjw",
       "trending": true,
       "cid": "c0001"
     },
@@ -32,7 +35,7 @@
       "title": "69",
       "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1ffijh4XXMsA-pb_9NzSSzA_69__2025__VMAX_Tagalog_Movie_1080p_HDRip_Mp4Moviez.jpg",
-      "year": "2025",
+      "year": "",
       "quality": "1080p",
       "duration": "01:11:58",
       "versions": [
@@ -40,31 +43,13 @@
           "id": "NOfw109",
           "quality": "1080p",
           "size": "1.44 GB",
-          "duration": "01:11:58"
+          "duration": "01:11:58",
+          "url": "https://1024terabox.com/s/1ffijh4XXMsA-pb_9NzSSzA"
         }
       ],
+      "url": "https://1024terabox.com/s/1ffijh4XXMsA-pb_9NzSSzA",
       "trending": false,
       "cid": "c0002"
-    },
-    {
-      "id": "ZzbA208",
-      "kind": "movie",
-      "title": "@ng Líhim Ni M@ria M@kinang",
-      "category": "adult,Filipino",
-      "thumbnail": "https://cdn.teraviralhub.com/thumbnails/thumb_69618ec42d0f4.jpg",
-      "year": "2026",
-      "quality": "720p",
-      "duration": "01:34:20",
-      "versions": [
-        {
-          "id": "ZzbA208",
-          "quality": "720p",
-          "size": "596.99 MB",
-          "duration": "01:34:20"
-        }
-      ],
-      "trending": false,
-      "cid": "c0003"
     },
     {
       "id": "QdYH394",
@@ -80,11 +65,13 @@
           "id": "QdYH394",
           "quality": "720p",
           "size": "781.95 MB",
-          "duration": "01:10:06"
+          "duration": "01:10:06",
+          "url": "https://1024terabox.com/s/1ahZGtP6nvtbGM88rk3atXg"
         }
       ],
-      "trending": false,
-      "cid": "c0004"
+      "url": "https://1024terabox.com/s/1ahZGtP6nvtbGM88rk3atXg",
+      "trending": true,
+      "cid": "c0003"
     },
     {
       "id": "wVcg397",
@@ -100,11 +87,13 @@
           "id": "wVcg397",
           "quality": "1080p",
           "size": "451.63 MB",
-          "duration": "36:20"
+          "duration": "36:20",
+          "url": "https://1024terabox.com/s/1USkGEyDA3vKBjvVwdT42cQ"
         }
       ],
+      "url": "https://1024terabox.com/s/1USkGEyDA3vKBjvVwdT42cQ",
       "trending": false,
-      "cid": "c0005"
+      "cid": "c0004"
     },
     {
       "id": "vblA2",
@@ -120,11 +109,13 @@
           "id": "vblA2",
           "quality": "720p",
           "size": "381.66 MB",
-          "duration": "01:10:11"
+          "duration": "01:10:11",
+          "url": "https://1024terabox.com/s/1g2MxeaINLZ4C8ou4Ow4_4w"
         }
       ],
-      "trending": false,
-      "cid": "c0006"
+      "url": "https://1024terabox.com/s/1g2MxeaINLZ4C8ou4Ow4_4w",
+      "trending": true,
+      "cid": "c0005"
     },
     {
       "id": "FRDQ403",
@@ -140,36 +131,47 @@
           "id": "FRDQ403",
           "quality": "1080p",
           "size": "1.31 GB",
-          "duration": "01:12:18"
+          "duration": "01:12:18",
+          "url": "https://1024terabox.com/s/1QoFRFDdV5mYjB2eyt94JfA"
         }
       ],
-      "trending": false,
-      "cid": "c0007"
+      "url": "https://1024terabox.com/s/1QoFRFDdV5mYjB2eyt94JfA",
+      "trending": true,
+      "cid": "c0006"
     },
     {
-      "id": "nmfp412",
+      "id": "ZzbA208",
       "kind": "movie",
-      "title": "Ang lihim ni Maria Makinang",
+      "title": "Ang Lihim ni Maria Makinang",
       "category": "adult,Filipino",
-      "thumbnail": "https://cdn.teraviralhub.com/thumbnails/thumb_696139c83302e.jpg",
+      "thumbnail": "https://cdn.teraviralhub.com/thumbnails/thumb_69618ec42d0f4.jpg",
       "year": "2026",
       "quality": "720p",
       "duration": "01:34:20",
       "versions": [
         {
+          "id": "ZzbA208",
+          "quality": "720p",
+          "size": "596.99 MB",
+          "duration": "01:34:20",
+          "url": "https://1024terabox.com/s/1jzGQfl8ETvXX1e6Dr9MQHQ"
+        },
+        {
           "id": "nmfp412",
           "quality": "720p",
           "size": "521.27 MB",
-          "duration": "01:34:20"
+          "duration": "01:34:20",
+          "url": "https://1024terabox.com/s/1SlsmqJEUZ_lOwtAC8FvQuA"
         }
       ],
-      "trending": false,
-      "cid": "c0008"
+      "url": "https://1024terabox.com/s/1jzGQfl8ETvXX1e6Dr9MQHQ",
+      "trending": true,
+      "cid": "c0007"
     },
     {
       "id": "tFmS413",
       "kind": "movie",
-      "title": "ANG MODISTA",
+      "title": "Ang Modista",
       "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/15uLGyVRQz-ZHZTgkrenfjw_ANG_MODISTA_2026_VIVAMAX_UNCUT.mp4.jpg",
       "year": "2026",
@@ -180,11 +182,13 @@
           "id": "tFmS413",
           "quality": "1080p",
           "size": "1.98 GB",
-          "duration": "01:22:32"
+          "duration": "01:22:32",
+          "url": "https://1024terabox.com/s/15uLGyVRQz-ZHZTgkrenfjw"
         }
       ],
-      "trending": false,
-      "cid": "c0009"
+      "url": "https://1024terabox.com/s/15uLGyVRQz-ZHZTgkrenfjw",
+      "trending": true,
+      "cid": "c0008"
     },
     {
       "id": "irEq414",
@@ -200,11 +204,13 @@
           "id": "irEq414",
           "quality": "4K",
           "size": "4.33 GB",
-          "duration": "01:10:06"
+          "duration": "01:10:06",
+          "url": "https://1024terabox.com/s/1pGmWZflASv_wR4Sf7W_a2w"
         }
       ],
+      "url": "https://1024terabox.com/s/1pGmWZflASv_wR4Sf7W_a2w",
       "trending": true,
-      "cid": "c0010"
+      "cid": "c0009"
     },
     {
       "id": "NzAz415",
@@ -220,11 +226,13 @@
           "id": "NzAz415",
           "quality": "1080p",
           "size": "2.09 GB",
-          "duration": "01:25:16"
+          "duration": "01:25:16",
+          "url": "https://1024terabox.com/s/1dbZxqNx31LvJVx71iRSJtA"
         }
       ],
+      "url": "https://1024terabox.com/s/1dbZxqNx31LvJVx71iRSJtA",
       "trending": false,
-      "cid": "c0011"
+      "cid": "c0010"
     },
     {
       "id": "zTIy418",
@@ -240,17 +248,20 @@
           "id": "zTIy418",
           "quality": "1080p",
           "size": "1.31 GB",
-          "duration": "01:10:11"
+          "duration": "01:10:11",
+          "url": "https://1024terabox.com/s/1RWg29lz1mbf3pb6KxU48zg"
         },
         {
           "id": "LNtu420",
           "quality": "720p",
           "size": "503.80 MB",
-          "duration": "01:10:40"
+          "duration": "01:10:40",
+          "url": "https://1024terabox.com/s/11kchKdBXLjmVH7NEPbcWkg"
         }
       ],
-      "trending": false,
-      "cid": "c0012"
+      "url": "https://1024terabox.com/s/1RWg29lz1mbf3pb6KxU48zg",
+      "trending": true,
+      "cid": "c0011"
     },
     {
       "id": "FArF427",
@@ -259,7 +270,8 @@
       "category": "adult,Hindi",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/thumb_6943854379005.jpg",
       "year": "",
-      "quality": "720p",
+      "quality": "480p",
+      "duration": "45:13",
       "seasons": [
         1
       ],
@@ -272,12 +284,14 @@
           "quality": "480p",
           "size": "145.75 MB",
           "duration": "45:13",
+          "url": "https://1024terabox.com/s/1g59ZYz9MQ2DFKAvmZqA4mQ",
           "versions": [
             {
               "id": "FArF427",
               "quality": "480p",
               "size": "145.75 MB",
-              "duration": "45:13"
+              "duration": "45:13",
+              "url": "https://1024terabox.com/s/1g59ZYz9MQ2DFKAvmZqA4mQ"
             }
           ]
         },
@@ -289,18 +303,21 @@
           "quality": "720p",
           "size": "311.15 MB",
           "duration": "53:41",
+          "url": "https://1024terabox.com/s/1DTjeJe6NEqZKpyio-LNWQA",
           "versions": [
             {
               "id": "hryx426",
               "quality": "720p",
               "size": "311.15 MB",
-              "duration": "53:41"
+              "duration": "53:41",
+              "url": "https://1024terabox.com/s/1DTjeJe6NEqZKpyio-LNWQA"
             },
             {
               "id": "iZMp428",
               "quality": "720p",
               "size": "414.88 MB",
-              "duration": "53:41"
+              "duration": "53:41",
+              "url": "https://1024terabox.com/s/1IXpIky_sfgnKM7KQ0MJicg"
             }
           ]
         },
@@ -312,12 +329,14 @@
           "quality": "480p",
           "size": "150.89 MB",
           "duration": "46:28",
+          "url": "https://1024terabox.com/s/1fluGJJ87e7saAH9kk3UvOg",
           "versions": [
             {
               "id": "rRBK429",
               "quality": "480p",
               "size": "150.89 MB",
-              "duration": "46:28"
+              "duration": "46:28",
+              "url": "https://1024terabox.com/s/1fluGJJ87e7saAH9kk3UvOg"
             }
           ]
         },
@@ -329,27 +348,30 @@
           "quality": "480p",
           "size": "182.27 MB",
           "duration": "56:31",
+          "url": "https://1024terabox.com/s/1PJC885Avr1JeX29iwH8VoQ",
           "versions": [
             {
               "id": "pQtJ430",
               "quality": "480p",
               "size": "182.27 MB",
-              "duration": "56:31"
+              "duration": "56:31",
+              "url": "https://1024terabox.com/s/1PJC885Avr1JeX29iwH8VoQ"
             }
           ]
         }
       ],
       "trending": false,
-      "cid": "c0013"
+      "cid": "c0012"
     },
     {
       "id": "hJvO437",
       "kind": "series",
       "title": "Atithi Kuch Jane Anjane Se",
-      "category": "adult,Adult",
+      "category": "adult,Hindi",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/13LgVTBBK32yg1ixotF_Fsw_Atithi_Kuch_Jane_Anjane_Se__2024__UNRATED_720p_HEV.webp",
       "year": "",
       "quality": "720p",
+      "duration": "42:37",
       "seasons": [
         1
       ],
@@ -362,24 +384,26 @@
           "quality": "720p",
           "size": "292.52 MB",
           "duration": "42:37",
+          "url": "https://1024terabox.com/s/13LgVTBBK32yg1ixotF_Fsw",
           "versions": [
             {
               "id": "hJvO437",
               "quality": "720p",
               "size": "292.52 MB",
-              "duration": "42:37"
+              "duration": "42:37",
+              "url": "https://1024terabox.com/s/13LgVTBBK32yg1ixotF_Fsw"
             }
           ]
         }
       ],
       "trending": false,
-      "cid": "c0014"
+      "cid": "c0013"
     },
     {
       "id": "BqjV440",
       "kind": "movie",
       "title": "Backrider",
-      "category": "adult,Adult",
+      "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1PY3FpgYtYfglA1P6VuKWYA_Backrider_2024_4k.VMAX.WEB-DL.ENG.SUB.AAC2.0.x264..jpg",
       "year": "2024",
       "quality": "4K",
@@ -389,11 +413,13 @@
           "id": "BqjV440",
           "quality": "4K",
           "size": "2.62 GB",
-          "duration": "01:03:51"
+          "duration": "01:03:51",
+          "url": "https://1024terabox.com/s/1PY3FpgYtYfglA1P6VuKWYA"
         }
       ],
+      "url": "https://1024terabox.com/s/1PY3FpgYtYfglA1P6VuKWYA",
       "trending": false,
-      "cid": "c0015"
+      "cid": "c0014"
     },
     {
       "id": "rsOL441",
@@ -409,11 +435,13 @@
           "id": "rsOL441",
           "quality": "720p",
           "size": "135.87 MB",
-          "duration": "17:30"
+          "duration": "17:30",
+          "url": "https://1024terabox.com/s/1MtfbQnCXckmEyRb_8tALuQ"
         }
       ],
-      "trending": false,
-      "cid": "c0016"
+      "url": "https://1024terabox.com/s/1MtfbQnCXckmEyRb_8tALuQ",
+      "trending": true,
+      "cid": "c0015"
     },
     {
       "id": "mDlY443",
@@ -429,17 +457,19 @@
           "id": "mDlY443",
           "quality": "4K",
           "size": "2.33 GB",
-          "duration": "01:10:11"
+          "duration": "01:10:11",
+          "url": "https://1024terabox.com/s/1PGKq1Hg8anQeTebkaUundg"
         }
       ],
-      "trending": false,
-      "cid": "c0017"
+      "url": "https://1024terabox.com/s/1PGKq1Hg8anQeTebkaUundg",
+      "trending": true,
+      "cid": "c0016"
     },
     {
       "id": "ogJt446",
       "kind": "movie",
       "title": "Balahibong Pusa",
-      "category": "adult,Adult",
+      "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1jIXHE9dA1TzpS3gnQMt5cw_Balahibong_Pusa_2025_1080p.VMAX.WEBDL.AAC2.0.H264..jpg",
       "year": "2025",
       "quality": "1080p",
@@ -449,17 +479,20 @@
           "id": "ogJt446",
           "quality": "1080p",
           "size": "1.67 GB",
-          "duration": "01:30:12"
+          "duration": "01:30:12",
+          "url": "https://1024terabox.com/s/1jIXHE9dA1TzpS3gnQMt5cw"
         },
         {
           "id": "YQXP447",
           "quality": "2K",
           "size": "2.85 GB",
-          "duration": "01:30:12"
+          "duration": "01:30:12",
+          "url": "https://1024terabox.com/s/1NIUvOA59OD3ff42OaYRpcw"
         }
       ],
-      "trending": false,
-      "cid": "c0018"
+      "url": "https://1024terabox.com/s/1jIXHE9dA1TzpS3gnQMt5cw",
+      "trending": true,
+      "cid": "c0017"
     },
     {
       "id": "CWvW454",
@@ -475,11 +508,13 @@
           "id": "CWvW454",
           "quality": "1080p",
           "size": "1.43 GB",
-          "duration": "01:10:59"
+          "duration": "01:10:59",
+          "url": "https://1024terabox.com/s/1__GABKMS8eQNErHTUalRBQ"
         }
       ],
+      "url": "https://1024terabox.com/s/1__GABKMS8eQNErHTUalRBQ",
       "trending": true,
-      "cid": "c0019"
+      "cid": "c0018"
     },
     {
       "id": "oZCz462",
@@ -495,22 +530,25 @@
           "id": "oZCz462",
           "quality": "1080p",
           "size": "1.35 GB",
-          "duration": "01:12:04"
+          "duration": "01:12:04",
+          "url": "https://1024terabox.com/s/1no-goC7JkkpU2tNU2myAaA"
         },
         {
           "id": "jMPD465",
           "quality": "720p",
           "size": "825.67 MB",
-          "duration": "01:12:04"
+          "duration": "01:12:04",
+          "url": "https://1024terabox.com/s/1Od781oCAmI8dHl6Qi6jVZw"
         }
       ],
-      "trending": false,
-      "cid": "c0020"
+      "url": "https://1024terabox.com/s/1no-goC7JkkpU2tNU2myAaA",
+      "trending": true,
+      "cid": "c0019"
     },
     {
       "id": "NjSU466",
       "kind": "movie",
-      "title": "BASANG BASA",
+      "title": "Basang Basa",
       "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1WyDrdNbGjNHtlADJAqGkxQ_BASANG_BASA_2025_1080p.VMAX.WEB-DL.AAC.x264.THR..m.jpg",
       "year": "2025",
@@ -521,11 +559,13 @@
           "id": "NjSU466",
           "quality": "1080p",
           "size": "2.65 GB",
-          "duration": "01:12:09"
+          "duration": "01:12:09",
+          "url": "https://1024terabox.com/s/1WyDrdNbGjNHtlADJAqGkxQ"
         }
       ],
-      "trending": false,
-      "cid": "c0021"
+      "url": "https://1024terabox.com/s/1WyDrdNbGjNHtlADJAqGkxQ",
+      "trending": true,
+      "cid": "c0020"
     },
     {
       "id": "ySpK507",
@@ -541,11 +581,13 @@
           "id": "ySpK507",
           "quality": "1080p",
           "size": "1.45 GB",
-          "duration": "01:15:17"
+          "duration": "01:15:17",
+          "url": "https://1024terabox.com/s/1qsFpRRjIHM7zn1gg_CpCDA"
         }
       ],
-      "trending": false,
-      "cid": "c0022"
+      "url": "https://1024terabox.com/s/1qsFpRRjIHM7zn1gg_CpCDA",
+      "trending": true,
+      "cid": "c0021"
     },
     {
       "id": "PVDY508",
@@ -561,11 +603,13 @@
           "id": "PVDY508",
           "quality": "720p",
           "size": "634.06 MB",
-          "duration": "01:15:36"
+          "duration": "01:15:36",
+          "url": "https://1024terabox.com/s/1YpDX5rQl6XmjKWYpRA9GBQ"
         }
       ],
-      "trending": false,
-      "cid": "c0023"
+      "url": "https://1024terabox.com/s/1YpDX5rQl6XmjKWYpRA9GBQ",
+      "trending": true,
+      "cid": "c0022"
     },
     {
       "id": "HVSe510",
@@ -581,17 +625,19 @@
           "id": "HVSe510",
           "quality": "720p",
           "size": "190.99 MB",
-          "duration": "25:13"
+          "duration": "25:13",
+          "url": "https://1024terabox.com/s/1ewFsiaDYVoAhJeMnWy4zpA"
         }
       ],
+      "url": "https://1024terabox.com/s/1ewFsiaDYVoAhJeMnWy4zpA",
       "trending": false,
-      "cid": "c0024"
+      "cid": "c0023"
     },
     {
       "id": "VtvD520",
       "kind": "movie",
-      "title": "Boss Ma Am",
-      "category": "adult,Adult",
+      "title": "Boss Ma'am",
+      "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1fG33Q-v8wHvdS0u0caS3PA_Boss.Ma.Am.2024.1080p.VMAX.WEB-DL.AAC2.0.H.264-SHE.jpg",
       "year": "2024",
       "quality": "1080p",
@@ -601,16 +647,25 @@
           "id": "VtvD520",
           "quality": "1080p",
           "size": "1.11 GB",
-          "duration": "01:05:46"
+          "duration": "01:05:46",
+          "url": "https://1024terabox.com/s/1fG33Q-v8wHvdS0u0caS3PA"
+        },
+        {
+          "id": "eWIR1356",
+          "quality": "720p",
+          "size": "772.96 MB",
+          "duration": "01:05:46",
+          "url": "https://1024terabox.com/s/16xNn_EQop1zPX0-xSQnksA"
         }
       ],
+      "url": "https://1024terabox.com/s/1fG33Q-v8wHvdS0u0caS3PA",
       "trending": false,
-      "cid": "c0025"
+      "cid": "c0024"
     },
     {
       "id": "tRzI523",
       "kind": "movie",
-      "title": "BOY KALDAG",
+      "title": "Boy Kaldag",
       "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1Em9PqhkU_8Albwx7BLsPgw_BOY_KALDAG_2024_720p.VMAX.WEB-DL.AAC.x264.THR.mp4.jpg",
       "year": "2024",
@@ -621,17 +676,19 @@
           "id": "tRzI523",
           "quality": "720p",
           "size": "1.02 GB",
-          "duration": "01:37:00"
+          "duration": "01:37:00",
+          "url": "https://1024terabox.com/s/1Em9PqhkU_8Albwx7BLsPgw"
         }
       ],
+      "url": "https://1024terabox.com/s/1Em9PqhkU_8Albwx7BLsPgw",
       "trending": false,
-      "cid": "c0026"
+      "cid": "c0025"
     },
     {
       "id": "JnQY524",
       "kind": "movie",
-      "title": "Br3ast Friends 4ever",
-      "category": "adult,Adult",
+      "title": "Breast Friends Forever",
+      "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1r-OwEql3oR0PwWx6azUCZw_Br3ast.Friends.4ever.2026.VMaX.1080P.HD.Web-DL_18P.jpg",
       "year": "2026",
       "quality": "1080p",
@@ -641,165 +698,49 @@
           "id": "JnQY524",
           "quality": "1080p",
           "size": "1.78 GB",
-          "duration": "01:26:10"
-        }
-      ],
-      "trending": false,
-      "cid": "c0027"
-    },
-    {
-      "id": "oYaQ533",
-      "kind": "movie",
-      "title": "Breast Friends Forever",
-      "category": "adult,Adult",
-      "thumbnail": "https://cdn.teraviralhub.com/thumbnails/thumb_695f6b9f4eb43.jpg",
-      "year": "2026",
-      "quality": "1080p",
-      "duration": "01:26:10",
-      "versions": [
+          "duration": "01:26:10",
+          "url": "https://1024terabox.com/s/1r-OwEql3oR0PwWx6azUCZw"
+        },
         {
           "id": "oYaQ533",
           "quality": "1080p",
           "size": "1.61 GB",
-          "duration": "01:26:10"
-        },
-        {
-          "id": "fhjB535",
-          "quality": "1080p",
-          "size": "1.61 GB",
-          "duration": "01:26:10"
-        },
-        {
-          "id": "JPVf534",
-          "quality": "720p",
-          "size": "739.68 MB",
-          "duration": "01:26:10"
+          "duration": "01:26:10",
+          "url": "https://1024terabox.com/s/1bIMkS6JfvojfD1wKAvAIag"
         }
       ],
+      "url": "https://1024terabox.com/s/1r-OwEql3oR0PwWx6azUCZw",
       "trending": true,
-      "cid": "c0028"
+      "cid": "c0026"
     },
     {
-      "id": "JIeG554",
+      "id": "PLei555",
       "kind": "movie",
       "title": "Call Me",
       "category": "adult,Hindi",
-      "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1bfdH3lOYEpIY0vEX4585FA_Call_Me__2026__UNRATED_1080p_HEVC_HDRip_9RedMovies.jpg",
+      "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1mCSNdBrg6dWujgVtDZ0VQQ_Call_Me__2026__UNRATED_1080p_HEVC_HDRip_9RedMovies.jpg",
       "year": "2026",
       "quality": "1080p",
-      "duration": "0:00",
+      "duration": "41:05",
       "versions": [
-        {
-          "id": "JIeG554",
-          "quality": "1080p",
-          "size": "611.15 MB",
-          "duration": "0:00"
-        },
         {
           "id": "PLei555",
           "quality": "1080p",
           "size": "612.39 MB",
-          "duration": "41:05"
+          "duration": "41:05",
+          "url": "https://1024terabox.com/s/1mCSNdBrg6dWujgVtDZ0VQQ"
         },
         {
           "id": "LGMq556",
           "quality": "720p",
           "size": "251.88 MB",
-          "duration": "41:00"
+          "duration": "41:00",
+          "url": "https://1024terabox.com/s/1HmLo1j8NbsnE8YiJVFfSqg"
         }
       ],
-      "trending": false,
-      "cid": "c0029"
-    },
-    {
-      "id": "LNTb214",
-      "kind": "series",
-      "title": "Cashero",
-      "category": "adult,Korean",
-      "thumbnail": "https://cdn.teraviralhub.com/thumbnails/thumb_696a835b48075.jpg",
-      "year": "",
-      "quality": "480p",
-      "seasons": [
-        1
-      ],
-      "episodes": [
-        {
-          "season": 1,
-          "episode": 1,
-          "label": "S01E01",
-          "id": "LNTb214",
-          "quality": "480p",
-          "size": "233.95 MB",
-          "duration": "53:09",
-          "versions": [
-            {
-              "id": "LNTb214",
-              "quality": "480p",
-              "size": "233.95 MB",
-              "duration": "53:09"
-            }
-          ]
-        },
-        {
-          "season": 1,
-          "episode": 2,
-          "label": "S01E02",
-          "id": "elJp154",
-          "quality": "480p",
-          "size": "170.21 MB",
-          "duration": "55:36",
-          "versions": [
-            {
-              "id": "elJp154",
-              "quality": "480p",
-              "size": "170.21 MB",
-              "duration": "55:36"
-            },
-            {
-              "id": "ogjx558",
-              "quality": "480p",
-              "size": "170.21 MB",
-              "duration": "55:35"
-            }
-          ]
-        },
-        {
-          "season": 1,
-          "episode": 3,
-          "label": "S01E03",
-          "id": "EyBw155",
-          "quality": "480p",
-          "size": "153.26 MB",
-          "duration": "51:41",
-          "versions": [
-            {
-              "id": "EyBw155",
-              "quality": "480p",
-              "size": "153.26 MB",
-              "duration": "51:41"
-            }
-          ]
-        },
-        {
-          "season": 1,
-          "episode": 4,
-          "label": "S01E04",
-          "id": "MrKo156",
-          "quality": "480p",
-          "size": "212.56 MB",
-          "duration": "48:29",
-          "versions": [
-            {
-              "id": "MrKo156",
-              "quality": "480p",
-              "size": "212.56 MB",
-              "duration": "48:29"
-            }
-          ]
-        }
-      ],
-      "trending": false,
-      "cid": "c0030"
+      "url": "https://1024terabox.com/s/1mCSNdBrg6dWujgVtDZ0VQQ",
+      "trending": true,
+      "cid": "c0027"
     },
     {
       "id": "rrQS568",
@@ -815,11 +756,13 @@
           "id": "rrQS568",
           "quality": "1080p",
           "size": "2.65 GB",
-          "duration": "01:58:06"
+          "duration": "01:58:06",
+          "url": "https://1024terabox.com/s/1URuVsddmZey1DBea6yb8yg"
         }
       ],
-      "trending": false,
-      "cid": "c0031"
+      "url": "https://1024terabox.com/s/1URuVsddmZey1DBea6yb8yg",
+      "trending": true,
+      "cid": "c0028"
     },
     {
       "id": "YhqX569",
@@ -835,11 +778,13 @@
           "id": "YhqX569",
           "quality": "1080p",
           "size": "713.89 MB",
-          "duration": "47:55"
+          "duration": "47:55",
+          "url": "https://1024terabox.com/s/1Gdr3MriTiySgU1h9zvUNWg"
         }
       ],
-      "trending": false,
-      "cid": "c0032"
+      "url": "https://1024terabox.com/s/1Gdr3MriTiySgU1h9zvUNWg",
+      "trending": true,
+      "cid": "c0029"
     },
     {
       "id": "KwpK575",
@@ -855,16 +800,18 @@
           "id": "KwpK575",
           "quality": "1080p",
           "size": "1.31 GB",
-          "duration": "01:10:11"
+          "duration": "01:10:11",
+          "url": "https://1024terabox.com/s/16YWAdNW7Myog0nuPeaGXDA"
         }
       ],
-      "trending": false,
-      "cid": "c0033"
+      "url": "https://1024terabox.com/s/16YWAdNW7Myog0nuPeaGXDA",
+      "trending": true,
+      "cid": "c0030"
     },
     {
       "id": "CPsU580",
       "kind": "movie",
-      "title": "CLIMAX",
+      "title": "Climax",
       "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1-6ghKKQkL3tejqh_DC6_ew_CLIMAX_2024_1080p.VMAX.WEB-DL.AAC.x264.THR.ia.mp4.jpg",
       "year": "2024",
@@ -875,11 +822,13 @@
           "id": "CPsU580",
           "quality": "1080p",
           "size": "1.35 GB",
-          "duration": "01:10:29"
+          "duration": "01:10:29",
+          "url": "https://1024terabox.com/s/1-6ghKKQkL3tejqh_DC6_ew"
         }
       ],
+      "url": "https://1024terabox.com/s/1-6ghKKQkL3tejqh_DC6_ew",
       "trending": false,
-      "cid": "c0034"
+      "cid": "c0031"
     },
     {
       "id": "Zmji593",
@@ -895,17 +844,19 @@
           "id": "Zmji593",
           "quality": "1080p",
           "size": "1002.31 MB",
-          "duration": "01:10:42"
+          "duration": "01:10:42",
+          "url": "https://1024terabox.com/s/1j6YlotQXJrUrb3L-wBDPZw"
         }
       ],
+      "url": "https://1024terabox.com/s/1j6YlotQXJrUrb3L-wBDPZw",
       "trending": false,
-      "cid": "c0035"
+      "cid": "c0032"
     },
     {
       "id": "pZxs617",
       "kind": "movie",
       "title": "Daddysitter",
-      "category": "adult,Adult",
+      "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1c7I64BoN4pw4-Aadsb05Tw_Daddysitter.2024.VMAX.Eng.Sub.1080p.WEB-DL.AAC2.0..jpg",
       "year": "2024",
       "quality": "1080p",
@@ -915,11 +866,13 @@
           "id": "pZxs617",
           "quality": "1080p",
           "size": "1.72 GB",
-          "duration": "01:00:45"
+          "duration": "01:00:45",
+          "url": "https://1024terabox.com/s/1c7I64BoN4pw4-Aadsb05Tw"
         }
       ],
+      "url": "https://1024terabox.com/s/1c7I64BoN4pw4-Aadsb05Tw",
       "trending": false,
-      "cid": "c0036"
+      "cid": "c0033"
     },
     {
       "id": "mQEs619",
@@ -935,11 +888,13 @@
           "id": "mQEs619",
           "quality": "720p",
           "size": "261.84 MB",
-          "duration": "34:31"
+          "duration": "34:31",
+          "url": "https://1024terabox.com/s/1M8d3a9B_-j527psBXoTlzQ"
         }
       ],
-      "trending": true,
-      "cid": "c0037"
+      "url": "https://1024terabox.com/s/1M8d3a9B_-j527psBXoTlzQ",
+      "trending": false,
+      "cid": "c0034"
     },
     {
       "id": "kkds621",
@@ -955,11 +910,13 @@
           "id": "kkds621",
           "quality": "720p",
           "size": "187.00 MB",
-          "duration": "22:36"
+          "duration": "22:36",
+          "url": "https://1024terabox.com/s/1PHSclCJpwun9H5WJRYt7-Q"
         }
       ],
+      "url": "https://1024terabox.com/s/1PHSclCJpwun9H5WJRYt7-Q",
       "trending": false,
-      "cid": "c0038"
+      "cid": "c0035"
     },
     {
       "id": "aOMM631",
@@ -975,16 +932,18 @@
           "id": "aOMM631",
           "quality": "1080p",
           "size": "2.47 GB",
-          "duration": "01:11:21"
+          "duration": "01:11:21",
+          "url": "https://1024terabox.com/s/15YgoZnQIjENiZOZldXahKQ"
         }
       ],
-      "trending": false,
-      "cid": "c0039"
+      "url": "https://1024terabox.com/s/15YgoZnQIjENiZOZldXahKQ",
+      "trending": true,
+      "cid": "c0036"
     },
     {
       "id": "MgKK670",
       "kind": "movie",
-      "title": "DESPERADA",
+      "title": "Desperada",
       "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1CY8qGDmKz3jPQO4i5EE3Iw_DESPERADA_2026_VIVAMAX_UNCUT.mkv.jpg",
       "year": "2026",
@@ -995,78 +954,13 @@
           "id": "MgKK670",
           "quality": "720p",
           "size": "1.27 GB",
-          "duration": "01:52:12"
+          "duration": "01:52:12",
+          "url": "https://1024terabox.com/s/1CY8qGDmKz3jPQO4i5EE3Iw"
         }
       ],
-      "trending": false,
-      "cid": "c0040"
-    },
-    {
-      "id": "AcSm678",
-      "kind": "series",
-      "title": "Doctor Stranger",
-      "category": "adult,Korean",
-      "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1ISDk0UCucDZgHLXXlSYLEQ_Doctor.Stranger.S01E02.480p.Hindi.WEBRip.x264-katm.webp",
-      "year": "",
-      "quality": "480p",
-      "seasons": [
-        1
-      ],
-      "episodes": [
-        {
-          "season": 1,
-          "episode": 2,
-          "label": "S01E02",
-          "id": "AcSm678",
-          "quality": "480p",
-          "size": "236.55 MB",
-          "duration": "59:18",
-          "versions": [
-            {
-              "id": "AcSm678",
-              "quality": "480p",
-              "size": "236.55 MB",
-              "duration": "59:18"
-            }
-          ]
-        },
-        {
-          "season": 1,
-          "episode": 3,
-          "label": "S01E03",
-          "id": "ythW679",
-          "quality": "480p",
-          "size": "213.05 MB",
-          "duration": "58:23",
-          "versions": [
-            {
-              "id": "ythW679",
-              "quality": "480p",
-              "size": "213.05 MB",
-              "duration": "58:23"
-            }
-          ]
-        },
-        {
-          "season": 1,
-          "episode": 6,
-          "label": "S01E06",
-          "id": "SCVM680",
-          "quality": "480p",
-          "size": "177.21 MB",
-          "duration": "58:58",
-          "versions": [
-            {
-              "id": "SCVM680",
-              "quality": "480p",
-              "size": "177.21 MB",
-              "duration": "58:58"
-            }
-          ]
-        }
-      ],
-      "trending": false,
-      "cid": "c0041"
+      "url": "https://1024terabox.com/s/1CY8qGDmKz3jPQO4i5EE3Iw",
+      "trending": true,
+      "cid": "c0037"
     },
     {
       "id": "RrCa685",
@@ -1082,11 +976,13 @@
           "id": "RrCa685",
           "quality": "1080p",
           "size": "1.86 GB",
-          "duration": "01:39:30"
+          "duration": "01:39:30",
+          "url": "https://1024terabox.com/s/16aTE7RN5LWaydNTPbp1_mA"
         }
       ],
+      "url": "https://1024terabox.com/s/16aTE7RN5LWaydNTPbp1_mA",
       "trending": false,
-      "cid": "c0042"
+      "cid": "c0038"
     },
     {
       "id": "ZLeV693",
@@ -1102,11 +998,13 @@
           "id": "ZLeV693",
           "quality": "2K",
           "size": "3.54 GB",
-          "duration": "01:47:49"
+          "duration": "01:47:49",
+          "url": "https://1024terabox.com/s/1iEFn_vQsOlm8hC-XEH_j6A"
         }
       ],
-      "trending": false,
-      "cid": "c0043"
+      "url": "https://1024terabox.com/s/1iEFn_vQsOlm8hC-XEH_j6A",
+      "trending": true,
+      "cid": "c0039"
     },
     {
       "id": "Yeeg695",
@@ -1122,11 +1020,13 @@
           "id": "Yeeg695",
           "quality": "1080p",
           "size": "2.25 GB",
-          "duration": "01:13:41"
+          "duration": "01:13:41",
+          "url": "https://1024terabox.com/s/1C1e2ivxRUg2lfwgXM_FXxg"
         }
       ],
-      "trending": false,
-      "cid": "c0044"
+      "url": "https://1024terabox.com/s/1C1e2ivxRUg2lfwgXM_FXxg",
+      "trending": true,
+      "cid": "c0040"
     },
     {
       "id": "quzI763",
@@ -1142,17 +1042,19 @@
           "id": "quzI763",
           "quality": "1080p",
           "size": "1.34 GB",
-          "duration": "01:10:22"
+          "duration": "01:10:22",
+          "url": "https://1024terabox.com/s/1w-gw5kRq9tEk7G4oxJx3hw"
         }
       ],
-      "trending": false,
-      "cid": "c0045"
+      "url": "https://1024terabox.com/s/1w-gw5kRq9tEk7G4oxJx3hw",
+      "trending": true,
+      "cid": "c0041"
     },
     {
       "id": "YECR768",
       "kind": "movie",
       "title": "Foursome",
-      "category": "adult,Adult",
+      "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/13RH4-wz2nn-h6aBt1rKo2Q_Foursome.2023.1080p.VMAX.WEB-DL-_1_.mp4.jpg",
       "year": "2023",
       "quality": "1080p",
@@ -1162,11 +1064,13 @@
           "id": "YECR768",
           "quality": "1080p",
           "size": "1.30 GB",
-          "duration": "01:48:00"
+          "duration": "01:48:00",
+          "url": "https://1024terabox.com/s/13RH4-wz2nn-h6aBt1rKo2Q"
         }
       ],
-      "trending": true,
-      "cid": "c0046"
+      "url": "https://1024terabox.com/s/13RH4-wz2nn-h6aBt1rKo2Q",
+      "trending": false,
+      "cid": "c0042"
     },
     {
       "id": "Bvvh779",
@@ -1182,11 +1086,13 @@
           "id": "Bvvh779",
           "quality": "1080p",
           "size": "891.49 MB",
-          "duration": "01:10:05"
+          "duration": "01:10:05",
+          "url": "https://1024terabox.com/s/1EEHQPBiQJjUfd-rcTMpTfQ"
         }
       ],
-      "trending": false,
-      "cid": "c0047"
+      "url": "https://1024terabox.com/s/1EEHQPBiQJjUfd-rcTMpTfQ",
+      "trending": true,
+      "cid": "c0043"
     },
     {
       "id": "yTEX823",
@@ -1202,11 +1108,13 @@
           "id": "yTEX823",
           "quality": "1080p",
           "size": "2.87 GB",
-          "duration": "01:10:10"
+          "duration": "01:10:10",
+          "url": "https://1024terabox.com/s/1I-nWIA4u3E01dT3K26KOQA"
         }
       ],
-      "trending": false,
-      "cid": "c0048"
+      "url": "https://1024terabox.com/s/1I-nWIA4u3E01dT3K26KOQA",
+      "trending": true,
+      "cid": "c0044"
     },
     {
       "id": "dUAT824",
@@ -1222,11 +1130,13 @@
           "id": "dUAT824",
           "quality": "1080p",
           "size": "1.35 GB",
-          "duration": "01:09:26"
+          "duration": "01:09:26",
+          "url": "https://1024terabox.com/s/1LvBHRI0flKvRjtfMqGUtZg"
         }
       ],
-      "trending": false,
-      "cid": "c0049"
+      "url": "https://1024terabox.com/s/1LvBHRI0flKvRjtfMqGUtZg",
+      "trending": true,
+      "cid": "c0045"
     },
     {
       "id": "OzGj828",
@@ -1242,43 +1152,20 @@
           "id": "OzGj828",
           "quality": "720p",
           "size": "576.84 MB",
-          "duration": "01:18:22"
-        },
-        {
-          "id": "GaoN829",
-          "quality": "720p",
-          "size": "467.65 MB",
-          "duration": "01:18:55"
+          "duration": "01:18:22",
+          "url": "https://1024terabox.com/s/1Q7dUNusmGzu3OdRyFjbJMQ"
         },
         {
           "id": "hkvD826",
           "quality": "2K",
           "size": "2.52 GB",
-          "duration": "01:18:23"
+          "duration": "01:18:23",
+          "url": "https://1024terabox.com/s/1Gwtzmacc8-lEG1l6oVDktg"
         }
       ],
-      "trending": false,
-      "cid": "c0050"
-    },
-    {
-      "id": "pLFr837",
-      "kind": "movie",
-      "title": "HDmovie99 Com The Secret Of Maria Makinang",
-      "category": "adult,Adult",
-      "thumbnail": "https://cdn.teraviralhub.com/thumbnails/thumb_698ccc38da622.jpg",
-      "year": "2026",
-      "quality": "720p",
-      "duration": "01:33:42",
-      "versions": [
-        {
-          "id": "pLFr837",
-          "quality": "720p",
-          "size": "448.70 MB",
-          "duration": "01:33:42"
-        }
-      ],
-      "trending": false,
-      "cid": "c0051"
+      "url": "https://1024terabox.com/s/1Q7dUNusmGzu3OdRyFjbJMQ",
+      "trending": true,
+      "cid": "c0046"
     },
     {
       "id": "GpAk880",
@@ -1294,11 +1181,13 @@
           "id": "GpAk880",
           "quality": "720p",
           "size": "746.43 MB",
-          "duration": "01:57:35"
+          "duration": "01:57:35",
+          "url": "https://1024terabox.com/s/1gwm6dXKE7tzJ8tZoLGwY1w"
         }
       ],
+      "url": "https://1024terabox.com/s/1gwm6dXKE7tzJ8tZoLGwY1w",
       "trending": false,
-      "cid": "c0052"
+      "cid": "c0047"
     },
     {
       "id": "yILf883",
@@ -1314,17 +1203,19 @@
           "id": "yILf883",
           "quality": "720p",
           "size": "771.94 MB",
-          "duration": "01:35:06"
+          "duration": "01:35:06",
+          "url": "https://1024terabox.com/s/168wj0ve2_6xzk-HzoEjbgw"
         }
       ],
-      "trending": false,
-      "cid": "c0053"
+      "url": "https://1024terabox.com/s/168wj0ve2_6xzk-HzoEjbgw",
+      "trending": true,
+      "cid": "c0048"
     },
     {
       "id": "NlrR884",
       "kind": "movie",
       "title": "Hiram na Sandali",
-      "category": "adult,Adult",
+      "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1vO5p4Af1_rkep1R7gDdecA_Hiram_na_Sandali_2025_2160p.VMAX.WEB-DL.AAC.x264.E.jpg",
       "year": "2025",
       "quality": "2K",
@@ -1334,11 +1225,13 @@
           "id": "NlrR884",
           "quality": "2K",
           "size": "3.22 GB",
-          "duration": "01:10:01"
+          "duration": "01:10:01",
+          "url": "https://1024terabox.com/s/1vO5p4Af1_rkep1R7gDdecA"
         }
       ],
-      "trending": false,
-      "cid": "c0054"
+      "url": "https://1024terabox.com/s/1vO5p4Af1_rkep1R7gDdecA",
+      "trending": true,
+      "cid": "c0049"
     },
     {
       "id": "LfvW889",
@@ -1354,17 +1247,19 @@
           "id": "LfvW889",
           "quality": "1080p",
           "size": "2.75 GB",
-          "duration": "01:52:06"
+          "duration": "01:52:06",
+          "url": "https://1024terabox.com/s/1BtpWVbKe_kmpuzMJJ3BsXA"
         }
       ],
+      "url": "https://1024terabox.com/s/1BtpWVbKe_kmpuzMJJ3BsXA",
       "trending": true,
-      "cid": "c0055"
+      "cid": "c0050"
     },
     {
       "id": "aIxV928",
       "kind": "movie",
       "title": "Huwad",
-      "category": "adult,Adult",
+      "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1AfY3-2h_eMtcMDPAgz0CgA_Huwad.2024.720p.VMAX.WEB-DL.ENG.SUB.AAC2.0.x264.TH.jpg",
       "year": "2024",
       "quality": "720p",
@@ -1374,16 +1269,18 @@
           "id": "aIxV928",
           "quality": "720p",
           "size": "906.52 MB",
-          "duration": "01:48:03"
+          "duration": "01:48:03",
+          "url": "https://1024terabox.com/s/1AfY3-2h_eMtcMDPAgz0CgA"
         }
       ],
+      "url": "https://1024terabox.com/s/1AfY3-2h_eMtcMDPAgz0CgA",
       "trending": false,
-      "cid": "c0056"
+      "cid": "c0051"
     },
     {
       "id": "ysUn1040",
       "kind": "movie",
-      "title": "ISLA",
+      "title": "Isla",
       "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1RLNexbP6e8-AXZs-N92PbQ_ISLA__2026__Vivamax.mp4.jpg",
       "year": "",
@@ -1394,17 +1291,19 @@
           "id": "ysUn1040",
           "quality": "1080p",
           "size": "984.24 MB",
-          "duration": "01:15:01"
+          "duration": "01:15:01",
+          "url": "https://1024terabox.com/s/1RLNexbP6e8-AXZs-N92PbQ"
         }
       ],
+      "url": "https://1024terabox.com/s/1RLNexbP6e8-AXZs-N92PbQ",
       "trending": false,
-      "cid": "c0057"
+      "cid": "c0052"
     },
     {
       "id": "XJVz1041",
       "kind": "movie",
-      "title": "JAPINO",
-      "category": "adult,Adult",
+      "title": "Japino",
+      "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1He9EXhDZ6veTsZnpGYhVDQ_JAPINO.2023.1080p.WEB-DL.AAC2.0.VMAX.x264-THR.mkv.jpg",
       "year": "2023",
       "quality": "1080p",
@@ -1414,11 +1313,13 @@
           "id": "XJVz1041",
           "quality": "1080p",
           "size": "1.59 GB",
-          "duration": "01:09:28"
+          "duration": "01:09:28",
+          "url": "https://1024terabox.com/s/1He9EXhDZ6veTsZnpGYhVDQ"
         }
       ],
+      "url": "https://1024terabox.com/s/1He9EXhDZ6veTsZnpGYhVDQ",
       "trending": false,
-      "cid": "c0058"
+      "cid": "c0053"
     },
     {
       "id": "FnCm1053",
@@ -1434,11 +1335,13 @@
           "id": "FnCm1053",
           "quality": "4K",
           "size": "5.66 GB",
-          "duration": "01:44:22"
+          "duration": "01:44:22",
+          "url": "https://1024terabox.com/s/1I2uQIOeS399-Nq2RjXZN_Q"
         }
       ],
+      "url": "https://1024terabox.com/s/1I2uQIOeS399-Nq2RjXZN_Q",
       "trending": false,
-      "cid": "c0059"
+      "cid": "c0054"
     },
     {
       "id": "kKtS1055",
@@ -1454,17 +1357,19 @@
           "id": "kKtS1055",
           "quality": "480p",
           "size": "396.24 MB",
-          "duration": "01:43:07"
+          "duration": "01:43:07",
+          "url": "https://1024terabox.com/s/10WPjf0A9aBR-OcwIeizjgw"
         }
       ],
+      "url": "https://1024terabox.com/s/10WPjf0A9aBR-OcwIeizjgw",
       "trending": false,
-      "cid": "c0060"
+      "cid": "c0055"
     },
     {
       "id": "ojgD1056",
       "kind": "movie",
       "title": "Kalakal",
-      "category": "adult,Adult",
+      "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1YSyNdvCpMJv1Q35amopmyg_Kalakal_2025_1080p.VMAX.WEB-DL.ENG.SUB.AAC.x264.TH.jpg",
       "year": "2025",
       "quality": "1080p",
@@ -1474,23 +1379,48 @@
           "id": "ojgD1056",
           "quality": "1080p",
           "size": "2.22 GB",
-          "duration": "01:10:05"
+          "duration": "01:10:05",
+          "url": "https://1024terabox.com/s/1YSyNdvCpMJv1Q35amopmyg"
         },
         {
           "id": "lfom1057",
           "quality": "480p",
           "size": "279.58 MB",
-          "duration": "01:10:05"
+          "duration": "01:10:05",
+          "url": "https://1024terabox.com/s/1y2-79gqlvC9LXiOvgVHzMg"
         }
       ],
-      "trending": false,
-      "cid": "c0061"
+      "url": "https://1024terabox.com/s/1YSyNdvCpMJv1Q35amopmyg",
+      "trending": true,
+      "cid": "c0056"
+    },
+    {
+      "id": "JTYi2163",
+      "kind": "movie",
+      "title": "Kama Sutra",
+      "category": "adult,Filipino",
+      "thumbnail": "https://cdn.teraviralhub.com/thumbnails/19zVzoqEbpcBvQGOA6Rd4vA_VMX_KAMA_SUTRA__2025_1080p.VMAX.WEB-DL.AAC2.0.H.26.jpg",
+      "year": "2025",
+      "quality": "1080p",
+      "duration": "01:10:14",
+      "versions": [
+        {
+          "id": "JTYi2163",
+          "quality": "1080p",
+          "size": "1.79 GB",
+          "duration": "01:10:14",
+          "url": "https://1024terabox.com/s/19zVzoqEbpcBvQGOA6Rd4vA"
+        }
+      ],
+      "url": "https://1024terabox.com/s/19zVzoqEbpcBvQGOA6Rd4vA",
+      "trending": true,
+      "cid": "c0057"
     },
     {
       "id": "hPjz1059",
       "kind": "movie",
       "title": "Kamadora",
-      "category": "adult,Adult",
+      "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/thumb_69240e235f357.jpg",
       "year": "2023",
       "quality": "720p",
@@ -1500,11 +1430,13 @@
           "id": "hPjz1059",
           "quality": "720p",
           "size": "880.65 MB",
-          "duration": "01:42:44"
+          "duration": "01:42:44",
+          "url": "https://1024terabox.com/s/1FTSSbiwG03LYzLvPgpE9IQ"
         }
       ],
+      "url": "https://1024terabox.com/s/1FTSSbiwG03LYzLvPgpE9IQ",
       "trending": false,
-      "cid": "c0062"
+      "cid": "c0058"
     },
     {
       "id": "OpDD1061",
@@ -1520,11 +1452,13 @@
           "id": "OpDD1061",
           "quality": "2K",
           "size": "2.67 GB",
-          "duration": "01:22:21"
+          "duration": "01:22:21",
+          "url": "https://1024terabox.com/s/10qpd1AL6ElSS3Gg2jVye5w"
         }
       ],
-      "trending": false,
-      "cid": "c0063"
+      "url": "https://1024terabox.com/s/10qpd1AL6ElSS3Gg2jVye5w",
+      "trending": true,
+      "cid": "c0059"
     },
     {
       "id": "uJdQ1062",
@@ -1540,11 +1474,13 @@
           "id": "uJdQ1062",
           "quality": "480p",
           "size": "444.57 MB",
-          "duration": "01:39:42"
+          "duration": "01:39:42",
+          "url": "https://1024terabox.com/s/1fUEv35JHvwQ6d8LYlMEOHg"
         }
       ],
-      "trending": true,
-      "cid": "c0064"
+      "url": "https://1024terabox.com/s/1fUEv35JHvwQ6d8LYlMEOHg",
+      "trending": false,
+      "cid": "c0060"
     },
     {
       "id": "bgTY1065",
@@ -1560,11 +1496,13 @@
           "id": "bgTY1065",
           "quality": "1080p",
           "size": "1.42 GB",
-          "duration": "01:15:45"
+          "duration": "01:15:45",
+          "url": "https://1024terabox.com/s/1wkHet2Whhvw3-4vi_GmkMw"
         }
       ],
-      "trending": false,
-      "cid": "c0065"
+      "url": "https://1024terabox.com/s/1wkHet2Whhvw3-4vi_GmkMw",
+      "trending": true,
+      "cid": "c0061"
     },
     {
       "id": "dilq1071",
@@ -1580,11 +1518,13 @@
           "id": "dilq1071",
           "quality": "480p",
           "size": "351.16 MB",
-          "duration": "01:34:13"
+          "duration": "01:34:13",
+          "url": "https://1024terabox.com/s/1X--xJBKDH0BaXcOt7nFm3A"
         }
       ],
+      "url": "https://1024terabox.com/s/1X--xJBKDH0BaXcOt7nFm3A",
       "trending": false,
-      "cid": "c0066"
+      "cid": "c0062"
     },
     {
       "id": "oGgR1080",
@@ -1600,11 +1540,13 @@
           "id": "oGgR1080",
           "quality": "1080p",
           "size": "2.90 GB",
-          "duration": "01:25:03"
+          "duration": "01:25:03",
+          "url": "https://1024terabox.com/s/13mnCzKLCYr54yKxQKN3jHg"
         }
       ],
-      "trending": false,
-      "cid": "c0067"
+      "url": "https://1024terabox.com/s/13mnCzKLCYr54yKxQKN3jHg",
+      "trending": true,
+      "cid": "c0063"
     },
     {
       "id": "bISq1081",
@@ -1620,11 +1562,13 @@
           "id": "bISq1081",
           "quality": "1080p",
           "size": "1.34 GB",
-          "duration": "01:10:25"
+          "duration": "01:10:25",
+          "url": "https://1024terabox.com/s/1Gj9jd_jtOr2GNpLDJfyM-A"
         }
       ],
-      "trending": false,
-      "cid": "c0068"
+      "url": "https://1024terabox.com/s/1Gj9jd_jtOr2GNpLDJfyM-A",
+      "trending": true,
+      "cid": "c0064"
     },
     {
       "id": "FGHD1084",
@@ -1634,6 +1578,7 @@
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/13AeZKWmua0oOWnGoYq5u2A_Ling_X__2023__UNRATED_720p_HEVC_HDRip_MoodX_S01E02.jpg",
       "year": "2023",
       "quality": "720p",
+      "duration": "24:57",
       "seasons": [
         1
       ],
@@ -1646,18 +1591,20 @@
           "quality": "720p",
           "size": "204.84 MB",
           "duration": "24:57",
+          "url": "https://1024terabox.com/s/13AeZKWmua0oOWnGoYq5u2A",
           "versions": [
             {
               "id": "FGHD1084",
               "quality": "720p",
               "size": "204.84 MB",
-              "duration": "24:57"
+              "duration": "24:57",
+              "url": "https://1024terabox.com/s/13AeZKWmua0oOWnGoYq5u2A"
             }
           ]
         }
       ],
       "trending": false,
-      "cid": "c0069"
+      "cid": "c0065"
     },
     {
       "id": "MQvS1095",
@@ -1673,17 +1620,20 @@
           "id": "MQvS1095",
           "quality": "1080p",
           "size": "1.23 GB",
-          "duration": "01:23:40"
+          "duration": "01:23:40",
+          "url": "https://1024terabox.com/s/1keL_RQxCCWmPM__TNbgrPw"
         },
         {
           "id": "oGjb1097",
           "quality": "720p",
           "size": "738.32 MB",
-          "duration": "01:23:40"
+          "duration": "01:23:40",
+          "url": "https://1024terabox.com/s/1S0NIPqx-CrVUJLCuAA6Sfw"
         }
       ],
-      "trending": false,
-      "cid": "c0070"
+      "url": "https://1024terabox.com/s/1keL_RQxCCWmPM__TNbgrPw",
+      "trending": true,
+      "cid": "c0066"
     },
     {
       "id": "kUSl1109",
@@ -1693,6 +1643,7 @@
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/thumb_695b8273c5a97.jpg",
       "year": "2022",
       "quality": "1080p",
+      "duration": "44:27",
       "seasons": [
         1
       ],
@@ -1705,18 +1656,21 @@
           "quality": "1080p",
           "size": "1.08 GB",
           "duration": "44:27",
+          "url": "https://1024terabox.com/s/1hepNi_d9FFnRje139WCiOw",
           "versions": [
             {
               "id": "kUSl1109",
               "quality": "1080p",
               "size": "1.08 GB",
-              "duration": "44:27"
+              "duration": "44:27",
+              "url": "https://1024terabox.com/s/1hepNi_d9FFnRje139WCiOw"
             },
             {
               "id": "cBjf1098",
               "quality": "720p",
               "size": "257.79 MB",
-              "duration": "44:27"
+              "duration": "44:27",
+              "url": "https://1024terabox.com/s/1kbIR30X_DW8kg_n-JYm2tw"
             }
           ]
         },
@@ -1728,18 +1682,21 @@
           "quality": "720p",
           "size": "298.26 MB",
           "duration": "51:26",
+          "url": "https://1024terabox.com/s/11cT90vG6M35cQk_TZccufA",
           "versions": [
             {
               "id": "hzrq1100",
               "quality": "720p",
               "size": "298.26 MB",
-              "duration": "51:26"
+              "duration": "51:26",
+              "url": "https://1024terabox.com/s/11cT90vG6M35cQk_TZccufA"
             },
             {
               "id": "fGqi1110",
               "quality": "720p",
               "size": "386.13 MB",
-              "duration": "51:26"
+              "duration": "51:26",
+              "url": "https://1024terabox.com/s/1uCPlZxD-lQwuf1uquoE7Xg"
             }
           ]
         },
@@ -1751,12 +1708,14 @@
           "quality": "720p",
           "size": "313.06 MB",
           "duration": "53:59",
+          "url": "https://1024terabox.com/s/1a1hMWSA3NPFBUVJRu3csdg",
           "versions": [
             {
               "id": "PZyP1101",
               "quality": "720p",
               "size": "313.06 MB",
-              "duration": "53:59"
+              "duration": "53:59",
+              "url": "https://1024terabox.com/s/1a1hMWSA3NPFBUVJRu3csdg"
             }
           ]
         },
@@ -1768,12 +1727,14 @@
           "quality": "720p",
           "size": "318.39 MB",
           "duration": "54:54",
+          "url": "https://1024terabox.com/s/1U8FQLUjmtKq8A-TBBZt5Sg",
           "versions": [
             {
               "id": "rRXc1102",
               "quality": "720p",
               "size": "318.39 MB",
-              "duration": "54:54"
+              "duration": "54:54",
+              "url": "https://1024terabox.com/s/1U8FQLUjmtKq8A-TBBZt5Sg"
             }
           ]
         },
@@ -1785,18 +1746,21 @@
           "quality": "720p",
           "size": "344.86 MB",
           "duration": "59:29",
+          "url": "https://1024terabox.com/s/1EV_QG0ZODUVhJs_k7ZRK-A",
           "versions": [
             {
               "id": "RQRg1104",
               "quality": "720p",
               "size": "344.86 MB",
-              "duration": "59:29"
+              "duration": "59:29",
+              "url": "https://1024terabox.com/s/1EV_QG0ZODUVhJs_k7ZRK-A"
             },
             {
               "id": "ogPa1111",
               "quality": "720p",
               "size": "446.42 MB",
-              "duration": "59:29"
+              "duration": "59:29",
+              "url": "https://1024terabox.com/s/1jZg32ikAay2eCjQ8rvkUQw"
             }
           ]
         },
@@ -1808,18 +1772,20 @@
           "quality": "720p",
           "size": "448.57 MB",
           "duration": "57:08",
+          "url": "https://1024terabox.com/s/1QWFeXQYlF-eJyRprFlj5aw",
           "versions": [
             {
               "id": "cOyF1112",
               "quality": "720p",
               "size": "448.57 MB",
-              "duration": "57:08"
+              "duration": "57:08",
+              "url": "https://1024terabox.com/s/1QWFeXQYlF-eJyRprFlj5aw"
             }
           ]
         }
       ],
       "trending": false,
-      "cid": "c0071"
+      "cid": "c0067"
     },
     {
       "id": "teie1113",
@@ -1835,11 +1801,13 @@
           "id": "teie1113",
           "quality": "1080p",
           "size": "1.51 GB",
-          "duration": "01:20:01"
+          "duration": "01:20:01",
+          "url": "https://1024terabox.com/s/1tVe5Lwazp6Xz4xto1J6VHw"
         }
       ],
-      "trending": false,
-      "cid": "c0072"
+      "url": "https://1024terabox.com/s/1tVe5Lwazp6Xz4xto1J6VHw",
+      "trending": true,
+      "cid": "c0068"
     },
     {
       "id": "NPwk1117",
@@ -1855,11 +1823,13 @@
           "id": "NPwk1117",
           "quality": "1080p",
           "size": "1.32 GB",
-          "duration": "01:11:47"
+          "duration": "01:11:47",
+          "url": "https://1024terabox.com/s/1wfD03OSEtdJqQ6OHF238Tw"
         }
       ],
+      "url": "https://1024terabox.com/s/1wfD03OSEtdJqQ6OHF238Tw",
       "trending": true,
-      "cid": "c0073"
+      "cid": "c0069"
     },
     {
       "id": "jjsM1120",
@@ -1875,11 +1845,13 @@
           "id": "jjsM1120",
           "quality": "480p",
           "size": "502.58 MB",
-          "duration": "01:11:33"
+          "duration": "01:11:33",
+          "url": "https://1024terabox.com/s/1juNsESBswd9sDojobNQXuQ"
         }
       ],
-      "trending": false,
-      "cid": "c0074"
+      "url": "https://1024terabox.com/s/1juNsESBswd9sDojobNQXuQ",
+      "trending": true,
+      "cid": "c0070"
     },
     {
       "id": "jaSO1124",
@@ -1895,20 +1867,23 @@
           "id": "jaSO1124",
           "quality": "1080p",
           "size": "1.40 GB",
-          "duration": "01:15:31"
+          "duration": "01:15:31",
+          "url": "https://1024terabox.com/s/1R7ugmxl7f_lAyRvT7-Dm_w"
         }
       ],
-      "trending": false,
-      "cid": "c0075"
+      "url": "https://1024terabox.com/s/1R7ugmxl7f_lAyRvT7-Dm_w",
+      "trending": true,
+      "cid": "c0071"
     },
     {
       "id": "uBzC1126",
       "kind": "series",
       "title": "Manchaha",
-      "category": "adult,Adult",
+      "category": "adult,Hindi",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1loTN1PDxXQlJ2KseN24H5g_Manchaha__2023__UNRATED_720p_HEVC_HDRip_PrimeShots.jpg",
       "year": "2023",
       "quality": "720p",
+      "duration": "20:06",
       "seasons": [
         1
       ],
@@ -1921,18 +1896,20 @@
           "quality": "720p",
           "size": "152.17 MB",
           "duration": "20:06",
+          "url": "https://1024terabox.com/s/1loTN1PDxXQlJ2KseN24H5g",
           "versions": [
             {
               "id": "uBzC1126",
               "quality": "720p",
               "size": "152.17 MB",
-              "duration": "20:06"
+              "duration": "20:06",
+              "url": "https://1024terabox.com/s/1loTN1PDxXQlJ2KseN24H5g"
             }
           ]
         }
       ],
       "trending": false,
-      "cid": "c0076"
+      "cid": "c0072"
     },
     {
       "id": "BdRg1128",
@@ -1948,43 +1925,26 @@
           "id": "BdRg1128",
           "quality": "720p",
           "size": "637.89 MB",
-          "duration": "01:18:32"
+          "duration": "01:18:32",
+          "url": "https://1024terabox.com/s/1v4jgq1mcm4XrMoCifdlXKw"
         },
         {
           "id": "FqHf1127",
           "quality": "480p",
           "size": "357.71 MB",
-          "duration": "01:18:32"
+          "duration": "01:18:32",
+          "url": "https://1024terabox.com/s/1h_2DQjmeqarhoLW_f75W5w"
         }
       ],
-      "trending": false,
-      "cid": "c0077"
-    },
-    {
-      "id": "KntF1131",
-      "kind": "movie",
-      "title": "Maria Azama",
-      "category": "adult,Filipino",
-      "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1By3CMVbPJgDA6yqDcIA_3w_Maria_Azama_720p.VMAX.WEB-DL.AAC.x264.THR.mp4.jpg",
-      "year": "",
-      "quality": "720p",
-      "duration": "01:03:45",
-      "versions": [
-        {
-          "id": "KntF1131",
-          "quality": "720p",
-          "size": "460.85 MB",
-          "duration": "01:03:45"
-        }
-      ],
-      "trending": false,
-      "cid": "c0078"
+      "url": "https://1024terabox.com/s/1v4jgq1mcm4XrMoCifdlXKw",
+      "trending": true,
+      "cid": "c0073"
     },
     {
       "id": "DRIB1130",
       "kind": "movie",
       "title": "Maria Azama Da Best Porn Star",
-      "category": "adult,Adult",
+      "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1P4kqa6HJFQ4kCWGFPXHbcA_Maria.Azama.Da.Best.Porn.Star.2025.2160p.VMAX.WEBR.jpg",
       "year": "2025",
       "quality": "1080p",
@@ -1994,17 +1954,20 @@
           "id": "DRIB1130",
           "quality": "1080p",
           "size": "1.16 GB",
-          "duration": "01:03:19"
+          "duration": "01:03:19",
+          "url": "https://1024terabox.com/s/1bigNjSLfBmv1_RzntI4pow"
         },
         {
           "id": "Tkzf1129",
           "quality": "4K",
           "size": "2.01 GB",
-          "duration": "01:03:19"
+          "duration": "01:03:19",
+          "url": "https://1024terabox.com/s/1P4kqa6HJFQ4kCWGFPXHbcA"
         }
       ],
-      "trending": false,
-      "cid": "c0079"
+      "url": "https://1024terabox.com/s/1bigNjSLfBmv1_RzntI4pow",
+      "trending": true,
+      "cid": "c0074"
     },
     {
       "id": "MvfH1139",
@@ -2020,11 +1983,13 @@
           "id": "MvfH1139",
           "quality": "720p",
           "size": "497.59 MB",
-          "duration": "01:02:46"
+          "duration": "01:02:46",
+          "url": "https://1024terabox.com/s/1ioxSUooqHV44eMKzPabyAQ"
         }
       ],
+      "url": "https://1024terabox.com/s/1ioxSUooqHV44eMKzPabyAQ",
       "trending": false,
-      "cid": "c0080"
+      "cid": "c0075"
     },
     {
       "id": "sxIT1140",
@@ -2040,43 +2005,42 @@
           "id": "sxIT1140",
           "quality": "1080p",
           "size": "951.68 MB",
-          "duration": "01:15:08"
+          "duration": "01:15:08",
+          "url": "https://1024terabox.com/s/1x3q3tS2WW09g07P7cx_kpw"
         }
       ],
+      "url": "https://1024terabox.com/s/1x3q3tS2WW09g07P7cx_kpw",
       "trending": false,
-      "cid": "c0081"
+      "cid": "c0076"
     },
     {
-      "id": "NwLF1144",
+      "id": "iZxs1142",
       "kind": "movie",
-      "title": "MAYUMI",
+      "title": "Mayumi",
       "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/thumb_696626ade4d33.jpg",
       "year": "2025",
-      "quality": "1080p",
+      "quality": "4K",
       "duration": "01:10:06",
       "versions": [
-        {
-          "id": "NwLF1144",
-          "quality": "1080p",
-          "size": "436.85 MB",
-          "duration": "01:10:06"
-        },
         {
           "id": "iZxs1142",
           "quality": "4K",
           "size": "2.26 GB",
-          "duration": "01:10:06"
+          "duration": "01:10:06",
+          "url": "https://1024terabox.com/s/1ZzGhu1zjgx94mHcsxp8hCw"
         },
         {
           "id": "ijur1141",
           "quality": "2K",
           "size": "1.79 GB",
-          "duration": "01:10:06"
+          "duration": "01:10:06",
+          "url": "https://1024terabox.com/s/1zQptILkdc7zsQp1Oe9wVHg"
         }
       ],
+      "url": "https://1024terabox.com/s/1ZzGhu1zjgx94mHcsxp8hCw",
       "trending": true,
-      "cid": "c0082"
+      "cid": "c0077"
     },
     {
       "id": "vTTl1158",
@@ -2086,6 +2050,7 @@
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1ziQ-N-9vOq84FksNrlQcSw_Moham__2025__www.10xflix.com_UNRATED_FeniApp_Hindi.jpg",
       "year": "2025",
       "quality": "720p",
+      "duration": "40:39",
       "seasons": [
         1
       ],
@@ -2098,18 +2063,20 @@
           "quality": "720p",
           "size": "630.76 MB",
           "duration": "40:39",
+          "url": "https://1024terabox.com/s/1ziQ-N-9vOq84FksNrlQcSw",
           "versions": [
             {
               "id": "vTTl1158",
               "quality": "720p",
               "size": "630.76 MB",
-              "duration": "40:39"
+              "duration": "40:39",
+              "url": "https://1024terabox.com/s/1ziQ-N-9vOq84FksNrlQcSw"
             }
           ]
         }
       ],
-      "trending": false,
-      "cid": "c0083"
+      "trending": true,
+      "cid": "c0078"
     },
     {
       "id": "zGUB1258",
@@ -2119,6 +2086,7 @@
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1Ksem7y00Ob0DnmSq6M498w_Napunshak__2023__UNRATED_1080p_HEVC_HDRip_Chikuapp.webp",
       "year": "2023",
       "quality": "1080p",
+      "duration": "45:27",
       "seasons": [
         1
       ],
@@ -2131,24 +2099,26 @@
           "quality": "1080p",
           "size": "560.90 MB",
           "duration": "45:27",
+          "url": "https://1024terabox.com/s/1Ksem7y00Ob0DnmSq6M498w",
           "versions": [
             {
               "id": "zGUB1258",
               "quality": "1080p",
               "size": "560.90 MB",
-              "duration": "45:27"
+              "duration": "45:27",
+              "url": "https://1024terabox.com/s/1Ksem7y00Ob0DnmSq6M498w"
             }
           ]
         }
       ],
       "trending": false,
-      "cid": "c0084"
+      "cid": "c0079"
     },
     {
       "id": "koqw1277",
       "kind": "movie",
       "title": "Next Room Affair",
-      "category": "adult,Adult",
+      "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1t0EiJGAhd1Wkh6Ozspv_RA_Next.Room.Affair.2025.2160p.VMAX.WEBRip.AAC2.0.x26.jpg",
       "year": "2025",
       "quality": "1080p",
@@ -2158,17 +2128,20 @@
           "id": "koqw1277",
           "quality": "1080p",
           "size": "1.32 GB",
-          "duration": "01:10:05"
+          "duration": "01:10:05",
+          "url": "https://1024terabox.com/s/1liM5KqOBIqygUsFqyPxsgQ"
         },
         {
           "id": "EqUq1276",
           "quality": "2K",
           "size": "2.28 GB",
-          "duration": "01:10:05"
+          "duration": "01:10:05",
+          "url": "https://1024terabox.com/s/1t0EiJGAhd1Wkh6Ozspv_RA"
         }
       ],
-      "trending": false,
-      "cid": "c0085"
+      "url": "https://1024terabox.com/s/1liM5KqOBIqygUsFqyPxsgQ",
+      "trending": true,
+      "cid": "c0080"
     },
     {
       "id": "eaZv1309",
@@ -2184,16 +2157,18 @@
           "id": "eaZv1309",
           "quality": "1080p",
           "size": "1.92 GB",
-          "duration": "01:43:10"
+          "duration": "01:43:10",
+          "url": "https://1024terabox.com/s/1MdzoQ-QuyUco3Jj3avM72g"
         }
       ],
+      "url": "https://1024terabox.com/s/1MdzoQ-QuyUco3Jj3avM72g",
       "trending": false,
-      "cid": "c0086"
+      "cid": "c0081"
     },
     {
       "id": "cKQs1311",
       "kind": "movie",
-      "title": "Paluwagan Filipino",
+      "title": "Paluwagan",
       "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1c4HisKt_QSKJcHaV50U5yg_Paluwagan-Filipino-VivaMax.mp4.webp",
       "year": "",
@@ -2204,11 +2179,13 @@
           "id": "cKQs1311",
           "quality": "480p",
           "size": "436.57 MB",
-          "duration": "01:04:17"
+          "duration": "01:04:17",
+          "url": "https://1024terabox.com/s/1c4HisKt_QSKJcHaV50U5yg"
         }
       ],
+      "url": "https://1024terabox.com/s/1c4HisKt_QSKJcHaV50U5yg",
       "trending": false,
-      "cid": "c0087"
+      "cid": "c0082"
     },
     {
       "id": "STmK1312",
@@ -2224,11 +2201,13 @@
           "id": "STmK1312",
           "quality": "1080p",
           "size": "1.85 GB",
-          "duration": "01:43:25"
+          "duration": "01:43:25",
+          "url": "https://1024terabox.com/s/18J5QkkmvJbG7BwvYEza-xg"
         }
       ],
+      "url": "https://1024terabox.com/s/18J5QkkmvJbG7BwvYEza-xg",
       "trending": false,
-      "cid": "c0088"
+      "cid": "c0083"
     },
     {
       "id": "CIyj1314",
@@ -2244,11 +2223,13 @@
           "id": "CIyj1314",
           "quality": "1080p",
           "size": "1.32 GB",
-          "duration": "01:10:05"
+          "duration": "01:10:05",
+          "url": "https://1024terabox.com/s/1lf_8YqtjDxg0yPWsEPUmYA"
         }
       ],
-      "trending": false,
-      "cid": "c0089"
+      "url": "https://1024terabox.com/s/1lf_8YqtjDxg0yPWsEPUmYA",
+      "trending": true,
+      "cid": "c0084"
     },
     {
       "id": "tWRi1315",
@@ -2258,6 +2239,7 @@
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/133Y-j6jMDcnnjpRPeIXUbQ_Pantaxa_Laiya__2023__UNRATED_720p_HEVC_HDRip_VMax_.jpg",
       "year": "",
       "quality": "720p",
+      "duration": "55:07",
       "seasons": [
         1
       ],
@@ -2270,18 +2252,20 @@
           "quality": "720p",
           "size": "319.40 MB",
           "duration": "55:07",
+          "url": "https://1024terabox.com/s/133Y-j6jMDcnnjpRPeIXUbQ",
           "versions": [
             {
               "id": "tWRi1315",
               "quality": "720p",
               "size": "319.40 MB",
-              "duration": "55:07"
+              "duration": "55:07",
+              "url": "https://1024terabox.com/s/133Y-j6jMDcnnjpRPeIXUbQ"
             }
           ]
         }
       ],
-      "trending": false,
-      "cid": "c0090"
+      "trending": true,
+      "cid": "c0085"
     },
     {
       "id": "aLzw1317",
@@ -2291,6 +2275,7 @@
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/19gRtWh7RzrIa0BZKJhrrMg_Parayogam__2026__UNRATED_720p_HEVC_HDRip_LubeSerie.jpg",
       "year": "2026",
       "quality": "720p",
+      "duration": "35:42",
       "seasons": [
         1
       ],
@@ -2303,18 +2288,20 @@
           "quality": "720p",
           "size": "295.90 MB",
           "duration": "35:42",
+          "url": "https://1024terabox.com/s/19gRtWh7RzrIa0BZKJhrrMg",
           "versions": [
             {
               "id": "aLzw1317",
               "quality": "720p",
               "size": "295.90 MB",
-              "duration": "35:42"
+              "duration": "35:42",
+              "url": "https://1024terabox.com/s/19gRtWh7RzrIa0BZKJhrrMg"
             }
           ]
         }
       ],
       "trending": true,
-      "cid": "c0091"
+      "cid": "c0086"
     },
     {
       "id": "ZeHv1318",
@@ -2330,17 +2317,19 @@
           "id": "ZeHv1318",
           "quality": "1080p",
           "size": "1.74 GB",
-          "duration": "01:30:18"
+          "duration": "01:30:18",
+          "url": "https://1024terabox.com/s/1b-A_PqzF6-AL_n8U4S1wKA"
         }
       ],
-      "trending": false,
-      "cid": "c0092"
+      "url": "https://1024terabox.com/s/1b-A_PqzF6-AL_n8U4S1wKA",
+      "trending": true,
+      "cid": "c0087"
     },
     {
       "id": "jACx1320",
       "kind": "movie",
       "title": "Patikim ni Robb Guinto",
-      "category": "adult,Adult",
+      "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/19hBYliwhfWyU0fcT8MNwOA_Patikim_ni_Robb_Guinto_2025_720p.VMAX.WEB-DL.AAC.x.jpg",
       "year": "2025",
       "quality": "720p",
@@ -2350,11 +2339,13 @@
           "id": "jACx1320",
           "quality": "720p",
           "size": "818.70 MB",
-          "duration": "01:10:33"
+          "duration": "01:10:33",
+          "url": "https://1024terabox.com/s/19hBYliwhfWyU0fcT8MNwOA"
         }
       ],
-      "trending": false,
-      "cid": "c0093"
+      "url": "https://1024terabox.com/s/19hBYliwhfWyU0fcT8MNwOA",
+      "trending": true,
+      "cid": "c0088"
     },
     {
       "id": "sjFE1321",
@@ -2370,11 +2361,13 @@
           "id": "sjFE1321",
           "quality": "1080p",
           "size": "2.24 GB",
-          "duration": "01:33:53"
+          "duration": "01:33:53",
+          "url": "https://1024terabox.com/s/19d5pv9Tu7MjRAzF_Q57Kuw"
         }
       ],
+      "url": "https://1024terabox.com/s/19d5pv9Tu7MjRAzF_Q57Kuw",
       "trending": false,
-      "cid": "c0094"
+      "cid": "c0089"
     },
     {
       "id": "OyeU1326",
@@ -2390,11 +2383,13 @@
           "id": "OyeU1326",
           "quality": "1080p",
           "size": "1.44 GB",
-          "duration": "01:09:13"
+          "duration": "01:09:13",
+          "url": "https://1024terabox.com/s/1f1n1LDzdCFIiUnxmsdPA4A"
         }
       ],
-      "trending": false,
-      "cid": "c0095"
+      "url": "https://1024terabox.com/s/1f1n1LDzdCFIiUnxmsdPA4A",
+      "trending": true,
+      "cid": "c0090"
     },
     {
       "id": "eGPq1328",
@@ -2410,17 +2405,19 @@
           "id": "eGPq1328",
           "quality": "720p",
           "size": "559.14 MB",
-          "duration": "01:06:40"
+          "duration": "01:06:40",
+          "url": "https://1024terabox.com/s/189JYYQUU-zG_UyLbKPeYEQ"
         }
       ],
+      "url": "https://1024terabox.com/s/189JYYQUU-zG_UyLbKPeYEQ",
       "trending": false,
-      "cid": "c0096"
+      "cid": "c0091"
     },
     {
       "id": "VMLD1332",
       "kind": "movie",
       "title": "Pintor At Paraluman",
-      "category": "adult,Adult",
+      "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1r0SgQlaqtssYrAsLxm5JJg_Pintor.At.Paraluman.2024.720p.10bit.VMAX.WEBRip.2C.jpg",
       "year": "2024",
       "quality": "720p",
@@ -2430,36 +2427,18 @@
           "id": "VMLD1332",
           "quality": "720p",
           "size": "402.13 MB",
-          "duration": "01:44:24"
+          "duration": "01:44:24",
+          "url": "https://1024terabox.com/s/1r0SgQlaqtssYrAsLxm5JJg"
         }
       ],
-      "trending": false,
-      "cid": "c0097"
-    },
-    {
-      "id": "eWIR1356",
-      "kind": "movie",
-      "title": "PrimeHub Me Boss Maam",
-      "category": "adult,Adult",
-      "thumbnail": "https://cdn.teraviralhub.com/thumbnails/16xNn_EQop1zPX0-xSQnksA_PrimeHub.Me_-_Boss_Maam_2024_WEB-DL__Filipino__VMA.jpg",
-      "year": "2024",
-      "quality": "720p",
-      "duration": "01:05:46",
-      "versions": [
-        {
-          "id": "eWIR1356",
-          "quality": "720p",
-          "size": "772.96 MB",
-          "duration": "01:05:46"
-        }
-      ],
-      "trending": false,
-      "cid": "c0098"
+      "url": "https://1024terabox.com/s/1r0SgQlaqtssYrAsLxm5JJg",
+      "trending": true,
+      "cid": "c0092"
     },
     {
       "id": "Oqid1362",
       "kind": "movie",
-      "title": "PUKPOK",
+      "title": "Pukpok",
       "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1NobUfMpoKWoPvaYoj06r5Q_PUKPOK_2024_2160p.VMAX.WEB-DL.AAC.x264.THR.mp4.webp",
       "year": "2024",
@@ -2470,23 +2449,26 @@
           "id": "Oqid1362",
           "quality": "720p",
           "size": "530.77 MB",
-          "duration": "01:00:19"
+          "duration": "01:00:19",
+          "url": "https://1024terabox.com/s/1D-pnHbJQeLUZ-PA5AK6RHw"
         },
         {
           "id": "VowU1361",
           "quality": "2K",
           "size": "2.43 GB",
-          "duration": "01:00:19"
+          "duration": "01:00:19",
+          "url": "https://1024terabox.com/s/1NobUfMpoKWoPvaYoj06r5Q"
         }
       ],
+      "url": "https://1024terabox.com/s/1D-pnHbJQeLUZ-PA5AK6RHw",
       "trending": false,
-      "cid": "c0099"
+      "cid": "c0093"
     },
     {
       "id": "VLfd1367",
       "kind": "movie",
       "title": "Puri for Rent",
-      "category": "adult,Adult",
+      "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1R2Y12symjLwiTw9EXkMHvw_Puri_for_Rent_2025_1080p.VMAX.mp4.jpg",
       "year": "2025",
       "quality": "1080p",
@@ -2496,11 +2478,13 @@
           "id": "VLfd1367",
           "quality": "1080p",
           "size": "1.53 GB",
-          "duration": "01:10:01"
+          "duration": "01:10:01",
+          "url": "https://1024terabox.com/s/1R2Y12symjLwiTw9EXkMHvw"
         }
       ],
+      "url": "https://1024terabox.com/s/1R2Y12symjLwiTw9EXkMHvw",
       "trending": true,
-      "cid": "c0100"
+      "cid": "c0094"
     },
     {
       "id": "DnxU1368",
@@ -2516,11 +2500,13 @@
           "id": "DnxU1368",
           "quality": "1080p",
           "size": "1.92 GB",
-          "duration": "01:45:38"
+          "duration": "01:45:38",
+          "url": "https://1024terabox.com/s/1JDEVui4-8Pt8zZeJKBPzQQ"
         }
       ],
+      "url": "https://1024terabox.com/s/1JDEVui4-8Pt8zZeJKBPzQQ",
       "trending": false,
-      "cid": "c0101"
+      "cid": "c0095"
     },
     {
       "id": "DWsJ1374",
@@ -2530,6 +2516,7 @@
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1bfvDO7GzotLeqBp0W7ha5g_Rajneeti__2023__UNRATED_720p_HEVC_HDRip_RabbitMovi.jpg",
       "year": "2023",
       "quality": "720p",
+      "duration": "42:01",
       "seasons": [
         1
       ],
@@ -2542,18 +2529,20 @@
           "quality": "720p",
           "size": "258.10 MB",
           "duration": "42:01",
+          "url": "https://1024terabox.com/s/1bfvDO7GzotLeqBp0W7ha5g",
           "versions": [
             {
               "id": "DWsJ1374",
               "quality": "720p",
               "size": "258.10 MB",
-              "duration": "42:01"
+              "duration": "42:01",
+              "url": "https://1024terabox.com/s/1bfvDO7GzotLeqBp0W7ha5g"
             }
           ]
         }
       ],
       "trending": false,
-      "cid": "c0102"
+      "cid": "c0096"
     },
     {
       "id": "uGXe1375",
@@ -2563,6 +2552,7 @@
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1ebHmb7EqwfuK_dm_CjnBnQ_Raswanti__2025__UNRATED_720p_HEVC_HDRip_TeFlix_S01.jpg",
       "year": "2025",
       "quality": "720p",
+      "duration": "26:58",
       "seasons": [
         1
       ],
@@ -2575,18 +2565,20 @@
           "quality": "720p",
           "size": "184.87 MB",
           "duration": "26:58",
+          "url": "https://1024terabox.com/s/1ebHmb7EqwfuK_dm_CjnBnQ",
           "versions": [
             {
               "id": "uGXe1375",
               "quality": "720p",
               "size": "184.87 MB",
-              "duration": "26:58"
+              "duration": "26:58",
+              "url": "https://1024terabox.com/s/1ebHmb7EqwfuK_dm_CjnBnQ"
             }
           ]
         }
       ],
-      "trending": false,
-      "cid": "c0103"
+      "trending": true,
+      "cid": "c0097"
     },
     {
       "id": "ZbcO1383",
@@ -2602,11 +2594,13 @@
           "id": "ZbcO1383",
           "quality": "720p",
           "size": "1.01 GB",
-          "duration": "01:47:52"
+          "duration": "01:47:52",
+          "url": "https://1024terabox.com/s/1edeuk0B5GY7u1QVb5hWh4Q"
         }
       ],
+      "url": "https://1024terabox.com/s/1edeuk0B5GY7u1QVb5hWh4Q",
       "trending": false,
-      "cid": "c0104"
+      "cid": "c0098"
     },
     {
       "id": "EWbh1386",
@@ -2622,11 +2616,13 @@
           "id": "EWbh1386",
           "quality": "1080p",
           "size": "1.57 GB",
-          "duration": "01:53:34"
+          "duration": "01:53:34",
+          "url": "https://1024terabox.com/s/1yYfaNL4Nnog_8ctTEdGgEg"
         }
       ],
-      "trending": false,
-      "cid": "c0105"
+      "url": "https://1024terabox.com/s/1yYfaNL4Nnog_8ctTEdGgEg",
+      "trending": true,
+      "cid": "c0099"
     },
     {
       "id": "pPxi1389",
@@ -2636,6 +2632,7 @@
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1IMcolxQ09TZgM8f0RIFA3g_Rivaaz__2025__UNRATED_1080p_HDRip_Jugnu_S01E01T04_.jpg",
       "year": "2025",
       "quality": "1080p",
+      "duration": "01:25:42",
       "seasons": [
         1
       ],
@@ -2648,18 +2645,20 @@
           "quality": "1080p",
           "size": "838.99 MB",
           "duration": "01:25:42",
+          "url": "https://1024terabox.com/s/1IMcolxQ09TZgM8f0RIFA3g",
           "versions": [
             {
               "id": "pPxi1389",
               "quality": "1080p",
               "size": "838.99 MB",
-              "duration": "01:25:42"
+              "duration": "01:25:42",
+              "url": "https://1024terabox.com/s/1IMcolxQ09TZgM8f0RIFA3g"
             }
           ]
         }
       ],
-      "trending": false,
-      "cid": "c0106"
+      "trending": true,
+      "cid": "c0100"
     },
     {
       "id": "XGOs1403",
@@ -2675,11 +2674,13 @@
           "id": "XGOs1403",
           "quality": "720p",
           "size": "507.61 MB",
-          "duration": "01:11:36"
+          "duration": "01:11:36",
+          "url": "https://1024terabox.com/s/1ujEMtKu1bS5pQVZLBFMqGQ"
         }
       ],
-      "trending": false,
-      "cid": "c0107"
+      "url": "https://1024terabox.com/s/1ujEMtKu1bS5pQVZLBFMqGQ",
+      "trending": true,
+      "cid": "c0101"
     },
     {
       "id": "amgB1404",
@@ -2695,45 +2696,28 @@
           "id": "amgB1404",
           "quality": "1080p",
           "size": "1.32 GB",
-          "duration": "01:10:05"
+          "duration": "01:10:05",
+          "url": "https://1024terabox.com/s/184Byr8x16Q8pBEQBuY3omw"
         },
         {
           "id": "esNC1405",
           "quality": "720p",
           "size": "812.33 MB",
-          "duration": "01:10:05"
+          "duration": "01:10:05",
+          "url": "https://1024terabox.com/s/1U4KREsUU07A4AkqGu9HwzQ"
         }
       ],
-      "trending": false,
-      "cid": "c0108"
+      "url": "https://1024terabox.com/s/184Byr8x16Q8pBEQBuY3omw",
+      "trending": true,
+      "cid": "c0102"
     },
     {
-      "id": "lOIo1406",
+      "id": "kPJY1407",
       "kind": "movie",
       "title": "Salikmata",
       "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1Dlv0Cw9KNvzJsjKNhuCEGQ_Salikmata.2025.2160p.VMAX.WEBRip.AAC2.0.x264-Hakkk.jpg",
       "year": "2025",
-      "quality": "2K",
-      "duration": "01:21:21",
-      "versions": [
-        {
-          "id": "lOIo1406",
-          "quality": "2K",
-          "size": "2.65 GB",
-          "duration": "01:21:21"
-        }
-      ],
-      "trending": true,
-      "cid": "c0109"
-    },
-    {
-      "id": "kPJY1407",
-      "kind": "movie",
-      "title": "Salikmata 202",
-      "category": "adult,Filipino",
-      "thumbnail": "https://cdn.teraviralhub.com/thumbnails/thumb_695f6b69e5f7b.jpg",
-      "year": "",
       "quality": "1080p",
       "duration": "01:21:21",
       "versions": [
@@ -2741,11 +2725,20 @@
           "id": "kPJY1407",
           "quality": "1080p",
           "size": "1.52 GB",
-          "duration": "01:21:21"
+          "duration": "01:21:21",
+          "url": "https://1024terabox.com/s/1-gId3tMJDAdhH5xfuVKtGg"
+        },
+        {
+          "id": "lOIo1406",
+          "quality": "2K",
+          "size": "2.65 GB",
+          "duration": "01:21:21",
+          "url": "https://1024terabox.com/s/1Dlv0Cw9KNvzJsjKNhuCEGQ"
         }
       ],
-      "trending": false,
-      "cid": "c0110"
+      "url": "https://1024terabox.com/s/1-gId3tMJDAdhH5xfuVKtGg",
+      "trending": true,
+      "cid": "c0103"
     },
     {
       "id": "QxmD1429",
@@ -2761,11 +2754,13 @@
           "id": "QxmD1429",
           "quality": "1080p",
           "size": "1.33 GB",
-          "duration": "01:12:10"
+          "duration": "01:12:10",
+          "url": "https://1024terabox.com/s/1cJnXiw4tU1HE8Lm8C-4W0w"
         }
       ],
-      "trending": false,
-      "cid": "c0111"
+      "url": "https://1024terabox.com/s/1cJnXiw4tU1HE8Lm8C-4W0w",
+      "trending": true,
+      "cid": "c0104"
     },
     {
       "id": "pKSM1432",
@@ -2781,11 +2776,13 @@
           "id": "pKSM1432",
           "quality": "1080p",
           "size": "2.00 GB",
-          "duration": "01:52:29"
+          "duration": "01:52:29",
+          "url": "https://1024terabox.com/s/1mNl4aTzhvByVsCcH94nhkQ"
         }
       ],
+      "url": "https://1024terabox.com/s/1mNl4aTzhvByVsCcH94nhkQ",
       "trending": false,
-      "cid": "c0112"
+      "cid": "c0105"
     },
     {
       "id": "bxOT1433",
@@ -2801,23 +2798,26 @@
           "id": "bxOT1433",
           "quality": "1080p",
           "size": "1.51 GB",
-          "duration": "01:21:09"
+          "duration": "01:21:09",
+          "url": "https://1024terabox.com/s/1Mmu_Um8_bcGZaND4h8a6ag"
         },
         {
           "id": "vPty1434",
           "quality": "1080p",
           "size": "654.22 MB",
-          "duration": "01:21:09"
+          "duration": "01:21:09",
+          "url": "https://1024terabox.com/s/1aCeEStcjGLGXSnODjpXoxQ"
         }
       ],
-      "trending": false,
-      "cid": "c0113"
+      "url": "https://1024terabox.com/s/1Mmu_Um8_bcGZaND4h8a6ag",
+      "trending": true,
+      "cid": "c0106"
     },
     {
       "id": "XJUf1439",
       "kind": "movie",
-      "title": "SECRET SESSIONS",
-      "category": "adult,Adult",
+      "title": "Secret Sessions",
+      "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/thumb_698b6f91b60c3.jpg",
       "year": "2024",
       "quality": "1080p",
@@ -2827,20 +2827,23 @@
           "id": "XJUf1439",
           "quality": "1080p",
           "size": "1.08 GB",
-          "duration": "01:05:34"
+          "duration": "01:05:34",
+          "url": "https://1024terabox.com/s/1D5UeBA47Ilw7J9byRNOc-A"
         }
       ],
+      "url": "https://1024terabox.com/s/1D5UeBA47Ilw7J9byRNOc-A",
       "trending": false,
-      "cid": "c0114"
+      "cid": "c0107"
     },
     {
       "id": "WEXk1443",
       "kind": "series",
       "title": "Secrets of a Nympho",
-      "category": "adult,Filipino",
+      "category": "adult,Adult",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/14DzM4UQH022Nvmx6wyN0Ww_Secrets_of_a_Nympho_2022_www_hdmovies50_one_S01E06.jpg",
       "year": "2022",
-      "quality": "1080p",
+      "quality": "720p",
+      "duration": "50:13",
       "seasons": [
         1
       ],
@@ -2853,12 +2856,14 @@
           "quality": "720p",
           "size": "375.73 MB",
           "duration": "50:13",
+          "url": "https://1024terabox.com/s/11GFwBaH4o7oZMScigUkrSQ",
           "versions": [
             {
               "id": "WEXk1443",
               "quality": "720p",
               "size": "375.73 MB",
-              "duration": "50:13"
+              "duration": "50:13",
+              "url": "https://1024terabox.com/s/11GFwBaH4o7oZMScigUkrSQ"
             }
           ]
         },
@@ -2870,12 +2875,14 @@
           "quality": "1080p",
           "size": "818.83 MB",
           "duration": "39:44",
+          "url": "https://1024terabox.com/s/14DzM4UQH022Nvmx6wyN0Ww",
           "versions": [
             {
               "id": "Zmfy1442",
               "quality": "1080p",
               "size": "818.83 MB",
-              "duration": "39:44"
+              "duration": "39:44",
+              "url": "https://1024terabox.com/s/14DzM4UQH022Nvmx6wyN0Ww"
             }
           ]
         },
@@ -2887,23 +2894,25 @@
           "quality": "720p",
           "size": "318.03 MB",
           "duration": "40:33",
+          "url": "https://1024terabox.com/s/1hJ-SUaDEdCmm5I1ax_xBIQ",
           "versions": [
             {
               "id": "Mlsn1444",
               "quality": "720p",
               "size": "318.03 MB",
-              "duration": "40:33"
+              "duration": "40:33",
+              "url": "https://1024terabox.com/s/1hJ-SUaDEdCmm5I1ax_xBIQ"
             }
           ]
         }
       ],
       "trending": false,
-      "cid": "c0115"
+      "cid": "c0108"
     },
     {
       "id": "zBgK1446",
       "kind": "movie",
-      "title": "SelinaS Gold",
+      "title": "Selina's Gold",
       "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1QMsnMZXBan-OO1rXBuoGtw_SelinaS.Gold.2022.1080p.VMAX.WEB-DL.AAC2.0.x264-_M.jpg",
       "year": "2022",
@@ -2914,16 +2923,18 @@
           "id": "zBgK1446",
           "quality": "1080p",
           "size": "2.68 GB",
-          "duration": "01:53:18"
+          "duration": "01:53:18",
+          "url": "https://1024terabox.com/s/1QMsnMZXBan-OO1rXBuoGtw"
         }
       ],
+      "url": "https://1024terabox.com/s/1QMsnMZXBan-OO1rXBuoGtw",
       "trending": false,
-      "cid": "c0116"
+      "cid": "c0109"
     },
     {
       "id": "dUxe1449",
       "kind": "movie",
-      "title": "SEM BREAK",
+      "title": "Sem Break",
       "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1a7SczZWkaWwBBin4j1yluQ_SEM_BREAK_2025_1080p.VMAX.WEB-DL.AAC.x264.Eng.Sub..webp",
       "year": "2025",
@@ -2934,16 +2945,18 @@
           "id": "dUxe1449",
           "quality": "1080p",
           "size": "1.86 GB",
-          "duration": "01:39:25"
+          "duration": "01:39:25",
+          "url": "https://1024terabox.com/s/1a7SczZWkaWwBBin4j1yluQ"
         }
       ],
-      "trending": false,
-      "cid": "c0117"
+      "url": "https://1024terabox.com/s/1a7SczZWkaWwBBin4j1yluQ",
+      "trending": true,
+      "cid": "c0110"
     },
     {
       "id": "BGpY1452",
       "kind": "movie",
-      "title": "SEX DRIVE",
+      "title": "Sex Drive",
       "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1wkKr8t0Vl8Qx7yNELohiXA_SEX_DRIVE_2026_VIVAMAX.mkv.webp",
       "year": "2026",
@@ -2954,17 +2967,19 @@
           "id": "BGpY1452",
           "quality": "480p",
           "size": "856.57 MB",
-          "duration": "01:15:38"
+          "duration": "01:15:38",
+          "url": "https://1024terabox.com/s/1wkKr8t0Vl8Qx7yNELohiXA"
         }
       ],
+      "url": "https://1024terabox.com/s/1wkKr8t0Vl8Qx7yNELohiXA",
       "trending": true,
-      "cid": "c0118"
+      "cid": "c0111"
     },
     {
       "id": "gPin1458",
       "kind": "movie",
       "title": "Sex Trip",
-      "category": "adult,Adult",
+      "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1lUslIYO0SX8qo9o_jkPoXQ_Sex.Trip.2026.1080p.VMAX.WEBRip.AAC2.0.x264-HakkkD.jpg",
       "year": "2026",
       "quality": "1080p",
@@ -2974,11 +2989,13 @@
           "id": "gPin1458",
           "quality": "1080p",
           "size": "1.46 GB",
-          "duration": "01:15:53"
+          "duration": "01:15:53",
+          "url": "https://1024terabox.com/s/1lUslIYO0SX8qo9o_jkPoXQ"
         }
       ],
-      "trending": false,
-      "cid": "c0119"
+      "url": "https://1024terabox.com/s/1lUslIYO0SX8qo9o_jkPoXQ",
+      "trending": true,
+      "cid": "c0112"
     },
     {
       "id": "TZdX1484",
@@ -2994,17 +3011,19 @@
           "id": "TZdX1484",
           "quality": "720p",
           "size": "1.05 GB",
-          "duration": "01:52:31"
+          "duration": "01:52:31",
+          "url": "https://1024terabox.com/s/1MvhpjnT37x9vtxovP34lrQ"
         }
       ],
-      "trending": false,
-      "cid": "c0120"
+      "url": "https://1024terabox.com/s/1MvhpjnT37x9vtxovP34lrQ",
+      "trending": true,
+      "cid": "c0113"
     },
     {
       "id": "hjtC1487",
       "kind": "movie",
       "title": "Sila Ay Akin",
-      "category": "adult,Adult",
+      "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1QYX3790aLOC1StdavmQFmQ_Sila.Ay.Akin.2023.1080p.VMAX.WEB-DL-_1_.mp4.jpg",
       "year": "2023",
       "quality": "1080p",
@@ -3014,11 +3033,13 @@
           "id": "hjtC1487",
           "quality": "1080p",
           "size": "1.25 GB",
-          "duration": "01:45:09"
+          "duration": "01:45:09",
+          "url": "https://1024terabox.com/s/1QYX3790aLOC1StdavmQFmQ"
         }
       ],
+      "url": "https://1024terabox.com/s/1QYX3790aLOC1StdavmQFmQ",
       "trending": false,
-      "cid": "c0121"
+      "cid": "c0114"
     },
     {
       "id": "nXRy1490",
@@ -3034,11 +3055,13 @@
           "id": "nXRy1490",
           "quality": "2K",
           "size": "3.09 GB",
-          "duration": "01:34:44"
+          "duration": "01:34:44",
+          "url": "https://1024terabox.com/s/1MZUvk-CJ1SddFMDBIPGEyQ"
         }
       ],
-      "trending": false,
-      "cid": "c0122"
+      "url": "https://1024terabox.com/s/1MZUvk-CJ1SddFMDBIPGEyQ",
+      "trending": true,
+      "cid": "c0115"
     },
     {
       "id": "KgAD1495",
@@ -3054,16 +3077,18 @@
           "id": "KgAD1495",
           "quality": "720p",
           "size": "1.14 GB",
-          "duration": "01:40:15"
+          "duration": "01:40:15",
+          "url": "https://1024terabox.com/s/1n6i8j9vE3VlFrQuwpl363A"
         }
       ],
+      "url": "https://1024terabox.com/s/1n6i8j9vE3VlFrQuwpl363A",
       "trending": false,
-      "cid": "c0123"
+      "cid": "c0116"
     },
     {
       "id": "hGfd1542",
       "kind": "movie",
-      "title": "SPIT OR SWALLOW",
+      "title": "Spit Or Swallow",
       "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1yrTSPB0Q1qxfWIhxMNoWTA_SPIT_OR_SWALLOW_2026_VIVAMAX.mp4.webp",
       "year": "2026",
@@ -3074,11 +3099,13 @@
           "id": "hGfd1542",
           "quality": "1080p",
           "size": "1.29 GB",
-          "duration": "01:15:19"
+          "duration": "01:15:19",
+          "url": "https://1024terabox.com/s/1yrTSPB0Q1qxfWIhxMNoWTA"
         }
       ],
-      "trending": false,
-      "cid": "c0124"
+      "url": "https://1024terabox.com/s/1yrTSPB0Q1qxfWIhxMNoWTA",
+      "trending": true,
+      "cid": "c0117"
     },
     {
       "id": "NNPk1543",
@@ -3094,11 +3121,13 @@
           "id": "NNPk1543",
           "quality": "2K",
           "size": "3.85 GB",
-          "duration": "01:58:14"
+          "duration": "01:58:14",
+          "url": "https://1024terabox.com/s/1X0f7DoINck_7ZrPi4XOnlQ"
         }
       ],
-      "trending": false,
-      "cid": "c0125"
+      "url": "https://1024terabox.com/s/1X0f7DoINck_7ZrPi4XOnlQ",
+      "trending": true,
+      "cid": "c0118"
     },
     {
       "id": "jAod4",
@@ -3114,17 +3143,19 @@
           "id": "jAod4",
           "quality": "720p",
           "size": "468.43 MB",
-          "duration": "01:26:30"
+          "duration": "01:26:30",
+          "url": "https://1024terabox.com/s/1UG6fCusvf5nsCSyTUvmISQ"
         }
       ],
+      "url": "https://1024terabox.com/s/1UG6fCusvf5nsCSyTUvmISQ",
       "trending": false,
-      "cid": "c0126"
+      "cid": "c0119"
     },
     {
       "id": "XeqZ1725",
       "kind": "movie",
       "title": "Stepdaddy",
-      "category": "adult,Adult",
+      "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1SaJXSEMcxeNFzSr-bBIgqA_Stepdaddy.2026.1080p.VMAX.WEBRip.AAC2.0.x264-Hakkk.jpg",
       "year": "2026",
       "quality": "1080p",
@@ -3134,11 +3165,13 @@
           "id": "XeqZ1725",
           "quality": "1080p",
           "size": "1.32 GB",
-          "duration": "01:10:05"
+          "duration": "01:10:05",
+          "url": "https://1024terabox.com/s/1SaJXSEMcxeNFzSr-bBIgqA"
         }
       ],
+      "url": "https://1024terabox.com/s/1SaJXSEMcxeNFzSr-bBIgqA",
       "trending": true,
-      "cid": "c0127"
+      "cid": "c0120"
     },
     {
       "id": "Mpkh2015",
@@ -3154,17 +3187,19 @@
           "id": "Mpkh2015",
           "quality": "480p",
           "size": "381.12 MB",
-          "duration": "01:50:56"
+          "duration": "01:50:56",
+          "url": "https://1024terabox.com/s/1wnQBZKz3ZTl2yyoGD4GNrQ"
         }
       ],
+      "url": "https://1024terabox.com/s/1wnQBZKz3ZTl2yyoGD4GNrQ",
       "trending": false,
-      "cid": "c0128"
+      "cid": "c0121"
     },
     {
       "id": "BDSA2016",
       "kind": "movie",
-      "title": "Sugar BABY",
-      "category": "adult,Adult",
+      "title": "Sugar Baby",
+      "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/13M3nr6aqpIvu64mXNrbgmg_Sugar.BABY.2023.480P.VMAX.WEB-DL.ESUB-KATMOVIE18.C.jpg",
       "year": "2023",
       "quality": "480p",
@@ -3174,11 +3209,13 @@
           "id": "BDSA2016",
           "quality": "480p",
           "size": "360.27 MB",
-          "duration": "01:51:46"
+          "duration": "01:51:46",
+          "url": "https://1024terabox.com/s/13M3nr6aqpIvu64mXNrbgmg"
         }
       ],
+      "url": "https://1024terabox.com/s/13M3nr6aqpIvu64mXNrbgmg",
       "trending": false,
-      "cid": "c0129"
+      "cid": "c0122"
     },
     {
       "id": "gPpI2017",
@@ -3194,11 +3231,13 @@
           "id": "gPpI2017",
           "quality": "480p",
           "size": "754.97 MB",
-          "duration": "01:51:46"
+          "duration": "01:51:46",
+          "url": "https://1024terabox.com/s/1tZYoCNLvb1gbJaMSvcnwLQ"
         }
       ],
+      "url": "https://1024terabox.com/s/1tZYoCNLvb1gbJaMSvcnwLQ",
       "trending": false,
-      "cid": "c0130"
+      "cid": "c0123"
     },
     {
       "id": "UghB2023",
@@ -3214,17 +3253,20 @@
           "id": "UghB2023",
           "quality": "720p",
           "size": "567.89 MB",
-          "duration": "01:12:37"
+          "duration": "01:12:37",
+          "url": "https://1024terabox.com/s/1rEyA7shmh1ogB9owgd30dg"
         },
         {
           "id": "gIml2019",
           "quality": "4K",
           "size": "2.31 GB",
-          "duration": "01:12:08"
+          "duration": "01:12:08",
+          "url": "https://1024terabox.com/s/1khZH0SgBswfwu-KWzhqw-w"
         }
       ],
-      "trending": false,
-      "cid": "c0131"
+      "url": "https://1024terabox.com/s/1rEyA7shmh1ogB9owgd30dg",
+      "trending": true,
+      "cid": "c0124"
     },
     {
       "id": "LeJT2024",
@@ -3240,11 +3282,13 @@
           "id": "LeJT2024",
           "quality": "1080p",
           "size": "1.30 GB",
-          "duration": "01:10:12"
+          "duration": "01:10:12",
+          "url": "https://1024terabox.com/s/1-L1l9VXVRCNntOf0wt1fzQ"
         }
       ],
-      "trending": false,
-      "cid": "c0132"
+      "url": "https://1024terabox.com/s/1-L1l9VXVRCNntOf0wt1fzQ",
+      "trending": true,
+      "cid": "c0125"
     },
     {
       "id": "HDSQ2027",
@@ -3254,6 +3298,7 @@
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1G46qN_uJJkZ5YL3MyVHECQ_Swapna_Rathri__2024__UNRATED_720p_HEVC_HDRip_BoomE.jpg",
       "year": "2024",
       "quality": "720p",
+      "duration": "27:37",
       "seasons": [
         1
       ],
@@ -3266,24 +3311,26 @@
           "quality": "720p",
           "size": "220.00 MB",
           "duration": "27:37",
+          "url": "https://1024terabox.com/s/1G46qN_uJJkZ5YL3MyVHECQ",
           "versions": [
             {
               "id": "HDSQ2027",
               "quality": "720p",
               "size": "220.00 MB",
-              "duration": "27:37"
+              "duration": "27:37",
+              "url": "https://1024terabox.com/s/1G46qN_uJJkZ5YL3MyVHECQ"
             }
           ]
         }
       ],
       "trending": false,
-      "cid": "c0133"
+      "cid": "c0126"
     },
     {
       "id": "YqsJ2032",
       "kind": "movie",
       "title": "Tahong",
-      "category": "adult,Adult",
+      "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1XtSUXcS1b5F7VOW0jO3Nhw_Tahong_2024_720p.VMAX.WEB-DL.ENG.SUB.AAC.x264.mkv.jpg",
       "year": "2024",
       "quality": "720p",
@@ -3293,17 +3340,20 @@
           "id": "YqsJ2032",
           "quality": "720p",
           "size": "753.97 MB",
-          "duration": "01:05:00"
+          "duration": "01:05:00",
+          "url": "https://1024terabox.com/s/1XtSUXcS1b5F7VOW0jO3Nhw"
         },
         {
           "id": "PBFl2033",
           "quality": "720p",
           "size": "567.06 MB",
-          "duration": "01:05:00"
+          "duration": "01:05:00",
+          "url": "https://1024terabox.com/s/1d7SGoMydWeKBfMKSrKwMwA"
         }
       ],
-      "trending": false,
-      "cid": "c0134"
+      "url": "https://1024terabox.com/s/1XtSUXcS1b5F7VOW0jO3Nhw",
+      "trending": true,
+      "cid": "c0127"
     },
     {
       "id": "RzKt2039",
@@ -3313,6 +3363,7 @@
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1YYObbGODDjY6cCcsnFUFTg_Tan_Tana_Tan__2025__UNRATED_720p_HEVC_HDRip_MoodX_.jpg",
       "year": "2025",
       "quality": "720p",
+      "duration": "24:23",
       "seasons": [
         1
       ],
@@ -3325,18 +3376,20 @@
           "quality": "720p",
           "size": "202.46 MB",
           "duration": "24:23",
+          "url": "https://1024terabox.com/s/1YYObbGODDjY6cCcsnFUFTg",
           "versions": [
             {
               "id": "RzKt2039",
               "quality": "720p",
               "size": "202.46 MB",
-              "duration": "24:23"
+              "duration": "24:23",
+              "url": "https://1024terabox.com/s/1YYObbGODDjY6cCcsnFUFTg"
             }
           ]
         }
       ],
-      "trending": false,
-      "cid": "c0135"
+      "trending": true,
+      "cid": "c0128"
     },
     {
       "id": "CrJZ2044",
@@ -3352,11 +3405,13 @@
           "id": "CrJZ2044",
           "quality": "720p",
           "size": "610.26 MB",
-          "duration": "01:11:11"
+          "duration": "01:11:11",
+          "url": "https://1024terabox.com/s/1Enu3EHbVNfXIwjVGL-5Qkg"
         }
       ],
+      "url": "https://1024terabox.com/s/1Enu3EHbVNfXIwjVGL-5Qkg",
       "trending": true,
-      "cid": "c0136"
+      "cid": "c0129"
     },
     {
       "id": "gNEP2047",
@@ -3372,11 +3427,13 @@
           "id": "gNEP2047",
           "quality": "4K",
           "size": "5.53 GB",
-          "duration": "01:40:24"
+          "duration": "01:40:24",
+          "url": "https://1024terabox.com/s/1uHZiBvPo437XHXLrOhbv9Q"
         }
       ],
+      "url": "https://1024terabox.com/s/1uHZiBvPo437XHXLrOhbv9Q",
       "trending": false,
-      "cid": "c0137"
+      "cid": "c0130"
     },
     {
       "id": "NuBo2045",
@@ -3392,17 +3449,19 @@
           "id": "NuBo2045",
           "quality": "720p",
           "size": "815.41 MB",
-          "duration": "01:10:57"
+          "duration": "01:10:57",
+          "url": "https://1024terabox.com/s/1u_9iiBxuqA7tPN3LFZKM0A"
         }
       ],
-      "trending": false,
-      "cid": "c0138"
+      "url": "https://1024terabox.com/s/1u_9iiBxuqA7tPN3LFZKM0A",
+      "trending": true,
+      "cid": "c0131"
     },
     {
       "id": "SKxi2048",
       "kind": "movie",
       "title": "Teachers Pet",
-      "category": "adult,Adult",
+      "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/thumb_6998940ba345f.jpg",
       "year": "",
       "quality": "1080p",
@@ -3412,17 +3471,19 @@
           "id": "SKxi2048",
           "quality": "1080p",
           "size": "504.22 MB",
-          "duration": "01:05:19"
+          "duration": "01:05:19",
+          "url": "https://1024terabox.com/s/12842RVXVI3jmqAGycfWpgg"
         }
       ],
+      "url": "https://1024terabox.com/s/12842RVXVI3jmqAGycfWpgg",
       "trending": false,
-      "cid": "c0139"
+      "cid": "c0132"
     },
     {
       "id": "XFls2078",
       "kind": "movie",
       "title": "The Escort Wife 2",
-      "category": "adult,Adult",
+      "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/thumb_690b099faeb19.jpg",
       "year": "2022",
       "quality": "480p",
@@ -3432,11 +3493,13 @@
           "id": "XFls2078",
           "quality": "480p",
           "size": "400.29 MB",
-          "duration": "01:18:26"
+          "duration": "01:18:26",
+          "url": "https://1024terabox.com/s/1CL1-iYPy41vqjm9JI6M2wQ"
         }
       ],
+      "url": "https://1024terabox.com/s/1CL1-iYPy41vqjm9JI6M2wQ",
       "trending": false,
-      "cid": "c0140"
+      "cid": "c0133"
     },
     {
       "id": "gGdn2079",
@@ -3446,6 +3509,7 @@
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1LdEU6dnF57iGLQA4BBfQkA_The_Happiness__2024__UNRATED_1080p_HEVC_HDRip_Batt.jpg",
       "year": "2024",
       "quality": "1080p",
+      "duration": "24:38",
       "seasons": [
         1
       ],
@@ -3458,18 +3522,20 @@
           "quality": "1080p",
           "size": "423.51 MB",
           "duration": "24:38",
+          "url": "https://1024terabox.com/s/1LdEU6dnF57iGLQA4BBfQkA",
           "versions": [
             {
               "id": "gGdn2079",
               "quality": "1080p",
               "size": "423.51 MB",
-              "duration": "24:38"
+              "duration": "24:38",
+              "url": "https://1024terabox.com/s/1LdEU6dnF57iGLQA4BBfQkA"
             }
           ]
         }
       ],
-      "trending": false,
-      "cid": "c0141"
+      "trending": true,
+      "cid": "c0134"
     },
     {
       "id": "gfCd2086",
@@ -3485,17 +3551,19 @@
           "id": "gfCd2086",
           "quality": "720p",
           "size": "682.71 MB",
-          "duration": "01:08:24"
+          "duration": "01:08:24",
+          "url": "https://1024terabox.com/s/16ySztW9328FvVdkjt97xoA"
         }
       ],
-      "trending": false,
-      "cid": "c0142"
+      "url": "https://1024terabox.com/s/16ySztW9328FvVdkjt97xoA",
+      "trending": true,
+      "cid": "c0135"
     },
     {
       "id": "cLYK2097",
       "kind": "movie",
       "title": "The Secret Game of the Immoral Wife",
-      "category": "adult,Adult",
+      "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/thumb_6989999170608.jpg",
       "year": "2016",
       "quality": "1080p",
@@ -3505,31 +3573,13 @@
           "id": "cLYK2097",
           "quality": "1080p",
           "size": "2.22 GB",
-          "duration": "01:10:22"
+          "duration": "01:10:22",
+          "url": "https://1024terabox.com/s/1b6LJdVCFDx8tlnSGJbE9yA"
         }
       ],
+      "url": "https://1024terabox.com/s/1b6LJdVCFDx8tlnSGJbE9yA",
       "trending": false,
-      "cid": "c0143"
-    },
-    {
-      "id": "wWTQ2100",
-      "kind": "movie",
-      "title": "The Ugly Stepsister – Forbidden Stepsister Sex",
-      "category": "adult,Adult",
-      "thumbnail": "https://cdn.teraviralhub.com/thumbnails/thumb_697f711a89287.jpg",
-      "year": "",
-      "quality": "1080p",
-      "duration": "01:49:23",
-      "versions": [
-        {
-          "id": "wWTQ2100",
-          "quality": "1080p",
-          "size": "1.90 GB",
-          "duration": "01:49:23"
-        }
-      ],
-      "trending": false,
-      "cid": "c0144"
+      "cid": "c0136"
     },
     {
       "id": "JTBl2111",
@@ -3545,11 +3595,13 @@
           "id": "JTBl2111",
           "quality": "720p",
           "size": "422.31 MB",
-          "duration": "01:10:43"
+          "duration": "01:10:43",
+          "url": "https://1024terabox.com/s/1gEgVIwhOi4t5lY57GnK3Dg"
         }
       ],
-      "trending": true,
-      "cid": "c0145"
+      "url": "https://1024terabox.com/s/1gEgVIwhOi4t5lY57GnK3Dg",
+      "trending": false,
+      "cid": "c0137"
     },
     {
       "id": "WHQb2117",
@@ -3565,11 +3617,13 @@
           "id": "WHQb2117",
           "quality": "720p",
           "size": "397.68 MB",
-          "duration": "01:10:32"
+          "duration": "01:10:32",
+          "url": "https://1024terabox.com/s/1F2qCrovgSSMqElaER5oUUg"
         }
       ],
+      "url": "https://1024terabox.com/s/1F2qCrovgSSMqElaER5oUUg",
       "trending": false,
-      "cid": "c0146"
+      "cid": "c0138"
     },
     {
       "id": "Grsa2119",
@@ -3585,11 +3639,13 @@
           "id": "Grsa2119",
           "quality": "4K",
           "size": "3.41 GB",
-          "duration": "01:10:06"
+          "duration": "01:10:06",
+          "url": "https://1024terabox.com/s/1LYFf_9aaLm7AFoZS_CG8ew"
         }
       ],
-      "trending": false,
-      "cid": "c0147"
+      "url": "https://1024terabox.com/s/1LYFf_9aaLm7AFoZS_CG8ew",
+      "trending": true,
+      "cid": "c0139"
     },
     {
       "id": "zeAh2121",
@@ -3605,11 +3661,13 @@
           "id": "zeAh2121",
           "quality": "1080p",
           "size": "1.75 GB",
-          "duration": "01:10:12"
+          "duration": "01:10:12",
+          "url": "https://1024terabox.com/s/19HJOhlQGJmlxYTn0ZFTnnQ"
         }
       ],
-      "trending": false,
-      "cid": "c0148"
+      "url": "https://1024terabox.com/s/19HJOhlQGJmlxYTn0ZFTnnQ",
+      "trending": true,
+      "cid": "c0140"
     },
     {
       "id": "lupw2123",
@@ -3625,11 +3683,13 @@
           "id": "lupw2123",
           "quality": "4K",
           "size": "5.19 GB",
-          "duration": "01:31:29"
+          "duration": "01:31:29",
+          "url": "https://1024terabox.com/s/16-s8-nIItE7mMIj6fWpBBA"
         }
       ],
-      "trending": false,
-      "cid": "c0149"
+      "url": "https://1024terabox.com/s/16-s8-nIItE7mMIj6fWpBBA",
+      "trending": true,
+      "cid": "c0141"
     },
     {
       "id": "sTkj2126",
@@ -3645,11 +3705,13 @@
           "id": "sTkj2126",
           "quality": "1080p",
           "size": "1.32 GB",
-          "duration": "01:10:31"
+          "duration": "01:10:31",
+          "url": "https://1024terabox.com/s/1SepOyomxN5AO4MNoQWvAzg"
         }
       ],
-      "trending": false,
-      "cid": "c0150"
+      "url": "https://1024terabox.com/s/1SepOyomxN5AO4MNoQWvAzg",
+      "trending": true,
+      "cid": "c0142"
     },
     {
       "id": "LqNT2130",
@@ -3665,11 +3727,13 @@
           "id": "LqNT2130",
           "quality": "1080p",
           "size": "1.92 GB",
-          "duration": "01:39:38"
+          "duration": "01:39:38",
+          "url": "https://1024terabox.com/s/1eaB1bovFqQByMdDOc4FYZQ"
         }
       ],
+      "url": "https://1024terabox.com/s/1eaB1bovFqQByMdDOc4FYZQ",
       "trending": false,
-      "cid": "c0151"
+      "cid": "c0143"
     },
     {
       "id": "AWRu2131",
@@ -3685,16 +3749,18 @@
           "id": "AWRu2131",
           "quality": "720p",
           "size": "485.25 MB",
-          "duration": "01:05:04"
+          "duration": "01:05:04",
+          "url": "https://1024terabox.com/s/1qKtwiN-1MPlqcXLVQvto4w"
         }
       ],
+      "url": "https://1024terabox.com/s/1qKtwiN-1MPlqcXLVQvto4w",
       "trending": false,
-      "cid": "c0152"
+      "cid": "c0144"
     },
     {
       "id": "ffbi2132",
       "kind": "movie",
-      "title": "UNGOL",
+      "title": "Ungol",
       "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/10cZ0b7N2cdBko4zPFnEh8Q_UNGOL_2024_1080p.VMAX.WEB-DL.AAC.x264.THR.mp4.jpg",
       "year": "2024",
@@ -3705,11 +3771,13 @@
           "id": "ffbi2132",
           "quality": "1080p",
           "size": "1.32 GB",
-          "duration": "01:00:43"
+          "duration": "01:00:43",
+          "url": "https://1024terabox.com/s/10cZ0b7N2cdBko4zPFnEh8Q"
         }
       ],
+      "url": "https://1024terabox.com/s/10cZ0b7N2cdBko4zPFnEh8Q",
       "trending": false,
-      "cid": "c0153"
+      "cid": "c0145"
     },
     {
       "id": "YECM57",
@@ -3725,16 +3793,18 @@
           "id": "YECM57",
           "quality": "1080p",
           "size": "1.38 GB",
-          "duration": "01:16:09"
+          "duration": "01:16:09",
+          "url": "https://1024terabox.com/s/14P07-Z1C0IRg6tBJ5QcFWw"
         }
       ],
+      "url": "https://1024terabox.com/s/14P07-Z1C0IRg6tBJ5QcFWw",
       "trending": true,
-      "cid": "c0154"
+      "cid": "c0146"
     },
     {
       "id": "ANmJ2133",
       "kind": "movie",
-      "title": "Us X Her",
+      "title": "Us Her",
       "category": "adult,Filipino",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/thumb_698da967c7137.jpg",
       "year": "2022",
@@ -3745,11 +3815,13 @@
           "id": "ANmJ2133",
           "quality": "720p",
           "size": "996.06 MB",
-          "duration": "01:43:47"
+          "duration": "01:43:47",
+          "url": "https://1024terabox.com/s/1Up3Ml-_bTXzXLMxy123gNA"
         }
       ],
+      "url": "https://1024terabox.com/s/1Up3Ml-_bTXzXLMxy123gNA",
       "trending": false,
-      "cid": "c0155"
+      "cid": "c0147"
     },
     {
       "id": "SZmQ2137",
@@ -3765,11 +3837,13 @@
           "id": "SZmQ2137",
           "quality": "1080p",
           "size": "1.91 GB",
-          "duration": "01:31:39"
+          "duration": "01:31:39",
+          "url": "https://1024terabox.com/s/1MNYzgYeDW46VEBtJS_vGkQ"
         }
       ],
-      "trending": false,
-      "cid": "c0156"
+      "url": "https://1024terabox.com/s/1MNYzgYeDW46VEBtJS_vGkQ",
+      "trending": true,
+      "cid": "c0148"
     },
     {
       "id": "BtHk2151",
@@ -3785,37 +3859,20 @@
           "id": "BtHk2151",
           "quality": "720p",
           "size": "607.42 MB",
-          "duration": "01:10:50"
+          "duration": "01:10:50",
+          "url": "https://1024terabox.com/s/1M-Wvw-NAdtQp2SxZYgV4tg"
         },
         {
           "id": "rMsO2150",
           "quality": "2K",
           "size": "2.94 GB",
-          "duration": "01:10:50"
+          "duration": "01:10:50",
+          "url": "https://1024terabox.com/s/1Rfn_5W-nXFzoiDqt3badrQ"
         }
       ],
-      "trending": false,
-      "cid": "c0157"
-    },
-    {
-      "id": "JTYi2163",
-      "kind": "movie",
-      "title": "VMX KAMA SUTRA",
-      "category": "adult,Filipino",
-      "thumbnail": "https://cdn.teraviralhub.com/thumbnails/19zVzoqEbpcBvQGOA6Rd4vA_VMX_KAMA_SUTRA__2025_1080p.VMAX.WEB-DL.AAC2.0.H.26.jpg",
-      "year": "2025",
-      "quality": "1080p",
-      "duration": "01:10:14",
-      "versions": [
-        {
-          "id": "JTYi2163",
-          "quality": "1080p",
-          "size": "1.79 GB",
-          "duration": "01:10:14"
-        }
-      ],
-      "trending": false,
-      "cid": "c0158"
+      "url": "https://1024terabox.com/s/1M-Wvw-NAdtQp2SxZYgV4tg",
+      "trending": true,
+      "cid": "c0149"
     },
     {
       "id": "ojil2165",
@@ -3831,11 +3888,13 @@
           "id": "ojil2165",
           "quality": "1080p",
           "size": "1.56 GB",
-          "duration": "01:23:09"
+          "duration": "01:23:09",
+          "url": "https://1024terabox.com/s/1M3DTszzQfhComRr4zUx7Qw"
         }
       ],
-      "trending": false,
-      "cid": "c0159"
+      "url": "https://1024terabox.com/s/1M3DTszzQfhComRr4zUx7Qw",
+      "trending": true,
+      "cid": "c0150"
     },
     {
       "id": "ijuF2184",
@@ -3845,6 +3904,7 @@
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1g4y4iILUF_z25ymcUUb58A_Yes_Mam__2023__UNRATED_1080p_HEVC_HDRip_Hunters_S0.jpg",
       "year": "",
       "quality": "1080p",
+      "duration": "01:23:24",
       "seasons": [
         1
       ],
@@ -3857,24 +3917,26 @@
           "quality": "1080p",
           "size": "980.38 MB",
           "duration": "01:23:24",
+          "url": "https://1024terabox.com/s/1g4y4iILUF_z25ymcUUb58A",
           "versions": [
             {
               "id": "ijuF2184",
               "quality": "1080p",
               "size": "980.38 MB",
-              "duration": "01:23:24"
+              "duration": "01:23:24",
+              "url": "https://1024terabox.com/s/1g4y4iILUF_z25ymcUUb58A"
             }
           ]
         }
       ],
       "trending": false,
-      "cid": "c0160"
+      "cid": "c0151"
     },
     {
       "id": "avms689",
       "kind": "movie",
       "title": "Drishyam",
-      "category": "movie,Bollywood",
+      "category": "movie,Hindi",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/15BI9mDShCFOVlwIyFFdRIw_Drishyam__2015__720p_HINDI_BluRay_x264_Pahe.mkv.jpg",
       "year": "2015",
       "quality": "720p",
@@ -3884,17 +3946,19 @@
           "id": "avms689",
           "quality": "720p",
           "size": "1.11 GB",
-          "duration": "02:43:32"
+          "duration": "02:43:32",
+          "url": "https://1024terabox.com/s/15BI9mDShCFOVlwIyFFdRIw"
         }
       ],
+      "url": "https://1024terabox.com/s/15BI9mDShCFOVlwIyFFdRIw",
       "trending": false,
-      "cid": "c0161"
+      "cid": "c0152"
     },
     {
       "id": "RTXa690",
       "kind": "movie",
-      "title": "Drishyam 3 The Conclusion",
-      "category": "movie,Bollywood",
+      "title": "Drishyam: The Conclusion",
+      "category": "movie,Hindi",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1kiZR6TDPWA_NyfBm4veuCA_Drishyam_3_-_The_Conclusion__2026__Bollywood_Hindi.jpg",
       "year": "2026",
       "quality": "720p",
@@ -3904,37 +3968,26 @@
           "id": "RTXa690",
           "quality": "720p",
           "size": "1.96 GB",
-          "duration": "02:23:56"
-        }
-      ],
-      "trending": false,
-      "cid": "c0162"
-    },
-    {
-      "id": "ISLf691",
-      "kind": "movie",
-      "title": "Drishyam The Conclusion",
-      "category": "movie,Bollywood",
-      "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1T1zJwCPdZjb_jH9cS27YYg_Drishyam_The_Conclusion_2026_720p_HDTC_Hindi_x264_.jpg",
-      "year": "2026",
-      "quality": "720p",
-      "duration": "02:19:38",
-      "versions": [
+          "duration": "02:23:56",
+          "url": "https://1024terabox.com/s/1kiZR6TDPWA_NyfBm4veuCA"
+        },
         {
           "id": "ISLf691",
           "quality": "720p",
           "size": "1.21 GB",
-          "duration": "02:19:38"
+          "duration": "02:19:38",
+          "url": "https://1024terabox.com/s/1T1zJwCPdZjb_jH9cS27YYg"
         }
       ],
+      "url": "https://1024terabox.com/s/1kiZR6TDPWA_NyfBm4veuCA",
       "trending": true,
-      "cid": "c0163"
+      "cid": "c0153"
     },
     {
       "id": "DCeJ2549",
       "kind": "movie",
       "title": "Iron Man",
-      "category": "movie,Bollywood",
+      "category": "movie,Hindi",
       "thumbnail": "https://files.catbox.moe/7pvs36.jpg",
       "year": "2008",
       "quality": "1080p",
@@ -3944,23 +3997,26 @@
           "id": "DCeJ2549",
           "quality": "1080p",
           "size": "3.64 GB",
-          "duration": "2h 06m"
+          "duration": "2h 06m",
+          "url": "https://1024terabox.com/s/1ikdioNyG2QtT2WINX-APpA"
         },
         {
           "id": "hiUm2559",
           "quality": "720p",
           "size": "1.06 GB",
-          "duration": "2h 06m"
+          "duration": "2h 06m",
+          "url": "https://1024terabox.com/s/123EJkUj7yr3cEv4uDkswog"
         }
       ],
+      "url": "https://1024terabox.com/s/1ikdioNyG2QtT2WINX-APpA",
       "trending": false,
-      "cid": "c0164"
+      "cid": "c0154"
     },
     {
       "id": "Fjmf2554",
       "kind": "movie",
       "title": "Iron Man 2",
-      "category": "movie,South Indian",
+      "category": "movie,Hindi",
       "thumbnail": "https://files.catbox.moe/6vov04.jpg",
       "year": "2010",
       "quality": "720p",
@@ -3970,17 +4026,19 @@
           "id": "Fjmf2554",
           "quality": "720p",
           "size": "1.17 GB",
-          "duration": "2h 04m"
+          "duration": "2h 04m",
+          "url": "https://1024terabox.com/s/1tK4UmvIgxRdfPTkHiwMkGg"
         }
       ],
-      "trending": false,
-      "cid": "c0165"
+      "url": "https://1024terabox.com/s/1tK4UmvIgxRdfPTkHiwMkGg",
+      "trending": true,
+      "cid": "c0155"
     },
     {
       "id": "YlVY2557",
       "kind": "movie",
       "title": "Jailer",
-      "category": "movie,South Indian",
+      "category": "movie,Hindi",
       "thumbnail": "https://image.tmdb.org/t/p/original/tzlL98LCYJqvDW0BUP9780rVBwW.jpg",
       "year": "2023",
       "quality": "1080p",
@@ -3990,17 +4048,19 @@
           "id": "YlVY2557",
           "quality": "1080p",
           "size": "3.80 GB",
-          "duration": "2h 43m"
+          "duration": "2h 43m",
+          "url": "https://1024terabox.com/s/1VoQxbf_4ujp0r2IMHbFi8g"
         }
       ],
+      "url": "https://1024terabox.com/s/1VoQxbf_4ujp0r2IMHbFi8g",
       "trending": false,
-      "cid": "c0166"
+      "cid": "c0156"
     },
     {
       "id": "RhxX2562",
       "kind": "movie",
       "title": "Jailer 2",
-      "category": "movie,South Indian",
+      "category": "movie,Hindi",
       "thumbnail": "https://files.catbox.moe/hpdua6.jpg",
       "year": "2026",
       "quality": "1080p",
@@ -4010,24 +4070,27 @@
           "id": "RhxX2562",
           "quality": "1080p",
           "size": "4.00 GB",
-          "duration": "2h 40m"
+          "duration": "2h 40m",
+          "url": "https://1024terabox.com/s/1Gk28R_L6hTI9u1WvisKs8g"
         },
         {
           "id": "QSsm2564",
           "quality": "720p",
           "size": "3.38 GB",
-          "duration": "2h 40m"
+          "duration": "2h 40m",
+          "url": "https://1024terabox.com/s/16DrOe9OixiY6xZybMCIAdA"
         }
       ],
-      "trending": false,
-      "cid": "c0167"
+      "url": "https://1024terabox.com/s/1Gk28R_L6hTI9u1WvisKs8g",
+      "trending": true,
+      "cid": "c0157"
     },
     {
       "id": "wvSS2545",
       "kind": "movie",
       "title": "The Incredible Hulk",
-      "category": "movie,Bollywood",
-      "thumbnail": "N/A",
+      "category": "movie,Hindi",
+      "thumbnail": "",
       "year": "2008",
       "quality": "1080p",
       "duration": "1h 52m",
@@ -4036,23 +4099,26 @@
           "id": "wvSS2545",
           "quality": "1080p",
           "size": "2.51 GB",
-          "duration": "1h 52m"
+          "duration": "1h 52m",
+          "url": "https://1024terabox.com/s/1Th-XOI8nS9Vl-mwUaqC_Mg"
         },
         {
           "id": "CzTy2547",
           "quality": "720p",
           "size": "1.15 GB",
-          "duration": "1h 52m"
+          "duration": "1h 52m",
+          "url": "https://1024terabox.com/s/1Bg9jeDIz9dQo6zxyu6Ak1A"
         }
       ],
+      "url": "https://1024terabox.com/s/1Th-XOI8nS9Vl-mwUaqC_Mg",
       "trending": false,
-      "cid": "c0168"
+      "cid": "c0158"
     },
     {
       "id": "XicM2103",
       "kind": "movie",
       "title": "The Ugly Stepsister",
-      "category": "movie,General",
+      "category": "movie,Horror",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/17SAbKTl233FgDe5WrNIL0g_The.Ugly.Stepsister.2025.1080p.10bit.WEB-DL.x265.6.jpg",
       "year": "2025",
       "quality": "1080p",
@@ -4062,37 +4128,26 @@
           "id": "XicM2103",
           "quality": "1080p",
           "size": "1.72 GB",
-          "duration": "01:49:25"
-        }
-      ],
-      "trending": false,
-      "cid": "c0169"
-    },
-    {
-      "id": "CzTY2104",
-      "kind": "movie",
-      "title": "The Ugly Stepsister A K A Den stygge stesosteren",
-      "category": "movie,General",
-      "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1mTaoOmVdB90YeIMLg90AQg_The_Ugly_Stepsister_A_K_A_Den_stygge_stesosteren_2.jpg",
-      "year": "2025",
-      "quality": "1080p",
-      "duration": "01:49:23",
-      "versions": [
+          "duration": "01:49:25",
+          "url": "https://1024terabox.com/s/17SAbKTl233FgDe5WrNIL0g"
+        },
         {
           "id": "CzTY2104",
           "quality": "1080p",
           "size": "1.90 GB",
-          "duration": "01:49:23"
+          "duration": "01:49:23",
+          "url": "https://1024terabox.com/s/1mTaoOmVdB90YeIMLg90AQg"
         }
       ],
-      "trending": false,
-      "cid": "c0170"
+      "url": "https://1024terabox.com/s/17SAbKTl233FgDe5WrNIL0g",
+      "trending": true,
+      "cid": "c0159"
     },
     {
       "id": "Fqfi2556",
       "kind": "movie",
       "title": "Thor",
-      "category": "movie,Bollywood",
+      "category": "movie,Hindi",
       "thumbnail": "https://files.catbox.moe/oda4ip.jpg",
       "year": "2011",
       "quality": "1080p",
@@ -4102,26 +4157,30 @@
           "id": "Fqfi2556",
           "quality": "1080p",
           "size": "3.73 GB",
-          "duration": "1h 55m"
+          "duration": "1h 55m",
+          "url": "https://1024terabox.com/s/1pgyJw5LgL4tn_igicobpeQ"
         },
         {
           "id": "mGqK2558",
           "quality": "720p",
           "size": "1.31 GB",
-          "duration": "1h 54m"
+          "duration": "1h 54m",
+          "url": "https://1024terabox.com/s/1uPQ_RSPWLClRaLCUYDLANQ"
         }
       ],
+      "url": "https://1024terabox.com/s/1pgyJw5LgL4tn_igicobpeQ",
       "trending": false,
-      "cid": "c0171"
+      "cid": "c0160"
     },
     {
       "id": "YEPL431",
       "kind": "series",
       "title": "Are You Safe",
-      "category": "series,Chinese",
+      "category": "series,Chinese Drama",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1YK33yWfaoixcP2cRIaOttg_Are.You.Safe.S01E02.720p.YT.WEB-DL.AAC2.0.x264-kat.jpg",
       "year": "",
       "quality": "720p",
+      "duration": "32:05",
       "seasons": [
         1
       ],
@@ -4134,27 +4193,30 @@
           "quality": "720p",
           "size": "129.71 MB",
           "duration": "32:05",
+          "url": "https://1024terabox.com/s/1YK33yWfaoixcP2cRIaOttg",
           "versions": [
             {
               "id": "YEPL431",
               "quality": "720p",
               "size": "129.71 MB",
-              "duration": "32:05"
+              "duration": "32:05",
+              "url": "https://1024terabox.com/s/1YK33yWfaoixcP2cRIaOttg"
             }
           ]
         }
       ],
-      "trending": true,
-      "cid": "c0172"
+      "trending": false,
+      "cid": "c0161"
     },
     {
       "id": "hBDP219",
       "kind": "series",
-      "title": "As a Reincarnated Aristocrat Ill Use My Appraisal Skill to Rise in the World",
+      "title": "As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World",
       "category": "series,Anime",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1sqwG1sBcllF_ZTNP_r9HiA__Animedubhindi.com__As_a_Reincarnated_Aristocrat_I.jpg",
       "year": "",
       "quality": "720p",
+      "duration": "23:41",
       "seasons": [
         1
       ],
@@ -4167,12 +4229,14 @@
           "quality": "720p",
           "size": "210.14 MB",
           "duration": "23:41",
+          "url": "https://1024terabox.com/s/1sqwG1sBcllF_ZTNP_r9HiA",
           "versions": [
             {
               "id": "hBDP219",
               "quality": "720p",
               "size": "210.14 MB",
-              "duration": "23:41"
+              "duration": "23:41",
+              "url": "https://1024terabox.com/s/1sqwG1sBcllF_ZTNP_r9HiA"
             }
           ]
         },
@@ -4184,18 +4248,20 @@
           "quality": "720p",
           "size": "235.59 MB",
           "duration": "23:41",
+          "url": "https://1024terabox.com/s/1an9d0wtK4gesSCKWxFWR-A",
           "versions": [
             {
               "id": "mVhx221",
               "quality": "720p",
               "size": "235.59 MB",
-              "duration": "23:41"
+              "duration": "23:41",
+              "url": "https://1024terabox.com/s/1an9d0wtK4gesSCKWxFWR-A"
             }
           ]
         }
       ],
-      "trending": false,
-      "cid": "c0173"
+      "trending": true,
+      "cid": "c0162"
     },
     {
       "id": "xnyk449",
@@ -4205,6 +4271,7 @@
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/14czC-DMJb8nivMo5o7KrKw_Bandi.S01E06.720p.10bit.NF.WEB-DL.AAC2.0.H.265-The.jpg",
       "year": "",
       "quality": "720p",
+      "duration": "51:47",
       "seasons": [
         1
       ],
@@ -4217,12 +4284,14 @@
           "quality": "720p",
           "size": "335.64 MB",
           "duration": "51:47",
+          "url": "https://1024terabox.com/s/14czC-DMJb8nivMo5o7KrKw",
           "versions": [
             {
               "id": "xnyk449",
               "quality": "720p",
               "size": "335.64 MB",
-              "duration": "51:47"
+              "duration": "51:47",
+              "url": "https://1024terabox.com/s/14czC-DMJb8nivMo5o7KrKw"
             }
           ]
         },
@@ -4234,12 +4303,14 @@
           "quality": "720p",
           "size": "256.79 MB",
           "duration": "52:09",
+          "url": "https://1024terabox.com/s/1gJ5-ZZTy7TfFm7zIoFXYcA",
           "versions": [
             {
               "id": "CWKh450",
               "quality": "720p",
               "size": "256.79 MB",
-              "duration": "52:09"
+              "duration": "52:09",
+              "url": "https://1024terabox.com/s/1gJ5-ZZTy7TfFm7zIoFXYcA"
             }
           ]
         },
@@ -4251,18 +4322,20 @@
           "quality": "720p",
           "size": "323.15 MB",
           "duration": "01:03:41",
+          "url": "https://1024terabox.com/s/1eFeTODPS0HGYQW7Vjr4EGQ",
           "versions": [
             {
               "id": "GEmI451",
               "quality": "720p",
               "size": "323.15 MB",
-              "duration": "01:03:41"
+              "duration": "01:03:41",
+              "url": "https://1024terabox.com/s/1eFeTODPS0HGYQW7Vjr4EGQ"
             }
           ]
         }
       ],
       "trending": false,
-      "cid": "c0174"
+      "cid": "c0163"
     },
     {
       "id": "nnaP222",
@@ -4271,7 +4344,8 @@
       "category": "series,Anime",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1CyT1c-L1MwO8AM-tKzUVIw__Animedubhindi.com__Campfire_Cooking_in_Another_Wo.jpg",
       "year": "",
-      "quality": "1080p",
+      "quality": "480p",
+      "duration": "23:56",
       "seasons": [
         1
       ],
@@ -4284,12 +4358,14 @@
           "quality": "480p",
           "size": "117.29 MB",
           "duration": "23:56",
+          "url": "https://1024terabox.com/s/15xhaTmkl-SsTlJ0T29lKzA",
           "versions": [
             {
               "id": "nnaP222",
               "quality": "480p",
               "size": "117.29 MB",
-              "duration": "23:56"
+              "duration": "23:56",
+              "url": "https://1024terabox.com/s/15xhaTmkl-SsTlJ0T29lKzA"
             }
           ]
         },
@@ -4301,18 +4377,187 @@
           "quality": "1080p",
           "size": "212.57 MB",
           "duration": "23:56",
+          "url": "https://1024terabox.com/s/1CyT1c-L1MwO8AM-tKzUVIw",
           "versions": [
             {
               "id": "cPpt218",
               "quality": "1080p",
               "size": "212.57 MB",
-              "duration": "23:56"
+              "duration": "23:56",
+              "url": "https://1024terabox.com/s/1CyT1c-L1MwO8AM-tKzUVIw"
             }
           ]
         }
       ],
       "trending": false,
-      "cid": "c0175"
+      "cid": "c0164"
+    },
+    {
+      "id": "LNTb214",
+      "kind": "series",
+      "title": "Cashero",
+      "category": "series,Korean Drama",
+      "thumbnail": "https://cdn.teraviralhub.com/thumbnails/thumb_696a835b48075.jpg",
+      "year": "",
+      "quality": "480p",
+      "duration": "53:09",
+      "seasons": [
+        1
+      ],
+      "episodes": [
+        {
+          "season": 1,
+          "episode": 1,
+          "label": "S01E01",
+          "id": "LNTb214",
+          "quality": "480p",
+          "size": "233.95 MB",
+          "duration": "53:09",
+          "url": "https://1024terabox.com/s/1SI-obPIVHRXedc2AzoEVFg",
+          "versions": [
+            {
+              "id": "LNTb214",
+              "quality": "480p",
+              "size": "233.95 MB",
+              "duration": "53:09",
+              "url": "https://1024terabox.com/s/1SI-obPIVHRXedc2AzoEVFg"
+            }
+          ]
+        },
+        {
+          "season": 1,
+          "episode": 2,
+          "label": "S01E02",
+          "id": "elJp154",
+          "quality": "480p",
+          "size": "170.21 MB",
+          "duration": "55:36",
+          "url": "https://1024terabox.com/s/1Fau6xJnyiG95k83xUQ_N3A",
+          "versions": [
+            {
+              "id": "elJp154",
+              "quality": "480p",
+              "size": "170.21 MB",
+              "duration": "55:36",
+              "url": "https://1024terabox.com/s/1Fau6xJnyiG95k83xUQ_N3A"
+            }
+          ]
+        },
+        {
+          "season": 1,
+          "episode": 3,
+          "label": "S01E03",
+          "id": "EyBw155",
+          "quality": "480p",
+          "size": "153.26 MB",
+          "duration": "51:41",
+          "url": "https://1024terabox.com/s/1UBQmrAbTrzUGlnGEj4TgMA",
+          "versions": [
+            {
+              "id": "EyBw155",
+              "quality": "480p",
+              "size": "153.26 MB",
+              "duration": "51:41",
+              "url": "https://1024terabox.com/s/1UBQmrAbTrzUGlnGEj4TgMA"
+            }
+          ]
+        },
+        {
+          "season": 1,
+          "episode": 4,
+          "label": "S01E04",
+          "id": "MrKo156",
+          "quality": "480p",
+          "size": "212.56 MB",
+          "duration": "48:29",
+          "url": "https://1024terabox.com/s/1EK7Fq7nIgfEsz-6IpRxlQA",
+          "versions": [
+            {
+              "id": "MrKo156",
+              "quality": "480p",
+              "size": "212.56 MB",
+              "duration": "48:29",
+              "url": "https://1024terabox.com/s/1EK7Fq7nIgfEsz-6IpRxlQA"
+            }
+          ]
+        }
+      ],
+      "trending": false,
+      "cid": "c0165"
+    },
+    {
+      "id": "AcSm678",
+      "kind": "series",
+      "title": "Doctor Stranger",
+      "category": "series,Korean Drama",
+      "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1ISDk0UCucDZgHLXXlSYLEQ_Doctor.Stranger.S01E02.480p.Hindi.WEBRip.x264-katm.webp",
+      "year": "",
+      "quality": "480p",
+      "duration": "59:18",
+      "seasons": [
+        1
+      ],
+      "episodes": [
+        {
+          "season": 1,
+          "episode": 2,
+          "label": "S01E02",
+          "id": "AcSm678",
+          "quality": "480p",
+          "size": "236.55 MB",
+          "duration": "59:18",
+          "url": "https://1024terabox.com/s/1ISDk0UCucDZgHLXXlSYLEQ",
+          "versions": [
+            {
+              "id": "AcSm678",
+              "quality": "480p",
+              "size": "236.55 MB",
+              "duration": "59:18",
+              "url": "https://1024terabox.com/s/1ISDk0UCucDZgHLXXlSYLEQ"
+            }
+          ]
+        },
+        {
+          "season": 1,
+          "episode": 3,
+          "label": "S01E03",
+          "id": "ythW679",
+          "quality": "480p",
+          "size": "213.05 MB",
+          "duration": "58:23",
+          "url": "https://1024terabox.com/s/1aM8Bv8n_puyYqBK4jWpTrw",
+          "versions": [
+            {
+              "id": "ythW679",
+              "quality": "480p",
+              "size": "213.05 MB",
+              "duration": "58:23",
+              "url": "https://1024terabox.com/s/1aM8Bv8n_puyYqBK4jWpTrw"
+            }
+          ]
+        },
+        {
+          "season": 1,
+          "episode": 6,
+          "label": "S01E06",
+          "id": "SCVM680",
+          "quality": "480p",
+          "size": "177.21 MB",
+          "duration": "58:58",
+          "url": "https://1024terabox.com/s/12LcxctliFqgAzn1ahnlL9Q",
+          "versions": [
+            {
+              "id": "SCVM680",
+              "quality": "480p",
+              "size": "177.21 MB",
+              "duration": "58:58",
+              "url": "https://1024terabox.com/s/12LcxctliFqgAzn1ahnlL9Q"
+            }
+          ]
+        }
+      ],
+      "trending": false,
+      "cid": "c0166"
     },
     {
       "id": "CPwt1086",
@@ -4322,6 +4567,7 @@
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1VtEjIFC8t9SSK1ys6cdIpw_Little.Archer.Iskender.S01E01.720p.Tabii.WEB-DL.MU.jpg",
       "year": "",
       "quality": "720p",
+      "duration": "01:09:34",
       "seasons": [
         1
       ],
@@ -4334,31 +4580,17 @@
           "quality": "720p",
           "size": "1.00 GB",
           "duration": "01:09:34",
+          "url": "https://1024terabox.com/s/1VtEjIFC8t9SSK1ys6cdIpw",
           "versions": [
             {
               "id": "CPwt1086",
               "quality": "720p",
               "size": "1.00 GB",
-              "duration": "01:09:34"
+              "duration": "01:09:34",
+              "url": "https://1024terabox.com/s/1VtEjIFC8t9SSK1ys6cdIpw"
             }
           ]
-        }
-      ],
-      "trending": false,
-      "cid": "c0176"
-    },
-    {
-      "id": "npaQ1087",
-      "kind": "series",
-      "title": "Little Archer Iskender vs Shadow",
-      "category": "series,Turkish",
-      "thumbnail": "https://cdn.teraviralhub.com/thumbnails/thumb_69672b46d7f94.jpg",
-      "year": "",
-      "quality": "720p",
-      "seasons": [
-        1
-      ],
-      "episodes": [
+        },
         {
           "season": 1,
           "episode": 5,
@@ -4367,27 +4599,30 @@
           "quality": "720p",
           "size": "504.98 MB",
           "duration": "47:34",
+          "url": "https://1024terabox.com/s/1SmN-9JBFcK1wLsQSmiZUCQ",
           "versions": [
             {
               "id": "npaQ1087",
               "quality": "720p",
               "size": "504.98 MB",
-              "duration": "47:34"
+              "duration": "47:34",
+              "url": "https://1024terabox.com/s/1SmN-9JBFcK1wLsQSmiZUCQ"
             }
           ]
         }
       ],
       "trending": false,
-      "cid": "c0177"
+      "cid": "c0167"
     },
     {
       "id": "VXya1089",
       "kind": "series",
       "title": "Locust",
-      "category": "series,Drama",
+      "category": "series,Hindi",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/thumb_6962af21a910b.jpg",
       "year": "",
       "quality": "720p",
+      "duration": "48:09",
       "seasons": [
         1
       ],
@@ -4400,12 +4635,14 @@
           "quality": "720p",
           "size": "439.85 MB",
           "duration": "48:09",
+          "url": "https://1024terabox.com/s/1vueQaoC3Y2WmoqK69N3BdA",
           "versions": [
             {
               "id": "VXya1089",
               "quality": "720p",
               "size": "439.85 MB",
-              "duration": "48:09"
+              "duration": "48:09",
+              "url": "https://1024terabox.com/s/1vueQaoC3Y2WmoqK69N3BdA"
             }
           ]
         },
@@ -4417,12 +4654,14 @@
           "quality": "720p",
           "size": "419.61 MB",
           "duration": "49:49",
+          "url": "https://1024terabox.com/s/1bU0U9OxMAfY0_dtEBA1_IQ",
           "versions": [
             {
               "id": "wpma1090",
               "quality": "720p",
               "size": "419.61 MB",
-              "duration": "49:49"
+              "duration": "49:49",
+              "url": "https://1024terabox.com/s/1bU0U9OxMAfY0_dtEBA1_IQ"
             }
           ]
         },
@@ -4434,12 +4673,14 @@
           "quality": "720p",
           "size": "480.98 MB",
           "duration": "52:39",
+          "url": "https://1024terabox.com/s/1FrrOmydWno217YGwX5qPEQ",
           "versions": [
             {
               "id": "tvDu1091",
               "quality": "720p",
               "size": "480.98 MB",
-              "duration": "52:39"
+              "duration": "52:39",
+              "url": "https://1024terabox.com/s/1FrrOmydWno217YGwX5qPEQ"
             }
           ]
         },
@@ -4451,27 +4692,30 @@
           "quality": "720p",
           "size": "479.34 MB",
           "duration": "52:27",
+          "url": "https://1024terabox.com/s/1PtWK_rXlGIzojFoHYbpQYg",
           "versions": [
             {
               "id": "iMut1092",
               "quality": "720p",
               "size": "479.34 MB",
-              "duration": "52:27"
+              "duration": "52:27",
+              "url": "https://1024terabox.com/s/1PtWK_rXlGIzojFoHYbpQYg"
             }
           ]
         }
       ],
       "trending": false,
-      "cid": "c0178"
+      "cid": "c0168"
     },
     {
       "id": "MuxE1162",
       "kind": "series",
       "title": "Motorheads",
-      "category": "series,Drama",
+      "category": "series,Hindi",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1SGYx7qV_j5Bqd_N7A46hnw_Motorheads.S01E02.720p.WEB-DL.HIN-ENG.x265.ESub-Ka.jpg",
       "year": "",
       "quality": "720p",
+      "duration": "54:31",
       "seasons": [
         1
       ],
@@ -4484,12 +4728,14 @@
           "quality": "720p",
           "size": "348.64 MB",
           "duration": "54:31",
+          "url": "https://1024terabox.com/s/1SGYx7qV_j5Bqd_N7A46hnw",
           "versions": [
             {
               "id": "MuxE1162",
               "quality": "720p",
               "size": "348.64 MB",
-              "duration": "54:31"
+              "duration": "54:31",
+              "url": "https://1024terabox.com/s/1SGYx7qV_j5Bqd_N7A46hnw"
             }
           ]
         },
@@ -4501,12 +4747,14 @@
           "quality": "720p",
           "size": "323.19 MB",
           "duration": "53:43",
+          "url": "https://1024terabox.com/s/1Jr2o10zTClKJ2GkKS2eAVw",
           "versions": [
             {
               "id": "Alpu1163",
               "quality": "720p",
               "size": "323.19 MB",
-              "duration": "53:43"
+              "duration": "53:43",
+              "url": "https://1024terabox.com/s/1Jr2o10zTClKJ2GkKS2eAVw"
             }
           ]
         },
@@ -4518,12 +4766,14 @@
           "quality": "720p",
           "size": "345.35 MB",
           "duration": "50:00",
+          "url": "https://1024terabox.com/s/1LHvn1yC9MaKinHVc-j9HkQ",
           "versions": [
             {
               "id": "geDc1164",
               "quality": "720p",
               "size": "345.35 MB",
-              "duration": "50:00"
+              "duration": "50:00",
+              "url": "https://1024terabox.com/s/1LHvn1yC9MaKinHVc-j9HkQ"
             }
           ]
         },
@@ -4535,12 +4785,14 @@
           "quality": "720p",
           "size": "379.61 MB",
           "duration": "55:23",
+          "url": "https://1024terabox.com/s/10mpxeIGpe9i-uGiMR99QlQ",
           "versions": [
             {
               "id": "ueAO1165",
               "quality": "720p",
               "size": "379.61 MB",
-              "duration": "55:23"
+              "duration": "55:23",
+              "url": "https://1024terabox.com/s/10mpxeIGpe9i-uGiMR99QlQ"
             }
           ]
         },
@@ -4552,12 +4804,14 @@
           "quality": "720p",
           "size": "347.19 MB",
           "duration": "49:22",
+          "url": "https://1024terabox.com/s/1E9CeQ9XQJyNPfzLHcdKLgw",
           "versions": [
             {
               "id": "ghDz1166",
               "quality": "720p",
               "size": "347.19 MB",
-              "duration": "49:22"
+              "duration": "49:22",
+              "url": "https://1024terabox.com/s/1E9CeQ9XQJyNPfzLHcdKLgw"
             }
           ]
         },
@@ -4569,12 +4823,14 @@
           "quality": "720p",
           "size": "245.72 MB",
           "duration": "50:59",
+          "url": "https://1024terabox.com/s/1p2SdKXwylPcUh6frfAdkog",
           "versions": [
             {
               "id": "HkGM1167",
               "quality": "720p",
               "size": "245.72 MB",
-              "duration": "50:59"
+              "duration": "50:59",
+              "url": "https://1024terabox.com/s/1p2SdKXwylPcUh6frfAdkog"
             }
           ]
         },
@@ -4586,12 +4842,14 @@
           "quality": "720p",
           "size": "347.94 MB",
           "duration": "56:32",
+          "url": "https://1024terabox.com/s/1A8MXx_BnsBc328TY22PVDQ",
           "versions": [
             {
               "id": "mdOq1168",
               "quality": "720p",
               "size": "347.94 MB",
-              "duration": "56:32"
+              "duration": "56:32",
+              "url": "https://1024terabox.com/s/1A8MXx_BnsBc328TY22PVDQ"
             }
           ]
         },
@@ -4603,12 +4861,14 @@
           "quality": "720p",
           "size": "328.61 MB",
           "duration": "48:43",
+          "url": "https://1024terabox.com/s/1baqfeQh3fzRhp0dBoSFCFQ",
           "versions": [
             {
               "id": "WeIw1169",
               "quality": "720p",
               "size": "328.61 MB",
-              "duration": "48:43"
+              "duration": "48:43",
+              "url": "https://1024terabox.com/s/1baqfeQh3fzRhp0dBoSFCFQ"
             }
           ]
         },
@@ -4620,27 +4880,30 @@
           "quality": "720p",
           "size": "315.06 MB",
           "duration": "47:56",
+          "url": "https://1024terabox.com/s/1Jidjpe5ATycvbuOMbeFW_A",
           "versions": [
             {
               "id": "sqEb1170",
               "quality": "720p",
               "size": "315.06 MB",
-              "duration": "47:56"
+              "duration": "47:56",
+              "url": "https://1024terabox.com/s/1Jidjpe5ATycvbuOMbeFW_A"
             }
           ]
         }
       ],
-      "trending": false,
-      "cid": "c0179"
+      "trending": true,
+      "cid": "c0169"
     },
     {
       "id": "UJiw223",
       "kind": "series",
-      "title": "My Love Story with Yamada kun at Lv999",
+      "title": "My Love Story with Yamada-kun at Lv999",
       "category": "series,Anime",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/thumb_69778cba74bc2.jpg",
       "year": "",
-      "quality": "1080p",
+      "quality": "480p",
+      "duration": "23:41",
       "seasons": [
         1
       ],
@@ -4653,12 +4916,14 @@
           "quality": "480p",
           "size": "82.11 MB",
           "duration": "23:41",
+          "url": "https://1024terabox.com/s/1Tei-zEpCc_8xmleBClhpVw",
           "versions": [
             {
               "id": "UJiw223",
               "quality": "480p",
               "size": "82.11 MB",
-              "duration": "23:41"
+              "duration": "23:41",
+              "url": "https://1024terabox.com/s/1Tei-zEpCc_8xmleBClhpVw"
             }
           ]
         },
@@ -4670,27 +4935,30 @@
           "quality": "1080p",
           "size": "197.83 MB",
           "duration": "23:40",
+          "url": "https://1024terabox.com/s/1WqCHu2hIZ_g2snVKG3CZnw",
           "versions": [
             {
               "id": "TxKU217",
               "quality": "1080p",
               "size": "197.83 MB",
-              "duration": "23:40"
+              "duration": "23:40",
+              "url": "https://1024terabox.com/s/1WqCHu2hIZ_g2snVKG3CZnw"
             }
           ]
         }
       ],
       "trending": false,
-      "cid": "c0180"
+      "cid": "c0170"
     },
     {
       "id": "cgPI1384",
       "kind": "series",
       "title": "Resident Evil",
-      "category": "series,Drama",
+      "category": "series,Hindi",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/166QufyFVcGE_svbW2YqieQ_Resident.Evil.S01E01.480p.WEB-DL.HIN-ENG.x264.ESub.webp",
       "year": "2022",
       "quality": "480p",
+      "duration": "01:01:57",
       "seasons": [
         1
       ],
@@ -4703,27 +4971,30 @@
           "quality": "480p",
           "size": "207.43 MB",
           "duration": "01:01:57",
+          "url": "https://1024terabox.com/s/166QufyFVcGE_svbW2YqieQ",
           "versions": [
             {
               "id": "cgPI1384",
               "quality": "480p",
               "size": "207.43 MB",
-              "duration": "01:01:57"
+              "duration": "01:01:57",
+              "url": "https://1024terabox.com/s/166QufyFVcGE_svbW2YqieQ"
             }
           ]
         }
       ],
-      "trending": true,
-      "cid": "c0181"
+      "trending": false,
+      "cid": "c0171"
     },
     {
       "id": "fEal1519",
       "kind": "series",
       "title": "Smile to Life",
-      "category": "series,Chinese",
+      "category": "series,Chinese Drama",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1RbnCgDLQgm-LjQ9otzArPQ_Smile.To.Life.S01E02.480p.MX.WEB-DL.AAC2.0.x264-ka.jpg",
       "year": "2022",
       "quality": "480p",
+      "duration": "34:22",
       "seasons": [
         1
       ],
@@ -4736,12 +5007,14 @@
           "quality": "480p",
           "size": "120.53 MB",
           "duration": "34:22",
+          "url": "https://1024terabox.com/s/1RbnCgDLQgm-LjQ9otzArPQ",
           "versions": [
             {
               "id": "fEal1519",
               "quality": "480p",
               "size": "120.53 MB",
-              "duration": "34:22"
+              "duration": "34:22",
+              "url": "https://1024terabox.com/s/1RbnCgDLQgm-LjQ9otzArPQ"
             }
           ]
         },
@@ -4753,12 +5026,14 @@
           "quality": "480p",
           "size": "113.42 MB",
           "duration": "32:29",
+          "url": "https://1024terabox.com/s/1_6rkQdrEp78caHH1Gja7XQ",
           "versions": [
             {
               "id": "joUB1520",
               "quality": "480p",
               "size": "113.42 MB",
-              "duration": "32:29"
+              "duration": "32:29",
+              "url": "https://1024terabox.com/s/1_6rkQdrEp78caHH1Gja7XQ"
             }
           ]
         },
@@ -4770,12 +5045,14 @@
           "quality": "480p",
           "size": "123.94 MB",
           "duration": "35:27",
+          "url": "https://1024terabox.com/s/1PX_P2mb5OB04yOFAi3vSkw",
           "versions": [
             {
               "id": "YflA1521",
               "quality": "480p",
               "size": "123.94 MB",
-              "duration": "35:27"
+              "duration": "35:27",
+              "url": "https://1024terabox.com/s/1PX_P2mb5OB04yOFAi3vSkw"
             }
           ]
         },
@@ -4787,12 +5064,14 @@
           "quality": "480p",
           "size": "135.89 MB",
           "duration": "37:24",
+          "url": "https://1024terabox.com/s/11_cm_5hQsc36GYrMYvIVSg",
           "versions": [
             {
               "id": "KtEw1522",
               "quality": "480p",
               "size": "135.89 MB",
-              "duration": "37:24"
+              "duration": "37:24",
+              "url": "https://1024terabox.com/s/11_cm_5hQsc36GYrMYvIVSg"
             }
           ]
         },
@@ -4804,12 +5083,14 @@
           "quality": "480p",
           "size": "133.31 MB",
           "duration": "37:44",
+          "url": "https://1024terabox.com/s/1J0M-YZNxTQymz5HBGwKlgA",
           "versions": [
             {
               "id": "Xjst1523",
               "quality": "480p",
               "size": "133.31 MB",
-              "duration": "37:44"
+              "duration": "37:44",
+              "url": "https://1024terabox.com/s/1J0M-YZNxTQymz5HBGwKlgA"
             }
           ]
         },
@@ -4821,12 +5102,14 @@
           "quality": "480p",
           "size": "277.46 MB",
           "duration": "35:20",
+          "url": "https://1024terabox.com/s/1q546JO-PnCV5IwZDsc81Mw",
           "versions": [
             {
               "id": "llfZ1524",
               "quality": "480p",
               "size": "277.46 MB",
-              "duration": "35:20"
+              "duration": "35:20",
+              "url": "https://1024terabox.com/s/1q546JO-PnCV5IwZDsc81Mw"
             }
           ]
         },
@@ -4838,12 +5121,14 @@
           "quality": "480p",
           "size": "119.59 MB",
           "duration": "35:24",
+          "url": "https://1024terabox.com/s/1rFzbNJ4Ez896cgpGovjqWg",
           "versions": [
             {
               "id": "gfhN1525",
               "quality": "480p",
               "size": "119.59 MB",
-              "duration": "35:24"
+              "duration": "35:24",
+              "url": "https://1024terabox.com/s/1rFzbNJ4Ez896cgpGovjqWg"
             }
           ]
         },
@@ -4855,12 +5140,14 @@
           "quality": "480p",
           "size": "122.06 MB",
           "duration": "36:16",
+          "url": "https://1024terabox.com/s/1fdL-YpRRplMVIwJmdDwqCA",
           "versions": [
             {
               "id": "KCcr1526",
               "quality": "480p",
               "size": "122.06 MB",
-              "duration": "36:16"
+              "duration": "36:16",
+              "url": "https://1024terabox.com/s/1fdL-YpRRplMVIwJmdDwqCA"
             }
           ]
         },
@@ -4872,12 +5159,14 @@
           "quality": "480p",
           "size": "133.97 MB",
           "duration": "37:37",
+          "url": "https://1024terabox.com/s/1QEaeMlna3wU98o3DSm7gMw",
           "versions": [
             {
               "id": "goFq1527",
               "quality": "480p",
               "size": "133.97 MB",
-              "duration": "37:37"
+              "duration": "37:37",
+              "url": "https://1024terabox.com/s/1QEaeMlna3wU98o3DSm7gMw"
             }
           ]
         },
@@ -4889,12 +5178,14 @@
           "quality": "480p",
           "size": "164.59 MB",
           "duration": "37:00",
+          "url": "https://1024terabox.com/s/1da5_sdW4gztyvp5biImmiA",
           "versions": [
             {
               "id": "YxCp1528",
               "quality": "480p",
               "size": "164.59 MB",
-              "duration": "37:00"
+              "duration": "37:00",
+              "url": "https://1024terabox.com/s/1da5_sdW4gztyvp5biImmiA"
             }
           ]
         },
@@ -4906,12 +5197,14 @@
           "quality": "480p",
           "size": "133.65 MB",
           "duration": "33:58",
+          "url": "https://1024terabox.com/s/1AW3dOxnQZNgMuexCuR8isw",
           "versions": [
             {
               "id": "SjdR1529",
               "quality": "480p",
               "size": "133.65 MB",
-              "duration": "33:58"
+              "duration": "33:58",
+              "url": "https://1024terabox.com/s/1AW3dOxnQZNgMuexCuR8isw"
             }
           ]
         },
@@ -4923,12 +5216,14 @@
           "quality": "480p",
           "size": "119.89 MB",
           "duration": "34:53",
+          "url": "https://1024terabox.com/s/1MeYuKO0vM9IieG4h3W7-Xg",
           "versions": [
             {
               "id": "yJjZ1530",
               "quality": "480p",
               "size": "119.89 MB",
-              "duration": "34:53"
+              "duration": "34:53",
+              "url": "https://1024terabox.com/s/1MeYuKO0vM9IieG4h3W7-Xg"
             }
           ]
         },
@@ -4940,12 +5235,14 @@
           "quality": "480p",
           "size": "121.46 MB",
           "duration": "35:02",
+          "url": "https://1024terabox.com/s/14ASevjvDX9sXuWklyz7fKw",
           "versions": [
             {
               "id": "zfwI1531",
               "quality": "480p",
               "size": "121.46 MB",
-              "duration": "35:02"
+              "duration": "35:02",
+              "url": "https://1024terabox.com/s/14ASevjvDX9sXuWklyz7fKw"
             }
           ]
         },
@@ -4957,27 +5254,30 @@
           "quality": "480p",
           "size": "149.50 MB",
           "duration": "37:00",
+          "url": "https://1024terabox.com/s/1-trlN9VTXRVOkLgRnPxX2Q",
           "versions": [
             {
               "id": "ehuE1532",
               "quality": "480p",
               "size": "149.50 MB",
-              "duration": "37:00"
+              "duration": "37:00",
+              "url": "https://1024terabox.com/s/1-trlN9VTXRVOkLgRnPxX2Q"
             }
           ]
         }
       ],
       "trending": false,
-      "cid": "c0182"
+      "cid": "c0172"
     },
     {
       "id": "mjpR2077",
       "kind": "series",
-      "title": "Thats So Raven",
+      "title": "That's So Raven",
       "category": "series,Drama",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/thumb_6988d7d8448d0.jpg",
       "year": "",
       "quality": "480p",
+      "duration": "22:38",
       "seasons": [
         1
       ],
@@ -4990,27 +5290,30 @@
           "quality": "480p",
           "size": "503.88 MB",
           "duration": "22:38",
+          "url": "https://1024terabox.com/s/1kBIqw-S-MHwjdCOlSACmOA",
           "versions": [
             {
               "id": "mjpR2077",
               "quality": "480p",
               "size": "503.88 MB",
-              "duration": "22:38"
+              "duration": "22:38",
+              "url": "https://1024terabox.com/s/1kBIqw-S-MHwjdCOlSACmOA"
             }
           ]
         }
       ],
       "trending": false,
-      "cid": "c0183"
+      "cid": "c0173"
     },
     {
       "id": "tUue2080",
       "kind": "series",
       "title": "The Idol",
-      "category": "series,Drama",
+      "category": "series,Hindi",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/thumb_696ff56bc1121.jpg",
       "year": "",
       "quality": "720p",
+      "duration": "54:29",
       "seasons": [
         1
       ],
@@ -5023,12 +5326,14 @@
           "quality": "720p",
           "size": "334.17 MB",
           "duration": "54:29",
+          "url": "https://1024terabox.com/s/107kJirNp2RgzqmNq9VOibw",
           "versions": [
             {
               "id": "tUue2080",
               "quality": "720p",
               "size": "334.17 MB",
-              "duration": "54:29"
+              "duration": "54:29",
+              "url": "https://1024terabox.com/s/107kJirNp2RgzqmNq9VOibw"
             }
           ]
         },
@@ -5040,12 +5345,14 @@
           "quality": "720p",
           "size": "315.62 MB",
           "duration": "52:00",
+          "url": "https://1024terabox.com/s/1E3dQA5IcmlB9DNILWMPhCw",
           "versions": [
             {
               "id": "nwKB2081",
               "quality": "720p",
               "size": "315.62 MB",
-              "duration": "52:00"
+              "duration": "52:00",
+              "url": "https://1024terabox.com/s/1E3dQA5IcmlB9DNILWMPhCw"
             }
           ]
         },
@@ -5057,12 +5364,14 @@
           "quality": "720p",
           "size": "255.52 MB",
           "duration": "45:54",
+          "url": "https://1024terabox.com/s/1XItmzdoncWzEehSt2-K1JA",
           "versions": [
             {
               "id": "dMZK2082",
               "quality": "720p",
               "size": "255.52 MB",
-              "duration": "45:54"
+              "duration": "45:54",
+              "url": "https://1024terabox.com/s/1XItmzdoncWzEehSt2-K1JA"
             }
           ]
         },
@@ -5074,12 +5383,14 @@
           "quality": "720p",
           "size": "375.14 MB",
           "duration": "59:45",
+          "url": "https://1024terabox.com/s/1xEk7dR1tVk9bNLIccU_D9g",
           "versions": [
             {
               "id": "ktIQ2083",
               "quality": "720p",
               "size": "375.14 MB",
-              "duration": "59:45"
+              "duration": "59:45",
+              "url": "https://1024terabox.com/s/1xEk7dR1tVk9bNLIccU_D9g"
             }
           ]
         },
@@ -5091,27 +5402,30 @@
           "quality": "720p",
           "size": "431.67 MB",
           "duration": "01:05:02",
+          "url": "https://1024terabox.com/s/1yIpVAQERgNHrASSGUG5l7Q",
           "versions": [
             {
               "id": "FvhZ2084",
               "quality": "720p",
               "size": "431.67 MB",
-              "duration": "01:05:02"
+              "duration": "01:05:02",
+              "url": "https://1024terabox.com/s/1yIpVAQERgNHrASSGUG5l7Q"
             }
           ]
         }
       ],
       "trending": false,
-      "cid": "c0184"
+      "cid": "c0174"
     },
     {
       "id": "Hsro2087",
       "kind": "series",
       "title": "The Lost Tomb",
-      "category": "series,Drama",
+      "category": "series,Chinese Drama",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1lQEa7R4U4FDraprPsV3OLw_The.Lost.Tomb.S01E05.720p.YT.WEB-DL.AAC2.0.x264-ka.webp",
       "year": "",
       "quality": "720p",
+      "duration": "36:55",
       "seasons": [
         1
       ],
@@ -5124,12 +5438,14 @@
           "quality": "720p",
           "size": "146.86 MB",
           "duration": "36:55",
+          "url": "https://1024terabox.com/s/1lQEa7R4U4FDraprPsV3OLw",
           "versions": [
             {
               "id": "Hsro2087",
               "quality": "720p",
               "size": "146.86 MB",
-              "duration": "36:55"
+              "duration": "36:55",
+              "url": "https://1024terabox.com/s/1lQEa7R4U4FDraprPsV3OLw"
             }
           ]
         },
@@ -5141,12 +5457,14 @@
           "quality": "720p",
           "size": "95.43 MB",
           "duration": "39:28",
+          "url": "https://1024terabox.com/s/1MslxAbbh4N-fGqpSA_O8tA",
           "versions": [
             {
               "id": "Tlat2088",
               "quality": "720p",
               "size": "95.43 MB",
-              "duration": "39:28"
+              "duration": "39:28",
+              "url": "https://1024terabox.com/s/1MslxAbbh4N-fGqpSA_O8tA"
             }
           ]
         },
@@ -5158,12 +5476,14 @@
           "quality": "720p",
           "size": "94.88 MB",
           "duration": "39:06",
+          "url": "https://1024terabox.com/s/1fHWYwGMeIweEDg0S4z2qPw",
           "versions": [
             {
               "id": "YtfW2089",
               "quality": "720p",
               "size": "94.88 MB",
-              "duration": "39:06"
+              "duration": "39:06",
+              "url": "https://1024terabox.com/s/1fHWYwGMeIweEDg0S4z2qPw"
             }
           ]
         },
@@ -5175,12 +5495,14 @@
           "quality": "720p",
           "size": "318.58 MB",
           "duration": "38:22",
+          "url": "https://1024terabox.com/s/1WHF-u5eMAwKR69UhmItGWA",
           "versions": [
             {
               "id": "jLpQ2090",
               "quality": "720p",
               "size": "318.58 MB",
-              "duration": "38:22"
+              "duration": "38:22",
+              "url": "https://1024terabox.com/s/1WHF-u5eMAwKR69UhmItGWA"
             }
           ]
         },
@@ -5192,12 +5514,14 @@
           "quality": "720p",
           "size": "108.78 MB",
           "duration": "40:42",
+          "url": "https://1024terabox.com/s/1YLZqOfJITFUoNDeU-Xoveg",
           "versions": [
             {
               "id": "zBKT2091",
               "quality": "720p",
               "size": "108.78 MB",
-              "duration": "40:42"
+              "duration": "40:42",
+              "url": "https://1024terabox.com/s/1YLZqOfJITFUoNDeU-Xoveg"
             }
           ]
         },
@@ -5209,12 +5533,14 @@
           "quality": "720p",
           "size": "298.14 MB",
           "duration": "40:45",
+          "url": "https://1024terabox.com/s/1gxrdo-dVTnSkbsRfHAFQQg",
           "versions": [
             {
               "id": "CFUi2092",
               "quality": "720p",
               "size": "298.14 MB",
-              "duration": "40:45"
+              "duration": "40:45",
+              "url": "https://1024terabox.com/s/1gxrdo-dVTnSkbsRfHAFQQg"
             }
           ]
         },
@@ -5226,27 +5552,30 @@
           "quality": "720p",
           "size": "150.82 MB",
           "duration": "39:22",
+          "url": "https://1024terabox.com/s/1cYVNZmwnmDceWDMcFwXDRw",
           "versions": [
             {
               "id": "XurM2093",
               "quality": "720p",
               "size": "150.82 MB",
-              "duration": "39:22"
+              "duration": "39:22",
+              "url": "https://1024terabox.com/s/1cYVNZmwnmDceWDMcFwXDRw"
             }
           ]
         }
       ],
       "trending": false,
-      "cid": "c0185"
+      "cid": "c0175"
     },
     {
       "id": "wAMy2105",
       "kind": "series",
       "title": "The Woman in the House",
-      "category": "series,Bollywood",
+      "category": "series,Hindi",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1ZvS005cTnZvLBMiaXKaReQ_The.Woman.in.the.House..S01E08.720p.10bit.WEB-DL.H.jpg",
       "year": "",
       "quality": "720p",
+      "duration": "25:47",
       "seasons": [
         1
       ],
@@ -5259,27 +5588,30 @@
           "quality": "720p",
           "size": "148.82 MB",
           "duration": "25:47",
+          "url": "https://1024terabox.com/s/1ZvS005cTnZvLBMiaXKaReQ",
           "versions": [
             {
               "id": "wAMy2105",
               "quality": "720p",
               "size": "148.82 MB",
-              "duration": "25:47"
+              "duration": "25:47",
+              "url": "https://1024terabox.com/s/1ZvS005cTnZvLBMiaXKaReQ"
             }
           ]
         }
       ],
-      "trending": false,
-      "cid": "c0186"
+      "trending": true,
+      "cid": "c0176"
     },
     {
       "id": "aLJB29",
       "kind": "series",
-      "title": "TO BE HERO X",
+      "title": "To Be Hero X",
       "category": "series,Anime",
       "thumbnail": "https://cdn.teraviralhub.com/thumbnails/1ThrMIjScBP9CyDwUZzNB0A__AnimesTotais__TO.BE.HERO.X.S01E01.1080p.CR.WEB-DL.jpg",
       "year": "",
       "quality": "1080p",
+      "duration": "23:40",
       "seasons": [
         1
       ],
@@ -5292,18 +5624,20 @@
           "quality": "1080p",
           "size": "1.41 GB",
           "duration": "23:40",
+          "url": "https://1024terabox.com/s/1ThrMIjScBP9CyDwUZzNB0A",
           "versions": [
             {
               "id": "aLJB29",
               "quality": "1080p",
               "size": "1.41 GB",
-              "duration": "23:40"
+              "duration": "23:40",
+              "url": "https://1024terabox.com/s/1ThrMIjScBP9CyDwUZzNB0A"
             }
           ]
         }
       ],
       "trending": false,
-      "cid": "c0187"
+      "cid": "c0177"
     },
     {
       "id": "pKKe2553",
@@ -5313,6 +5647,7 @@
       "thumbnail": "https://files.catbox.moe/sh3mp1.jpg",
       "year": "",
       "quality": "1080p",
+      "duration": "53m 22s",
       "seasons": [
         1
       ],
@@ -5325,18 +5660,20 @@
           "quality": "1080p",
           "size": "532.91 MB",
           "duration": "53m 22s",
+          "url": "https://1024terabox.com/s/1lmqqUekI50km0wu1ks3wUQ",
           "versions": [
             {
               "id": "pKKe2553",
               "quality": "1080p",
               "size": "532.91 MB",
-              "duration": "53m 22s"
+              "duration": "53m 22s",
+              "url": "https://1024terabox.com/s/1lmqqUekI50km0wu1ks3wUQ"
             }
           ]
         }
       ],
       "trending": false,
-      "cid": "c0188"
+      "cid": "c0178"
     }
   ]
 }
