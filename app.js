@@ -1,6 +1,6 @@
 (function () {
   const C = Object.assign(
-    { API_BASE: "", LIBRARY_PATH: "data/library.json", PAGE_SIZE: 20, SECTION_COUNT: 4, MAX_HOME_SECTIONS: 5, HERO_SLIDES: 5, DEMO_VIDEO: "" },
+    { API_BASE: "", LIBRARY_PATH: "data/library.json", PAGE_SIZE: 20, SECTION_COUNT: 4, MAX_HOME_SECTIONS: 4, HERO_SLIDES: 4, DEMO_VIDEO: "", PLAY_PATHS: ["/play","/stream","/api/play"] },
     window.TFP_CONFIG || {}
   );
   const K = { users: "tfp_users_v2", session: "tfp_session_v2", history: "tfp_history_v2" };
@@ -61,7 +61,104 @@
     </button>`;
   }
 
-  const srcFor = (id) => (C.API_BASE ? `${C.API_BASE.replace(/\/$/, "")}/play?id=${encodeURIComponent(id)}` : C.DEMO_VIDEO);
+  function authHeaders() {
+    const h = { "Accept": "application/json" };
+    const key = (window.TFP_SECRETS && window.TFP_SECRETS.practiceKey) || "";
+    if (key) h["X-Practice-Key"] = key;
+    return h;
+  }
+
+  function extractPlayUrl(data) {
+    if (!data) return null;
+    // Direct fields
+    if (typeof data.url === "string" && data.url) return { url: data.url, fallback: data.fallbackUrl || data.fallback || null, thumb: data.thumbnail || "" };
+    if (typeof data.playUrl === "string" && data.playUrl) return { url: data.playUrl, fallback: data.fallbackUrl || null, thumb: data.thumbnail || "" };
+    // Terabox-style list response
+    const file = (data.list && data.list[0]) || data.file || data;
+    if (!file || typeof file !== "object") return null;
+    let playUrl = null;
+    let usingFast = false;
+    if (file.fast_stream_url && typeof file.fast_stream_url === "object") {
+      const qualities = Object.keys(file.fast_stream_url);
+      if (qualities.length) {
+        qualities.sort((a, b) => (parseInt(b, 10) || 0) - (parseInt(a, 10) || 0));
+        playUrl = file.fast_stream_url[qualities[0]];
+        usingFast = !!playUrl;
+      }
+    }
+    const fallback = file.stream_url || file.streamUrl || file.download_url || null;
+    if (!playUrl) playUrl = fallback;
+    if (!playUrl && typeof file.url === "string") playUrl = file.url;
+    if (!playUrl) return null;
+    return { url: playUrl, fallback: (fallback && fallback !== playUrl) ? fallback : null, thumb: file.thumbnail || "", usingFast };
+  }
+
+  async function resolveStream(id) {
+    const base = (C.API_BASE || "").replace(/\/$/, "");
+    if (!base) {
+      if (C.DEMO_VIDEO) return { url: C.DEMO_VIDEO, fallback: null, demo: true };
+      throw new Error("Stream API is not configured");
+    }
+    const paths = C.PLAY_PATHS || ["/play", "/stream", "/api/play"];
+    let lastErr = null;
+    for (const path of paths) {
+      const url = base + path + (path.includes("?") ? "&" : "?") + "id=" + encodeURIComponent(id);
+      try {
+        const r = await fetch(url, { headers: authHeaders(), cache: "no-store" });
+        if (r.status === 404) { lastErr = "Not found"; continue; }
+        if (!r.ok) { lastErr = "HTTP " + r.status; continue; }
+        const data = await r.json();
+        const extracted = extractPlayUrl(data);
+        if (extracted && extracted.url) return extracted;
+        // Some APIs return the URL as plain redirect info
+        if (data && data.status === "success") {
+          const ex = extractPlayUrl(data);
+          if (ex) return ex;
+        }
+        lastErr = "No playable URL in response";
+      } catch (e) {
+        lastErr = e.message || "Network error";
+      }
+    }
+    // POST fallback (some workers only accept POST)
+    try {
+      const r = await fetch(base + "/play", {
+        method: "POST",
+        headers: { ...authHeaders(), "Content-Type": "application/json" },
+        body: JSON.stringify({ id }),
+        cache: "no-store",
+      });
+      if (r.ok) {
+        const data = await r.json();
+        const extracted = extractPlayUrl(data);
+        if (extracted && extracted.url) return extracted;
+      } else lastErr = "HTTP " + r.status;
+    } catch (e) {
+      lastErr = e.message || lastErr;
+    }
+    if (C.DEMO_VIDEO) return { url: C.DEMO_VIDEO, fallback: null, demo: true };
+    throw new Error(lastErr || "Could not resolve stream");
+  }
+
+  function isHls(url) {
+    return /\.m3u8($|\?)/i.test(url || "") || /m3u8/i.test(url || "");
+  }
+
+  async function attachStream(video, stream) {
+    if (!video || !stream || !stream.url) return;
+    const tryUrl = async (u) => {
+      video.src = u;
+      try { await video.play(); } catch (_) { /* autoplay policies */ }
+    };
+    await tryUrl(stream.url);
+    video.addEventListener("error", async function onErr() {
+      video.removeEventListener("error", onErr);
+      if (stream.fallback && stream.fallback !== stream.url) {
+        toast("Retrying fallback stream…");
+        await tryUrl(stream.fallback);
+      }
+    }, { once: true });
+  }
 
   async function loadLibrary() {
     try {
@@ -320,8 +417,10 @@
     player.innerHTML = `
       <div class="pl-top"><button class="back-btn" data-back type="button" aria-label="Close">${ICON.back}</button>
         <div class="pl-title">${esc(item.title)}</div></div>
-      <div class="pl-video"><video id="vid" controls playsinline preload="metadata" src="${esc(srcFor(vid))}"></video>
-        ${C.API_BASE ? "" : '<div class="pl-note">Demo video</div>'}</div>
+      <div class="pl-video">
+        <video id="vid" controls playsinline preload="metadata"></video>
+        <div class="pl-loading" id="plLoad"><div class="spin"></div><span>Loading stream…</span></div>
+      </div>
       <div class="pl-info"><h1>${esc(label)}</h1>
         <div class="pl-meta">${esc((item._genres || []).join(" · "))}${item.year ? " · " + esc(item.year) : ""}${quality ? " · " + esc(quality) : ""}</div>
         <div class="pl-acts">
@@ -336,7 +435,26 @@
       <div class="related-grid">${rel.map((it) => mediaCard(it)).join("") || '<div class="empty">No related titles</div>'}</div>`;
     if (item.kind === "series") renderEpisodes();
     const v = $("#vid");
-    if (v) { v.addEventListener("ended", nextEpisode); const p = v.play(); if (p && p.catch) p.catch(() => {}); }
+    if (v) {
+      v.addEventListener("ended", nextEpisode);
+      (async () => {
+        const loadEl = $("#plLoad");
+        try {
+          const stream = await resolveStream(vid);
+          if (loadEl) loadEl.remove();
+          if (stream.demo) {
+            const note = document.createElement("div");
+            note.className = "pl-note";
+            note.textContent = "Demo / fallback";
+            v.parentElement.appendChild(note);
+          }
+          await attachStream(v, stream);
+        } catch (err) {
+          if (loadEl) loadEl.innerHTML = `<div class="pl-err">Could not load stream.<br>${esc(err.message || err)}<br><small>Check API Worker / secrets.js</small></div>`;
+          toast("Stream unavailable");
+        }
+      })();
+    }
   }
 
   function renderEpisodes() {
@@ -371,7 +489,7 @@
     const reg = S.authMode === "register";
     $("#loginSheet").innerHTML = `
       <div class="grip"></div>
-      <h2>${reg ? "Create account" : "Welcome back"}</h2>
+      <h2 id="authTitle">${reg ? "Create account" : "Welcome back"}</h2>
       <p class="sub">${esc(msg || "Sign in to watch titles and keep your history.")}</p>
       <form id="authForm" novalidate>
         ${reg ? `<label class="field"><span>Name</span><input name="name" type="text" autocomplete="name" required placeholder="Your name"></label>` : ""}
@@ -459,7 +577,20 @@
       <section><div class="sec-head"><h2>&nbsp;</h2></div><div class="row">${'<div class="card-media skel"></div>'.repeat(4)}</div></section>`;
   }
 
+  function loadSecrets() {
+    return new Promise((resolve) => {
+      if (window.TFP_SECRETS) return resolve();
+      const s = document.createElement("script");
+      s.src = "secrets.js";
+      s.async = true;
+      s.onload = () => resolve();
+      s.onerror = () => resolve(); // missing is fine
+      document.head.appendChild(s);
+      setTimeout(resolve, 800);
+    });
+  }
   async function init() {
+    await loadSecrets();
     restoreSession();
     skeleton();
     await loadLibrary();

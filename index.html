@@ -3,64 +3,89 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="robots" content="noindex, nofollow">
+<title>TeraFast Play — Watch Movies & Web Series Online</title>
+<meta name="description" content="Stream movies and web series on TeraFast Play. Fast browse, HD quality, continue watching, and a clean mobile-friendly player.">
+<meta name="keywords" content="movies, web series, stream, watch online, HD, TeraFast Play">
+<meta name="author" content="TeraFast Play">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#0a0a0c">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://mdnazmul582379.github.io/Site-Check/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TeraFast Play">
+<meta property="og:title" content="TeraFast Play — Movies & Web Series">
+<meta property="og:description" content="Browse and watch movies and series with a fast, mobile-first streaming UI.">
+<meta property="og:url" content="https://mdnazmul582379.github.io/Site-Check/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TeraFast Play">
+<meta name="twitter:description" content="Watch movies and web series online.">
+
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="TeraFast">
+<meta name="application-name" content="TeraFast Play">
+
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon.svg">
-<title>TeraFast Play</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://cdn.teraviralhub.com" crossorigin>
+<link rel="dns-prefetch" href="https://movie-proxy.adsterrapremium00001.workers.dev">
+<link rel="preload" href="styles.css" as="style">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"TeraFast Play","url":"https://mdnazmul582379.github.io/Site-Check/","potentialAction":{"@type":"SearchAction","target":"https://mdnazmul582379.github.io/Site-Check/?q={search_term_string}","query-input":"required name=search_term_string"}}
+</script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <div class="app" id="app">
   <header class="top">
     <div class="top-row">
-      <div class="logo"><span class="logo-mark"></span><b>TeraFast</b><span>Play</span></div>
+      <div class="logo" role="banner"><span class="logo-mark" aria-hidden="true"></span><b>TeraFast</b><span>Play</span></div>
       <button class="avatar" id="avatarBtn" type="button" aria-label="Profile">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
       </button>
     </div>
-    <form class="search" id="searchForm" autocomplete="off">
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
-      <input id="searchInput" type="search" placeholder="Search movies, series..." enterkeyhint="search">
+    <form class="search" id="searchForm" role="search" autocomplete="off">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <input id="searchInput" type="search" name="q" placeholder="Search movies, series..." enterkeyhint="search" aria-label="Search">
       <button class="search-btn" type="submit">Search</button>
     </form>
-    <nav class="tabs" id="tabs"></nav>
+    <nav class="tabs" id="tabs" aria-label="Categories"></nav>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <div class="skel-wrap" aria-hidden="true">
       <div class="skel skel-hero"></div>
-      <div class="skel-row"><div class="skel"></div><div class="skel"></div></div>
       <div class="skel-row"><div class="skel"></div><div class="skel"></div></div>
     </div>
   </main>
 
-  <nav class="bottom-nav" id="bottomNav">
+  <nav class="bottom-nav" id="bottomNav" aria-label="Primary">
     <button data-nav="home" class="active" type="button">
-      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg><span>Home</span>
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg><span>Home</span>
     </button>
     <button data-nav="downloads" type="button">
-      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg><span>Downloads</span>
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg><span>Downloads</span>
     </button>
     <button data-nav="me" type="button">
-      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg><span>Me</span>
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg><span>Me</span>
     </button>
   </nav>
-  <div class="toast" id="toast"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </div>
 
 <section class="player hidden" id="player" aria-label="Video player"></section>
+<div class="overlay hidden" id="loginOverlay"><div class="sheet" id="loginSheet" role="dialog" aria-modal="true" aria-labelledby="authTitle"></div></div>
 
-<div class="overlay hidden" id="loginOverlay"><div class="sheet" id="loginSheet" role="dialog" aria-modal="true"></div></div>
+<script src="config.js" defer></script>
 
-<script src="config.js"></script>
-<script src="app.js"></script>
+<script src="app.js" defer></script>
 </body>
 </html>

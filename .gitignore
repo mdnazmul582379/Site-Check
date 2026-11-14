@@ -1,2 +1,6 @@
 private_playlinks.json
 *_private*.json
+
+# local secrets — never commit
+secrets.js
+config.local.js

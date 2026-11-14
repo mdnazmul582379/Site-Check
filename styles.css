@@ -178,3 +178,10 @@ body.in-player .app{display:none}
 section{content-visibility:auto;contain-intrinsic-size:auto 280px}
 .card-media img{background:#151820}
 .slide img{background:#151820}
+
+.skip-link{position:absolute;left:-999px;top:0;background:var(--brand);color:#04140a;padding:8px 12px;z-index:100;font-weight:700;border-radius:0 0 8px 0}
+.skip-link:focus{left:0}
+.pl-loading{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.55);z-index:3;color:#fff;font-size:13px;gap:10px}
+.pl-loading .spin{width:36px;height:36px;border:3px solid rgba(255,255,255,.2);border-top-color:var(--brand);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.pl-err{padding:20px 16px;color:var(--danger);font-size:14px;line-height:1.5}
