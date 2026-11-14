@@ -145,7 +145,7 @@
         <button class="slide" data-id="${esc(it.id)}" type="button" style="${artStyle(it.title)}">
           <img src="${esc(it.thumbnail)}" alt="" onerror="this.remove()">
           <div class="sov"><h1>${esc(it.title)}</h1>
-            <div class="smeta">${esc(it._genres.join(" · "))}${it.year ? " · " + esc(it.year) : ""}</div>
+            <div class="chips-row">${it.quality ? `<span class="meta-chip hd">${esc(it.quality)}</span>` : ""}${it.year ? `<span class="meta-chip">${esc(it.year)}</span>` : ""}<span class="meta-chip">${esc(it._genres[0] || "")}</span></div>
             <span class="spill">${ICON.play} প্লে করুন</span></div></button>`).join("")}</div>
         <div class="dots" id="dots">${slides.map((_, i) => `<i class="${i ? "" : "on"}"></i>`).join("")}</div></section>`;
     }
@@ -418,8 +418,14 @@
 
   // ---------- carousel কনটেন্ট দেখে, কোনো পেজে পরিবর্তন নেই ----------
   // ---------- শুরু ----------
+  function skeleton() {
+    main.innerHTML = `<section class="car"><div class="car-track"><div class="slide sk"></div></div></section>
+      <div class="sec-head"><h2>&nbsp;</h2></div><div class="cats">${'<div class="cat sk"></div>'.repeat(3)}</div>
+      <section><div class="sec-head"><h2>&nbsp;</h2></div><div class="row">${'<div class="tile sk"></div>'.repeat(4)}</div></section>`;
+  }
   async function init() {
     restoreSession();
+    skeleton();
     await loadLibrary();
     render();
     if (!S.user) { S.authMode = "login"; openLogin(); }

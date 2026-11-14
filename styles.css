@@ -195,3 +195,29 @@ button,input{font-family:inherit}
 .em-ico{width:48px;height:48px;margin:0 auto 12px;border-radius:14px;background:var(--card2);display:grid;place-items:center;font-size:20px;color:var(--muted)}
 
 @media(min-width:720px){.sec-head h2{font-size:20px}}
+
+/* ===== পলিশ: স্কেলিটন, প্রেস ইফেক্ট, নেভ ইন্ডিকেটর, মেটা চিপ ===== */
+@keyframes shimmer{0%{background-position:-400px 0}100%{background-position:400px 0}}
+.sk{background:linear-gradient(90deg,#1b1e27 0%,#262a35 50%,#1b1e27 100%);background-size:800px 100%;animation:shimmer 1.4s linear infinite;border:0}
+.slide.sk{aspect-ratio:16/9}
+.cat.sk{aspect-ratio:16/9}
+.tile.sk{aspect-ratio:16/9}
+
+.tile,.slide,.cat,.pill-btn,.search-btn,.avatar,.more,.pl-acts button,.menu-item,.chip,.ep{transition:transform .15s ease,opacity .15s ease,border-color .2s ease}
+.tile:active,.slide:active,.cat:active,.ep:active,.chip:active,.pl-acts button:active{transform:scale(.97)}
+.tile:hover{border-color:rgba(39,224,166,.4)}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:8px}
+
+.chips-row{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.meta-chip{font-size:11px;font-weight:600;background:rgba(255,255,255,.14);backdrop-filter:blur(6px);color:#f0f1f5;padding:3px 9px;border-radius:999px}
+.meta-chip.hd{background:var(--brand);color:#06130f}
+
+.bottom-nav button{position:relative;padding-top:4px}
+.bottom-nav button.active::before{content:"";position:absolute;top:-9px;left:50%;transform:translateX(-50%);width:28px;height:3px;border-radius:3px;background:var(--brand)}
+.bottom-nav button.active{font-weight:700}
+
+.sec-head{align-items:baseline}
+.sec-head h2{letter-spacing:.1px}
+.tile .t{font-size:12.5px}
+.slide{box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.tile{box-shadow:0 4px 14px rgba(0,0,0,.35)}
