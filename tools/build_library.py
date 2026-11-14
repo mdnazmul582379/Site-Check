@@ -47,6 +47,15 @@ def year_of(name):
 
 def genre_of(name, source, adult):
     if adult:
+        n = name.lower()
+        if re.search(r"tagalog|vivamax|filipino|pinoy|pilipino|\bang\b|\bng\b|\bkay\b|\bmga\b", n):
+            return "Filipino"
+        if re.search(r"korean|cashero|doctor stranger|\bk-?drama", n):
+            return "Korean"
+        if "chinese" in n:
+            return "Chinese"
+        if re.search(r"hindi|lovely ladies|araro|bandi|locust", n):
+            return "Hindi"
         return "Adult"
     n = name.lower()
     if "anime" in source.lower():
@@ -69,6 +78,8 @@ def genre_of(name, source, adult):
 
 def main():
     src_dir, pub_out, priv_out = sys.argv[1:4]
+    overrides_path = sys.argv[4] if len(sys.argv) > 4 else None
+    cats_out = os.path.join(os.path.dirname(os.path.abspath(pub_out)), "categories.csv")
     records = []
     for f in sorted(glob.glob(os.path.join(src_dir, "*.json"))):
         src = os.path.basename(f)
@@ -144,6 +155,24 @@ def main():
         else:
             items.append(make_movie_group(plain, title, adult, genre, version))
 
+    # ম্যানুয়াল ওভাররাইড: categories.csv-এ title,type,genre — আপনি এখানে জেনার বদলাতে পারবেন
+    if overrides_path and os.path.exists(overrides_path):
+        import csv
+        ov = {}
+        with open(overrides_path, encoding="utf-8-sig") as f:
+            for row in csv.DictReader(f):
+                t = (row.get("title") or "").strip().lower()
+                if t and (row.get("genre") or "").strip():
+                    ov[t] = ((row.get("type") or "movie").strip().lower(), row["genre"].strip())
+        applied = 0
+        for it in items:
+            key = it["title"].strip().lower()
+            if key in ov:
+                typ, genre = ov[key]
+                it["category"] = f"{typ},{genre}"
+                applied += 1
+        print(f"ওভাররাইড প্রয়োগ: {applied}")
+
     items.sort(key=lambda it: (it["category"].split(",")[0], it["title"].lower()))
     for i, it in enumerate(items):
         it["trending"] = i % 9 == 0   # একটা সাধারণ ট্রেন্ডিং নমুনা (পরে বদলানো যাবে)
@@ -157,6 +186,20 @@ def main():
         f.write(dump)
     with open(priv_out, "w", encoding="utf-8") as f:
         json.dump(private, f, ensure_ascii=False, indent=2)
+
+    import csv
+    with open(cats_out, "w", encoding="utf-8-sig", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["title", "type", "genre", "kind", "cards_count_hint"])
+        seen = set()
+        for it in items:
+            key = it["title"].strip().lower()
+            if key in seen:
+                continue
+            seen.add(key)
+            typ, genre = it["category"].split(",", 1)
+            w.writerow([it["title"], typ, genre, it["kind"], len(it.get("episodes", it.get("versions", [])))])
+    print(f"ক্যাটাগরি ফাইল: {cats_out}")
 
     series = [i for i in items if i["kind"] == "series"]
     movies = [i for i in items if i["kind"] == "movie"]

@@ -131,3 +131,42 @@ main{padding:0 0 12px}
 .ep small{font-size:10px;color:var(--muted)}
 .ep:active{border-color:var(--brand)}
 @media(min-width:720px){.ep-grid{grid-template-columns:repeat(6,1fr)}}
+
+/* ===== নতুন UI: হেডার সলিড, ক্যারাসেল, ১৬:৯ থাম্বনেইল কার্ড ===== */
+.top{background:var(--bg);box-shadow:0 1px 0 var(--line)}
+.top-gap{margin-top:20px}
+
+/* ক্যারাসেল: একটা স্লাইড পুরো + পরেরটা একটু দেখা যায়, সোয়াইপ করলে পরেরটা */
+.car{margin-top:14px}
+.car-track{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 7%;scroll-padding:0 7%;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.car-track::-webkit-scrollbar{display:none}
+.slide{position:relative;flex:0 0 86%;scroll-snap-align:center;aspect-ratio:16/9;border-radius:14px;overflow:hidden;text-align:left;background-size:cover}
+.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sov{position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(0,0,0,.88));display:flex;flex-direction:column;justify-content:flex-end;padding:14px}
+.sov h1{font-size:18px;font-weight:800;line-height:1.2;text-shadow:0 1px 4px rgba(0,0,0,.5)}
+.smeta{font-size:12px;color:#dfe1e8;margin-top:4px}
+.spill{align-self:flex-start;margin-top:10px;display:inline-flex;align-items:center;gap:6px;background:var(--brand);color:#06130f;font-weight:700;border-radius:999px;padding:7px 14px;font-size:13px}
+.dots{display:flex;justify-content:center;gap:6px;margin-top:10px}
+.dots i{width:6px;height:6px;border-radius:50%;background:#3a3c48;transition:.25s}
+.dots i.on{width:18px;border-radius:4px;background:var(--brand)}
+
+/* ক্যাটাগরি ঘর: 16:9, সারিতে স্ক্রল */
+.cats{display:flex;gap:10px;overflow-x:auto;padding:0 14px 4px;scrollbar-width:none}
+.cats::-webkit-scrollbar{display:none}
+.cat{flex:0 0 58%;aspect-ratio:16/9;border-radius:12px;position:relative;overflow:hidden;text-align:left;padding:10px;display:flex;flex-direction:column;justify-content:flex-end;background-size:cover}
+.cat::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 30%,rgba(0,0,0,.7))}
+.cat span,.cat small{position:relative;z-index:1}
+.cat span{font-weight:800;font-size:15px}
+.cat small{font-size:11px;color:#d7d9e0}
+@media(min-width:720px){.cat{flex:0 0 26%}.slide{flex:0 0 60%}}
+
+/* ১৬:৯ কার্ড (শুধু থাম্বনেইল, টেক্সট ওভারলেতে) */
+.tile{position:relative;display:block;width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background-size:cover;text-align:left;border:1px solid var(--line)}
+.tile .thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tile .q{position:absolute;top:6px;left:6px;z-index:1;background:rgba(0,0,0,.55);font-size:10px;font-weight:700;padding:2px 6px;border-radius:5px}
+.tile .ov{position:absolute;inset:auto 0 0 0;z-index:1;padding:22px 8px 7px;background:linear-gradient(transparent,rgba(0,0,0,.85))}
+.tile .t{font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.row{gap:8px}
+.grid{gap:8px}
+.dart img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dart{position:relative}

@@ -53,16 +53,14 @@
   const PLAY_ICON = '<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
   const CHEV = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg>';
 
-  function card(it) {
-    return `<button class="card" data-id="${esc(it.id)}" type="button">
-      <div class="art" style="${artStyle(it.title)}">
-        <span>${esc(it.quality || "HD")}</span>
-        <em>${esc((it.title || "?").charAt(0))}</em>
-      </div>
-      <div class="title">${esc(it.title)}</div>
-      <div class="sub">${esc(it._genre)} · ${esc(it.year || "")}</div>
+  function tile(it) {
+    return `<button class="tile" data-id="${esc(it.id)}" type="button" style="${artStyle(it.title)}">
+      <img class="thumb" loading="lazy" src="${esc(it.thumbnail || "")}" alt="" onerror="this.remove()">
+      ${it.quality ? `<span class="q">${esc(it.quality)}</span>` : ""}
+      <div class="ov"><div class="t">${esc(it.title)}</div></div>
     </button>`;
   }
+  const card = tile;
 
   // ---------- data ----------
   async function loadLibrary() {
@@ -83,8 +81,7 @@
     return it._type === S.tab;
   }
   function tabItems() {
-    const base = S.items.filter(inTab);
-    return base.length || S.tab !== "trending" ? base : S.items;
+    return S.tab === "trending" ? S.items : S.items.filter(inTab);
   }
 
   // ---------- render: tabs ----------
@@ -95,31 +92,67 @@
   }
 
   // ---------- render: home ----------
+  function groupsOf(list) {
+    const m = new Map();
+    for (const it of list) {
+      for (const g of (it._genres.length ? it._genres : ["Others"])) {
+        if (!m.has(g)) m.set(g, []);
+        m.get(g).push(it);
+      }
+    }
+    return [...m.entries()].sort((a, b) => b[1].length - a[1].length);
+  }
   function renderHome() {
     const list = tabItems();
     if (!list.length) { main.innerHTML = `<div class="empty">এখানে এখনো কোনো কনটেন্ট নেই</div>`; return; }
-    const hero = list[0];
-    let html = `<section class="hero" style="margin:12px 14px 0">
-      <div class="art" style="${artStyle(hero.title)}"></div>
-      <div class="info">
-        <h1>${esc(hero.title)}</h1>
-        <div class="meta">${esc(hero._genres.join(" · "))} ${hero.year ? "· " + hero.year : ""}</div>
-        <button class="play" data-id="${esc(hero.id)}" type="button">${PLAY_ICON} Play</button>
-      </div></section>`;
-
-    const groups = new Map();
-    for (const it of list) {
-      const keys = it._genres.length ? it._genres : ["Others"];
-      for (const g of keys) { if (!groups.has(g)) groups.set(g, []); groups.get(g).push(it); }
+    const slides = [...list].sort((a, b) => (b.trending ? 1 : 0) - (a.trending ? 1 : 0))
+      .filter((it) => it.thumbnail).slice(0, 6);
+    const groups = groupsOf(list);
+    let html = "";
+    if (slides.length) {
+      html += `<section class="car">
+        <div class="car-track" id="carTrack">${slides.map((it) => `
+          <button class="slide" data-id="${esc(it.id)}" type="button" style="${artStyle(it.title)}">
+            <img src="${esc(it.thumbnail)}" alt="" loading="eager" onerror="this.remove()">
+            <div class="sov"><h1>${esc(it.title)}</h1>
+              <div class="smeta">${esc(it._genres.join(" · "))}${it.year ? " · " + esc(it.year) : ""}</div>
+              <span class="spill">${PLAY_ICON} প্লে</span></div>
+          </button>`).join("")}</div>
+        <div class="dots" id="dots">${slides.map((_, i) => `<i class="${i ? "" : "on"}"></i>`).join("")}</div>
+      </section>`;
     }
+    html += `<div class="sec-head top-gap"><h2>ক্যাটাগরি</h2></div>
+      <div class="cats">${groups.map(([g, arr]) => `
+        <button class="cat" data-genre="${esc(g)}" type="button" style="${artStyle(g)}">
+          <span>${esc(g)}</span><small>${arr.length} টি</small></button>`).join("")}</div>`;
     for (const [genre, arr] of groups) {
       html += `<section class="section">
         <div class="sec-head"><h2>${esc(genre)}</h2>
           <button data-genre="${esc(genre)}" type="button">All ${CHEV}</button></div>
-        <div class="row">${arr.slice(0, C.SECTION_COUNT).map(card).join("")}</div>
+        <div class="row">${arr.slice(0, C.SECTION_COUNT).map(tile).join("")}</div>
       </section>`;
     }
     main.innerHTML = html;
+    initCarousel();
+  }
+
+  // carousel: swipe + dots + auto-slide (ইউজার ছুঁলে কিছুক্ষণ থামে)
+  let carTimer = null, carPausedUntil = 0;
+  function initCarousel() {
+    clearInterval(carTimer);
+    const track = document.getElementById("carTrack");
+    if (!track) return;
+    const dots = [...document.querySelectorAll("#dots i")];
+    const idx = () => Math.round(track.scrollLeft / (track.clientWidth * 0.86 + 10)) || 0;
+    const update = () => { const i = Math.min(idx(), dots.length - 1); dots.forEach((d, k) => d.classList.toggle("on", k === i)); };
+    track.addEventListener("scroll", update, { passive: true });
+    track.addEventListener("touchstart", () => { carPausedUntil = Date.now() + 6000; }, { passive: true });
+    track.addEventListener("pointerdown", () => { carPausedUntil = Date.now() + 6000; });
+    carTimer = setInterval(() => {
+      if (Date.now() < carPausedUntil || document.hidden) return;
+      const next = (idx() + 1) % dots.length;
+      track.scrollTo({ left: next * (track.clientWidth * 0.86 + 10), behavior: "smooth" });
+    }, 4000);
   }
 
   // ---------- render: genre grid (20 per page) ----------
@@ -208,7 +241,7 @@
     }
     const first = it.kind === "series" ? it.episodes[0].id : it.id;
     $("#detailSheet").innerHTML = `
-      <div class="dart" style="${artStyle(it.title)}"></div>
+      <div class="dart" style="${artStyle(it.title)}">${it.thumbnail ? `<img src="${esc(it.thumbnail)}" alt="" onerror="this.remove()">` : ""}</div>
       <h2>${esc(it.title)}</h2>
       <div class="meta">${esc(it._genres.join(" · "))} ${it.year ? "· " + it.year : ""} ${it.kind === "series" ? "· " + it.episodes.length + " এপিসোড" : (it.duration ? "· " + esc(it.duration) : "")}</div>
       <div class="acts">
@@ -297,8 +330,8 @@
     }
     const pl = e.target.closest("[data-play]");
     if (pl) { play(pl.dataset.play); return; }
-    const playBtn = e.target.closest(".hero .play");
-    if (playBtn) { play(playBtn.dataset.id); return; }
+    const slide = e.target.closest(".slide");
+    if (slide) { openDetail(slide.dataset.id); return; }
     const c = e.target.closest(".card");
     if (c) openDetail(c.dataset.id);
   });
