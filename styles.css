@@ -172,3 +172,9 @@ body.in-player .app{display:none}
   .row,.grid,.related-grid{grid-template-columns:repeat(5,1fr)}
   .slide{flex:0 0 42%}
 }
+
+
+/* performance */
+section{content-visibility:auto;contain-intrinsic-size:auto 280px}
+.card-media img{background:#151820}
+.slide img{background:#151820}

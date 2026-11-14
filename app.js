@@ -1,6 +1,6 @@
 (function () {
   const C = Object.assign(
-    { API_BASE: "", LIBRARY_PATH: "data/library.json", PAGE_SIZE: 24, SECTION_COUNT: 6, DEMO_VIDEO: "" },
+    { API_BASE: "", LIBRARY_PATH: "data/library.json", PAGE_SIZE: 20, SECTION_COUNT: 4, MAX_HOME_SECTIONS: 5, HERO_SLIDES: 5, DEMO_VIDEO: "" },
     window.TFP_CONFIG || {}
   );
   const K = { users: "tfp_users_v2", session: "tfp_session_v2", history: "tfp_history_v2" };
@@ -53,7 +53,7 @@
     const sub = [it.year, it.quality, it._genres[0]].filter(Boolean).join(" · ");
     return `<button class="card" data-id="${esc(it.id)}" type="button">
       <div class="card-media" style="${artStyle(it.title)}">
-        <img loading="lazy" src="${esc(it.thumbnail || "")}" alt="" onerror="this.remove()">
+        <img loading="lazy" decoding="async" src="${esc(it.thumbnail || "")}" alt="" onerror="this.remove()">
         ${it.quality ? `<span class="q">${esc(it.quality)}</span>` : ""}
       </div>
       <div class="card-title">${esc(it.title)}</div>
@@ -173,13 +173,13 @@
   function renderHome() {
     const list = tabItems();
     if (!list.length) { main.innerHTML = emptyState("No titles in this category yet."); return; }
-    const slides = [...list].sort((a, b) => (b.trending ? 1 : 0) - (a.trending ? 1 : 0)).filter((it) => it.thumbnail).slice(0, 8);
+    const slides = [...list].sort((a, b) => (b.trending ? 1 : 0) - (a.trending ? 1 : 0)).filter((it) => it.thumbnail).slice(0, C.HERO_SLIDES || 5);
     const groups = groupsOf(list);
     let html = "";
     if (slides.length) {
-      html += `<section class="car"><div class="car-track" id="carTrack">${slides.map((it) => `
+      html += `<section class="car"><div class="car-track" id="carTrack">${slides.map((it, hi) => `
         <button class="slide" data-id="${esc(it.id)}" type="button" style="${artStyle(it.title)}">
-          <img src="${esc(it.thumbnail)}" alt="" onerror="this.remove()">
+          <img src="${esc(it.thumbnail)}" alt="" loading="${hi === 0 ? "eager" : "lazy"}" decoding="async" onerror="this.remove()">
           <div class="sov"><h1>${esc(it.title)}</h1>
             <div class="chips-row">${it.quality ? `<span class="meta-chip hd">${esc(it.quality)}</span>` : ""}${it.year ? `<span class="meta-chip">${esc(it.year)}</span>` : ""}${it._genres[0] ? `<span class="meta-chip">${esc(it._genres[0])}</span>` : ""}</div>
             <span class="spill">${ICON.play} Play</span></div></button>`).join("")}</div>
@@ -189,10 +189,15 @@
       <div class="cats">${groups.slice(0, 12).map(([g, arr]) => `
         <button class="cat" data-genre="${esc(g)}" type="button" style="${artStyle(g)}">
           <span>${esc(g)}</span><small>${arr.length} titles</small></button>`).join("")}</div>`;
-    for (const [genre, arr] of groups) {
+    const maxSec = C.MAX_HOME_SECTIONS || 5;
+    const shownGroups = groups.slice(0, maxSec);
+    for (const [genre, arr] of shownGroups) {
       html += `<section><div class="sec-head"><h2>${esc(genre)} <small class="cnt">${arr.length}</small></h2>
         <button data-genre="${esc(genre)}" type="button">See all ${ICON.chev}</button></div>
         <div class="row">${arr.slice(0, C.SECTION_COUNT).map((it) => mediaCard(it)).join("")}</div></section>`;
+    }
+    if (groups.length > maxSec) {
+      html += `<button class="more" id="moreHomeSec" type="button" data-more-home>Show more categories</button>`;
     }
     main.innerHTML = html;
     initCarousel();
@@ -402,6 +407,12 @@
     if (g) { S.genre = g.dataset.genre; S.page = 1; go("genre"); return; }
     if (hit("#backBtn")) { go("home"); return; }
     if (hit("#moreBtn")) { S.page++; renderGenre(); return; }
+    if (hit("[data-more-home]") || hit("#moreHomeSec")) {
+      C.MAX_HOME_SECTIONS = 99;
+      C.SECTION_COUNT = Math.max(C.SECTION_COUNT, 6);
+      renderHome();
+      return;
+    }
     const share = hit("[data-share]");
     if (share) {
       const url = location.href.split("#")[0];
