@@ -19,6 +19,8 @@
     token: localStorage.getItem(TOKEN_KEY) || "",
     loginMode: "login",
     loginDismissed: false,
+    detailId: null,
+    detailSeason: null,
   };
 
   const $ = (s) => document.querySelector(s);
@@ -179,17 +181,41 @@
 
   // ---------- detail ----------
   function openDetail(id) {
-    const it = S.items.find((x) => x.id === id);
+    const it = S.items.find((x) => x.id === id || (x.episodes && x.episodes.some((e) => e.id === id)));
     if (!it) return;
+    S.detailId = it.id;
+    S.detailSeason = it.kind === "series" ? (it.seasons && it.seasons[0]) : null;
+    renderDetail();
+    $("#detailOverlay").classList.remove("hidden");
+  }
+  function renderDetail() {
+    const it = S.items.find((x) => x.id === S.detailId);
+    if (!it) return;
+    let extra = "";
+    if (it.kind === "series") {
+      const seasons = it.seasons || [];
+      const eps = it.episodes.filter((e) => e.season === S.detailSeason);
+      extra = `
+        ${seasons.length > 1 ? `<div class="chips">${seasons.map((s) =>
+          `<button class="chip ${s === S.detailSeason ? "on" : ""}" data-season="${s}" type="button">সিজন ${s}</button>`).join("")}</div>` : ""}
+        <div class="sec-label">এপিসোড (${eps.length})</div>
+        <div class="ep-grid">${eps.map((e) =>
+          `<button class="ep" data-play="${esc(e.id)}" type="button"><b>${esc(e.label)}</b><small>${esc(e.quality || "")}</small></button>`).join("")}</div>`;
+    } else if (it.versions && it.versions.length > 1) {
+      extra = `<div class="sec-label">কোয়ালিটি বেছে নিন</div>
+        <div class="chips">${it.versions.map((v) =>
+          `<button class="chip" data-play="${esc(v.id)}" type="button">${esc(v.quality || "HD")}${v.size ? " · " + esc(v.size) : ""}</button>`).join("")}</div>`;
+    }
+    const first = it.kind === "series" ? it.episodes[0].id : it.id;
     $("#detailSheet").innerHTML = `
       <div class="dart" style="${artStyle(it.title)}"></div>
       <h2>${esc(it.title)}</h2>
-      <div class="meta">${esc(it._genres.join(" · "))} ${it.year ? "· " + it.year : ""} ${it.duration ? "· " + esc(it.duration) : ""}</div>
+      <div class="meta">${esc(it._genres.join(" · "))} ${it.year ? "· " + it.year : ""} ${it.kind === "series" ? "· " + it.episodes.length + " এপিসোড" : (it.duration ? "· " + esc(it.duration) : "")}</div>
       <div class="acts">
-        <button class="btn-primary" data-play="${esc(it.id)}" type="button">${PLAY_ICON} প্লে</button>
+        <button class="btn-primary" data-play="${esc(first)}" type="button">${PLAY_ICON} ${it.kind === "series" ? "প্রথম এপিসোড চালান" : "প্লে"}</button>
         <button class="ghost" type="button" data-close>বন্ধ</button>
-      </div>`;
-    $("#detailOverlay").classList.remove("hidden");
+      </div>
+      ${extra}`;
   }
   function closeDetail() { $("#detailOverlay").classList.add("hidden"); }
 
@@ -280,6 +306,8 @@
   // ডিটেইল শিট: বাইরে ক্লিক বা "বন্ধ" দিলে বন্ধ, প্লে বাটন
   $("#detailOverlay").addEventListener("click", (e) => {
     if (e.target.id === "detailOverlay" || e.target.closest("[data-close]")) { closeDetail(); return; }
+    const sb = e.target.closest("[data-season]");
+    if (sb) { S.detailSeason = Number(sb.dataset.season); renderDetail(); return; }
     const p = e.target.closest("[data-play]");
     if (p) { closeDetail(); play(p.dataset.play); }
   });
