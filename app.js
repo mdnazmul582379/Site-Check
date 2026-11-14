@@ -61,7 +61,7 @@
       S.items = normalize((await r.json()).items || []);
     } catch (e) {
       S.items = [];
-      main.innerHTML = `<div class="empty">ডেটা লোড হয়নি (${esc(e.message)})</div>`;
+      main.innerHTML = emptyState("ডেটা লোড হয়নি। ইন্টারনেট চেক করে আবার চেষ্টা করুন");
     }
   }
   const tabItems = () => (S.tab === "trending" ? S.items : S.items.filter((it) => it._type === S.tab));
@@ -127,6 +127,8 @@
   }
 
   // ---------- views ----------
+  // ডেটা আসার আগে/পরে ফাঁকা না থাকে
+  function emptyState(msg) { return `<div class="empty-card"><div class="em-ico">▢</div><p>${esc(msg)}</p></div>`; }
   function renderTabs() {
     tabsEl.style.display = S.view === "home" ? "" : "none";
     tabsEl.innerHTML = TABS.map((t) =>
@@ -134,7 +136,7 @@
   }
   function renderHome() {
     const list = tabItems();
-    if (!list.length) { main.innerHTML = `<div class="empty">এখানে এখনো কোনো কনটেন্ট নেই</div>`; return; }
+    if (!list.length) { main.innerHTML = emptyState("এখানে এখনো কোনো কনটেন্ট নেই"); return; }
     const slides = [...list].sort((a, b) => (b.trending ? 1 : 0) - (a.trending ? 1 : 0)).filter((it) => it.thumbnail).slice(0, 6);
     const groups = groupsOf(list);
     let html = "";
@@ -152,7 +154,7 @@
         <button class="cat" data-genre="${esc(g)}" type="button" style="${artStyle(g)}">
           <span>${esc(g)}</span><small>${arr.length} টি</small></button>`).join("")}</div>`;
     for (const [genre, arr] of groups) {
-      html += `<section><div class="sec-head"><h2>${esc(genre)}</h2>
+      html += `<section><div class="sec-head"><h2>${esc(genre)} <small class="cnt">${arr.length}</small></h2>
         <button data-genre="${esc(genre)}" type="button">সব দেখুন ${ICON.chev}</button></div>
         <div class="row">${arr.slice(0, C.SECTION_COUNT).map(tile).join("")}</div></section>`;
     }
