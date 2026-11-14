@@ -25,6 +25,7 @@
   };
   const $ = (s) => document.querySelector(s);
   const main = $("#main"), tabsEl = $("#tabs"), player = $("#player");
+  let artPlayer = null;
 
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const hueOf = (str) => { let h = 0; for (const ch of String(str)) h = (h * 31 + ch.charCodeAt(0)) % 360; return h; };
@@ -216,27 +217,103 @@
     }
     return data;
   }
+
+
+  
   function isHls(url) {
     return /\.m3u8($|\?)/i.test(url || "") || /m3u8/i.test(url || "");
   }
 
-  async function attachStream(video, stream) {
-    if (!video || !stream || !stream.url) return;
-    const tryUrl = async (u) => {
-      video.src = u;
-      try { await video.play(); } catch (_) { /* autoplay policies */ }
-    };
-    await tryUrl(stream.url);
-    video.addEventListener("error", async function onErr() {
-      video.removeEventListener("error", onErr);
-      if (stream.fallback && stream.fallback !== stream.url) {
-        toast("Retrying fallback stream…");
-        await tryUrl(stream.fallback);
-      }
-    }, { once: true });
+  function destroyArt() {
+    if (artPlayer) {
+      try { artPlayer.destroy(false); } catch (_) {}
+      artPlayer = null;
+    }
+    const box = document.getElementById("art-player-box");
+    if (box) box.innerHTML = "";
   }
 
-  
+  async function attachStream(container, stream) {
+    if (!container || !stream || !stream.url) return;
+    destroyArt();
+    const url = stream.url;
+    const poster = stream.thumb || "";
+    const hls = isHls(url);
+
+    if (typeof Artplayer === "undefined") {
+      const video = document.createElement("video");
+      video.controls = true;
+      video.playsInline = true;
+      video.autoplay = true;
+      video.style.cssText = "width:100%;height:100%;background:#000;object-fit:contain";
+      video.src = url;
+      container.innerHTML = "";
+      container.appendChild(video);
+      try { await video.play(); } catch (_) {}
+      return;
+    }
+
+    const options = {
+      container: container,
+      url: url,
+      poster: poster || "",
+      autoplay: true,
+      muted: false,
+      volume: 0.85,
+      setting: true,
+      playbackRate: true,
+      fullscreen: true,
+      fullscreenWeb: true,
+      pip: true,
+      autoSize: false,
+      autoOrientation: true,
+      hotkey: true,
+      lang: "en",
+      theme: "#1ed760",
+      type: hls ? "m3u8" : "auto",
+    };
+
+    if (hls) {
+      options.customType = {
+        m3u8: function (video, u, art) {
+          if (typeof Hls !== "undefined" && Hls.isSupported()) {
+            if (art.hls) { try { art.hls.destroy(); } catch (_) {} }
+            const hlsInst = new Hls({
+              enableWorker: true,
+              lowLatencyMode: false,
+              maxBufferLength: 60,
+              maxMaxBufferLength: 120,
+            });
+            hlsInst.loadSource(u);
+            hlsInst.attachMedia(video);
+            art.hls = hlsInst;
+            art.on("destroy", function () {
+              try { hlsInst.destroy(); } catch (_) {}
+            });
+          } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+            video.src = u;
+          } else {
+            art.notice.show = "HLS not supported on this device";
+          }
+        },
+      };
+    }
+
+    artPlayer = new Artplayer(options);
+    artPlayer.on("ready", function () {
+      try { artPlayer.play().catch(function () {}); } catch (_) {}
+    });
+    artPlayer.on("video:ended", function () {
+      try { nextEpisode(); } catch (_) {}
+    });
+    artPlayer.on("error", function () {
+      if (stream.fallback && stream.fallback !== url) {
+        toast("Retrying fallback stream…");
+        attachStream(container, { url: stream.fallback, thumb: poster });
+      }
+    });
+  }
+
   async function loadPlaylinks() {
     try {
       const r = await fetch("data/playlinks.json", { cache: "no-store" });
@@ -513,8 +590,8 @@
       <div class="pl-top"><button class="back-btn" data-back type="button" aria-label="Close">${ICON.back}</button>
         <div class="pl-title">${esc(item.title)}</div></div>
       <div class="pl-video">
-        <video id="vid" controls playsinline preload="metadata"></video>
-        <div class="pl-loading" id="plLoad"><div class="spin"></div><span>Loading stream…</span></div>
+        <div id="art-player-box"></div>
+        <div class="pl-load" id="plLoad"><div class="spin"></div><div>Loading stream…</div></div>
       </div>
       <div class="pl-info"><h1>${esc(label)}</h1>
         <div class="pl-meta">${esc((item._genres || []).join(" · "))}${item.year ? " · " + esc(item.year) : ""}${quality ? " · " + esc(quality) : ""}</div>
@@ -529,27 +606,19 @@
       <div class="sec-head"><h2>Related</h2></div>
       <div class="related-grid">${rel.map((it) => mediaCard(it)).join("") || '<div class="empty">No related titles</div>'}</div>`;
     if (item.kind === "series") renderEpisodes();
-    const v = $("#vid");
-    if (v) {
-      v.addEventListener("ended", nextEpisode);
-      (async () => {
-        const loadEl = $("#plLoad");
-        try {
-          const stream = await resolveStream(vid);
-          if (loadEl) loadEl.remove();
-          if (stream.demo) {
-            const note = document.createElement("div");
-            note.className = "pl-note";
-            note.textContent = "Demo / fallback";
-            v.parentElement.appendChild(note);
-          }
-          await attachStream(v, stream);
-        } catch (err) {
-          if (loadEl) loadEl.innerHTML = `<div class="pl-err">Could not load stream.<br>${esc(err.message || err)}<br><small>Check API Worker / secrets.js</small></div>`;
-          toast("Stream unavailable");
-        }
-      })();
-    }
+    const box = document.getElementById("art-player-box");
+    (async () => {
+      const loadEl = $("#plLoad");
+      try {
+        const stream = await resolveStream(vid);
+        if (loadEl) loadEl.remove();
+        if (stream.demo) toast("Demo stream");
+        await attachStream(box, stream);
+      } catch (err) {
+        if (loadEl) loadEl.innerHTML = `<div class="pl-err">Could not load stream.<br>${esc(err.message || err)}</div>`;
+        toast("Stream unavailable");
+      }
+    })();
   }
 
   function renderEpisodes() {
@@ -574,7 +643,7 @@
     if (i >= 0 && i < list.length - 1) openPlayer(list[i + 1].id);
   }
   function closePlayer() {
-    const v = $("#vid"); if (v) v.pause();
+    destroyArt();
     player.classList.add("hidden"); player.innerHTML = "";
     document.body.classList.remove("in-player");
     S.view = S.prev || "home"; render();

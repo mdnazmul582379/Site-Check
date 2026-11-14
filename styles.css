@@ -185,3 +185,12 @@ section{content-visibility:auto;contain-intrinsic-size:auto 280px}
 .pl-loading .spin{width:36px;height:36px;border:3px solid rgba(255,255,255,.2);border-top-color:var(--brand);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .pl-err{padding:20px 16px;color:var(--danger);font-size:14px;line-height:1.5}
+
+
+/* ArtPlayer shell */
+.pl-video #art-player-box{position:absolute;inset:0;width:100%;height:100%}
+.pl-video .artplayer-app{width:100%!important;height:100%!important}
+.pl-load{position:absolute;inset:0;z-index:5;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.55);color:#fff;font-size:14px}
+.pl-load .spin{width:40px;height:40px;border:3px solid rgba(255,255,255,.2);border-top-color:#1ed760;border-radius:50%;animation:spin .8s linear infinite;margin-bottom:10px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.pl-err{text-align:center;padding:24px 16px}
