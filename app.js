@@ -224,6 +224,28 @@
     return /\.m3u8($|\?)/i.test(url || "") || /m3u8/i.test(url || "");
   }
 
+  
+  let chromeTimer = null;
+  function showPlayerChrome() {
+    const top = document.querySelector(".pl-top");
+    if (!top) return;
+    top.classList.add("show");
+    top.classList.remove("hide");
+    clearTimeout(chromeTimer);
+    chromeTimer = setTimeout(function () {
+      top.classList.add("hide");
+      top.classList.remove("show");
+    }, 3000);
+  }
+  function bindPlayerChrome(stage) {
+    if (!stage) return;
+    showPlayerChrome();
+    stage.addEventListener("click", function (e) {
+      // ignore pure control clicks inside artplayer controls if possible
+      showPlayerChrome();
+    });
+  }
+
   function destroyArt() {
     if (artPlayer) {
       try { artPlayer.destroy(false); } catch (_) {}
@@ -455,9 +477,14 @@
         <div class="dots" id="dots">${slides.map((_, i) => `<i class="${i ? "" : "on"}"></i>`).join("")}</div></section>`;
     }
     html += `<div class="sec-head"><h2>Categories</h2></div>
-      <div class="cats">${groups.slice(0, 12).map(([g, arr]) => `
-        <button class="cat" data-genre="${esc(g)}" type="button" style="${artStyle(g)}">
-          <span>${esc(g)}</span><small>${arr.length} titles</small></button>`).join("")}</div>`;
+      <div class="cat-row">
+        <button class="cat-pill on" data-genre="" type="button"><span>All</span></button>
+        ${groups.slice(0, 14).map(([g, arr]) => {
+          const thumb = (arr.find(x => x.thumbnail) || {}).thumbnail || "";
+          const style = thumb ? `background-image:url('${esc(thumb)}')` : artStyle(g);
+          return `<button class="cat-pill pic" data-genre="${esc(g)}" type="button" style="${style}"><span>${esc(g)}</span></button>`;
+        }).join("")}
+      </div>`;
     const maxSec = C.MAX_HOME_SECTIONS || 5;
     const shownGroups = groups.slice(0, maxSec);
     for (const [genre, arr] of shownGroups) {
@@ -587,25 +614,31 @@
     const versions = !ep && item.versions && item.versions.length > 1 ? item.versions : null;
     const rel = related(item);
     player.innerHTML = `
-      <div class="pl-top"><button class="back-btn" data-back type="button" aria-label="Close">${ICON.back}</button>
-        <div class="pl-title">${esc(item.title)}</div></div>
-      <div class="pl-video">
-        <div id="art-player-box"></div>
-        <div class="pl-load" id="plLoad"><div class="spin"></div><div>Loading stream…</div></div>
+      <div class="pl-stage" id="plStage">
+        <div class="pl-top show" id="plTop">
+          <button class="back-btn" data-back type="button" aria-label="Back">${ICON.back}</button>
+        </div>
+        <div class="pl-video">
+          <div id="art-player-box"></div>
+          <div class="pl-load" id="plLoad"><div class="spin"></div><div>Loading stream…</div></div>
+        </div>
       </div>
-      <div class="pl-info"><h1>${esc(label)}</h1>
-        <div class="pl-meta">${esc((item._genres || []).join(" · "))}${item.year ? " · " + esc(item.year) : ""}${quality ? " · " + esc(quality) : ""}</div>
-        <div class="pl-acts">
-          <button type="button" data-menu="Added to list">${ICON.plus} My List</button>
-          <button type="button" data-share="${esc(item.id)}">${ICON.share} Share</button>
-          <button type="button" data-menu="Downloads coming soon">${ICON.dl} Download</button>
-        </div></div>
-      ${item.kind === "series" ? `<div id="epWrap"></div>` : ""}
-      ${versions ? `<div class="sec-head"><h2>Quality</h2></div><div class="vers">${versions.map((v) =>
-        `<button class="chip ${v.id === vid ? "on" : ""}" data-ep="${esc(v.id)}" type="button">${esc(v.quality || "HD")}</button>`).join("")}</div>` : ""}
-      <div class="sec-head"><h2>Related</h2></div>
-      <div class="related-grid">${rel.map((it) => mediaCard(it)).join("") || '<div class="empty">No related titles</div>'}</div>`;
+      <div class="pl-body">
+        <div class="pl-info"><h1>${esc(label)}</h1>
+          <div class="pl-meta">${esc((item._genres || []).join(" · "))}${item.year ? " · " + esc(item.year) : ""}${quality ? " · " + esc(quality) : ""}</div>
+          <div class="pl-acts">
+            <button type="button" data-menu="Added to list">${ICON.plus} My List</button>
+            <button type="button" data-share="${esc(item.id)}">${ICON.share} Share</button>
+            <button type="button" data-menu="Downloads coming soon">${ICON.dl} Download</button>
+          </div></div>
+        ${item.kind === "series" ? `<div id="epWrap"></div>` : ""}
+        ${versions ? `<div class="sec-head"><h2>Quality</h2></div><div class="vers">${versions.map((v) =>
+          `<button class="chip ${v.id === vid ? "on" : ""}" data-ep="${esc(v.id)}" type="button">${esc(v.quality || "HD")}</button>`).join("")}</div>` : ""}
+        <div class="sec-head"><h2>Related</h2></div>
+        <div class="related-grid">${rel.map((it) => mediaCard(it)).join("") || '<div class="empty">No related titles</div>'}</div>
+      </div>`;
     if (item.kind === "series") renderEpisodes();
+    bindPlayerChrome(document.getElementById("plStage"));
     const box = document.getElementById("art-player-box");
     (async () => {
       const loadEl = $("#plLoad");
@@ -614,6 +647,7 @@
         if (loadEl) loadEl.remove();
         if (stream.demo) toast("Demo stream");
         await attachStream(box, stream);
+        showPlayerChrome();
       } catch (err) {
         if (loadEl) loadEl.innerHTML = `<div class="pl-err">Could not load stream.<br>${esc(err.message || err)}</div>`;
         toast("Stream unavailable");
@@ -643,6 +677,7 @@
     if (i >= 0 && i < list.length - 1) openPlayer(list[i + 1].id);
   }
   function closePlayer() {
+    clearTimeout(chromeTimer);
     destroyArt();
     player.classList.add("hidden"); player.innerHTML = "";
     document.body.classList.remove("in-player");
@@ -686,7 +721,11 @@
     const nav = hit("[data-nav]");
     if (nav) { go(nav.dataset.nav); return; }
     const g = hit("[data-genre]");
-    if (g) { S.genre = g.dataset.genre; S.page = 1; go("genre"); return; }
+    if (g) {
+      const gen = g.dataset.genre || "";
+      if (!gen) { S.genre = ""; S.page = 1; go("home"); return; }
+      S.genre = gen; S.page = 1; go("genre"); return;
+    }
     if (hit("#backBtn")) { go("home"); return; }
     if (hit("#moreBtn")) { S.page++; renderGenre(); return; }
     if (hit("[data-more-home]") || hit("#moreHomeSec")) {
