@@ -246,6 +246,88 @@
     });
   }
 
+  
+  function getArtVideo() {
+    try {
+      if (artPlayer && artPlayer.video) return artPlayer.video;
+    } catch (_) {}
+    return document.querySelector("#art-player-box video");
+  }
+
+  function flashGesture(side, text) {
+    const el = document.getElementById(side === "left" ? "gzFlashL" : "gzFlashR");
+    if (!el) return;
+    el.textContent = text;
+    el.classList.add("show");
+    clearTimeout(el._t);
+    el._t = setTimeout(function () { el.classList.remove("show"); }, 450);
+  }
+
+  function bindSeekGestures(stage) {
+    if (!stage) return;
+    const left = stage.querySelector(".gz-left");
+    const right = stage.querySelector(".gz-right");
+    if (!left || !right) return;
+
+    function onSide(side, el) {
+      let lastTap = 0;
+      let holdTimer = null;
+      let holding = false;
+      let startRate = 1;
+
+      el.addEventListener("click", function (e) {
+        // single taps still bubble to chrome; double-tap skips
+        const now = Date.now();
+        if (now - lastTap < 280) {
+          e.preventDefault();
+          e.stopPropagation();
+          const v = getArtVideo();
+          if (!v) return;
+          const delta = side === "right" ? 10 : -10;
+          try {
+            const next = Math.max(0, Math.min((v.duration || 1e9), (v.currentTime || 0) + delta));
+            v.currentTime = next;
+          } catch (_) {}
+          flashGesture(side, side === "right" ? "+10s" : "-10s");
+          lastTap = 0;
+        } else {
+          lastTap = now;
+        }
+      });
+
+      function startHold(e) {
+        holding = false;
+        startRate = 1;
+        holdTimer = setTimeout(function () {
+          const v = getArtVideo();
+          if (!v) return;
+          holding = true;
+          try { startRate = v.playbackRate || 1; v.playbackRate = 2; } catch (_) {}
+          const badge = document.getElementById("speedBadge");
+          if (badge) { badge.textContent = "2× Speed"; badge.classList.add("show"); }
+        }, 280);
+      }
+      function endHold() {
+        clearTimeout(holdTimer);
+        if (holding) {
+          const v = getArtVideo();
+          if (v) { try { v.playbackRate = startRate || 1; } catch (_) {} }
+          const badge = document.getElementById("speedBadge");
+          if (badge) badge.classList.remove("show");
+          holding = false;
+        }
+      }
+      el.addEventListener("touchstart", startHold, { passive: true });
+      el.addEventListener("mousedown", startHold);
+      el.addEventListener("touchend", endHold);
+      el.addEventListener("touchcancel", endHold);
+      el.addEventListener("mouseup", endHold);
+      el.addEventListener("mouseleave", endHold);
+    }
+    onSide("left", left);
+    onSide("right", right);
+  }
+
   function destroyArt() {
     if (artPlayer) {
       try { artPlayer.destroy(false); } catch (_) {}
@@ -473,12 +555,12 @@
           <img src="${esc(it.thumbnail)}" alt="" loading="${hi === 0 ? "eager" : "lazy"}" decoding="async" onerror="this.remove()">
           <div class="sov"><h1>${esc(it.title)}</h1>
             <div class="chips-row">${it.quality ? `<span class="meta-chip hd">${esc(it.quality)}</span>` : ""}${it.year ? `<span class="meta-chip">${esc(it.year)}</span>` : ""}${it._genres[0] ? `<span class="meta-chip">${esc(it._genres[0])}</span>` : ""}</div>
-            <span class="spill">${ICON.play} Play</span></div></button>`).join("")}</div>
+            <span class="spill" aria-label="Play">${ICON.play}</span></div></button>`).join("")}</div>
         <div class="dots" id="dots">${slides.map((_, i) => `<i class="${i ? "" : "on"}"></i>`).join("")}</div></section>`;
     }
     html += `<div class="sec-head"><h2>Categories</h2></div>
       <div class="cat-row">
-        <button class="cat-pill on" data-genre="" type="button"><span>All</span></button>
+        <button class="cat-pill on" data-genre="" type="button"><span>All</span><span class="filter-ico" aria-hidden="true">☰</span></button>
         ${groups.slice(0, 14).map(([g, arr]) => {
           const thumb = (arr.find(x => x.thumbnail) || {}).thumbnail || "";
           const style = thumb ? `background-image:url('${esc(thumb)}')` : artStyle(g);
@@ -621,6 +703,12 @@
         <div class="pl-video">
           <div id="art-player-box"></div>
           <div class="pl-load" id="plLoad"><div class="spin"></div><div>Loading stream…</div></div>
+          <div class="pl-gestures" id="plGestures">
+            <div class="gz gz-left"><div class="gz-flash" id="gzFlashL">-10s</div></div>
+            <div class="gz gz-mid"></div>
+            <div class="gz gz-right"><div class="gz-flash" id="gzFlashR">+10s</div></div>
+          </div>
+          <div class="speed-badge" id="speedBadge">2× Speed</div>
         </div>
       </div>
       <div class="pl-body">
@@ -639,6 +727,7 @@
       </div>`;
     if (item.kind === "series") renderEpisodes();
     bindPlayerChrome(document.getElementById("plStage"));
+    bindSeekGestures(document.getElementById("plStage"));
     const box = document.getElementById("art-player-box");
     (async () => {
       const loadEl = $("#plLoad");
