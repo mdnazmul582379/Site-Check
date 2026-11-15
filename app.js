@@ -6,9 +6,10 @@
   const K = { users: "tfp_users_v2", session: "tfp_session_v2", history: "tfp_history_v2" };
   const TABS = [
     { key: "trending", label: "Trending" },
-    { key: "movie", label: "Movies" },
-    { key: "series", label: "Web Series" },
-    { key: "adult", label: "Adult 18+", cls: "adult" },
+    { key: "movie", label: "Movie" },
+    { key: "series", label: "TV" },
+    { key: "anime", label: "Anime" },
+    { key: "adult", label: "Midnight" },
   ];
   const ICON = {
     play: '<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>',
@@ -18,7 +19,7 @@
     share: '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4h6v6M20 4l-9 9M10 6H5v13h13v-5"/></svg>',
     dl: '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>',
   };
-  const S = {
+  const S = { kindFilter: "", topTab: "trending",
     items: [], tab: "trending", view: "home", prev: "home",
     genre: "", page: 1, query: "", user: null,
     season: null, playId: null, pending: null, authMode: "login", playlinks: {},
@@ -30,15 +31,19 @@
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const hueOf = (str) => { let h = 0; for (const ch of String(str)) h = (h * 31 + ch.charCodeAt(0)) % 360; return h; };
   const artStyle = (t) => { const h = hueOf(t); return `background:linear-gradient(135deg,hsl(${h} 50% 28%),hsl(${(h + 48) % 360} 55% 12%))`; };
-  function parseCategory(str) {
+  function parseCategory(str, kind) {
     const parts = String(str || "").split(",").map((s) => s.trim()).filter(Boolean);
-    const t = (parts[0] || "movie").toLowerCase();
-    const type = t.includes("adult") ? "adult" : t.includes("series") ? "series" : "movie";
-    return { type, genres: [...new Set(parts.slice(1).map((g) => g.charAt(0).toUpperCase() + g.slice(1)))] };
+    const blob = (parts.join(" ") + " " + (kind || "")).toLowerCase();
+    let type = "movie";
+    if (/adult|vivamax|erotic|hot web/.test(blob)) type = "adult";
+    else if (/anime/.test(blob)) type = "anime";
+    else if (/series|episode|tv|drama/.test(blob) || /s\d+e\d+/i.test(blob)) type = "series";
+    const genres = [...new Set(parts.map((g) => g.charAt(0).toUpperCase() + g.slice(1)).filter((g) => !/^(movie|series|adult|anime)$/i.test(g)))];
+    return { type, genres };
   }
   function normalize(raw) {
     return (raw || []).map((it) => {
-      const c = parseCategory(it.category);
+      const c = parseCategory(it.category, it.kind);
       return { ...it, _type: c.type, _genres: c.genres, _genre: c.genres[0] || "Others" };
     });
   }
@@ -265,67 +270,82 @@
 
   function bindSeekGestures(stage) {
     if (!stage) return;
-    const left = stage.querySelector(".gz-left");
-    const right = stage.querySelector(".gz-right");
-    if (!left || !right) return;
+    const layer = stage.querySelector(".pl-gestures") || stage;
+    let lastTap = 0;
+    let lastSide = "";
+    let holdTimer = null;
+    let holding = false;
+    let startRate = 1;
 
-    function onSide(side, el) {
-      let lastTap = 0;
-      let holdTimer = null;
-      let holding = false;
-      let startRate = 1;
-
-      el.addEventListener("click", function (e) {
-        // single taps still bubble to chrome; double-tap skips
-        const now = Date.now();
-        if (now - lastTap < 280) {
-          e.preventDefault();
-          e.stopPropagation();
-          const v = getArtVideo();
-          if (!v) return;
-          const delta = side === "right" ? 10 : -10;
-          try {
-            const next = Math.max(0, Math.min((v.duration || 1e9), (v.currentTime || 0) + delta));
-            v.currentTime = next;
-          } catch (_) {}
-          flashGesture(side, side === "right" ? "+10s" : "-10s");
-          lastTap = 0;
-        } else {
-          lastTap = now;
-        }
-      });
-
-      function startHold(e) {
-        holding = false;
-        startRate = 1;
-        holdTimer = setTimeout(function () {
-          const v = getArtVideo();
-          if (!v) return;
-          holding = true;
-          try { startRate = v.playbackRate || 1; v.playbackRate = 2; } catch (_) {}
-          const badge = document.getElementById("speedBadge");
-          if (badge) { badge.textContent = "2× Speed"; badge.classList.add("show"); }
-        }, 280);
-      }
-      function endHold() {
-        clearTimeout(holdTimer);
-        if (holding) {
-          const v = getArtVideo();
-          if (v) { try { v.playbackRate = startRate || 1; } catch (_) {} }
-          const badge = document.getElementById("speedBadge");
-          if (badge) badge.classList.remove("show");
-          holding = false;
-        }
-      }
-      el.addEventListener("touchstart", startHold, { passive: true });
-      el.addEventListener("mousedown", startHold);
-      el.addEventListener("touchend", endHold);
-      el.addEventListener("touchcancel", endHold);
-      el.addEventListener("mouseup", endHold);
-      el.addEventListener("mouseleave", endHold);
+    function sideFromEvent(e) {
+      const rect = layer.getBoundingClientRect();
+      const x = (e.changedTouches && e.changedTouches[0] ? e.changedTouches[0].clientX : e.clientX) - rect.left;
+      const ratio = x / Math.max(1, rect.width);
+      if (ratio < 0.4) return "left";
+      if (ratio > 0.6) return "right";
+      return "mid";
     }
-    onSide("left", left);
-    onSide("right", right);
+
+    function doSkip(side) {
+      const v = getArtVideo();
+      if (!v) return;
+      const delta = side === "right" ? 10 : -10;
+      try {
+        const dur = isFinite(v.duration) ? v.duration : 1e9;
+        v.currentTime = Math.max(0, Math.min(dur, (v.currentTime || 0) + delta));
+      } catch (_) {}
+      flashGesture(side, side === "right" ? "+10s" : "-10s");
+      showPlayerChrome();
+    }
+
+    function onPointerUp(e) {
+      const side = sideFromEvent(e);
+      if (side === "mid") return;
+      const now = Date.now();
+      if (lastSide === side && now - lastTap < 320) {
+        e.preventDefault();
+        e.stopPropagation();
+        doSkip(side);
+        lastTap = 0;
+        lastSide = "";
+      } else {
+        lastTap = now;
+        lastSide = side;
+      }
+    }
+
+    function onHoldStart(e) {
+      const side = sideFromEvent(e);
+      if (side === "mid") return;
+      holding = false;
+      startRate = 1;
+      holdTimer = setTimeout(function () {
+        const v = getArtVideo();
+        if (!v) return;
+        holding = true;
+        try { startRate = v.playbackRate || 1; v.playbackRate = 2; } catch (_) {}
+        const badge = document.getElementById("speedBadge");
+        if (badge) { badge.textContent = "2× Speed"; badge.classList.add("show"); }
+      }, 320);
+    }
+    function onHoldEnd() {
+      clearTimeout(holdTimer);
+      if (holding) {
+        const v = getArtVideo();
+        if (v) { try { v.playbackRate = startRate || 1; } catch (_) {} }
+        const badge = document.getElementById("speedBadge");
+        if (badge) badge.classList.remove("show");
+        holding = false;
+      }
+    }
+
+    layer.addEventListener("click", onPointerUp, true);
+    layer.addEventListener("touchend", onPointerUp, true);
+    layer.addEventListener("touchstart", onHoldStart, { passive: true, capture: true });
+    layer.addEventListener("mousedown", onHoldStart, true);
+    layer.addEventListener("touchend", onHoldEnd, true);
+    layer.addEventListener("touchcancel", onHoldEnd, true);
+    layer.addEventListener("mouseup", onHoldEnd, true);
   }
 
   function destroyArt() {
@@ -371,7 +391,7 @@
       pip: true,
       autoSize: false,
       autoOrientation: true,
-      hotkey: true,
+      hotkey: false,
       lang: "en",
       theme: "#1ed760",
       type: hls ? "m3u8" : "auto",
@@ -447,7 +467,12 @@
     S.items = [];
     main.innerHTML = emptyState("Could not load library. " + (lastErr || ""));
   }
-  const tabItems = () => (S.tab === "trending" ? S.items : S.items.filter((it) => it._type === S.tab));
+  const tabItems = () => {
+    if (S.tab === "trending") return S.items;
+    if (S.tab === "anime") return S.items.filter((it) => /anime/i.test(it.category || "") || /anime/i.test(it._type || "") || /anime/i.test(it.title || ""));
+    if (S.tab === "adult") return S.items.filter((it) => it._type === "adult" || /adult|vivamax|hot|erotic/i.test(it.category || ""));
+    return S.items.filter((it) => it._type === S.tab);
+  };
   const groupsOf = (list) => {
     const m = new Map();
     for (const it of list) for (const g of (it._genres.length ? it._genres : ["Others"])) {
@@ -537,9 +562,10 @@
 
   function emptyState(msg) { return `<div class="empty-card"><div class="em-ico">▢</div><p>${esc(msg)}</p></div>`; }
   function renderTabs() {
+    if (!tabsEl) return;
     tabsEl.style.display = S.view === "home" ? "" : "none";
     tabsEl.innerHTML = TABS.map((t) =>
-      `<button data-tab="${t.key}" type="button" class="${t.cls || ""} ${S.tab === t.key ? "active" : ""}">${esc(t.label)}</button>`
+      `<button data-tab="${t.key}" type="button" class="ttab ${t.cls || ""} ${S.tab === t.key ? "on" : ""}">${esc(t.label)}</button>`
     ).join("");
   }
 
@@ -549,14 +575,24 @@
     const slides = [...list].sort((a, b) => (b.trending ? 1 : 0) - (a.trending ? 1 : 0)).filter((it) => it.thumbnail).slice(0, C.HERO_SLIDES || 5);
     const groups = groupsOf(list);
     let html = "";
-    if (slides.length) {
-      html += `<section class="car"><div class="car-track" id="carTrack">${slides.map((it, hi) => `
-        <button class="slide" data-id="${esc(it.id)}" type="button" style="${artStyle(it.title)}">
-          <img src="${esc(it.thumbnail)}" alt="" loading="${hi === 0 ? "eager" : "lazy"}" decoding="async" onerror="this.remove()">
-          <div class="sov"><h1>${esc(it.title)}</h1>
-            <div class="chips-row">${it.quality ? `<span class="meta-chip hd">${esc(it.quality)}</span>` : ""}${it.year ? `<span class="meta-chip">${esc(it.year)}</span>` : ""}${it._genres[0] ? `<span class="meta-chip">${esc(it._genres[0])}</span>` : ""}</div>
-            <span class="spill" aria-label="Play">${ICON.play}</span></div></button>`).join("")}</div>
-        <div class="dots" id="dots">${slides.map((_, i) => `<i class="${i ? "" : "on"}"></i>`).join("")}</div></section>`;
+        if (slides.length) {
+      html += `<section class="car"><div class="car-track" id="carTrack">${slides.map((it, hi) => {
+        const next = slides[(hi + 1) % slides.length];
+        const thumb = it.thumbnail || "";
+        const nextThumb = (next && next.thumbnail) || thumb;
+        const meta = [it.year, (it.category || "").split(",")[0] || it.quality].filter(Boolean).join(" | ");
+        return `<button class="slide" data-id="${esc(it.id)}" type="button">
+          <div class="slide-bg" style="background-image:url('${esc(thumb)}')"></div>
+          <div class="slide-float">
+            <div class="sf-card">
+              ${thumb ? `<img class="sf-thumb" src="${esc(thumb)}" alt="" loading="${hi ? "lazy" : "eager"}" onerror="this.style.opacity=0">` : `<div class="sf-thumb"></div>`}
+              <div class="sf-meta"><b>${esc(it.title)}</b><small>${esc(meta)}</small></div>
+              <span class="sf-play" aria-hidden="true">${ICON.play}</span>
+            </div>
+            <div class="sf-next" style="background-image:url('${esc(nextThumb)}')"></div>
+          </div>
+        </button>`;
+      }).join("")}</div></section>`;
     }
     html += `<div class="sec-head"><h2>Categories</h2></div>
       <div class="cat-row">
