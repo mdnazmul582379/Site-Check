@@ -1,12 +1,7 @@
-// Public config. Keys live in secrets.js
+// Public config — demo mode. No external stream or download links.
 window.TFP_CONFIG = {
-  API_BASE: "https://movie-proxy.adsterrapremium00001.workers.dev",
-  LIBRARY_PATH: "data/library.json",
-  PAGE_SIZE: 20,
-  SECTION_COUNT: 4,
-  MAX_HOME_SECTIONS: 4,
-  HERO_SLIDES: 4,
-  DEMO_VIDEO: "",
-  TERABOX_PATH: "/terabox",
-  PLAY_PATHS: ["/play", "/stream", "/api/play"]
+  DATA_PATH: "data/demo.json",
+  // Demo video played when any card is clicked. Replace with your own MP4/WebM URL.
+  DEMO_VIDEO: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+  HERO_SLIDES: 4
 };

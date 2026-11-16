@@ -1,31 +1,16 @@
-# TeraFastPlay Site (Preview)
+# TeraFast Play — Demo UI
 
-মোবাইল-ফার্স্ট রেসপন্সিভ সাইট। ডেমো ডেটা দিয়ে UI দেখা যায়।
+GitHub Pages-এ চালানোর জন্য স্ট্যাটিক ডেমো সাইট। কোনো বাহ্যিক স্ট্রিম বা ডাউনলোড লিংক নেই।
 
 ## ফাইল
-- `index.html` — পেজ কাঠামো, লগইন শিট, নিচের মেনু
-- `styles.css` — মোবাইল ও ডেস্কটপ লেআউট
-- `app.js` — ট্যাব, সেকশন, See more (২০টি করে), লগইন ও প্লে গেটিং
-- `config.js` — API URL এবং সেটিংস
-- `data/library.json` — ডেমো ডেটা
+- `index.html` — পেজ কাঠামো
+- `styles.css` — ডার্ক থিম ও লেআউট
+- `app.js` — ট্যাব, হিরো স্লাইড, ক্যাটাগরি, সার্চ, ভিডিও প্লেয়ার
+- `config.js` — `DEMO_VIDEO` ইউআরএল বদলে নিজের ভিডিও বসান
+- `data/demo.json` — ডেমো কনটেন্ট (শিরোনাম, জেনার, সাল, কোয়ালিটি)
 
-## ক্যাটাগরি ফরম্যাট
-`category` ফিল্ড: প্রথমে মেইন টাইপ, তারপর কমা দিয়ে জেনার।
-- `movie,Drama,Adult,Horror`
-- `web series,Crime`
-- `adult,Adult`
+## থাম্বনেইল
+প্রতিটি কার্ডে এখন রঙিন প্লেসহোল্ডার। নিজের ছবি বসাতে `app.js`-এ `.thumb` ডিভের `style`-এ `background-image` যোগ করুন, অথবা JSON-এর `thumbnail` ফিল্ডে ইমেজ ইউআরএল দিন।
 
-## আসল সার্ভার যুক্ত করা
-`config.js`-এর `API_BASE`-এ Worker URL বসান। দরকারি রুট:
-- `GET  /library/list` — পাবলিক তালিকা (শিরোনাম, থাম্বনেইল, ক্যাটাগরি; লিংক নয়)
-- `POST /auth/register`, `POST /auth/login`, `GET /auth/me`
-- `GET  /play?id=` — লগইন করা ব্যবহারকারীর জন্য স্ট্রিম
-
-## লাইব্রেরি তৈরি (JSON → সাইট)
-প্রতিটি ভিডিও আলাদা রেকর্ডে থাকলে build script এপিসোড গ্রুপ করে:
-```
-python3 tools/build_library.py <json_ফোল্ডার> data/library.json <private_প্রাইভেট_ফাইল>
-```
-- `S01E01` ধরনের নাম থাকলে এক সিরিজে গ্রুপ হয়, কার্ড একটাই।
-- একই মুভির একাধিক কোয়ালিটি একসাথে থাকে।
-- পাবলিক ফাইলে কোনো লিংক থাকে না। লিংক শুধু প্রাইভেট ফাইলে, যেটা Worker-এ যাবে এবং GitHub-এ যাবে না।
+## GitHub Pages
+Settings → Pages → Source: `main` branch, `/ (root)`।

@@ -317,3 +317,12 @@ section{content-visibility:auto;contain-intrinsic-size:auto 280px}
 .pl-gestures .gz-mid{pointer-events:none}
 #art-player-box{pointer-events:auto}
 #art-player-box .art-video-player{pointer-events:auto}
+
+/* ---- Demo build additions ---- */
+.ph-title{position:absolute;left:8px;right:8px;bottom:10px;z-index:1;font-size:13px;font-weight:800;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.6);line-height:1.2}
+.row{display:flex;gap:12px;overflow-x:auto;padding:0 16px 8px}
+.row .card{flex:0 0 118px}
+.pl-top .back-btn{pointer-events:auto}
+.toast{opacity:0}
+.cat{background-clip:padding-box}
+.sec-head .cnt{font-size:11px}
