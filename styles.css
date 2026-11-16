@@ -176,3 +176,14 @@ body.in-player .app,body.in-player .bottom-nav{display:none}
 .vp-badge{position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:4;display:none;align-items:center;gap:6px;background:rgba(0,0,0,.6);padding:5px 12px;border-radius:999px;font-size:13px;color:#fff}
 .vp-badge.on{display:flex}
 .vp-badge b{color:var(--brand)}
+
+/* ===== round 2 polish ===== */
+.ml{display:flex;align-items:center;gap:12px}
+.ml .ic{color:var(--muted)}
+.login{display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.wide{display:flex;align-items:center;justify-content:center;gap:8px}
+.lcats{gap:var(--gap)}
+.lcat{flex:0 0 40%;height:74px;aspect-ratio:auto;border-radius:12px}
+.lcat-t{left:12px;bottom:9px;font-size:14px}
+.lcat .flt{top:9px;right:10px}
+.lcat .flt .ic{width:16px;height:16px}

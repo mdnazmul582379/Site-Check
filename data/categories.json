@@ -1,0 +1,48 @@
+{
+ "items": [
+  {
+   "name": "All",
+   "thumb": "images/cat/all.svg"
+  },
+  {
+   "name": "Romance",
+   "thumb": "images/cat/romance.svg"
+  },
+  {
+   "name": "Action",
+   "thumb": "images/cat/action.svg"
+  },
+  {
+   "name": "Drama",
+   "thumb": "images/cat/drama.svg"
+  },
+  {
+   "name": "Comedy",
+   "thumb": "images/cat/comedy.svg"
+  },
+  {
+   "name": "Horror",
+   "thumb": "images/cat/horror.svg"
+  },
+  {
+   "name": "Thriller",
+   "thumb": "images/cat/thriller.svg"
+  },
+  {
+   "name": "Crime",
+   "thumb": "images/cat/crime.svg"
+  },
+  {
+   "name": "Sci-Fi",
+   "thumb": "images/cat/sci-fi.svg"
+  },
+  {
+   "name": "Fantasy",
+   "thumb": "images/cat/fantasy.svg"
+  },
+  {
+   "name": "K-Drama",
+   "thumb": "images/cat/k-drama.svg"
+  }
+ ]
+}

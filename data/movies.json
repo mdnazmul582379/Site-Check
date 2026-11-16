@@ -86,7 +86,7 @@
   {
    "id": "m006",
    "title": "Iron Meadow",
-   "genre": "Western",
+   "genre": "Romance",
    "year": "2024",
    "hue": 200,
    "thumb": "images/land/m006.svg",
@@ -217,7 +217,7 @@
   {
    "id": "m014",
    "title": "Hidden Orchard",
-   "genre": "Western",
+   "genre": "Romance",
    "year": "2024",
    "hue": 136,
    "thumb": "images/land/m014.svg",
@@ -339,7 +339,7 @@
   {
    "id": "m022",
    "title": "Golden Garden",
-   "genre": "Western",
+   "genre": "Romance",
    "year": "2024",
    "hue": 72,
    "thumb": "images/land/m022.svg",
@@ -470,7 +470,7 @@
   {
    "id": "m030",
    "title": "Quiet Ledger",
-   "genre": "Western",
+   "genre": "Romance",
    "year": "2024",
    "hue": 8,
    "thumb": "images/land/m030.svg",
@@ -601,7 +601,7 @@
   {
    "id": "m038",
    "title": "Midnight Vault",
-   "genre": "Western",
+   "genre": "Romance",
    "year": "2024",
    "hue": 304,
    "thumb": "images/land/m038.svg",
@@ -723,7 +723,7 @@
   {
    "id": "m046",
    "title": "Iron Skies",
-   "genre": "Western",
+   "genre": "Romance",
    "year": "2024",
    "hue": 240,
    "thumb": "images/land/m046.svg",

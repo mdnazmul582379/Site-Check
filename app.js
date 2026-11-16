@@ -1,10 +1,10 @@
 (function () {
   "use strict";
   var CFG = Object.assign({ DEMO_VIDEO: "", DEMO_SOURCES: [], HERO_SLIDES: 6, PAGE: 5 }, window.TFP_CONFIG || {});
-  var FILES = { carousel: "data/carousel.json", movies: "data/movies.json", series: "data/series.json", anime: "data/anime.json" };
+  var FILES = { categories: "data/categories.json", carousel: "data/carousel.json", movies: "data/movies.json", series: "data/series.json", anime: "data/anime.json" };
   var PAGE = CFG.PAGE;
   var TABS = ["Home", "Movies", "Web Series", "Anime", "Action", "Drama", "Comedy", "Horror"];
-  var S = { all: [], byId: {}, carousel: [], reg: {}, expanded: {}, tab: "Home", q: "", nav: "home", cur: null, season: 0, qIdx: 0, ep: 0, showAll: false, dlTab: "Downloaded", hero: 0, timer: null, sheetPick: null };
+  var S = { cats: [], all: [], byId: {}, carousel: [], reg: {}, expanded: {}, tab: "Home", q: "", nav: "home", cur: null, season: 0, qIdx: 0, ep: 0, showAll: false, dlTab: "Downloaded", hero: 0, timer: null, sheetPick: null };
   var $ = function (s) { return document.querySelector(s); };
 
   // ---- icons (stroke icons, 24px grid) ----
@@ -109,11 +109,13 @@
   // ---- views ----
   function renderHome() {
     var hero = S.carousel.slice(0, CFG.HERO_SLIDES);
-    var cats = '<button class="lcat" type="button" data-tab="All"><span class="lcat-bg" style="' + bg(S.all[0]) + '"></span><span class="lcat-t">All</span><i class="flt">' + ic("filter", 16) + '</i></button>' +
-      genresOf(S.all).map(function (g) {
-        var rep = S.all.find(function (i) { return i.genre === g; });
-        return '<button class="lcat" type="button" data-tab="' + esc(g) + '"><span class="lcat-bg" style="' + bg(rep) + '"></span><span class="lcat-t">' + esc(g) + '</span></button>';
-      }).join("");
+    var tiles = S.cats.filter(function (c) { return c.name === "All" || S.all.some(function (i) { return i.genre === c.name; }); });
+    var cats = tiles.map(function (c, idx) {
+      var rep = c.name === "All" ? S.all[0] : S.all.find(function (i) { return i.genre === c.name; });
+      var thumb = c.thumb || (rep && rep.thumb) || "";
+      var icon = c.name === "All" ? '<i class="flt">' + ic("filter", 16) + '</i>' : "";
+      return '<button class="lcat" type="button" data-tab="' + esc(c.name) + '"><span class="lcat-bg" style="' + bg({ thumb: thumb, hue: (idx * 47) % 360 }) + '"></span><span class="lcat-t">' + esc(c.name) + '</span>' + icon + '</button>';
+    }).join("");
     $("#main").innerHTML =
       '<section class="hero"><div class="hero-track" id="heroTrack">' + hero.map(heroSlide).join("") + '</div>' +
       '<div class="dots">' + hero.map(function (_, i) { return '<i class="' + (i === 0 ? "on" : "") + '"></i>'; }).join("") + '</div></section>' +
@@ -337,15 +339,11 @@
       setNav(S.nav); render(); window.scrollTo(0, 0);
     }
   });
+  // Hero dots only. Rows expand ONLY when the "All" button is pressed.
   document.addEventListener("scroll", function (e) {
-    var el = e.target;
-    if (!el || !el.classList) return;
-    if (el.id === "heroTrack") {
-      var idx = Math.round(el.scrollLeft / (el.children[0].offsetWidth + 10));
+    if (e.target && e.target.id === "heroTrack") {
+      var idx = Math.round(e.target.scrollLeft / (e.target.children[0].offsetWidth + 10));
       S.hero = idx; setDots(idx);
-    } else if (el.classList.contains("grow")) {
-      var key = el.dataset.key, r = S.reg[key];
-      if (r && r.list.length > PAGE && el.scrollLeft + el.clientWidth >= el.scrollWidth - 16) expandKey(key);
     }
   }, true);
   function setSearch() { S.nav = "home"; setNav("home"); render(); }
@@ -359,13 +357,14 @@
   // static icons
   document.querySelectorAll("[data-ico]").forEach(function (el) { el.innerHTML = ic(el.dataset.ico, el.classList.contains("bn-ico") ? 22 : 18); });
   renderTabs();
-  Promise.all([FILES.carousel, FILES.movies, FILES.series, FILES.anime].map(function (u) {
+  Promise.all([FILES.carousel, FILES.movies, FILES.series, FILES.anime, FILES.categories].map(function (u) {
     return fetch(u).then(function (r) { if (!r.ok) throw new Error(u); return r.json(); });
   })).then(function (res) {
     var tag = function (arr, src) { return (arr.items || []).map(function (i) { i._src = src; return i; }); };
     S.all = tag(res[1], "movies").concat(tag(res[2], "series"), tag(res[3], "anime"));
     S.all.forEach(function (i) { S.byId[i.id] = i; });
     S.carousel = (res[0].items || []).map(function (id) { return S.byId[id]; }).filter(Boolean);
+    S.cats = res[4].items || [];
     render();
   }).catch(function () { $("#main").innerHTML = '<div class="empty">Could not load content.</div>'; });
 })();
