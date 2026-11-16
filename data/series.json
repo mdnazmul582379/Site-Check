@@ -1,0 +1,2734 @@
+{
+ "items": [
+  {
+   "id": "s001",
+   "title": "Neon Lantern",
+   "genre": "Drama",
+   "year": "2019",
+   "hue": 15,
+   "thumb": "images/land/s001.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": true,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s002",
+   "title": "Winter Orchard",
+   "genre": "Crime",
+   "year": "2020",
+   "hue": 52,
+   "thumb": "images/land/s002.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": false,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s003",
+   "title": "Broken Tide",
+   "genre": "Thriller",
+   "year": "2021",
+   "hue": 89,
+   "thumb": "images/land/s003.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": false,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s004",
+   "title": "Hidden Static",
+   "genre": "Comedy",
+   "year": "2022",
+   "hue": 126,
+   "thumb": "images/land/s004.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": false,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s005",
+   "title": "Last Desert",
+   "genre": "Action",
+   "year": "2023",
+   "hue": 163,
+   "thumb": "images/land/s005.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": false,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s006",
+   "title": "Distant Mirror",
+   "genre": "K-Drama",
+   "year": "2024",
+   "hue": 200,
+   "thumb": "images/land/s006.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": false,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s007",
+   "title": "Burning Vault",
+   "genre": "Sci-Fi",
+   "year": "2025",
+   "hue": 237,
+   "thumb": "images/land/s007.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": true,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s008",
+   "title": "Midnight River",
+   "genre": "Horror",
+   "year": "2026",
+   "hue": 274,
+   "thumb": "images/land/s008.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": false,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s009",
+   "title": "Lonely Harbor",
+   "genre": "Drama",
+   "year": "2019",
+   "hue": 311,
+   "thumb": "images/land/s009.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": false,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s010",
+   "title": "Electric Signal",
+   "genre": "Crime",
+   "year": "2020",
+   "hue": 348,
+   "thumb": "images/land/s010.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": false,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s011",
+   "title": "Silent Circuit",
+   "genre": "Thriller",
+   "year": "2021",
+   "hue": 25,
+   "thumb": "images/land/s011.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": false,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s012",
+   "title": "Golden Crown",
+   "genre": "Comedy",
+   "year": "2022",
+   "hue": 62,
+   "thumb": "images/land/s012.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": false,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s013",
+   "title": "Hollow Meadow",
+   "genre": "Action",
+   "year": "2023",
+   "hue": 99,
+   "thumb": "images/land/s013.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": true,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 03",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s014",
+   "title": "Crimson Compass",
+   "genre": "K-Drama",
+   "year": "2024",
+   "hue": 136,
+   "thumb": "images/land/s014.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": false,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 03",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s015",
+   "title": "Blue Skies",
+   "genre": "Sci-Fi",
+   "year": "2025",
+   "hue": 173,
+   "thumb": "images/land/s015.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": false,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 03",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s016",
+   "title": "Iron Storm",
+   "genre": "Horror",
+   "year": "2026",
+   "hue": 210,
+   "thumb": "images/land/s016.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": false,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 03",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s017",
+   "title": "Paper Road",
+   "genre": "Drama",
+   "year": "2019",
+   "hue": 247,
+   "thumb": "images/land/s017.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": false,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 03",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s018",
+   "title": "Glass Ledger",
+   "genre": "Crime",
+   "year": "2020",
+   "hue": 284,
+   "thumb": "images/land/s018.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": false,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 03",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s019",
+   "title": "Ember Frontier",
+   "genre": "Thriller",
+   "year": "2021",
+   "hue": 321,
+   "thumb": "images/land/s019.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": true,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 03",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s020",
+   "title": "Quiet Lantern",
+   "genre": "Comedy",
+   "year": "2022",
+   "hue": 358,
+   "thumb": "images/land/s020.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": false,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 03",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s021",
+   "title": "Neon Orchard",
+   "genre": "Action",
+   "year": "2023",
+   "hue": 35,
+   "thumb": "images/land/s021.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": false,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 03",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s022",
+   "title": "Winter Tide",
+   "genre": "K-Drama",
+   "year": "2024",
+   "hue": 72,
+   "thumb": "images/land/s022.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": false,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 03",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s023",
+   "title": "Broken Static",
+   "genre": "Sci-Fi",
+   "year": "2025",
+   "hue": 109,
+   "thumb": "images/land/s023.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": false,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 03",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s024",
+   "title": "Hidden Desert",
+   "genre": "Horror",
+   "year": "2026",
+   "hue": 146,
+   "thumb": "images/land/s024.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": false,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 03",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s025",
+   "title": "Last Mirror",
+   "genre": "Drama",
+   "year": "2019",
+   "hue": 183,
+   "thumb": "images/land/s025.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": true,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s026",
+   "title": "Distant Vault",
+   "genre": "Crime",
+   "year": "2020",
+   "hue": 220,
+   "thumb": "images/land/s026.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": false,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s027",
+   "title": "Burning River",
+   "genre": "Thriller",
+   "year": "2021",
+   "hue": 257,
+   "thumb": "images/land/s027.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": false,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s028",
+   "title": "Midnight Harbor",
+   "genre": "Comedy",
+   "year": "2022",
+   "hue": 294,
+   "thumb": "images/land/s028.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": false,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s029",
+   "title": "Lonely Signal",
+   "genre": "Action",
+   "year": "2023",
+   "hue": 331,
+   "thumb": "images/land/s029.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": false,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s030",
+   "title": "Electric Garden",
+   "genre": "K-Drama",
+   "year": "2024",
+   "hue": 8,
+   "thumb": "images/land/s030.svg",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "kind": "series",
+   "quality": "1080p",
+   "trending": false,
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
