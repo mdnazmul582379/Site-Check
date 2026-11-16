@@ -71,10 +71,25 @@
     $("#main").innerHTML = '<div class="sec-head"><h2>' + esc(S.q ? "Results" : S.tab) + ' <small>' + list.length + '</small></h2></div>' +
       (list.length ? '<div class="pgrid">' + list.map(pGrid).join("") + '</div>' : '<div class="empty">No items found.</div>');
   }
+  function renderDownloads() {
+    var pick = S.dlTab || "Downloaded";
+    $("#main").innerHTML = '<div class="sec-head"><h2>Downloads</h2></div>' +
+      '<div class="seg">' + ["Downloaded", "Local files", "Received"].map(function (t) { return '<button type="button" data-dltab="' + t + '" class="' + (t === pick ? "on" : "") + '">' + t + '</button>'; }).join("") + '</div>' +
+      '<div class="empty">Downloads are not available in this demo. Titles will appear here once a source is connected.</div>' +
+      '<div class="sec-head"><h2>For you</h2></div><div class="pgrid">' + S.items.slice(0, 9).map(pGrid).join("") + '</div>';
+  }
+  function renderMe() {
+    var row = function (l, v) { return '<div class="mrow"><span>' + l + '</span><span class="mv">' + (v == null ? "" : v) + '<i>›</i></span></div>'; };
+    $("#main").innerHTML = '<div class="sec-head"><h2>Account</h2></div>' +
+      '<div class="mcard"><div class="me-av">G</div><div class="me-info"><b>Guest</b><div class="pd">Not signed in</div></div><button class="login" type="button" id="loginBtn">Log in</button></div>' +
+      '<div class="mpanel">' + row("My List", 0) + row("My Likes", 0) + row("Watch History") + '</div>' +
+      '<div class="mpanel">' + row("Community", 0) + row("My Comments", 0) + '</div>' +
+      '<div class="mpanel">' + row("Settings") + row("Feedback") + '</div>';
+  }
   function render() {
     stopHero();
-    if (S.nav === "downloads") { $("#main").innerHTML = '<div class="empty">Downloads are not available in demo mode.</div>'; return; }
-    if (S.nav === "me") { $("#main").innerHTML = '<div class="me"><div class="me-av">G</div><div><b>Guest</b><div class="pd">Demo mode</div></div></div>'; return; }
+    if (S.nav === "downloads") return renderDownloads();
+    if (S.nav === "me") return renderMe();
     if (S.q || S.tab !== "Home") return renderList();
     renderHome();
   }
@@ -147,6 +162,8 @@
     if (e.target.closest("#addList")) return toast("Added to list");
     if (e.target.closest("#share")) { if (navigator.share) navigator.share({ title: S.cur.title }).catch(function () {}); else toast("Share is not available here"); return; }
     if (e.target.closest("[data-all]")) { S.showAll = !S.showAll; renderDetail(); return; }
+    if (e.target.closest("#loginBtn")) return toast("Login is not available in demo mode");
+    if ((t = e.target.closest("[data-dltab]"))) { S.dlTab = t.dataset.dltab; renderDownloads(); return; }
     if ((t = e.target.closest("[data-ep]"))) return playEp(+t.dataset.ep);
     if ((t = e.target.closest("[data-id]"))) return openDetail(t.dataset.id);
     if ((t = e.target.closest("[data-tab]"))) { S.tab = t.dataset.tab; S.q = ""; $("#searchInput").value = ""; S.nav = "home"; setNav("home"); renderTabs(); render(); window.scrollTo(0, 0); return; }
