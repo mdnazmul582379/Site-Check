@@ -5,131 +5,6 @@
    "title": "Harbor Kings",
    "kind": "series",
    "genre": "Action",
-   "year": "2019",
-   "quality": "1080p",
-   "seasons": [
-    {
-     "name": "Season 01",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3"
-      },
-      {
-       "no": 4,
-       "title": "Episode 4"
-      },
-      {
-       "no": 5,
-       "title": "Episode 5"
-      },
-      {
-       "no": 6,
-       "title": "Episode 6"
-      },
-      {
-       "no": 7,
-       "title": "Episode 7"
-      },
-      {
-       "no": 8,
-       "title": "Episode 8"
-      }
-     ]
-    },
-    {
-     "name": "Season 02",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3"
-      },
-      {
-       "no": 4,
-       "title": "Episode 4"
-      },
-      {
-       "no": 5,
-       "title": "Episode 5"
-      },
-      {
-       "no": 6,
-       "title": "Episode 6"
-      },
-      {
-       "no": 7,
-       "title": "Episode 7"
-      },
-      {
-       "no": 8,
-       "title": "Episode 8"
-      }
-     ]
-    },
-    {
-     "name": "Season 03",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3"
-      },
-      {
-       "no": 4,
-       "title": "Episode 4"
-      },
-      {
-       "no": 5,
-       "title": "Episode 5"
-      },
-      {
-       "no": 6,
-       "title": "Episode 6"
-      },
-      {
-       "no": 7,
-       "title": "Episode 7"
-      },
-      {
-       "no": 8,
-       "title": "Episode 8"
-      }
-     ]
-    }
-   ],
-   "trending": true,
-   "hue": 0,
-   "thumb": "",
-   "poster": ""
-  },
-  {
-   "id": "s02",
-   "title": "The Quiet Ledger",
-   "kind": "series",
-   "genre": "Drama",
    "year": "2020",
    "quality": "1080p",
    "seasons": [
@@ -138,35 +13,43 @@
      "episodes": [
       {
        "no": 1,
-       "title": "Episode 1"
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 2,
-       "title": "Episode 2"
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 3,
-       "title": "Episode 3"
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 4,
-       "title": "Episode 4"
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 5,
-       "title": "Episode 5"
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 6,
-       "title": "Episode 6"
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 7,
-       "title": "Episode 7"
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 8,
-       "title": "Episode 8"
+       "title": "Episode 8",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       }
      ]
     },
@@ -175,49 +58,58 @@
      "episodes": [
       {
        "no": 1,
-       "title": "Episode 1"
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 2,
-       "title": "Episode 2"
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 3,
-       "title": "Episode 3"
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 4,
-       "title": "Episode 4"
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 5,
-       "title": "Episode 5"
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 6,
-       "title": "Episode 6"
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 7,
-       "title": "Episode 7"
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 8,
-       "title": "Episode 8"
+       "title": "Episode 8",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       }
      ]
     }
    ],
    "trending": true,
-   "hue": 53,
+   "hue": 10,
    "thumb": "",
-   "poster": ""
+   "poster": "",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
   },
   {
-   "id": "s03",
-   "title": "Neon Frontier",
+   "id": "s02",
+   "title": "The Quiet Ledger",
    "kind": "series",
-   "genre": "Crime",
+   "genre": "Drama",
    "year": "2021",
    "quality": "1080p",
    "seasons": [
@@ -226,35 +118,43 @@
      "episodes": [
       {
        "no": 1,
-       "title": "Episode 1"
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 2,
-       "title": "Episode 2"
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 3,
-       "title": "Episode 3"
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 4,
-       "title": "Episode 4"
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 5,
-       "title": "Episode 5"
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 6,
-       "title": "Episode 6"
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 7,
-       "title": "Episode 7"
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 8,
-       "title": "Episode 8"
+       "title": "Episode 8",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       }
      ]
     },
@@ -263,390 +163,65 @@
      "episodes": [
       {
        "no": 1,
-       "title": "Episode 1"
+       "title": "Episode 1",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 2,
-       "title": "Episode 2"
+       "title": "Episode 2",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 3,
-       "title": "Episode 3"
+       "title": "Episode 3",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 4,
-       "title": "Episode 4"
+       "title": "Episode 4",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 5,
-       "title": "Episode 5"
+       "title": "Episode 5",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 6,
-       "title": "Episode 6"
+       "title": "Episode 6",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 7,
-       "title": "Episode 7"
+       "title": "Episode 7",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       },
       {
        "no": 8,
-       "title": "Episode 8"
-      }
-     ]
-    },
-    {
-     "name": "Season 03",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3"
-      },
-      {
-       "no": 4,
-       "title": "Episode 4"
-      },
-      {
-       "no": 5,
-       "title": "Episode 5"
-      },
-      {
-       "no": 6,
-       "title": "Episode 6"
-      },
-      {
-       "no": 7,
-       "title": "Episode 7"
-      },
-      {
-       "no": 8,
-       "title": "Episode 8"
-      }
-     ]
-    }
-   ],
-   "trending": true,
-   "hue": 106,
-   "thumb": "",
-   "poster": ""
-  },
-  {
-   "id": "s04",
-   "title": "Stone and Ash",
-   "kind": "series",
-   "genre": "Comedy",
-   "year": "2022",
-   "quality": "1080p",
-   "seasons": [
-    {
-     "name": "Season 01",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3"
-      },
-      {
-       "no": 4,
-       "title": "Episode 4"
-      },
-      {
-       "no": 5,
-       "title": "Episode 5"
-      },
-      {
-       "no": 6,
-       "title": "Episode 6"
-      },
-      {
-       "no": 7,
-       "title": "Episode 7"
-      },
-      {
-       "no": 8,
-       "title": "Episode 8"
-      }
-     ]
-    },
-    {
-     "name": "Season 02",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3"
-      },
-      {
-       "no": 4,
-       "title": "Episode 4"
-      },
-      {
-       "no": 5,
-       "title": "Episode 5"
-      },
-      {
-       "no": 6,
-       "title": "Episode 6"
-      },
-      {
-       "no": 7,
-       "title": "Episode 7"
-      },
-      {
-       "no": 8,
-       "title": "Episode 8"
+       "title": "Episode 8",
+       "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       }
      ]
     }
    ],
    "trending": false,
-   "hue": 159,
+   "hue": 107,
    "thumb": "",
-   "poster": ""
-  },
-  {
-   "id": "s05",
-   "title": "Summer Ember",
-   "kind": "series",
-   "genre": "Western",
-   "year": "2023",
-   "quality": "1080p",
-   "seasons": [
-    {
-     "name": "Season 01",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3"
-      },
-      {
-       "no": 4,
-       "title": "Episode 4"
-      },
-      {
-       "no": 5,
-       "title": "Episode 5"
-      },
-      {
-       "no": 6,
-       "title": "Episode 6"
-      },
-      {
-       "no": 7,
-       "title": "Episode 7"
-      },
-      {
-       "no": 8,
-       "title": "Episode 8"
-      }
-     ]
-    },
-    {
-     "name": "Season 02",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3"
-      },
-      {
-       "no": 4,
-       "title": "Episode 4"
-      },
-      {
-       "no": 5,
-       "title": "Episode 5"
-      },
-      {
-       "no": 6,
-       "title": "Episode 6"
-      },
-      {
-       "no": 7,
-       "title": "Episode 7"
-      },
-      {
-       "no": 8,
-       "title": "Episode 8"
-      }
-     ]
-    },
-    {
-     "name": "Season 03",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3"
-      },
-      {
-       "no": 4,
-       "title": "Episode 4"
-      },
-      {
-       "no": 5,
-       "title": "Episode 5"
-      },
-      {
-       "no": 6,
-       "title": "Episode 6"
-      },
-      {
-       "no": 7,
-       "title": "Episode 7"
-      },
-      {
-       "no": 8,
-       "title": "Episode 8"
-      }
-     ]
-    }
-   ],
-   "trending": false,
-   "hue": 212,
-   "thumb": "",
-   "poster": ""
-  },
-  {
-   "id": "s06",
-   "title": "Night Desk",
-   "kind": "series",
-   "genre": "K-Drama",
-   "year": "2024",
-   "quality": "1080p",
-   "seasons": [
-    {
-     "name": "Season 01",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3"
-      },
-      {
-       "no": 4,
-       "title": "Episode 4"
-      },
-      {
-       "no": 5,
-       "title": "Episode 5"
-      },
-      {
-       "no": 6,
-       "title": "Episode 6"
-      },
-      {
-       "no": 7,
-       "title": "Episode 7"
-      },
-      {
-       "no": 8,
-       "title": "Episode 8"
-      }
-     ]
-    },
-    {
-     "name": "Season 02",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3"
-      },
-      {
-       "no": 4,
-       "title": "Episode 4"
-      },
-      {
-       "no": 5,
-       "title": "Episode 5"
-      },
-      {
-       "no": 6,
-       "title": "Episode 6"
-      },
-      {
-       "no": 7,
-       "title": "Episode 7"
-      },
-      {
-       "no": 8,
-       "title": "Episode 8"
-      }
-     ]
-    }
-   ],
-   "trending": false,
-   "hue": 265,
-   "thumb": "",
-   "poster": ""
+   "poster": "",
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
   },
   {
    "id": "m01",
    "title": "Night Signal",
    "kind": "movie",
-   "genre": "Comedy",
-   "year": "2021",
+   "genre": "Thriller",
+   "year": "2024",
+   "hue": 30,
+   "thumb": "",
+   "poster": "",
+   "trending": true,
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
    "quality": "1080p",
-   "size": "1.0 GB",
    "versions": [
     {
      "quality": "1080p",
@@ -656,20 +231,20 @@
      "quality": "720p",
      "size": "1.4 GB"
     }
-   ],
-   "trending": true,
-   "hue": 20,
-   "thumb": "",
-   "poster": ""
+   ]
   },
   {
    "id": "m02",
    "title": "Silent Harbor",
    "kind": "movie",
-   "genre": "Western",
-   "year": "2022",
+   "genre": "Drama",
+   "year": "2023",
+   "hue": 71,
+   "thumb": "",
+   "poster": "",
+   "trending": true,
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
    "quality": "1080p",
-   "size": "2.1 GB",
    "versions": [
     {
      "quality": "1080p",
@@ -679,20 +254,20 @@
      "quality": "720p",
      "size": "2.5 GB"
     }
-   ],
-   "trending": true,
-   "hue": 61,
-   "thumb": "",
-   "poster": ""
+   ]
   },
   {
    "id": "m03",
    "title": "Golden Hour",
    "kind": "movie",
-   "genre": "K-Drama",
+   "genre": "Comedy",
    "year": "2023",
+   "hue": 112,
+   "thumb": "",
+   "poster": "",
+   "trending": true,
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
    "quality": "1080p",
-   "size": "3.2 GB",
    "versions": [
     {
      "quality": "1080p",
@@ -702,20 +277,20 @@
      "quality": "720p",
      "size": "1.6 GB"
     }
-   ],
-   "trending": true,
-   "hue": 102,
-   "thumb": "",
-   "poster": ""
+   ]
   },
   {
    "id": "m04",
    "title": "The Last Circuit",
    "kind": "movie",
-   "genre": "Anime",
-   "year": "2024",
+   "genre": "Action",
+   "year": "2025",
+   "hue": 153,
+   "thumb": "",
+   "poster": "",
+   "trending": true,
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
    "quality": "1080p",
-   "size": "1.3 GB",
    "versions": [
     {
      "quality": "1080p",
@@ -725,20 +300,20 @@
      "quality": "720p",
      "size": "2.7 GB"
     }
-   ],
-   "trending": true,
-   "hue": 143,
-   "thumb": "",
-   "poster": ""
+   ]
   },
   {
    "id": "m05",
    "title": "Paper Skies",
    "kind": "movie",
-   "genre": "Horror",
-   "year": "2025",
+   "genre": "Drama",
+   "year": "2022",
+   "hue": 194,
+   "thumb": "",
+   "poster": "",
+   "trending": true,
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
    "quality": "1080p",
-   "size": "2.4 GB",
    "versions": [
     {
      "quality": "1080p",
@@ -748,20 +323,20 @@
      "quality": "720p",
      "size": "1.8 GB"
     }
-   ],
-   "trending": true,
-   "hue": 184,
-   "thumb": "",
-   "poster": ""
+   ]
   },
   {
    "id": "m06",
    "title": "Iron Meadow",
    "kind": "movie",
-   "genre": "Action",
+   "genre": "Western",
    "year": "2021",
+   "hue": 235,
+   "thumb": "",
+   "poster": "",
+   "trending": false,
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
    "quality": "1080p",
-   "size": "3.5 GB",
    "versions": [
     {
      "quality": "1080p",
@@ -771,57 +346,63 @@
      "quality": "720p",
      "size": "2.0 GB"
     }
-   ],
-   "trending": false,
-   "hue": 225,
-   "thumb": "",
-   "poster": ""
+   ]
   },
   {
    "id": "m07",
    "title": "Blue Static",
    "kind": "movie",
-   "genre": "Drama",
-   "year": "2022",
-   "quality": "1080p",
-   "size": "1.6 GB",
-   "versions": [
-    {
-     "quality": "1080p",
-     "size": "2.6 GB"
-    },
-    {
-     "quality": "720p",
-     "size": "1.1 GB"
-    }
-   ],
-   "trending": false,
-   "hue": 266,
+   "genre": "Horror",
+   "year": "2024",
+   "hue": 276,
    "thumb": "",
-   "poster": ""
+   "poster": "",
+   "trending": false,
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "quality": "720p",
+   "size": "1.6 GB"
   },
   {
    "id": "m08",
    "title": "Hollow Crown",
    "kind": "movie",
-   "genre": "Crime",
-   "year": "2023",
-   "quality": "1080p",
-   "size": "2.7 GB",
-   "versions": [
-    {
-     "quality": "1080p",
-     "size": "3.7 GB"
-    },
-    {
-     "quality": "720p",
-     "size": "2.2 GB"
-    }
-   ],
-   "trending": false,
-   "hue": 307,
+   "genre": "Thriller",
+   "year": "2025",
+   "hue": 317,
    "thumb": "",
-   "poster": ""
+   "poster": "",
+   "trending": false,
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "quality": "720p",
+   "size": "2.7 GB"
+  },
+  {
+   "id": "m09",
+   "title": "Glass Garden",
+   "kind": "movie",
+   "genre": "Anime",
+   "year": "2024",
+   "hue": 358,
+   "thumb": "",
+   "poster": "",
+   "trending": false,
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "quality": "720p",
+   "size": "1.8 GB"
+  },
+  {
+   "id": "m10",
+   "title": "Red Compass",
+   "kind": "movie",
+   "genre": "Action",
+   "year": "2026",
+   "hue": 39,
+   "thumb": "",
+   "poster": "",
+   "trending": false,
+   "stream": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "quality": "720p",
+   "size": "2.0 GB"
   }
  ]
 }
