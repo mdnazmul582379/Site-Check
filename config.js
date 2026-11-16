@@ -1,9 +1,12 @@
-// Public config. Titles and posters come from data/library.json.
-// thumb  = landscape image URL (16:9) for carousel/categories (optional)
-// poster = portrait image URL (2:3) for cards (optional)
-// Use only images you have rights to. Leave empty for a placeholder with the title printed on it.
+// Public config. Titles, thumbnails and stream links live in data/*.json.
 window.TFP_CONFIG = {
-  DATA_PATH: "data/library.json",
-  DEMO_VIDEO: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-  HERO_SLIDES: 5
+  // Used when an item has no "stream". Also the first fallback for every item.
+  DEMO_VIDEO: "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+  // Tried in order if the current video fails to load.
+  DEMO_SOURCES: [
+    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    "https://www.w3schools.com/html/mov_bbb.mp4"
+  ],
+  HERO_SLIDES: 6,
+  PAGE: 5
 };
