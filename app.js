@@ -20,6 +20,7 @@
 
   function matches(it) {
     var q = S.q.trim().toLowerCase();
+    if (!q && S.tab === "All") return true;
     if (q) return it.title.toLowerCase().indexOf(q) > -1 || it.genre.toLowerCase().indexOf(q) > -1;
     if (S.tab === "Home") return true;
     if (S.tab === "Movies") return it.kind === "movie";
@@ -60,7 +61,7 @@
     var movies = S.items.filter(function (i) { return i.kind === "movie"; });
     var genres = [];
     S.items.forEach(function (i) { if (genres.indexOf(i.genre) < 0) genres.push(i.genre); });
-    var cats = genres.map(function (g, i) {
+    var cats = '<button class="lcat lcat-all" type="button" data-genre="All"><span>All</span><i class="flt">⧩</i></button>' + genres.map(function (g, i) {
       return '<button class="lcat" type="button" data-genre="' + esc(g) + '" style="background:linear-gradient(135deg,hsl(' + (i * 47) % 360 + ',55%,36%),hsl(' + ((i * 47 + 40) % 360) + ',50%,14%))"><span>' + esc(g) + '</span></button>';
     }).join("");
     var infos = S.items.slice(0, 6).map(infoCard).join("");
