@@ -24,12 +24,14 @@ body.in-player .app,body.in-player .bottom-nav{display:none}
 .hero{margin-top:12px}
 .hero-track{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 var(--g)}
 .cslide{flex:0 0 88%;scroll-snap-align:start;min-width:0}
-.cs-img{display:block;width:100%;aspect-ratio:16/9;border-radius:14px;background-size:cover;background-position:center;background-color:#1a1d24}
+.cs-img-wrap{display:block;width:100%;padding:0;border:0;background:transparent;cursor:pointer}
+.cs-img{display:block;width:100%;aspect-ratio:16/9;border-radius:14px;background-size:cover;background-position:center;background-color:#1a1d24;object-fit:cover}
+img.cs-img{height:auto}
 .cs-card{position:relative;margin:-24px 8px 0;display:flex;align-items:center;gap:10px;background:#22252e;border:1px solid var(--line);border-radius:12px;padding:8px 10px 8px 8px;box-shadow:0 8px 20px rgba(0,0,0,.35)}
-.cs-thumb{flex:0 0 34%;aspect-ratio:16/9;border-radius:8px;background-size:cover;background-position:center;background-color:#2a2d35}
-.cs-text{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
-.cs-title{font-size:14px;font-weight:700;line-height:1.25}
-.cs-meta{font-size:11px;color:var(--muted)}
+.cs-thumb{flex:0 0 34%;aspect-ratio:16/9;border-radius:8px;background-size:cover;background-position:center;background-color:#2a2d35;object-fit:cover}
+.cs-text{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.cs-title{font-size:12px;font-weight:700;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;word-break:break-word}
+.cs-meta{font-size:10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.2}
 .cs-play{flex:0 0 34px;height:34px;border-radius:50%;background:var(--brand);color:#04140a;display:grid;place-items:center;font-size:12px}
 .dots{display:flex;justify-content:center;gap:5px;margin-top:10px}
 .dots i{width:5px;height:5px;border-radius:50%;background:#3a3d49;transition:.25s}
@@ -56,9 +58,9 @@ body.in-player .app,body.in-player .bottom-nav{display:none}
 .vrow .vcard{flex:0 0 66%}
 .vgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px var(--gap);padding:0 var(--g)}
 .vcard{display:block;min-width:0;width:100%}
-.vthumb{width:100%;aspect-ratio:16/9;border-radius:12px;background-size:cover;background-position:center;background-color:var(--card);border:1px solid var(--line)}
-.vt{font-size:13px;font-weight:700;line-height:1.3;margin-top:6px}
-.vd{font-size:11px;color:var(--muted);margin-top:2px}
+.vthumb{width:100%;aspect-ratio:16/9;border-radius:12px;background-size:cover;background-position:center;background-color:var(--card);border:1px solid var(--line);object-fit:cover;display:block}
+.vt{font-size:12px;font-weight:700;line-height:1.3;margin-top:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;word-break:break-word}
+.vd{font-size:10px;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .empty{color:var(--muted);text-align:center;padding:60px 20px;font-size:14px}
 
 /* downloads */

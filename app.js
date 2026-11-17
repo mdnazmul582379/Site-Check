@@ -44,7 +44,12 @@
 
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
   function grad(it) { return "linear-gradient(135deg,hsl(" + it.hue + ",60%,36%),hsl(" + ((it.hue + 50) % 360) + ",55%,12%))"; }
-  function bg(it) { it = it || { hue: 0 }; return it.thumb ? 'background-image:url("' + esc(it.thumb) + '")' : "background:" + grad(it); }
+  function bg(it) {
+    it = it || { hue: 0 };
+    if (!it.thumb) return "background:" + grad(it);
+    var u = String(it.thumb).split('"').join("%22");
+    return 'background-image:url("' + u + '")';
+  }
   function quality(it) { return it.quality || (it.versions && it.versions[0] ? it.versions[0].quality : ""); }
   function metaLine(it) {
     var p = [it.year, it.genre, quality(it)];
@@ -56,7 +61,10 @@
   function toast(msg) { var t = $("#toast"); t.textContent = msg; t.style.opacity = "1"; clearTimeout(t._h); t._h = setTimeout(function () { t.style.opacity = "0"; }, 1800); }
 
   function vcard(it) {
-    return '<button class="vcard" type="button" data-id="' + esc(it.id) + '"><div class="vthumb" style="' + bg(it) + '"></div>' +
+    var th = it.thumb
+      ? '<img class="vthumb" src="' + esc(it.thumb) + '" alt="" loading="lazy" referrerpolicy="no-referrer">'
+      : '<div class="vthumb" style="' + bg(it) + '"></div>';
+    return '<button class="vcard" type="button" data-id="' + esc(it.id) + '">' + th +
       '<div class="vt">' + esc(it.title) + '</div><div class="vd">' + esc([it.year, it.genre].join(" · ")) + '</div></button>';
   }
 
@@ -89,8 +97,16 @@
 
   // ---- hero ----
   function heroSlide(it) {
-    return '<div class="cslide"><button class="cs-img" type="button" data-id="' + esc(it.id) + '" style="' + bg(it) + '" aria-label="Open"></button>' +
-      '<div class="cs-card"><div class="cs-thumb" style="' + bg(it) + '"></div>' +
+    var big = it.thumb
+      ? '<img class="cs-img" src="' + esc(it.thumb) + '" alt="" loading="eager" referrerpolicy="no-referrer" data-id="' + esc(it.id) + '">'
+      : '<button class="cs-img" type="button" data-id="' + esc(it.id) + '" style="' + bg(it) + '" aria-label="Open"></button>';
+    var small = it.thumb
+      ? '<img class="cs-thumb" src="' + esc(it.thumb) + '" alt="" loading="eager" referrerpolicy="no-referrer">'
+      : '<div class="cs-thumb" style="' + bg(it) + '"></div>';
+    // wrap img in button for click when using img
+    if (it.thumb) big = '<button class="cs-img-wrap" type="button" data-id="' + esc(it.id) + '" aria-label="Open">' + big + '</button>';
+    return '<div class="cslide">' + big +
+      '<div class="cs-card">' + small +
       '<button class="cs-text" type="button" data-id="' + esc(it.id) + '"><span class="cs-title">' + esc(it.title) + '</span><span class="cs-meta">' + esc(metaLine(it)) + '</span></button>' +
       '<button class="cs-play" type="button" data-id="' + esc(it.id) + '" aria-label="Play">' + ic("play", 14) + '</button></div></div>';
   }
