@@ -60,11 +60,13 @@
   function streamOf(it) { return it.stream || CFG.DEMO_VIDEO; }
   function toast(msg) { var t = $("#toast"); t.textContent = msg; t.style.opacity = "1"; clearTimeout(t._h); t._h = setTimeout(function () { t.style.opacity = "0"; }, 1800); }
 
+  // One thumbnail component: fixed 16:9 box, image fills it (cover), gradient if no image or image fails.
+  function thumbHTML(it, cls) {
+    var img = it.thumb ? '<img src="' + esc(it.thumb) + '" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">' : "";
+    return '<span class="th ' + cls + '" style="background:' + grad(it) + '">' + img + '</span>';
+  }
   function vcard(it) {
-    var th = it.thumb
-      ? '<img class="vthumb" src="' + esc(it.thumb) + '" alt="" loading="lazy" referrerpolicy="no-referrer">'
-      : '<div class="vthumb" style="' + bg(it) + '"></div>';
-    return '<button class="vcard" type="button" data-id="' + esc(it.id) + '">' + th +
+    return '<button class="vcard" type="button" data-id="' + esc(it.id) + '">' + thumbHTML(it, "th-r12") +
       '<div class="vt">' + esc(it.title) + '</div><div class="vd">' + esc([it.year, it.genre].join(" · ")) + '</div></button>';
   }
 
@@ -97,16 +99,8 @@
 
   // ---- hero ----
   function heroSlide(it) {
-    var big = it.thumb
-      ? '<img class="cs-img" src="' + esc(it.thumb) + '" alt="" loading="eager" referrerpolicy="no-referrer" data-id="' + esc(it.id) + '">'
-      : '<button class="cs-img" type="button" data-id="' + esc(it.id) + '" style="' + bg(it) + '" aria-label="Open"></button>';
-    var small = it.thumb
-      ? '<img class="cs-thumb" src="' + esc(it.thumb) + '" alt="" loading="eager" referrerpolicy="no-referrer">'
-      : '<div class="cs-thumb" style="' + bg(it) + '"></div>';
-    // wrap img in button for click when using img
-    if (it.thumb) big = '<button class="cs-img-wrap" type="button" data-id="' + esc(it.id) + '" aria-label="Open">' + big + '</button>';
-    return '<div class="cslide">' + big +
-      '<div class="cs-card">' + small +
+    return '<div class="cslide"><div class="cs-img" data-id="' + esc(it.id) + '" role="button" aria-label="Open">' + thumbHTML(it, "th-r14") + '</div>' +
+      '<div class="cs-card"><div class="cs-thumb-w">' + thumbHTML(it, "th-r8") + '</div>' +
       '<button class="cs-text" type="button" data-id="' + esc(it.id) + '"><span class="cs-title">' + esc(it.title) + '</span><span class="cs-meta">' + esc(metaLine(it)) + '</span></button>' +
       '<button class="cs-play" type="button" data-id="' + esc(it.id) + '" aria-label="Play">' + ic("play", 14) + '</button></div></div>';
   }

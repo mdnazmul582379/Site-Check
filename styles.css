@@ -189,3 +189,13 @@ img.cs-img{height:auto}
 .lcat-t{left:12px;bottom:9px;font-size:14px}
 .lcat .flt{top:9px;right:10px}
 .lcat .flt .ic{width:16px;height:16px}
+
+/* ===== unified thumbnail box (fixes sizing) ===== */
+.th{position:relative;display:block;width:100%;aspect-ratio:16/9;overflow:hidden;background-color:#1a1d24;border:1px solid var(--line)}
+.th img{position:absolute;top:0;left:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:cover;display:block;margin:0}
+.th-r14{border-radius:14px;border:0}
+.th-r12{border-radius:12px}
+.th-r8{border-radius:8px;border:0}
+.cs-img{display:block;width:100%;cursor:pointer}
+.cs-thumb-w{flex:0 0 34%;min-width:0}
+.vcard .th{margin:0}
