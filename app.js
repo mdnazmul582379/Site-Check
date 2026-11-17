@@ -5,11 +5,15 @@
  */
 (function () {
   "use strict";
-  var CFG = Object.assign({ DEMO_VIDEO: "", DEMO_SOURCES: [], HERO_SLIDES: 6, PAGE: 5 }, window.TFP_CONFIG || {});
+  var CFG = Object.assign({ DEMO_VIDEO: "", DEMO_SOURCES: [], HERO_SLIDES: 6, PAGE: 5, PREVIEW: 20, FIRST_MORE: 40, STEP: 20 }, window.TFP_CONFIG || {});
   var FILES = { categories: "data/categories.json", carousel: "data/carousel.json", movies: "data/movies.json", series: "data/series.json", anime: "data/anime.json" };
-  var PAGE = CFG.PAGE;
+  var PAGE = CFG.PAGE, PREVIEW = CFG.PREVIEW;
   var TABS = ["Home", "Movies", "Web Series", "Anime", "Action", "Drama", "Comedy", "Horror"];
-  var S = { cats: [], all: [], byId: {}, carousel: [], reg: {}, expanded: {}, tab: "Home", q: "", nav: "home", cur: null, season: 0, qIdx: 0, ep: 0, showAll: false, dlTab: "Downloaded", hero: 0, timer: null, sheetPick: null };
+  var S = {
+    cats: [], all: [], byId: {}, carousel: [], views: {}, lim: {}, focus: null,
+    tab: "Home", q: "", nav: "home", cur: null, season: 0, qIdx: 0, ep: 0, showAll: false,
+    dlTab: "Downloaded", hero: 0, timer: null, sheetPick: null
+  };
   var $ = function (s) { return document.querySelector(s); };
 
   // ---- icons (stroke icons, 24px grid) ----
@@ -49,12 +53,7 @@
 
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
   function grad(it) { return "linear-gradient(135deg,hsl(" + it.hue + ",60%,36%),hsl(" + ((it.hue + 50) % 360) + ",55%,12%))"; }
-  function bg(it) {
-    it = it || { hue: 0 };
-    if (!it.thumb) return "background:" + grad(it);
-    var u = String(it.thumb).split('"').join("%22");
-    return 'background-image:url("' + u + '")';
-  }
+  function bg(it) { it = it || { hue: 0 }; return it.thumb ? 'background-image:url("' + esc(it.thumb) + '")' : "background:" + grad(it); }
   function quality(it) { return it.quality || (it.versions && it.versions[0] ? it.versions[0].quality : ""); }
   function metaLine(it) {
     var p = [it.year, it.genre, quality(it)];
@@ -65,7 +64,91 @@
   function streamOf(it) { return it.stream || CFG.DEMO_VIDEO; }
   function toast(msg) { var t = $("#toast"); t.textContent = msg; t.style.opacity = "1"; clearTimeout(t._h); t._h = setTimeout(function () { t.style.opacity = "0"; }, 1800); }
 
-  // One thumbnail component: fixed 16:9 box, image fills it (cover), gradient if no image or image fails.
+  // ---- views (click counts, stored on this device) ----
+  function loadViews() { try { return JSON.parse(localStorage.getItem("tfp_views") || "{}"); } catch (e) { return {}; } }
+  function countView(id) {
+    S.views[id] = (S.views[id] || 0) + 1;
+    try { localStorage.setItem("tfp_views", JSON.stringify(S.views)); } catch (e) {}
+  }
+  // Trending = most clicked items, excluding the carousel (those are already in the hero).
+  function trendingList() {
+    var inCar = {};
+    S.carousel.forEach(function (i) { inCar[i.id] = true; });
+    return S.all.filter(function (i) { return !inCar[i.id]; })
+      .map(function (it, idx) { return { it: it, idx: idx }; })
+      .sort(function (a, b) { return (S.views[b.it.id] || 0) - (S.views[a.it.id] || 0) || a.idx - b.idx; })
+      .map(function (x) { return x.it; });
+  }
+
+  // ---- sections: preview, See more (+40 first, then +20 each), focus ----
+  function sec(key, title, list, preview) { return { key: key, title: title, list: list, preview: preview }; }
+  function genresOf(list) { var g = []; list.forEach(function (i) { if (g.indexOf(i.genre) < 0) g.push(i.genre); }); return g; }
+  function bySrc(src) { return S.all.filter(function (i) { return i._src === src; }); }
+  function byGenre(list, g) { return list.filter(function (i) { return i.genre === g; }); }
+
+  function homeSections() {
+    return [
+      sec("H|trend", "Trending", trendingList(), PAGE),
+      sec("H|series", "TV Series", bySrc("series"), PAGE),
+      sec("H|anime", "Anime", bySrc("anime"), PAGE)
+    ];
+  }
+  function tabSections() {
+    var t = S.tab, list;
+    if (t === "All") return [sec("A|All", "All", S.all, PREVIEW)].concat(genresOf(S.all).map(function (g) { return sec("A|" + g, g, byGenre(S.all, g), PAGE); }));
+    if (t === "Movies") { list = bySrc("movies"); return genresOf(list).map(function (g) { return sec("M|" + g, g, byGenre(list, g), PAGE); }); }
+    if (t === "Web Series") { list = bySrc("series"); return genresOf(list).map(function (g) { return sec("S|" + g, g, byGenre(list, g), PAGE); }); }
+    if (t === "Anime") { list = bySrc("anime"); return genresOf(list).map(function (g) { return sec("N|" + g, g, byGenre(list, g), PAGE); }); }
+    return [sec("G|" + t, t, byGenre(S.all, t), PREVIEW)];
+  }
+  function searchSections() {
+    var q = S.q.trim().toLowerCase();
+    var list = S.all.filter(function (i) { return i.title.toLowerCase().indexOf(q) > -1 || i.genre.toLowerCase().indexOf(q) > -1; });
+    return [sec("Q|results", "Results", list, PREVIEW)];
+  }
+  function currentSections() {
+    if (S.q.trim()) return searchSections();
+    if (S.tab === "Home") return homeSections();
+    return tabSections();
+  }
+  function findSection(key) {
+    var secs = currentSections();
+    for (var i = 0; i < secs.length; i++) if (secs[i].key === key) return secs[i];
+    if (S.cur && key === "D|" + S.cur.id) return forYouSection();
+    return null;
+  }
+  function forYouSection() {
+    var it = S.cur;
+    return sec("D|" + it.id, "For you", S.all.filter(function (i) { return i.id !== it.id; }).slice(0, 40), PAGE);
+  }
+  function sectionHTML(s) {
+    var lim = Math.min(S.lim[s.key] || s.preview, s.list.length);
+    var shown = s.list.slice(0, lim);
+    var body = lim > PAGE
+      ? '<div class="vgrid">' + shown.map(vcard).join("") + '</div>'
+      : '<div class="vrow">' + shown.map(vcard).join("") + '</div>';
+    var more = lim < s.list.length ? '<div class="more-row"><button class="see-more" type="button" data-more="' + esc(s.key) + '">See more</button></div>' : "";
+    return '<section class="grp"><div class="sec-head"><h2>' + esc(s.title) + ' <small>' + s.list.length + '</small></h2></div>' + body + more + '</section>';
+  }
+  function sectionsHTML(secs) {
+    var vis = secs;
+    if (S.focus) {
+      var i = secs.findIndex(function (s) { return s.key === S.focus; });
+      if (i > -1) vis = secs.slice(0, i + 1); // sections above stay, sections below hide
+    }
+    var reset = S.focus ? '<div class="reset-row"><button class="reset-focus" type="button" data-reset="1">Back to all</button></div>' : "";
+    return vis.map(sectionHTML).join("") + reset;
+  }
+  function moreFor(key) {
+    var s = findSection(key); if (!s) return;
+    var cur = Math.min(S.lim[key] || s.preview, s.list.length);
+    S.lim[key] = Math.min(cur < CFG.FIRST_MORE ? CFG.FIRST_MORE : cur + CFG.STEP, s.list.length);
+    if (key.indexOf("D|") === 0) return renderDetail();
+    S.focus = key;
+    var y = window.scrollY; render(); window.scrollTo(0, y);
+  }
+
+  // ---- cards ----
   function thumbHTML(it, cls) {
     var img = it.thumb ? '<img src="' + esc(it.thumb) + '" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">' : "";
     return '<span class="th ' + cls + '" style="background:' + grad(it) + '">' + img + '</span>';
@@ -74,33 +157,6 @@
     return '<button class="vcard" type="button" data-id="' + esc(it.id) + '">' + thumbHTML(it, "th-r12") +
       '<div class="vt">' + esc(it.title) + '</div><div class="vd">' + esc([it.year, it.genre].join(" · ")) + '</div></button>';
   }
-
-  // Row of PAGE cards. "All" or scrolling to the end expands to a full grid.
-  function rowSection(key, title, list) {
-    S.reg[key] = { title: title, list: list };
-    var exp = !!S.expanded[key];
-    var body = exp
-      ? '<div class="vgrid">' + list.map(vcard).join("") + '</div>'
-      : '<div class="vrow grow" data-key="' + esc(key) + '">' + list.slice(0, PAGE).map(vcard).join("") + '</div>';
-    var more = (!exp && list.length > PAGE) ? '<button class="all-btn" type="button" data-all="' + esc(key) + '">All ' + ic("chevR", 16) + '</button>' : "";
-    return '<section class="grp" data-key="' + esc(key) + '"><div class="sec-head"><h2>' + esc(title) + ' <small>' + list.length + '</small></h2>' + more + '</div>' + body + '</section>';
-  }
-  function expandKey(key) {
-    if (S.expanded[key] || !S.reg[key]) return;
-    S.expanded[key] = true;
-    var old = document.querySelector('.grp[data-key="' + key + '"]');
-    if (!old) return;
-    var r = S.reg[key];
-    var tmp = document.createElement("div");
-    tmp.innerHTML = rowSection(key, r.title, r.list);
-    old.replaceWith(tmp.firstElementChild);
-  }
-  function groupBy(list, prefix) {
-    var order = [], map = {};
-    list.forEach(function (it) { if (!map[it.genre]) { map[it.genre] = []; order.push(it.genre); } map[it.genre].push(it); });
-    return order.map(function (g) { return rowSection(prefix + g, g, map[g]); }).join("");
-  }
-  function genresOf(list) { var g = []; list.forEach(function (i) { if (g.indexOf(i.genre) < 0) g.push(i.genre); }); return g; }
 
   // ---- hero ----
   function heroSlide(it) {
@@ -135,25 +191,14 @@
       '<section class="hero"><div class="hero-track" id="heroTrack">' + hero.map(heroSlide).join("") + '</div>' +
       '<div class="dots">' + hero.map(function (_, i) { return '<i class="' + (i === 0 ? "on" : "") + '"></i>'; }).join("") + '</div></section>' +
       '<div class="sec-head"><h2>Categories</h2></div><div class="lcats">' + cats + '</div>' +
-      rowSection("H|trend", "Trending", S.all.filter(function (i) { return i.trending; })) +
-      rowSection("H|series", "TV Series", S.all.filter(function (i) { return i._src === "series"; })) +
-      rowSection("H|anime", "Anime", S.all.filter(function (i) { return i._src === "anime"; }));
+      sectionsHTML(homeSections());
     startHero();
   }
   function renderTab() {
-    var t = S.tab, html;
-    if (t === "Movies") html = groupBy(S.all.filter(function (i) { return i._src === "movies"; }), "Movies|");
-    else if (t === "Web Series") html = groupBy(S.all.filter(function (i) { return i._src === "series"; }), "Series|");
-    else if (t === "Anime") html = groupBy(S.all.filter(function (i) { return i._src === "anime"; }), "Anime|");
-    else if (t === "All") html = groupBy(S.all, "All|");
-    else html = rowSection("G|" + t, t, S.all.filter(function (i) { return i.genre === t; }));
-    $("#main").innerHTML = '<div class="pg-title">' + esc(t) + '</div>' + html;
+    $("#main").innerHTML = '<div class="pg-title">' + esc(S.tab) + '</div>' + sectionsHTML(tabSections());
   }
   function renderSearch() {
-    var q = S.q.trim().toLowerCase();
-    var list = S.all.filter(function (i) { return i.title.toLowerCase().indexOf(q) > -1 || i.genre.toLowerCase().indexOf(q) > -1; });
-    $("#main").innerHTML = '<div class="pg-title">Results <small>' + list.length + '</small></div>' +
-      (list.length ? '<div class="vgrid">' + list.map(vcard).join("") + '</div>' : '<div class="empty">No items found.</div>');
+    $("#main").innerHTML = '<div class="pg-title">Results</div>' + sectionsHTML(searchSections());
   }
   function renderDownloads() {
     var pick = S.dlTab;
@@ -191,10 +236,12 @@
     }).join("");
   }
   function setNav(name) { document.querySelectorAll("[data-nav]").forEach(function (b) { b.classList.toggle("active", b.dataset.nav === name); }); }
+  function resetViewState() { S.lim = {}; S.focus = null; }
 
   // ---- detail ----
   function openDetail(id) {
     var it = S.byId[id]; if (!it) return;
+    countView(id);
     S.cur = it; S.season = 0; S.qIdx = 0; S.ep = 0; S.showAll = false;
     renderDetail();
   }
@@ -212,7 +259,6 @@
         eps.map(function (e, i) { return '<button class="ep' + (!S.showAll && i === S.ep ? " on" : "") + '" type="button" data-ep="' + i + '">' + String(e.no).padStart(2, "0") + '</button>'; }).join("") + '</div>';
       if (S.showAll) epHtml += '<div class="ep-list">' + eps.map(function (e, i) { return '<button class="ep-row" type="button" data-ep="' + i + '"><span>' + String(e.no).padStart(2, "0") + '</span>' + esc(e.title) + '</button>'; }).join("") + '</div>';
     }
-    var others = S.all.filter(function (i) { return i.id !== it.id; }).slice(0, 12);
     var p = $("#player");
     p.innerHTML =
       '<div class="vp" id="vp">' +
@@ -239,7 +285,7 @@
       '<div class="d-body"><h2 class="d-title">' + esc(it.title) + '</h2><div class="d-meta">' + esc(metaLine(it)) + '</div>' +
         '<div class="d-btns"><button class="pill" id="addList" type="button">' + ic("plus", 16) + '<span>Add to list</span></button><button class="pill" id="share" type="button">' + ic("share", 16) + '<span>Share</span></button></div>' +
         resources + epHtml +
-        rowSection("D|" + it.id, "For you", others) +
+        sectionHTML(forYouSection()) +
       '</div>';
     p.classList.remove("hidden");
     document.body.classList.add("in-player");
@@ -256,7 +302,7 @@
 
   // ---- custom player: double tap ±10s, hold for 2x, fit, PiP, volume, fullscreen ----
   function attachPlayer() {
-    var vp = $("#vp"), v = $("#vid"), g = $("#vpGest"), seek = $("#vpSeek") || $("#seek"), tm = $("#vpTime"), pb = $("#vpPlay"), vol = $("#vpVol"), mu = $("#vpMute"), fit = $("#vpFit");
+    var vp = $("#vp"), v = $("#vid"), g = $("#vpGest"), seek = $("#seek"), tm = $("#vpTime"), pb = $("#vpPlay"), vol = $("#vpVol"), mu = $("#vpMute"), fit = $("#vpFit");
     var list = [streamOf(S.cur)].concat(CFG.DEMO_SOURCES || []).filter(function (x, i, a) { return x && a.indexOf(x) === i; });
     var si = 0, idleT = null, pressT = null, speedOn = false, moved = false, sx = 0, sy = 0, lastTap = 0, lastSide = "", tapT = null;
     v.src = list[si]; v.load();
@@ -342,26 +388,27 @@
     if (e.target.closest("#transfer")) return toast("Transfer is not available in demo mode");
     if (e.target.closest("#refresh")) return toast("Nothing new in demo mode");
     if (e.target.closest("#loginBtn")) return toast("Login is not available in demo mode");
-    if ((t = e.target.closest("[data-all]"))) return expandKey(t.dataset.all);
+    if ((t = e.target.closest("[data-more]"))) return moreFor(t.dataset.more);
+    if (e.target.closest("[data-reset]")) { S.focus = null; return render(); }
     if ((t = e.target.closest("[data-id]"))) return openDetail(t.dataset.id);
     if ((t = e.target.closest("[data-tab]"))) {
       S.tab = t.dataset.tab; S.q = ""; $("#searchInput").value = ""; S.nav = "home";
-      setNav("home"); renderTabs(); render(); window.scrollTo(0, 0); return;
+      resetViewState(); setNav("home"); renderTabs(); render(); window.scrollTo(0, 0); return;
     }
     if ((t = e.target.closest("[data-nav]"))) {
       S.nav = t.dataset.nav;
       if (S.nav === "home") { S.tab = "Home"; S.q = ""; $("#searchInput").value = ""; renderTabs(); }
-      setNav(S.nav); render(); window.scrollTo(0, 0);
+      resetViewState(); setNav(S.nav); render(); window.scrollTo(0, 0);
     }
   });
-  // Hero dots only. Rows expand ONLY when the "All" button is pressed.
+  // Hero dots only. Sections never expand on scroll; only See more does that.
   document.addEventListener("scroll", function (e) {
     if (e.target && e.target.id === "heroTrack") {
       var idx = Math.round(e.target.scrollLeft / (e.target.children[0].offsetWidth + 10));
       S.hero = idx; setDots(idx);
     }
   }, true);
-  function setSearch() { S.nav = "home"; setNav("home"); render(); }
+  function setSearch() { S.nav = "home"; resetViewState(); setNav("home"); render(); }
   $("#searchForm").addEventListener("submit", function (e) { e.preventDefault(); S.q = $("#searchInput").value; setSearch(); });
   $("#searchInput").addEventListener("input", function (e) { S.q = e.target.value; setSearch(); });
   document.addEventListener("keydown", function (e) {
@@ -371,15 +418,16 @@
 
   // static icons
   document.querySelectorAll("[data-ico]").forEach(function (el) { el.innerHTML = ic(el.dataset.ico, el.classList.contains("bn-ico") ? 22 : 18); });
+  S.views = loadViews();
   renderTabs();
-  Promise.all([FILES.carousel, FILES.movies, FILES.series, FILES.anime, FILES.categories].map(function (u) {
+  Promise.all([FILES.categories, FILES.carousel, FILES.movies, FILES.series, FILES.anime].map(function (u) {
     return fetch(u).then(function (r) { if (!r.ok) throw new Error(u); return r.json(); });
   })).then(function (res) {
     var tag = function (arr, src) { return (arr.items || []).map(function (i) { i._src = src; return i; }); };
-    S.all = tag(res[1], "movies").concat(tag(res[2], "series"), tag(res[3], "anime"));
+    S.cats = res[0].items || [];
+    S.all = tag(res[2], "movies").concat(tag(res[3], "series"), tag(res[4], "anime"));
     S.all.forEach(function (i) { S.byId[i.id] = i; });
-    S.carousel = (res[0].items || []).map(function (id) { return S.byId[id]; }).filter(Boolean);
-    S.cats = res[4].items || [];
+    S.carousel = (res[1].items || []).map(function (id) { return S.byId[id]; }).filter(Boolean);
     render();
   }).catch(function () { $("#main").innerHTML = '<div class="empty">Could not load content.</div>'; });
 })();
