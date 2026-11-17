@@ -49,7 +49,7 @@ img.cs-img{height:auto}
 .pill-s{background:var(--card2);border-radius:999px;padding:8px 16px;font-size:14px;color:var(--brand);font-weight:600}
 .lcats{display:flex;gap:var(--gap);overflow-x:auto;padding:0 var(--g)}
 .lcat{position:relative;overflow:hidden;isolation:isolate;flex:0 0 44%;aspect-ratio:16/9;border-radius:12px;border:1px solid var(--line);background:#1a1d24}
-.lcat-bg{position:absolute;inset:-14px;background-size:cover;background-position:center;filter:blur(7px) brightness(.5);z-index:-1}
+.lcat-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:none;z-index:-1}
 .lcat-t{position:absolute;left:12px;bottom:10px;font-weight:800;font-size:15px}
 .lcat .flt{position:absolute;right:12px;top:10px;font-style:normal;font-size:15px}
 
@@ -217,7 +217,7 @@ img.cs-img{height:auto}
 
 /* ===== category tiles: image layer (blurred) under the label ===== */
 .lcat-bg{position:absolute;inset:0;overflow:hidden;z-index:0;background-color:#1a1d24}
-.lcat-bg img{position:absolute;top:-8px;left:-8px;width:calc(100% + 16px);height:calc(100% + 16px);max-width:none;max-height:none;object-fit:cover;filter:blur(4px) brightness(.6);display:block}
+.lcat-bg img{position:absolute;top:-8px;left:-8px;width:calc(100% + 16px);height:calc(100% + 16px);max-width:none;max-height:none;object-fit:cover;filter:none;display:block}
 .lcat-t,.lcat .flt{z-index:1}
 
 /* ===== card: 60% image, 40% blurred glass panel ===== */
@@ -232,6 +232,15 @@ img.cs-img{height:auto}
 .lcat-bg{position:absolute;inset:0;overflow:hidden;z-index:0;background-color:#1a1d24}
 .lcat-bg img{position:absolute;top:0;left:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:cover;object-position:center top;filter:none;display:block}
 /* bottom ~40%: soft blur of the image + stronger dark so white title reads */
-.lcat::before{content:"";position:absolute;left:0;right:0;bottom:0;height:40%;z-index:1;pointer-events:none;-webkit-backdrop-filter:blur(8px) brightness(.7);backdrop-filter:blur(8px) brightness(.7);background:linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,.25) 35%,rgba(0,0,0,.72) 100%)}
+
 .lcat-t,.lcat .flt{z-index:2;color:#fff}
 .lcat-t{text-shadow:0 1px 4px rgba(0,0,0,.9)}
+
+/* ===== FINAL: category tiles show the image clearly. No blur, no backdrop filter, no dark overlay. ===== */
+.lcat,.lcat *{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+.lcat-bg,.lcat-bg img{filter:none!important}
+.lcat::before,.lcat::after{display:none!important}
+.lcat-bg{position:absolute!important;inset:0!important;overflow:hidden;z-index:0}
+.lcat-bg img{position:absolute!important;top:0!important;left:0!important;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:cover!important;object-position:center!important;display:block!important;transform:none!important}
+.lcat-t{z-index:2;background:rgba(0,0,0,.6);padding:3px 8px;border-radius:6px;color:#fff;text-shadow:none}
+.lcat .flt{z-index:2}
