@@ -1,6 +1,82 @@
 {
  "items": [
   {
+   "id": "aaLJB29",
+   "title": "To Be Hero X",
+   "genre": "Anime",
+   "year": "2024",
+   "hue": 311,
+   "thumb": "https://cdn.teraviralhub.com/thumbnails/1ThrMIjScBP9CyDwUZzNB0A__AnimesTotais__TO.BE.HERO.X.S01E01.1080p.CR.WEB-DL.jpg",
+   "stream": "",
+   "kind": "movie",
+   "trending": true,
+   "quality": "1080p",
+   "size": "1.41 GB",
+   "versions": [
+    {
+     "quality": "1080p",
+     "size": "1.41 GB"
+    }
+   ]
+  },
+  {
+   "id": "aTxKU217",
+   "title": "My Love Story with Yamada-kun at Lv999",
+   "genre": "Anime",
+   "year": "2024",
+   "hue": 348,
+   "thumb": "https://cdn.teraviralhub.com/thumbnails/thumb_69778cba74bc2.jpg",
+   "stream": "",
+   "kind": "movie",
+   "trending": true,
+   "quality": "1080p",
+   "size": "197.83 MB",
+   "versions": [
+    {
+     "quality": "1080p",
+     "size": "197.83 MB"
+    }
+   ]
+  },
+  {
+   "id": "acPpt218",
+   "title": "Campfire Cooking in Another World with My Absurd Skill",
+   "genre": "Anime",
+   "year": "2024",
+   "hue": 30,
+   "thumb": "https://cdn.teraviralhub.com/thumbnails/1CyT1c-L1MwO8AM-tKzUVIw__Animedubhindi.com__Campfire_Cooking_in_Another_Wo.jpg",
+   "stream": "",
+   "kind": "movie",
+   "trending": true,
+   "quality": "1080p",
+   "size": "212.57 MB",
+   "versions": [
+    {
+     "quality": "1080p",
+     "size": "212.57 MB"
+    }
+   ]
+  },
+  {
+   "id": "ahBDP219",
+   "title": "As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World",
+   "genre": "Anime",
+   "year": "2024",
+   "hue": 67,
+   "thumb": "https://cdn.teraviralhub.com/thumbnails/1sqwG1sBcllF_ZTNP_r9HiA__Animedubhindi.com__As_a_Reincarnated_Aristocrat_I.jpg",
+   "stream": "",
+   "kind": "movie",
+   "trending": true,
+   "quality": "720p",
+   "size": "210.14 MB",
+   "versions": [
+    {
+     "quality": "720p",
+     "size": "210.14 MB"
+    }
+   ]
+  },
+  {
    "id": "a001",
    "title": "Silent Crown",
    "genre": "Fantasy",

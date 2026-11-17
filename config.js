@@ -7,6 +7,6 @@ window.TFP_CONFIG = {
     "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
     "https://www.w3schools.com/html/mov_bbb.mp4"
   ],
-  HERO_SLIDES: 6,
+  HERO_SLIDES: 12,
   PAGE: 5
 };
