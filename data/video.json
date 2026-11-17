@@ -1183,6 +1183,166 @@
    "trending": false,
    "quality": "720p",
    "size": "2.3 GB"
+  },
+  {
+   "id": "a001",
+   "title": "Silent Crown",
+   "genre": "Fantasy",
+   "year": "2019",
+   "hue": 15,
+   "thumb": "images/land/a001.svg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "trending": true,
+   "kind": "movie",
+   "quality": "1080p",
+   "size": "1.0 GB",
+   "tags": [
+    "anime"
+   ]
+  },
+  {
+   "id": "a002",
+   "title": "Golden Meadow",
+   "genre": "Action",
+   "year": "2020",
+   "hue": 52,
+   "thumb": "images/land/a002.svg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "trending": false,
+   "kind": "movie",
+   "quality": "1080p",
+   "size": "2.1 GB",
+   "tags": [
+    "anime"
+   ]
+  },
+  {
+   "id": "a003",
+   "title": "Hollow Compass",
+   "genre": "Romance",
+   "year": "2021",
+   "hue": 89,
+   "thumb": "images/land/a003.svg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "trending": false,
+   "kind": "movie",
+   "quality": "1080p",
+   "size": "3.2 GB",
+   "tags": [
+    "anime"
+   ]
+  },
+  {
+   "id": "a004",
+   "title": "Crimson Skies",
+   "genre": "Comedy",
+   "year": "2022",
+   "hue": 126,
+   "thumb": "images/land/a004.svg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "trending": false,
+   "kind": "movie",
+   "quality": "1080p",
+   "size": "1.3 GB",
+   "tags": [
+    "anime"
+   ]
+  },
+  {
+   "id": "a005",
+   "title": "Blue Storm",
+   "genre": "Fantasy",
+   "year": "2023",
+   "hue": 163,
+   "thumb": "images/land/a005.svg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "trending": false,
+   "kind": "movie",
+   "quality": "1080p",
+   "size": "2.4 GB",
+   "tags": [
+    "anime"
+   ]
+  },
+  {
+   "id": "a006",
+   "title": "Iron Road",
+   "genre": "Action",
+   "year": "2024",
+   "hue": 200,
+   "thumb": "images/land/a006.svg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "trending": true,
+   "kind": "movie",
+   "quality": "1080p",
+   "size": "3.5 GB",
+   "tags": [
+    "anime"
+   ]
+  },
+  {
+   "id": "a007",
+   "title": "Paper Ledger",
+   "genre": "Romance",
+   "year": "2025",
+   "hue": 237,
+   "thumb": "images/land/a007.svg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "trending": false,
+   "kind": "movie",
+   "quality": "1080p",
+   "size": "1.6 GB",
+   "tags": [
+    "anime"
+   ]
+  },
+  {
+   "id": "a008",
+   "title": "Glass Frontier",
+   "genre": "Comedy",
+   "year": "2026",
+   "hue": 274,
+   "thumb": "images/land/a008.svg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "trending": false,
+   "kind": "movie",
+   "quality": "1080p",
+   "size": "2.7 GB",
+   "tags": [
+    "anime"
+   ]
+  },
+  {
+   "id": "a009",
+   "title": "Ember Lantern",
+   "genre": "Fantasy",
+   "year": "2019",
+   "hue": 311,
+   "thumb": "images/land/a009.svg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "trending": false,
+   "kind": "movie",
+   "quality": "1080p",
+   "size": "3.8 GB",
+   "tags": [
+    "anime"
+   ]
+  },
+  {
+   "id": "a010",
+   "title": "Quiet Orchard",
+   "genre": "Action",
+   "year": "2020",
+   "hue": 348,
+   "thumb": "images/land/a010.svg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "trending": false,
+   "kind": "movie",
+   "quality": "1080p",
+   "size": "1.0 GB",
+   "tags": [
+    "anime"
+   ]
   }
  ]
 }

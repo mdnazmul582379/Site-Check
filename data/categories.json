@@ -3,47 +3,47 @@
  "items": [
   {
    "name": "All",
-   "thumb": "https://i.ibb.co/SwrwCrBB/vvbl-A2.jpg"
+   "thumb": ""
   },
   {
    "name": "Romance",
-   "thumb": "https://i.ibb.co/SwrwCrBB/vvbl-A2.jpg"
+   "thumb": ""
   },
   {
    "name": "Action",
-   "thumb": "images/land/m001.svg"
+   "thumb": ""
   },
   {
    "name": "Drama",
-   "thumb": "images/land/m002.svg"
+   "thumb": ""
   },
   {
    "name": "Comedy",
-   "thumb": "images/land/m003.svg"
+   "thumb": ""
   },
   {
    "name": "Horror",
-   "thumb": "images/land/m004.svg"
+   "thumb": ""
   },
   {
    "name": "Thriller",
-   "thumb": "images/land/m005.svg"
+   "thumb": ""
   },
   {
    "name": "Crime",
-   "thumb": "images/land/m008.svg"
+   "thumb": ""
   },
   {
    "name": "Sci-Fi",
-   "thumb": "images/land/m007.svg"
+   "thumb": ""
   },
   {
    "name": "Fantasy",
-   "thumb": "images/land/a001.svg"
+   "thumb": ""
   },
   {
    "name": "K-Drama",
-   "thumb": "images/land/s006.svg"
+   "thumb": ""
   }
  ]
 }

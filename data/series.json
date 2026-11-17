@@ -2730,6 +2730,946 @@
      ]
     }
    ]
+  },
+  {
+   "id": "a011",
+   "title": "Neon Tide",
+   "genre": "Romance",
+   "year": "2021",
+   "hue": 25,
+   "thumb": "images/land/a011.svg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "trending": true,
+   "kind": "series",
+   "quality": "1080p",
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    }
+   ],
+   "tags": [
+    "anime"
+   ]
+  },
+  {
+   "id": "a012",
+   "title": "Winter Static",
+   "genre": "Comedy",
+   "year": "2022",
+   "hue": 62,
+   "thumb": "images/land/a012.svg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "trending": false,
+   "kind": "series",
+   "quality": "1080p",
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    }
+   ],
+   "tags": [
+    "anime"
+   ]
+  },
+  {
+   "id": "a013",
+   "title": "Broken Desert",
+   "genre": "Fantasy",
+   "year": "2023",
+   "hue": 99,
+   "thumb": "images/land/a013.svg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "trending": false,
+   "kind": "series",
+   "quality": "1080p",
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    }
+   ],
+   "tags": [
+    "anime"
+   ]
+  },
+  {
+   "id": "a014",
+   "title": "Hidden Mirror",
+   "genre": "Action",
+   "year": "2024",
+   "hue": 136,
+   "thumb": "images/land/a014.svg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "trending": false,
+   "kind": "series",
+   "quality": "1080p",
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 7,
+       "title": "Episode 7",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    }
+   ],
+   "tags": [
+    "anime"
+   ]
+  },
+  {
+   "id": "a015",
+   "title": "Last Vault",
+   "genre": "Romance",
+   "year": "2025",
+   "hue": 173,
+   "thumb": "images/land/a015.svg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "trending": false,
+   "kind": "series",
+   "quality": "1080p",
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 03",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    }
+   ],
+   "tags": [
+    "anime"
+   ]
+  },
+  {
+   "id": "a016",
+   "title": "Distant River",
+   "genre": "Comedy",
+   "year": "2026",
+   "hue": 210,
+   "thumb": "images/land/a016.svg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "trending": true,
+   "kind": "series",
+   "quality": "1080p",
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 03",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    }
+   ],
+   "tags": [
+    "anime"
+   ]
+  },
+  {
+   "id": "a017",
+   "title": "Burning Harbor",
+   "genre": "Fantasy",
+   "year": "2019",
+   "hue": 247,
+   "thumb": "images/land/a017.svg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "trending": false,
+   "kind": "series",
+   "quality": "1080p",
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 03",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    }
+   ],
+   "tags": [
+    "anime"
+   ]
+  },
+  {
+   "id": "a018",
+   "title": "Midnight Signal",
+   "genre": "Action",
+   "year": "2020",
+   "hue": 284,
+   "thumb": "images/land/a018.svg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "trending": false,
+   "kind": "series",
+   "quality": "1080p",
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 02",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    },
+    {
+     "name": "Season 03",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 4,
+       "title": "Episode 4",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 5,
+       "title": "Episode 5",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 6,
+       "title": "Episode 6",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    }
+   ],
+   "tags": [
+    "anime"
+   ]
+  },
+  {
+   "id": "a019",
+   "title": "Lonely Garden",
+   "genre": "Romance",
+   "year": "2021",
+   "hue": 321,
+   "thumb": "images/land/a019.svg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "trending": false,
+   "kind": "series",
+   "quality": "1080p",
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    }
+   ],
+   "tags": [
+    "anime"
+   ]
+  },
+  {
+   "id": "a020",
+   "title": "Electric Circuit",
+   "genre": "Comedy",
+   "year": "2022",
+   "hue": 358,
+   "thumb": "images/land/a020.svg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "trending": false,
+   "kind": "series",
+   "quality": "1080p",
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    }
+   ],
+   "tags": [
+    "anime"
+   ]
   }
  ]
 }

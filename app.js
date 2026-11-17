@@ -6,7 +6,7 @@
 (function () {
   "use strict";
   var CFG = Object.assign({ DEMO_VIDEO: "", DEMO_SOURCES: [], HERO_SLIDES: 6, PAGE: 5, PREVIEW: 20, STEP: 20 }, window.TFP_CONFIG || {});
-  var FILES = { categories: "data/categories.json", carousel: "data/carousel.json", movies: "data/movies.json", series: "data/series.json", anime: "data/anime.json" };
+  var FILES = { categories: "data/categories.json", carousel: "data/carousel.json", video: "data/video.json", series: "data/series.json" };
   var PAGE = CFG.PAGE, PREVIEW = CFG.PREVIEW;
   var TABS = ["Home", "Movies", "Web Series", "Anime", "Action", "Drama", "Comedy", "Horror"];
   var S = {
@@ -84,21 +84,22 @@
   function sec(key, title, list, preview, mixed) { return { key: key, title: title, list: list, preview: preview, mixed: !!mixed }; }
   function genresOf(list) { var g = []; list.forEach(function (i) { if (g.indexOf(i.genre) < 0) g.push(i.genre); }); return g; }
   function bySrc(src) { return S.all.filter(function (i) { return i._src === src; }); }
+  function isAnime(i) { return !!(i.tags && i.tags.indexOf("anime") > -1); }
   function byGenre(list, g) { return list.filter(function (i) { return i.genre === g; }); }
 
   function homeSections() {
     return [
       sec("H|trend", "Trending", trendingList(), PAGE),
-      sec("H|series", "TV Series", bySrc("series"), PAGE),
-      sec("H|anime", "Anime", bySrc("anime"), PAGE)
+      sec("H|series", "TV Series", S.all.filter(function (i) { return i._src === "series" && !isAnime(i); }), PAGE),
+      sec("H|anime", "Anime", S.all.filter(isAnime), PAGE)
     ];
   }
   function tabSections() {
     var t = S.tab, list;
     if (t === "All") return [sec("A|All", "All", S.all, PREVIEW, true)].concat(genresOf(S.all).map(function (g) { return sec("A|" + g, g, byGenre(S.all, g), PAGE); }));
-    if (t === "Movies") { list = bySrc("movies"); return genresOf(list).map(function (g) { return sec("M|" + g, g, byGenre(list, g), PAGE); }); }
-    if (t === "Web Series") { list = bySrc("series"); return genresOf(list).map(function (g) { return sec("S|" + g, g, byGenre(list, g), PAGE); }); }
-    if (t === "Anime") { list = bySrc("anime"); return genresOf(list).map(function (g) { return sec("N|" + g, g, byGenre(list, g), PAGE); }); }
+    if (t === "Movies") { list = S.all.filter(function (i) { return i._src === "movies" && !isAnime(i); }); return genresOf(list).map(function (g) { return sec("M|" + g, g, byGenre(list, g), PAGE); }); }
+    if (t === "Web Series") { list = S.all.filter(function (i) { return i._src === "series" && !isAnime(i); }); return genresOf(list).map(function (g) { return sec("S|" + g, g, byGenre(list, g), PAGE); }); }
+    if (t === "Anime") { list = S.all.filter(isAnime); return genresOf(list).map(function (g) { return sec("N|" + g, g, byGenre(list, g), PAGE); }); }
     return [sec("G|" + t, t, byGenre(S.all, t), PREVIEW, true)];
   }
   function searchSections() {
@@ -193,12 +194,19 @@
   function setDots(idx) { document.querySelectorAll(".dots i").forEach(function (d, i) { d.className = i === idx ? "on" : ""; }); }
 
   // ---- views ----
+  // Category tile thumbnail follows the carousel: same genre first, otherwise the first carousel thumbnail.
+  function catThumb(name) {
+    var car = S.carousel.filter(function (i) { return i.thumb; });
+    var m = name === "All" ? car[0] : car.find(function (i) { return i.genre === name; });
+    if (!m) m = car[0];
+    return m ? m.thumb : "";
+  }
   function renderHome() {
     var hero = S.carousel.slice(0, CFG.HERO_SLIDES);
     var tiles = S.cats.filter(function (c) { return c.name === "All" || S.all.some(function (i) { return i.genre === c.name; }); });
     var cats = tiles.map(function (c, idx) {
       var rep = c.name === "All" ? S.all[0] : S.all.find(function (i) { return i.genre === c.name; });
-      var thumb = c.thumb || (rep && rep.thumb) || "";
+      var thumb = c.thumb || catThumb(c.name);
       var icon = c.name === "All" ? '<i class="flt">' + ic("filter", 16) + '</i>' : "";
       return '<button class="lcat" type="button" data-tab="' + esc(c.name) + '"><span class="lcat-bg" style="' + bg({ thumb: thumb, hue: (idx * 47) % 360 }) + '"></span><span class="lcat-t">' + esc(c.name) + '</span>' + icon + '</button>';
     }).join("");
@@ -436,12 +444,12 @@
   document.querySelectorAll("[data-ico]").forEach(function (el) { el.innerHTML = ic(el.dataset.ico, el.classList.contains("bn-ico") ? 22 : 18); });
   S.views = loadViews();
   renderTabs();
-  Promise.all([FILES.categories, FILES.carousel, FILES.movies, FILES.series, FILES.anime].map(function (u) {
+  Promise.all([FILES.categories, FILES.carousel, FILES.video, FILES.series].map(function (u) {
     return fetch(u).then(function (r) { if (!r.ok) throw new Error(u); return r.json(); });
   })).then(function (res) {
     var tag = function (arr, src) { return (arr.items || []).map(function (i) { i._src = src; return i; }); };
     S.cats = res[0].items || [];
-    S.all = tag(res[2], "movies").concat(tag(res[3], "series"), tag(res[4], "anime"));
+    S.all = tag(res[2], "movies").concat(tag(res[3], "series"));
     S.all.forEach(function (i) { S.byId[i.id] = i; });
     S.carousel = (res[1].items || []).map(function (id) { return S.byId[id]; }).filter(Boolean);
     render();
