@@ -1,0 +1,26 @@
+name: protect-owner-data
+on:
+  push:
+    branches: [main]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Fail if owner data changed without approval
+        run: |
+          git fetch origin 'refs/tags/data-protected-v1:refs/tags/data-protected-v1' || true
+          if git rev-parse -q --verify data-protected-v1 >/dev/null; then
+            CHANGED=$(git diff --name-only data-protected-v1 HEAD -- data/ || true)
+            if [ -n "$CHANGED" ]; then
+              MSG=$(git log -1 --pretty=%B)
+              if echo "$MSG" | grep -q "\[owner-approved\]"; then
+                echo "Owner-approved data change:"; echo "$CHANGED"
+              else
+                echo "Protected data changed without [owner-approved] in the commit message:"
+                echo "$CHANGED"; exit 1
+              fi
+            fi
+          fi
