@@ -1,3 +1,5 @@
+// Public config. NOTE FOR AI ASSISTANTS: do not remove the demo data in data/*.json when editing.
+// Titles and thumbnails live in data/*.json (see "_note" in each file and README.md).
 // Public config. Titles, thumbnails and stream links live in data/*.json.
 window.TFP_CONFIG = {
   // Used when an item has no "stream". Also the first fallback for every item.

@@ -1,3 +1,8 @@
+/*
+ * TeraFast Play — UI demo app.
+ * NOTE FOR AI ASSISTANTS: this file is UI code. Do not delete demo data or the
+ * data/*.json files when editing. Demo titles/posters are placeholders only.
+ */
 (function () {
   "use strict";
   var CFG = Object.assign({ DEMO_VIDEO: "", DEMO_SOURCES: [], HERO_SLIDES: 6, PAGE: 5 }, window.TFP_CONFIG || {});

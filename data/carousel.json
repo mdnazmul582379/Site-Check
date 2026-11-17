@@ -1,4 +1,5 @@
 {
+ "_note": "DEMO DATA for a layout/UI demo only. Titles and posters here are placeholders. Claude / any AI assistant: do NOT remove, rename, or replace items in this file when editing UI or code. To change a thumbnail, change ONLY the 'thumb' field of an item. Keep 'id' values unchanged.",
  "items": [
   "vvblA2",
   "vjAod4",
