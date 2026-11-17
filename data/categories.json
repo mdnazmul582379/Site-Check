@@ -3,11 +3,11 @@
  "items": [
   {
    "name": "All",
-   "thumb": "images/land/m001.svg"
+   "thumb": "https://i.ibb.co/SwrwCrBB/vvbl-A2.jpg"
   },
   {
    "name": "Romance",
-   "thumb": "images/land/a011.svg"
+   "thumb": "https://i.ibb.co/SwrwCrBB/vvbl-A2.jpg"
   },
   {
    "name": "Action",
@@ -15,7 +15,7 @@
   },
   {
    "name": "Drama",
-   "thumb": "images/land/s001.svg"
+   "thumb": "images/land/m002.svg"
   },
   {
    "name": "Comedy",
@@ -35,7 +35,7 @@
   },
   {
    "name": "Sci-Fi",
-   "thumb": "images/land/s007.svg"
+   "thumb": "images/land/m007.svg"
   },
   {
    "name": "Fantasy",
