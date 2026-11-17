@@ -219,3 +219,11 @@ img.cs-img{height:auto}
 .lcat-bg{position:absolute;inset:0;overflow:hidden;z-index:0;background-color:#1a1d24}
 .lcat-bg img{position:absolute;top:-8px;left:-8px;width:calc(100% + 16px);height:calc(100% + 16px);max-width:none;max-height:none;object-fit:cover;filter:blur(4px) brightness(.6);display:block}
 .lcat-t,.lcat .flt{z-index:1}
+
+/* ===== card: 60% image, 40% blurred glass panel ===== */
+.vcard{position:relative;display:block;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#1a1d24}
+.vc-img{position:absolute;inset:0;display:block}
+.vc-img img{position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:cover;display:block}
+.vglass{position:absolute;left:0;right:0;bottom:0;height:40%;display:flex;flex-direction:column;justify-content:center;gap:2px;padding:6px 10px;background:rgba(12,14,20,.42);-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);border-top:1px solid rgba(255,255,255,.08)}
+.vglass .vt{margin:0;font-size:12.5px;font-weight:700;line-height:1.25;color:#fff;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.vglass .vd{margin:0;font-size:10.5px;color:#cfd2da;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}

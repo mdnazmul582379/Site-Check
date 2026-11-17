@@ -169,9 +169,11 @@
     var img = it.thumb ? '<img src="' + esc(it.thumb) + '" alt="" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">' : "";
     return '<span class="th ' + cls + '" style="background:' + grad(it) + '">' + img + '</span>';
   }
+  // Card: image fills the card; the bottom 40% is a blurred glass panel with title and details.
   function vcard(it) {
-    return '<button class="vcard" type="button" data-id="' + esc(it.id) + '">' + thumbHTML(it, "th-r12") +
-      '<div class="vt">' + esc(it.title) + '</div><div class="vd">' + esc([it.year, it.genre].join(" · ")) + '</div></button>';
+    var img = it.thumb ? '<img src="' + esc(it.thumb) + '" alt="" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">' : "";
+    return '<button class="vcard" type="button" data-id="' + esc(it.id) + '"><span class="vc-img" style="background:' + grad(it) + '">' + img + '</span>' +
+      '<span class="vglass"><span class="vt">' + esc(it.title) + '</span><span class="vd">' + esc([it.year, it.genre].join(" · ")) + '</span></span></button>';
   }
 
   // ---- hero ----
