@@ -166,7 +166,7 @@
 
   // ---- cards ----
   function thumbHTML(it, cls) {
-    var img = it.thumb ? '<img src="' + esc(it.thumb) + '" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">' : "";
+    var img = it.thumb ? '<img src="' + esc(it.thumb) + '" alt="" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">' : "";
     return '<span class="th ' + cls + '" style="background:' + grad(it) + '">' + img + '</span>';
   }
   function vcard(it) {
@@ -196,6 +196,7 @@
   // ---- views ----
   // Category tile thumbnail follows the carousel: same genre first, otherwise the first carousel thumbnail.
   function catThumb(name) {
+    if (name === "All") return "";
     var car = S.carousel.filter(function (i) { return i.thumb; });
     var m = name === "All" ? car[0] : car.find(function (i) { return i.genre === name; });
     if (!m) m = car[0];
@@ -205,10 +206,12 @@
     var hero = S.carousel.slice(0, CFG.HERO_SLIDES);
     var tiles = S.cats.filter(function (c) { return c.name === "All" || S.all.some(function (i) { return i.genre === c.name; }); });
     var cats = tiles.map(function (c, idx) {
-      var rep = c.name === "All" ? S.all[0] : S.all.find(function (i) { return i.genre === c.name; });
-      var thumb = c.thumb || catThumb(c.name);
-      var icon = c.name === "All" ? '<i class="flt">' + ic("filter", 16) + '</i>' : "";
-      return '<button class="lcat" type="button" data-tab="' + esc(c.name) + '"><span class="lcat-bg" style="' + bg({ thumb: thumb, hue: (idx * 47) % 360 }) + '"></span><span class="lcat-t">' + esc(c.name) + '</span>' + icon + '</button>';
+      var thumb = c.name === "All" ? "" : (c.thumb || catThumb(c.name));
+      var hue = (idx * 47) % 360;
+      var inner = thumb ? '<img src="' + esc(thumb) + '" alt="" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">' : "";
+      var base = "linear-gradient(135deg,hsl(" + hue + ",55%,34%),hsl(" + ((hue + 40) % 360) + ",50%,12%))";
+      var flt = c.name === "All" ? '<i class="flt">' + ic("filter", 14) + '</i>' : "";
+      return '<button class="lcat" type="button" data-tab="' + esc(c.name) + '"><span class="lcat-bg" style="background:' + base + '">' + inner + '</span><span class="lcat-t">' + esc(c.name) + '</span>' + flt + '</button>';
     }).join("");
     $("#main").innerHTML =
       '<section class="hero"><div class="hero-track" id="heroTrack">' + hero.map(heroSlide).join("") + '</div>' +

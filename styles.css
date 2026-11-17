@@ -214,3 +214,8 @@ img.cs-img{height:auto}
 .lcat .flt .ic{width:14px;height:14px}
 .all-btn{display:inline-flex;align-items:center;gap:3px;color:var(--muted);font-size:13px;font-weight:600}
 .see-more{background:var(--card2);border:1px solid var(--line)}
+
+/* ===== category tiles: image layer (blurred) under the label ===== */
+.lcat-bg{position:absolute;inset:0;overflow:hidden;z-index:0;background-color:#1a1d24}
+.lcat-bg img{position:absolute;top:-8px;left:-8px;width:calc(100% + 16px);height:calc(100% + 16px);max-width:none;max-height:none;object-fit:cover;filter:blur(4px) brightness(.6);display:block}
+.lcat-t,.lcat .flt{z-index:1}
