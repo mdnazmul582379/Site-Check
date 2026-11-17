@@ -5,7 +5,7 @@
  */
 (function () {
   "use strict";
-  var CFG = Object.assign({ DEMO_VIDEO: "", DEMO_SOURCES: [], HERO_SLIDES: 6, PAGE: 5, PREVIEW: 20, FIRST_MORE: 40, STEP: 20 }, window.TFP_CONFIG || {});
+  var CFG = Object.assign({ DEMO_VIDEO: "", DEMO_SOURCES: [], HERO_SLIDES: 6, PAGE: 5, PREVIEW: 20, STEP: 20 }, window.TFP_CONFIG || {});
   var FILES = { categories: "data/categories.json", carousel: "data/carousel.json", movies: "data/movies.json", series: "data/series.json", anime: "data/anime.json" };
   var PAGE = CFG.PAGE, PREVIEW = CFG.PREVIEW;
   var TABS = ["Home", "Movies", "Web Series", "Anime", "Action", "Drama", "Comedy", "Horror"];
@@ -81,7 +81,7 @@
   }
 
   // ---- sections: preview, See more (+40 first, then +20 each), focus ----
-  function sec(key, title, list, preview) { return { key: key, title: title, list: list, preview: preview }; }
+  function sec(key, title, list, preview, mixed) { return { key: key, title: title, list: list, preview: preview, mixed: !!mixed }; }
   function genresOf(list) { var g = []; list.forEach(function (i) { if (g.indexOf(i.genre) < 0) g.push(i.genre); }); return g; }
   function bySrc(src) { return S.all.filter(function (i) { return i._src === src; }); }
   function byGenre(list, g) { return list.filter(function (i) { return i.genre === g; }); }
@@ -95,16 +95,16 @@
   }
   function tabSections() {
     var t = S.tab, list;
-    if (t === "All") return [sec("A|All", "All", S.all, PREVIEW)].concat(genresOf(S.all).map(function (g) { return sec("A|" + g, g, byGenre(S.all, g), PAGE); }));
+    if (t === "All") return [sec("A|All", "All", S.all, PREVIEW, true)].concat(genresOf(S.all).map(function (g) { return sec("A|" + g, g, byGenre(S.all, g), PAGE); }));
     if (t === "Movies") { list = bySrc("movies"); return genresOf(list).map(function (g) { return sec("M|" + g, g, byGenre(list, g), PAGE); }); }
     if (t === "Web Series") { list = bySrc("series"); return genresOf(list).map(function (g) { return sec("S|" + g, g, byGenre(list, g), PAGE); }); }
     if (t === "Anime") { list = bySrc("anime"); return genresOf(list).map(function (g) { return sec("N|" + g, g, byGenre(list, g), PAGE); }); }
-    return [sec("G|" + t, t, byGenre(S.all, t), PREVIEW)];
+    return [sec("G|" + t, t, byGenre(S.all, t), PREVIEW, true)];
   }
   function searchSections() {
     var q = S.q.trim().toLowerCase();
     var list = S.all.filter(function (i) { return i.title.toLowerCase().indexOf(q) > -1 || i.genre.toLowerCase().indexOf(q) > -1; });
-    return [sec("Q|results", "Results", list, PREVIEW)];
+    return [sec("Q|results", "Results", list, PREVIEW, true)];
   }
   function currentSections() {
     if (S.q.trim()) return searchSections();
@@ -121,14 +121,20 @@
     var it = S.cur;
     return sec("D|" + it.id, "For you", S.all.filter(function (i) { return i.id !== it.id; }).slice(0, 40), PAGE);
   }
+  // Category rows show 5 with an "All" button. "All" opens that section (20 items, stays in it).
+  // "See more" adds 20 each time. Mixed sections (All tab, single genre, search) show 20 with See more.
   function sectionHTML(s) {
-    var lim = Math.min(S.lim[s.key] || s.preview, s.list.length);
+    var expanded = s.mixed || S.focus === s.key;
+    var n = s.list.length;
+    var lim = expanded ? Math.min(S.lim[s.key] || PREVIEW, n) : Math.min(PAGE, n);
     var shown = s.list.slice(0, lim);
-    var body = lim > PAGE
+    var body = expanded
       ? '<div class="vgrid">' + shown.map(vcard).join("") + '</div>'
       : '<div class="vrow">' + shown.map(vcard).join("") + '</div>';
-    var more = lim < s.list.length ? '<div class="more-row"><button class="see-more" type="button" data-more="' + esc(s.key) + '">See more</button></div>' : "";
-    return '<section class="grp"><div class="sec-head"><h2>' + esc(s.title) + ' <small>' + s.list.length + '</small></h2></div>' + body + more + '</section>';
+    var head = '<div class="sec-head"><h2>' + esc(s.title) + ' <small>' + n + '</small></h2>' +
+      (!expanded && n > PAGE ? '<button class="all-btn" type="button" data-all="' + esc(s.key) + '">All ' + ic("chevR", 14) + '</button>' : '') + '</div>';
+    var more = expanded && lim < n ? '<div class="more-row"><button class="see-more" type="button" data-more="' + esc(s.key) + '">See more</button></div>' : "";
+    return '<section class="grp">' + head + body + more + '</section>';
   }
   function sectionsHTML(secs) {
     var vis = secs;
@@ -139,13 +145,22 @@
     var reset = S.focus ? '<div class="reset-row"><button class="reset-focus" type="button" data-reset="1">Back to all</button></div>' : "";
     return vis.map(sectionHTML).join("") + reset;
   }
+  function refreshKeep(key) {
+    if (key.indexOf("D|") === 0) return renderDetail();
+    var y = window.scrollY; render(); window.scrollTo(0, y);
+  }
+  function allFor(key) {
+    var s = findSection(key); if (!s) return;
+    S.lim[key] = Math.min(PREVIEW, s.list.length);
+    S.focus = key;
+    refreshKeep(key);
+  }
   function moreFor(key) {
     var s = findSection(key); if (!s) return;
-    var cur = Math.min(S.lim[key] || s.preview, s.list.length);
-    S.lim[key] = Math.min(cur < CFG.FIRST_MORE ? CFG.FIRST_MORE : cur + CFG.STEP, s.list.length);
-    if (key.indexOf("D|") === 0) return renderDetail();
+    var cur = Math.min(S.lim[key] || PREVIEW, s.list.length);
+    S.lim[key] = Math.min(cur + CFG.STEP, s.list.length);
     S.focus = key;
-    var y = window.scrollY; render(); window.scrollTo(0, y);
+    refreshKeep(key);
   }
 
   // ---- cards ----
@@ -388,6 +403,7 @@
     if (e.target.closest("#transfer")) return toast("Transfer is not available in demo mode");
     if (e.target.closest("#refresh")) return toast("Nothing new in demo mode");
     if (e.target.closest("#loginBtn")) return toast("Login is not available in demo mode");
+    if ((t = e.target.closest("[data-all]"))) return allFor(t.dataset.all);
     if ((t = e.target.closest("[data-more]"))) return moreFor(t.dataset.more);
     if (e.target.closest("[data-reset]")) { S.focus = null; return render(); }
     if ((t = e.target.closest("[data-id]"))) return openDetail(t.dataset.id);
