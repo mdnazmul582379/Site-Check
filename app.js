@@ -87,20 +87,22 @@
   function isAnime(i) { return !!(i.tags && i.tags.indexOf("anime") > -1); }
   function byGenre(list, g) { return list.filter(function (i) { return i.genre === g; }); }
 
+  // Home: every main category, each with its genres as 5-item sections
   function homeSections() {
-    return [
-      sec("H|trend", "Trending", trendingList(), PAGE),
-      sec("H|series", "TV Series", S.all.filter(function (i) { return i._src === "series" && !isAnime(i); }), PAGE),
-      sec("H|anime", "Anime", S.all.filter(isAnime), PAGE)
-    ];
+    return [].concat(
+      groupSections(trendingList(), "T|", "Trending"),
+      groupSections(S.all.filter(function (i) { return i._src === "movies" && !isAnime(i); }), "M|", "Movie"),
+      groupSections(S.all.filter(function (i) { return i._src === "series" && !isAnime(i); }), "S|", "Web Series"),
+      groupSections(S.all.filter(isAnime), "N|", "Anime")
+    );
   }
   function isKids(i) { return !!(i.tags && i.tags.indexOf("kids") > -1); }
-  function groupSections(list, prefix) {
-    return genresOf(list).map(function (g) { return sec(prefix + g, g, byGenre(list, g), PAGE); });
+  function groupSections(list, prefix, label) {
+    return genresOf(list).map(function (g) { return sec(prefix + g, label ? label + " · " + g : g, byGenre(list, g), PAGE); });
   }
   function tabSections() {
     var t = S.tab;
-    if (t === "Trending") return groupSections(trendingList(), "T|");
+    if (t === "Trending") return groupSections(trendingList(), "T|", null);
     if (t === "Movie") return groupSections(S.all.filter(function (i) { return i._src === "movies" && !isAnime(i); }), "M|");
     if (t === "Web Series") return groupSections(S.all.filter(function (i) { return i._src === "series" && !isAnime(i); }), "S|");
     if (t === "Anime") return groupSections(S.all.filter(isAnime), "N|");
