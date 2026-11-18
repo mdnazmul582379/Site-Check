@@ -87,22 +87,20 @@
   function isAnime(i) { return !!(i.tags && i.tags.indexOf("anime") > -1); }
   function byGenre(list, g) { return list.filter(function (i) { return i.genre === g; }); }
 
-  // Home: every main category, each with its genres as 5-item sections
   function homeSections() {
-    return [].concat(
-      groupSections(trendingList(), "T|", "Trending"),
-      groupSections(S.all.filter(function (i) { return i._src === "movies" && !isAnime(i); }), "M|", "Movie"),
-      groupSections(S.all.filter(function (i) { return i._src === "series" && !isAnime(i); }), "S|", "Web Series"),
-      groupSections(S.all.filter(isAnime), "N|", "Anime")
-    );
+    return [
+      sec("H|trend", "Trending", trendingList(), PAGE),
+      sec("H|series", "TV Series", S.all.filter(function (i) { return i._src === "series" && !isAnime(i); }), PAGE),
+      sec("H|anime", "Anime", S.all.filter(isAnime), PAGE)
+    ];
   }
   function isKids(i) { return !!(i.tags && i.tags.indexOf("kids") > -1); }
-  function groupSections(list, prefix, label) {
-    return genresOf(list).map(function (g) { return sec(prefix + g, label ? label + " · " + g : g, byGenre(list, g), PAGE); });
+  function groupSections(list, prefix) {
+    return genresOf(list).map(function (g) { return sec(prefix + g, g, byGenre(list, g), PAGE); });
   }
   function tabSections() {
     var t = S.tab;
-    if (t === "Trending") return groupSections(trendingList(), "T|", null);
+    if (t === "Trending") return groupSections(trendingList(), "T|");
     if (t === "Movie") return groupSections(S.all.filter(function (i) { return i._src === "movies" && !isAnime(i); }), "M|");
     if (t === "Web Series") return groupSections(S.all.filter(function (i) { return i._src === "series" && !isAnime(i); }), "S|");
     if (t === "Anime") return groupSections(S.all.filter(isAnime), "N|");
@@ -329,11 +327,19 @@
       '<div class="d-body"><h2 class="d-title">' + esc(it.title) + '</h2><div class="d-meta">' + esc(metaLine(it)) + '</div>' +
         '<div class="d-btns"><button class="pill" id="addList" type="button">' + ic("plus", 16) + '<span>Add to list</span></button><button class="pill" id="share" type="button">' + ic("share", 16) + '<span>Share</span></button></div>' +
         resources + epHtml +
-        sectionHTML(forYouSection()) +
+        forYouHTML() +
       '</div>';
     p.classList.remove("hidden");
     document.body.classList.add("in-player");
     attachPlayer();
+  }
+  // "For you" on the player page: 16:9 grid (same system as All), 20 at a time, See more adds 20.
+  function forYouHTML() {
+    var s = forYouSection();
+    var lim = Math.min(S.lim[s.key] || PREVIEW, s.list.length);
+    return '<div class="sec-head"><h2>For you <small>' + s.list.length + '</small></h2></div>' +
+      '<div class="vgrid">' + s.list.slice(0, lim).map(vcard).join("") + '</div>' +
+      (lim < s.list.length ? '<div class="more-row"><button class="see-more" type="button" data-more="' + esc(s.key) + '">See more</button></div>' : "");
   }
   function closeDetail() {
     var v = $("#vid");
