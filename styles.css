@@ -308,3 +308,7 @@ html,body{margin:0!important;padding-left:0!important;padding-right:0!important}
 .d-body{padding-left:var(--g)!important;padding-right:var(--g)!important;padding-top:var(--g)!important;padding-bottom:var(--g)!important}
 .d-body .sec-head,.d-body .vrow,.d-body .vgrid,.d-body .more-row,.d-body .grp,.d-body section{padding-left:0!important;padding-right:0!important;margin-left:0!important;margin-right:0!important}
 .vgrid{margin:0!important}
+
+/* Player: "For you" heading sits close to its grid, grid aligned with the heading */
+.d-body .sec-head{margin:20px 0 10px!important}
+.d-body .vgrid{margin-top:0!important;row-gap:14px!important}
