@@ -295,3 +295,16 @@ img.cs-img{height:auto}
 .vgrid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px var(--gap)!important;width:100%!important;box-sizing:border-box!important}
 .vcard{margin:0!important;max-width:100%!important;min-width:0!important}
 .vrow .vcard{flex:0 0 66%!important}
+
+/* =====================================================================
+   SINGLE-GUTTER FINAL: every container has zero side padding/margin.
+   The gutter (--g) is added once, by the block itself (sec-head, vrow,
+   vgrid, lcats, pg-title, more-row) or once by the player body.
+   ===================================================================== */
+html,body{margin:0!important;padding-left:0!important;padding-right:0!important}
+.app,#main,main,section,.grp,.player,.hero,.hero-track,.mpanel,.mcard,.me,.empty,.dl-empty,.seg,.reset-row{margin-left:0!important;margin-right:0!important}
+.app,#main,main,section,.grp,.hero,.hero-track{padding-left:0!important;padding-right:0!important}
+.player{padding-left:0!important;padding-right:0!important}
+.d-body{padding-left:var(--g)!important;padding-right:var(--g)!important;padding-top:var(--g)!important;padding-bottom:var(--g)!important}
+.d-body .sec-head,.d-body .vrow,.d-body .vgrid,.d-body .more-row,.d-body .grp,.d-body section{padding-left:0!important;padding-right:0!important;margin-left:0!important;margin-right:0!important}
+.vgrid{margin:0!important}
