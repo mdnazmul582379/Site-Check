@@ -282,3 +282,16 @@ img.cs-img{height:auto}
 .sec-head{margin:20px 0 10px!important}
 .vrow{gap:var(--gap)!important;padding:0 var(--g)!important}
 .vgrid{gap:14px var(--gap)!important;padding:0 var(--g)!important}
+
+/* =====================================================================
+   GUTTER CONTRACT (final): one side gutter (--g) for every block.
+   Containers add no extra side padding; the player body is the only
+   place that adds padding for its own content.
+   ===================================================================== */
+#main,.app{padding-left:0!important;padding-right:0!important}
+.d-body{padding:var(--g)!important}
+.d-body .sec-head,.d-body .vrow,.d-body .vgrid,.d-body .more-row{padding-left:0!important;padding-right:0!important;margin-left:0!important;margin-right:0!important}
+.sec-head,.pg-title,.pg-head,.lcats,.vrow,.vgrid,.more-row,.seg,.reset-row{padding-left:var(--g)!important;padding-right:var(--g)!important;margin-left:0!important;margin-right:0!important}
+.vgrid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px var(--gap)!important;width:100%!important;box-sizing:border-box!important}
+.vcard{margin:0!important;max-width:100%!important;min-width:0!important}
+.vrow .vcard{flex:0 0 66%!important}
