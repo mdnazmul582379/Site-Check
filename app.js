@@ -295,7 +295,6 @@
       return '<div class="mrow"><span class="ml">' + ic(icon, 20) + '<span>' + label + '</span></span><span class="mv">' + (value != null ? '<em>' + value + '</em>' : '') + ic("chevR", 16) + '</span></div>';
     };
     $("#main").innerHTML =
-      '<div class="pg-head"><h1>Me</h1></div>' +
       '<div class="mcard"><div class="me-av">G</div><div class="me-info"><b>Log in to your account</b><div class="pd">Demo mode</div></div><button class="login" type="button" id="loginBtn">' + ic("login", 16) + '<span>Log in</span></button></div>' +
       '<div class="mpanel">' + row("My List", "bookmark", 0) + row("My Likes", "heart", 0) + row("Watch History", "clock") +
         '<div class="vrow hist">' + S.all.slice(-10).reverse().map(histCard).join("") + '</div>' + row("Messages", "message") + '</div>' +
