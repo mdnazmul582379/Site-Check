@@ -183,6 +183,23 @@
     var y = window.scrollY; render(); window.scrollTo(0, y);
   }
   function allFor(key) {
+    // Home row "All" → open that category tab (genre rows), not expand in place.
+    if (key && key.indexOf("H|") === 0) {
+      var cat = key.slice(2);
+      if (HOME_ORDER.indexOf(cat) > -1) {
+        S.tab = cat;
+        S.q = "";
+        var si = $("#searchInput");
+        if (si) si.value = "";
+        S.nav = "home";
+        resetViewState();
+        setNav("home");
+        renderTabs();
+        render();
+        window.scrollTo(0, 0);
+        return;
+      }
+    }
     var s = findSection(key); if (!s) return;
     S.lim[key] = Math.min(PREVIEW, s.list.length);
     S.focus = key;
