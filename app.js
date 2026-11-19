@@ -8,7 +8,8 @@
   var CFG = Object.assign({ DEMO_VIDEO: "", DEMO_SOURCES: [], HERO_SLIDES: 6, PAGE: 5, PREVIEW: 20, STEP: 20 }, window.TFP_CONFIG || {});
   var FILES = { categories: "data/categories.json", carousel: "data/carousel.json", video: "data/video.json", series: "data/series.json" };
   var PAGE = CFG.PAGE, PREVIEW = CFG.PREVIEW;
-  var TABS = ["Home", "Trending", "Movie", "Web Series", "Anime", "Kids"];
+  var TABS = ["Home", "Trending", "Movie", "Series", "Midnight", "Anime", "Kids", "Desi Porn", "Foreign Porn", "Adult Movie"];
+  var HOME_ORDER = ["Trending", "Movie", "Series", "Midnight", "Anime", "Kids", "Desi Porn", "Foreign Porn", "Adult Movie"];
   var S = {
     cats: [], all: [], byId: {}, carousel: [], views: {}, lim: {}, focus: null,
     tab: "Home", q: "", nav: "home", cur: null, season: 0, qIdx: 0, ep: 0, showAll: false,
@@ -88,24 +89,42 @@
   function byGenre(list, g) { return list.filter(function (i) { return i.genre === g; }); }
 
   function homeSections() {
-    return [
-      sec("H|trend", "Trending", trendingList(), PAGE),
-      sec("H|series", "TV Series", S.all.filter(function (i) { return i._src === "series" && !isAnime(i); }), PAGE),
-      sec("H|anime", "Anime", S.all.filter(isAnime), PAGE)
-    ];
-  }
-  function isKids(i) { return !!(i.tags && i.tags.indexOf("kids") > -1); }
-  function groupSections(list, prefix) {
-    return genresOf(list).map(function (g) { return sec(prefix + g, g, byGenre(list, g), PAGE); });
+    return HOME_ORDER.map(function (name) {
+      var list;
+      if (name === "Trending") {
+        list = trendingList();
+        if (!list.length) list = byGenre(S.all, "Trending");
+      } else if (name === "Series") {
+        list = S.all.filter(function (i) { return i.genre === "Series" || (i._src === "series" && i.genre === "Series"); });
+        if (!list.length) list = byGenre(S.all, "Series");
+      } else if (name === "Anime") {
+        list = S.all.filter(function (i) { return i.genre === "Anime" || isAnime(i); });
+      } else {
+        list = byGenre(S.all, name);
+      }
+      return sec("H|" + name, name, list, PAGE);
+    });
   }
   function tabSections() {
-    var t = S.tab;
-    if (t === "Trending") return groupSections(trendingList(), "T|");
-    if (t === "Movie") return groupSections(S.all.filter(function (i) { return i._src === "movies" && !isAnime(i); }), "M|");
-    if (t === "Web Series") return groupSections(S.all.filter(function (i) { return i._src === "series" && !isAnime(i); }), "S|");
-    if (t === "Anime") return groupSections(S.all.filter(isAnime), "N|");
-    if (t === "Kids") return groupSections(S.all.filter(isKids), "K|");
-    return [];
+    var t = S.tab, list;
+    if (t === "All") return [sec("A|All", "All", S.all, PREVIEW, true)].concat(HOME_ORDER.map(function (g) { return sec("A|" + g, g, byGenre(S.all, g), PAGE); }));
+    if (t === "Trending") {
+      list = trendingList();
+      if (!list.length) list = byGenre(S.all, "Trending");
+      return [sec("T|Trending", "Trending", list, PREVIEW, true)];
+    }
+    if (t === "Series") {
+      list = byGenre(S.all, "Series");
+      return [sec("S|Series", "Series", list, PREVIEW, true)];
+    }
+    if (t === "Anime") {
+      list = S.all.filter(function (i) { return i.genre === "Anime" || isAnime(i); });
+      return [sec("N|Anime", "Anime", list, PREVIEW, true)];
+    }
+    if (t === "Movie" || t === "Midnight" || t === "Kids" || t === "Desi Porn" || t === "Foreign Porn" || t === "Adult Movie") {
+      return [sec("G|" + t, t, byGenre(S.all, t), PREVIEW, true)];
+    }
+    return [sec("G|" + t, t, byGenre(S.all, t), PREVIEW, true)];
   }
   function searchSections() {
     var q = S.q.trim().toLowerCase();
@@ -209,24 +228,16 @@
     if (!m) m = car[0];
     return m ? m.thumb : "";
   }
-  // Main categories shown on Home. Thumbnail comes from the carousel item of the same type.
-  function mainCats() {
-    var car = S.carousel.filter(function (i) { return i.thumb; });
-    function pick(pred) { var m = car.find(pred); return m ? m.thumb : (car[0] ? car[0].thumb : ""); }
-    return [
-      { name: "Trending", tab: "Trending", thumb: pick(function () { return true; }) },
-      { name: "Movie", tab: "Movie", thumb: pick(function (i) { return i._src === "movies" && !isAnime(i); }) },
-      { name: "Web Series", tab: "Web Series", thumb: pick(function (i) { return i._src === "series" && !isAnime(i); }) },
-      { name: "Anime", tab: "Anime", thumb: pick(isAnime) },
-      { name: "Kids", tab: "Kids", thumb: pick(isKids) }
-    ];
-  }
   function renderHome() {
     var hero = S.carousel.slice(0, CFG.HERO_SLIDES);
-    var cats = mainCats().map(function (c, idx) {
+    var tiles = S.cats.filter(function (c) { return c.name === "All" || HOME_ORDER.indexOf(c.name) > -1 || S.all.some(function (i) { return i.genre === c.name; }); });
+    var cats = tiles.map(function (c, idx) {
+      var thumb = c.name === "All" ? "" : (c.thumb || catThumb(c.name));
       var hue = (idx * 47) % 360;
-      var inner = c.thumb ? '<img src="' + esc(c.thumb) + '" alt="" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">' : "";
-      return '<button class="lcat" type="button" data-tab="' + esc(c.tab) + '"><span class="lcat-bg" style="background:linear-gradient(135deg,hsl(' + hue + ',55%,34%),hsl(' + ((hue + 40) % 360) + ',50%,12%))">' + inner + '</span><span class="lcat-t">' + esc(c.name) + '</span></button>';
+      var inner = thumb ? '<img src="' + esc(thumb) + '" alt="" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">' : "";
+      var base = "linear-gradient(135deg,hsl(" + hue + ",55%,34%),hsl(" + ((hue + 40) % 360) + ",50%,12%))";
+      var flt = c.name === "All" ? '<i class="flt">' + ic("filter", 14) + '</i>' : "";
+      return '<button class="lcat" type="button" data-tab="' + esc(c.name) + '"><span class="lcat-bg" style="background:' + base + '">' + inner + '</span><span class="lcat-t">' + esc(c.name) + '</span>' + flt + '</button>';
     }).join("");
     $("#main").innerHTML =
       '<section class="hero"><div class="hero-track" id="heroTrack">' + hero.map(heroSlide).join("") + '</div>' +
@@ -236,9 +247,7 @@
     startHero();
   }
   function renderTab() {
-    var secs = tabSections();
-    $("#main").innerHTML = '<div class="pg-title">' + esc(S.tab) + '</div>' +
-      (secs.length ? sectionsHTML(secs) : '<div class="empty">No items in this category yet.</div>');
+    $("#main").innerHTML = '<div class="pg-title">' + esc(S.tab) + '</div>' + sectionsHTML(tabSections());
   }
   function renderSearch() {
     $("#main").innerHTML = '<div class="pg-title">Results</div>' + sectionsHTML(searchSections());
@@ -257,6 +266,7 @@
       return '<div class="mrow"><span class="ml">' + ic(icon, 20) + '<span>' + label + '</span></span><span class="mv">' + (value != null ? '<em>' + value + '</em>' : '') + ic("chevR", 16) + '</span></div>';
     };
     $("#main").innerHTML =
+      '<div class="pg-head"><h1>Me</h1></div>' +
       '<div class="mcard"><div class="me-av">G</div><div class="me-info"><b>Log in to your account</b><div class="pd">Demo mode</div></div><button class="login" type="button" id="loginBtn">' + ic("login", 16) + '<span>Log in</span></button></div>' +
       '<div class="mpanel">' + row("My List", "bookmark", 0) + row("My Likes", "heart", 0) + row("Watch History", "clock") +
         '<div class="vrow hist">' + S.all.slice(0, 4).map(vcard).join("") + '</div>' + row("Messages", "message") + '</div>' +
@@ -292,7 +302,7 @@
     var hasEps = seasons.length > 0;
     var eps = hasEps ? seasons[S.season].episodes : [];
     var dd = "";
-    if (vers.length > 1) dd += '<button class="dd" type="button" data-dd="q"><span>' + esc(vers[S.qIdx].quality) + (vers[S.qIdx].size ? ' · ' + esc(vers[S.qIdx].size) : '') + '</span>' + ic("chev", 18) + '</button>';
+    if (vers.length) dd += '<button class="dd" type="button" data-dd="q"><span>' + esc(vers[S.qIdx].quality) + (vers[S.qIdx].size ? ' · ' + esc(vers[S.qIdx].size) : '') + '</span>' + ic("chev", 18) + '</button>';
     if (seasons.length > 1) dd += '<button class="dd" type="button" data-dd="s"><span>' + esc(seasons[S.season].name) + '</span>' + ic("chev", 18) + '</button>';
     var resources = dd ? '<div class="res-head"><h3>Resources</h3></div><div class="res-row">' + dd + '</div>' : "";
     var epHtml = "";
@@ -327,19 +337,11 @@
       '<div class="d-body"><h2 class="d-title">' + esc(it.title) + '</h2><div class="d-meta">' + esc(metaLine(it)) + '</div>' +
         '<div class="d-btns"><button class="pill" id="addList" type="button">' + ic("plus", 16) + '<span>Add to list</span></button><button class="pill" id="share" type="button">' + ic("share", 16) + '<span>Share</span></button></div>' +
         resources + epHtml +
-        forYouHTML() +
+        sectionHTML(forYouSection()) +
       '</div>';
     p.classList.remove("hidden");
     document.body.classList.add("in-player");
     attachPlayer();
-  }
-  // "For you" on the player page: 16:9 grid (same system as All), 20 at a time, See more adds 20.
-  function forYouHTML() {
-    var s = forYouSection();
-    var lim = Math.min(S.lim[s.key] || PREVIEW, s.list.length);
-    return '<div class="sec-head"><h2>For you <small>' + s.list.length + '</small></h2></div>' +
-      '<div class="vgrid">' + s.list.slice(0, lim).map(vcard).join("") + '</div>' +
-      (lim < s.list.length ? '<div class="more-row"><button class="see-more" type="button" data-more="' + esc(s.key) + '">See more</button></div>' : "");
   }
   function closeDetail() {
     var v = $("#vid");
