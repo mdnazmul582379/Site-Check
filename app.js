@@ -8,8 +8,8 @@
   var CFG = Object.assign({ DEMO_VIDEO: "", DEMO_SOURCES: [], HERO_SLIDES: 6, PAGE: 5, PREVIEW: 20, STEP: 20 }, window.TFP_CONFIG || {});
   var FILES = { categories: "data/categories.json", carousel: "data/carousel.json", video: "data/video.json", series: "data/series.json" };
   var PAGE = CFG.PAGE, PREVIEW = CFG.PREVIEW;
-  var TABS = ["Home", "Trending", "Movie", "Series", "Midnight", "Anime", "Kids", "Desi Porn", "Foreign Porn", "Adult Movie"];
-  var HOME_ORDER = ["Trending", "Movie", "Series", "Midnight", "Anime", "Kids", "Desi Porn", "Foreign Porn", "Adult Movie"];
+  var TABS = ["Home", "Trending", "Movie", "Series", "Midnight", "Anime", "Kids", "Desi Porn", "Foreign Porn", "18+ Vmax", "18+ JAV", "Indo"];
+  var HOME_ORDER = ["Trending", "Movie", "Series", "Midnight", "Anime", "Kids", "Desi Porn", "Foreign Porn", "18+ Vmax", "18+ JAV", "Indo"];
   var S = {
     cats: [], all: [], byId: {}, carousel: [], views: {}, lim: {}, focus: null,
     tab: "Home", q: "", nav: "home", cur: null, season: 0, qIdx: 0, ep: 0, showAll: false,
@@ -87,48 +87,56 @@
   function bySrc(src) { return S.all.filter(function (i) { return i._src === src; }); }
   function isAnime(i) { return !!(i.tags && i.tags.indexOf("anime") > -1); }
   function byGenre(list, g) { return list.filter(function (i) { return i.genre === g; }); }
+  function byCategory(list, c) {
+    return list.filter(function (i) {
+      if (i.category) return i.category === c;
+      return i.genre === c;
+    });
+  }
+  function genresIn(list) {
+    var g = [];
+    list.forEach(function (i) {
+      var name = i.genre || "";
+      if (name && g.indexOf(name) < 0) g.push(name);
+    });
+    return g;
+  }
 
   function homeSections() {
     return HOME_ORDER.map(function (name) {
-      var list;
+      var list = byCategory(S.all, name);
       if (name === "Trending") {
-        list = trendingList();
-        if (!list.length) list = byGenre(S.all, "Trending");
-      } else if (name === "Series") {
-        list = S.all.filter(function (i) { return i.genre === "Series" || (i._src === "series" && i.genre === "Series"); });
-        if (!list.length) list = byGenre(S.all, "Series");
-      } else if (name === "Anime") {
-        list = S.all.filter(function (i) { return i.genre === "Anime" || isAnime(i); });
-      } else {
-        list = byGenre(S.all, name);
+        var trend = trendingList();
+        if (trend.length) list = trend;
       }
       return sec("H|" + name, name, list, PAGE);
     });
   }
   function tabSections() {
-    var t = S.tab, list;
-    if (t === "All") return [sec("A|All", "All", S.all, PREVIEW, true)].concat(HOME_ORDER.map(function (g) { return sec("A|" + g, g, byGenre(S.all, g), PAGE); }));
-    if (t === "Trending") {
-      list = trendingList();
-      if (!list.length) list = byGenre(S.all, "Trending");
-      return [sec("T|Trending", "Trending", list, PREVIEW, true)];
+    var t = S.tab;
+    // Category tab: genre rows only (5 + All). No repeated category title.
+    if (HOME_ORDER.indexOf(t) > -1) {
+      var pool = byCategory(S.all, t);
+      if (t === "Trending") {
+        var trend = trendingList();
+        if (trend.length) pool = trend;
+      }
+      var gens = genresIn(pool);
+      if (!gens.length) return [sec("C|" + t, t, pool, PREVIEW, true)];
+      return gens.map(function (g) {
+        return sec("C|" + t + "|" + g, g, byGenre(pool, g), PAGE);
+      });
     }
-    if (t === "Series") {
-      list = byGenre(S.all, "Series");
-      return [sec("S|Series", "Series", list, PREVIEW, true)];
+    if (t === "All") {
+      return [sec("A|All", "All", S.all, PREVIEW, true)].concat(
+        HOME_ORDER.map(function (c) { return sec("A|" + c, c, byCategory(S.all, c), PAGE); })
+      );
     }
-    if (t === "Anime") {
-      list = S.all.filter(function (i) { return i.genre === "Anime" || isAnime(i); });
-      return [sec("N|Anime", "Anime", list, PREVIEW, true)];
-    }
-    if (t === "Movie" || t === "Midnight" || t === "Kids" || t === "Desi Porn" || t === "Foreign Porn" || t === "Adult Movie") {
-      return [sec("G|" + t, t, byGenre(S.all, t), PREVIEW, true)];
-    }
-    return [sec("G|" + t, t, byGenre(S.all, t), PREVIEW, true)];
+    return [sec("G|" + t, t, byCategory(S.all, t), PREVIEW, true)];
   }
   function searchSections() {
     var q = S.q.trim().toLowerCase();
-    var list = S.all.filter(function (i) { return i.title.toLowerCase().indexOf(q) > -1 || i.genre.toLowerCase().indexOf(q) > -1; });
+    var list = S.all.filter(function (i) { return i.title.toLowerCase().indexOf(q) > -1 || (i.genre || "").toLowerCase().indexOf(q) > -1 || (i.category || "").toLowerCase().indexOf(q) > -1; });
     return [sec("Q|results", "Results", list, PREVIEW, true)];
   }
   function currentSections() {
@@ -199,6 +207,10 @@
     return '<button class="vcard" type="button" data-id="' + esc(it.id) + '"><span class="vc-img" style="background:' + grad(it) + '">' + img + '</span>' +
       '<span class="vglass"><span class="vt">' + esc(it.title) + '</span><span class="vd">' + esc([it.year, it.genre].join(" · ")) + '</span></span></button>';
   }
+  function histCard(it) {
+    var img = it.thumb ? '<img src="' + esc(it.thumb) + '" alt="" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">' : "";
+    return '<button class="hcard" type="button" data-id="' + esc(it.id) + '"><span class="hc-img" style="background:' + grad(it) + '">' + img + '</span><span class="hc-t">' + esc(it.title) + '</span></button>';
+  }
 
   // ---- hero ----
   function heroSlide(it) {
@@ -247,7 +259,7 @@
     startHero();
   }
   function renderTab() {
-    $("#main").innerHTML = '<div class="pg-title">' + esc(S.tab) + '</div>' + sectionsHTML(tabSections());
+    $("#main").innerHTML = sectionsHTML(tabSections());
   }
   function renderSearch() {
     $("#main").innerHTML = '<div class="pg-title">Results</div>' + sectionsHTML(searchSections());
@@ -257,7 +269,7 @@
     $("#main").innerHTML =
       '<div class="pg-head"><h1>Downloads</h1><button class="pill-s" id="transfer" type="button">Transfer</button></div>' +
       '<div class="seg">' + ["Downloaded", "Local files", "Received"].map(function (t) { return '<button type="button" data-dltab="' + t + '" class="' + (t === pick ? "on" : "") + '">' + t + '</button>'; }).join("") + '</div>' +
-      '<div class="dl-empty"><div class="dl-box">' + ic("download", 28) + '</div><p>Your downloads will show up here</p></div>' +
+      '<div class="dl-empty"><div class="dl-ico">' + ic("download", 52) + '</div><p>Your downloads will show up here</p></div>' +
       '<div class="sec-head"><h2>For You</h2></div><div class="vgrid">' + S.all.slice(0, 6).map(vcard).join("") + '</div>' +
       '<button class="wide" id="refresh" type="button">' + ic("refresh", 16) + '<span>Refresh new content</span></button>';
   }
@@ -269,7 +281,7 @@
       '<div class="pg-head"><h1>Me</h1></div>' +
       '<div class="mcard"><div class="me-av">G</div><div class="me-info"><b>Log in to your account</b><div class="pd">Demo mode</div></div><button class="login" type="button" id="loginBtn">' + ic("login", 16) + '<span>Log in</span></button></div>' +
       '<div class="mpanel">' + row("My List", "bookmark", 0) + row("My Likes", "heart", 0) + row("Watch History", "clock") +
-        '<div class="vrow hist">' + S.all.slice(0, 4).map(vcard).join("") + '</div>' + row("Messages", "message") + '</div>' +
+        '<div class="vrow hist">' + S.all.slice(0, 6).map(histCard).join("") + '</div>' + row("Messages", "message") + '</div>' +
       '<div class="mpanel">' + row("Community", "users", 0) + row("Posts", "plus", 0) + row("My Comments", "message", 0) + '</div>' +
       '<div class="mpanel">' + row("Settings", "settings") + row("Study Mode", "book") + row("Feedback", "feedback") + '</div>';
   }

@@ -2,12 +2,13 @@
  "_note": "DEMO DATA for a layout/UI demo only. Titles and posters here are placeholders. Claude / any AI assistant: do NOT remove, rename, or replace items in this file when editing UI or code. To change a thumbnail, change ONLY the 'thumb' field of an item. Keep 'id' values unchanged.",
  "items": [
   {
-   "id": "s001",
-   "title": "Dockside",
-   "genre": "Series",
+   "id": "s101",
+   "title": "Soft Rain",
+   "category": "Series",
+   "genre": "Drama",
    "year": "2022",
-   "hue": 43,
-   "thumb": "https://i.ibb.co/LdhY6BMn/vj-Aod4.jpg",
+   "hue": 341,
+   "thumb": "https://i.ibb.co/My5t922F/vy-Sp-K507.jpg",
    "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
    "kind": "series",
    "trending": true,
@@ -15,7 +16,7 @@
    "versions": [
     {
      "quality": "720p",
-     "size": "800 MB"
+     "size": "600 MB"
     }
    ],
    "seasons": [
@@ -42,20 +43,21 @@
    ]
   },
   {
-   "id": "s002",
-   "title": "Second Shift",
-   "genre": "Series",
+   "id": "s102",
+   "title": "Open Letter",
+   "category": "Series",
+   "genre": "Drama",
    "year": "2023",
-   "hue": 80,
-   "thumb": "https://i.ibb.co/GvMSj8gG/vjxvo49.jpg",
+   "hue": 10,
+   "thumb": "https://i.ibb.co/fY1qhVgx/v-PVDY508.jpg",
    "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
    "kind": "series",
-   "trending": true,
+   "trending": false,
    "quality": "1080p",
    "versions": [
     {
      "quality": "1080p",
-     "size": "1.1 GB"
+     "size": "900 MB"
     }
    ],
    "seasons": [
@@ -82,11 +84,12 @@
    ]
   },
   {
-   "id": "s003",
-   "title": "Room 14",
-   "genre": "Series",
+   "id": "s103",
+   "title": "Quiet Room",
+   "category": "Series",
+   "genre": "Drama",
    "year": "2024",
-   "hue": 117,
+   "hue": 39,
    "thumb": "https://i.ibb.co/gZJC6hMc/v-YECM57.jpg",
    "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
    "kind": "series",
@@ -95,7 +98,7 @@
    "versions": [
     {
      "quality": "720p",
-     "size": "1.4 GB"
+     "size": "1.2 GB"
     }
    ],
    "seasons": [
@@ -122,11 +125,12 @@
    ]
   },
   {
-   "id": "s004",
-   "title": "The Archive",
-   "genre": "Series",
+   "id": "s104",
+   "title": "Late Reply",
+   "category": "Series",
+   "genre": "Drama",
    "year": "2025",
-   "hue": 154,
+   "hue": 68,
    "thumb": "https://i.ibb.co/B5kfbLf4/v-NOfw109.jpg",
    "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
    "kind": "series",
@@ -135,7 +139,7 @@
    "versions": [
     {
      "quality": "1080p",
-     "size": "2.0 GB"
+     "size": "1.8 GB"
     }
    ],
    "seasons": [
@@ -162,11 +166,12 @@
    ]
   },
   {
-   "id": "s005",
-   "title": "North Pier",
-   "genre": "Series",
+   "id": "s105",
+   "title": "Glass Table",
+   "category": "Series",
+   "genre": "Drama",
    "year": "2026",
-   "hue": 191,
+   "hue": 97,
    "thumb": "https://i.ibb.co/sJHwKbgG/v-Zzb-A208.jpg",
    "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
    "kind": "series",
@@ -175,7 +180,7 @@
    "versions": [
     {
      "quality": "720p",
-     "size": "450 MB"
+     "size": "600 MB"
     }
    ],
    "seasons": [
@@ -202,11 +207,12 @@
    ]
   },
   {
-   "id": "s006",
-   "title": "Cable Run",
-   "genre": "Series",
+   "id": "s106",
+   "title": "Paper Wall",
+   "category": "Series",
+   "genre": "Drama",
    "year": "2022",
-   "hue": 228,
+   "hue": 126,
    "thumb": "https://i.ibb.co/FS6zq3F/v-Qd-YH394.jpg",
    "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
    "kind": "series",
@@ -215,7 +221,7 @@
    "versions": [
     {
      "quality": "1080p",
-     "size": "800 MB"
+     "size": "900 MB"
     }
    ],
    "seasons": [
@@ -242,20 +248,21 @@
    ]
   },
   {
-   "id": "s007",
-   "title": "Soft Alarm",
-   "genre": "Series",
-   "year": "2023",
-   "hue": 265,
+   "id": "s201",
+   "title": "Case File",
+   "category": "Series",
+   "genre": "Crime",
+   "year": "2022",
+   "hue": 155,
    "thumb": "https://i.ibb.co/VYytMt6Y/v-FRDQ403.jpg",
    "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
    "kind": "series",
-   "trending": false,
+   "trending": true,
    "quality": "720p",
    "versions": [
     {
      "quality": "720p",
-     "size": "1.1 GB"
+     "size": "600 MB"
     }
    ],
    "seasons": [
@@ -282,11 +289,12 @@
    ]
   },
   {
-   "id": "s008",
-   "title": "Late Ferry",
-   "genre": "Series",
-   "year": "2024",
-   "hue": 302,
+   "id": "s202",
+   "title": "Night Watch",
+   "category": "Series",
+   "genre": "Crime",
+   "year": "2023",
+   "hue": 184,
    "thumb": "https://i.ibb.co/dsNS7SCm/vt-Fm-S413.jpg",
    "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
    "kind": "series",
@@ -295,7 +303,7 @@
    "versions": [
     {
      "quality": "1080p",
-     "size": "1.4 GB"
+     "size": "900 MB"
     }
    ],
    "seasons": [
@@ -322,11 +330,12 @@
    ]
   },
   {
-   "id": "s009",
-   "title": "Grid Notes",
-   "genre": "Series",
-   "year": "2025",
-   "hue": 339,
+   "id": "s203",
+   "title": "Port City",
+   "category": "Series",
+   "genre": "Crime",
+   "year": "2024",
+   "hue": 213,
    "thumb": "https://i.ibb.co/JwsGcXgk/vir-Eq414.jpg",
    "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
    "kind": "series",
@@ -335,7 +344,7 @@
    "versions": [
     {
      "quality": "720p",
-     "size": "2.0 GB"
+     "size": "1.2 GB"
     }
    ],
    "seasons": [
@@ -362,12 +371,13 @@
    ]
   },
   {
-   "id": "s010",
-   "title": "Open Channel",
-   "genre": "Series",
-   "year": "2026",
-   "hue": 16,
-   "thumb": "https://i.ibb.co/PG2dM8xV/v-Nz-Az415.jpg",
+   "id": "s204",
+   "title": "Under Table",
+   "category": "Series",
+   "genre": "Crime",
+   "year": "2025",
+   "hue": 242,
+   "thumb": "https://i.ibb.co/9mtmZ4Vn/cat-romance.jpg",
    "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
    "kind": "series",
    "trending": false,
@@ -375,7 +385,581 @@
    "versions": [
     {
      "quality": "1080p",
-     "size": "450 MB"
+     "size": "1.8 GB"
+    }
+   ],
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s205",
+   "title": "Fake ID",
+   "category": "Series",
+   "genre": "Crime",
+   "year": "2026",
+   "hue": 271,
+   "thumb": "https://i.ibb.co/xtLnknZC/cat-action.jpg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "kind": "series",
+   "trending": false,
+   "quality": "720p",
+   "versions": [
+    {
+     "quality": "720p",
+     "size": "600 MB"
+    }
+   ],
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s206",
+   "title": "Side Deal",
+   "category": "Series",
+   "genre": "Crime",
+   "year": "2022",
+   "hue": 300,
+   "thumb": "https://i.ibb.co/rRk8nD0M/cat-comedy.jpg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "kind": "series",
+   "trending": false,
+   "quality": "1080p",
+   "versions": [
+    {
+     "quality": "1080p",
+     "size": "900 MB"
+    }
+   ],
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s301",
+   "title": "Warm Light",
+   "category": "Series",
+   "genre": "Romance",
+   "year": "2022",
+   "hue": 329,
+   "thumb": "https://i.ibb.co/nqF1k9f5/cat-horror.jpg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "kind": "series",
+   "trending": true,
+   "quality": "720p",
+   "versions": [
+    {
+     "quality": "720p",
+     "size": "600 MB"
+    }
+   ],
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s302",
+   "title": "Side Walk",
+   "category": "Series",
+   "genre": "Romance",
+   "year": "2023",
+   "hue": 358,
+   "thumb": "https://i.ibb.co/kV3gQg9j/cat-thriller.jpg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "kind": "series",
+   "trending": false,
+   "quality": "1080p",
+   "versions": [
+    {
+     "quality": "1080p",
+     "size": "900 MB"
+    }
+   ],
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s303",
+   "title": "Blue Note",
+   "category": "Series",
+   "genre": "Romance",
+   "year": "2024",
+   "hue": 27,
+   "thumb": "https://i.ibb.co/zH6ngSVL/cat-crime.jpg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "kind": "series",
+   "trending": false,
+   "quality": "720p",
+   "versions": [
+    {
+     "quality": "720p",
+     "size": "1.2 GB"
+    }
+   ],
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s304",
+   "title": "First Call",
+   "category": "Series",
+   "genre": "Romance",
+   "year": "2025",
+   "hue": 56,
+   "thumb": "https://i.ibb.co/4nCBPdZY/cat-sci-fi.jpg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "kind": "series",
+   "trending": false,
+   "quality": "1080p",
+   "versions": [
+    {
+     "quality": "1080p",
+     "size": "1.8 GB"
+    }
+   ],
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s305",
+   "title": "Shared Umbrella",
+   "category": "Series",
+   "genre": "Romance",
+   "year": "2026",
+   "hue": 85,
+   "thumb": "https://i.ibb.co/0jmvJrLb/cat-fantasy.jpg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "kind": "series",
+   "trending": false,
+   "quality": "720p",
+   "versions": [
+    {
+     "quality": "720p",
+     "size": "600 MB"
+    }
+   ],
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s306",
+   "title": "Evening Train",
+   "category": "Series",
+   "genre": "Romance",
+   "year": "2022",
+   "hue": 114,
+   "thumb": "https://i.ibb.co/LhhFbK81/cat-k-drama.jpg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "kind": "series",
+   "trending": false,
+   "quality": "1080p",
+   "versions": [
+    {
+     "quality": "1080p",
+     "size": "900 MB"
+    }
+   ],
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s401",
+   "title": "Wrong Number",
+   "category": "Series",
+   "genre": "Comedy",
+   "year": "2022",
+   "hue": 143,
+   "thumb": "https://i.ibb.co/SwrwCrBB/vvbl-A2.jpg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "kind": "series",
+   "trending": true,
+   "quality": "720p",
+   "versions": [
+    {
+     "quality": "720p",
+     "size": "600 MB"
+    }
+   ],
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s402",
+   "title": "Spare Chair",
+   "category": "Series",
+   "genre": "Comedy",
+   "year": "2023",
+   "hue": 172,
+   "thumb": "https://i.ibb.co/LdhY6BMn/vj-Aod4.jpg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "kind": "series",
+   "trending": false,
+   "quality": "1080p",
+   "versions": [
+    {
+     "quality": "1080p",
+     "size": "900 MB"
+    }
+   ],
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s403",
+   "title": "Lucky Ticket",
+   "category": "Series",
+   "genre": "Comedy",
+   "year": "2024",
+   "hue": 201,
+   "thumb": "https://i.ibb.co/GvMSj8gG/vjxvo49.jpg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "kind": "series",
+   "trending": false,
+   "quality": "720p",
+   "versions": [
+    {
+     "quality": "720p",
+     "size": "1.2 GB"
+    }
+   ],
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s404",
+   "title": "Busy Desk",
+   "category": "Series",
+   "genre": "Comedy",
+   "year": "2025",
+   "hue": 230,
+   "thumb": "https://i.ibb.co/dJg2t4Zp/cat-drama.jpg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "kind": "series",
+   "trending": false,
+   "quality": "1080p",
+   "versions": [
+    {
+     "quality": "1080p",
+     "size": "1.8 GB"
+    }
+   ],
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s405",
+   "title": "Tiny Problem",
+   "category": "Series",
+   "genre": "Comedy",
+   "year": "2026",
+   "hue": 259,
+   "thumb": "https://i.ibb.co/PG2dM8xV/v-Nz-Az415.jpg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "kind": "series",
+   "trending": false,
+   "quality": "720p",
+   "versions": [
+    {
+     "quality": "720p",
+     "size": "600 MB"
+    }
+   ],
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Episode 1",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 2,
+       "title": "Episode 2",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      },
+      {
+       "no": 3,
+       "title": "Episode 3",
+       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s406",
+   "title": "Office Cat",
+   "category": "Series",
+   "genre": "Comedy",
+   "year": "2022",
+   "hue": 288,
+   "thumb": "https://i.ibb.co/84KtM0cQ/vz-TIy418.jpg",
+   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+   "kind": "series",
+   "trending": false,
+   "quality": "1080p",
+   "versions": [
+    {
+     "quality": "1080p",
+     "size": "900 MB"
     }
    ],
    "seasons": [
