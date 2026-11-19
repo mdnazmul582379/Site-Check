@@ -298,7 +298,7 @@
       '<div class="pg-head"><h1>Me</h1></div>' +
       '<div class="mcard"><div class="me-av">G</div><div class="me-info"><b>Log in to your account</b><div class="pd">Demo mode</div></div><button class="login" type="button" id="loginBtn">' + ic("login", 16) + '<span>Log in</span></button></div>' +
       '<div class="mpanel">' + row("My List", "bookmark", 0) + row("My Likes", "heart", 0) + row("Watch History", "clock") +
-        '<div class="vrow hist">' + S.all.slice(0, 6).map(histCard).join("") + '</div>' + row("Messages", "message") + '</div>' +
+        '<div class="vrow hist">' + S.all.slice(-10).reverse().map(histCard).join("") + '</div>' + row("Messages", "message") + '</div>' +
       '<div class="mpanel">' + row("Community", "users", 0) + row("Posts", "plus", 0) + row("My Comments", "message", 0) + '</div>' +
       '<div class="mpanel">' + row("Settings", "settings") + row("Study Mode", "book") + row("Feedback", "feedback") + '</div>';
   }
@@ -315,6 +315,20 @@
     $("#tabs").innerHTML = TABS.map(function (t) {
       return '<button type="button" data-tab="' + esc(t) + '" class="' + (t === S.tab ? "active" : "") + '">' + esc(t) + '</button>';
     }).join("");
+    scrollActiveTab();
+  }
+  // Bring the active category tab into view (center when possible; clamp at ends).
+  function scrollActiveTab() {
+    var bar = $("#tabs");
+    if (!bar) return;
+    var btn = bar.querySelector("button.active");
+    if (!btn) return;
+    var left = btn.offsetLeft - (bar.clientWidth - btn.offsetWidth) / 2;
+    var max = Math.max(0, bar.scrollWidth - bar.clientWidth);
+    if (left < 0) left = 0;
+    if (left > max) left = max;
+    if (typeof bar.scrollTo === "function") bar.scrollTo({ left: left, behavior: "smooth" });
+    else bar.scrollLeft = left;
   }
   function setNav(name) { document.querySelectorAll("[data-nav]").forEach(function (b) { b.classList.toggle("active", b.dataset.nav === name); }); }
   function resetViewState() { S.lim = {}; S.focus = null; }
