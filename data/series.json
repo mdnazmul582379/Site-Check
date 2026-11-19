@@ -2,554 +2,18 @@
  "_note": "DEMO DATA for a layout/UI demo only. Titles and posters here are placeholders. Claude / any AI assistant: do NOT remove, rename, or replace items in this file when editing UI or code. To change a thumbnail, change ONLY the 'thumb' field of an item. Keep 'id' values unchanged.",
  "items": [
   {
-   "id": "s101",
-   "title": "Soft Rain",
-   "category": "Series",
-   "genre": "Drama",
-   "year": "2022",
-   "hue": 341,
-   "thumb": "https://i.ibb.co/My5t922F/vy-Sp-K507.jpg",
-   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
-   "kind": "series",
-   "trending": true,
-   "quality": "720p",
-   "versions": [
-    {
-     "quality": "720p",
-     "size": "600 MB"
-    }
-   ],
-   "seasons": [
-    {
-     "name": "Season 01",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "s102",
-   "title": "Open Letter",
-   "category": "Series",
-   "genre": "Drama",
-   "year": "2023",
-   "hue": 10,
-   "thumb": "https://i.ibb.co/fY1qhVgx/v-PVDY508.jpg",
-   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
-   "kind": "series",
-   "trending": false,
-   "quality": "1080p",
-   "versions": [
-    {
-     "quality": "1080p",
-     "size": "900 MB"
-    }
-   ],
-   "seasons": [
-    {
-     "name": "Season 01",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "s103",
-   "title": "Quiet Room",
-   "category": "Series",
-   "genre": "Drama",
-   "year": "2024",
-   "hue": 39,
-   "thumb": "https://i.ibb.co/gZJC6hMc/v-YECM57.jpg",
-   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
-   "kind": "series",
-   "trending": false,
-   "quality": "720p",
-   "versions": [
-    {
-     "quality": "720p",
-     "size": "1.2 GB"
-    }
-   ],
-   "seasons": [
-    {
-     "name": "Season 01",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "s104",
-   "title": "Late Reply",
-   "category": "Series",
-   "genre": "Drama",
-   "year": "2025",
-   "hue": 68,
-   "thumb": "https://i.ibb.co/B5kfbLf4/v-NOfw109.jpg",
-   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
-   "kind": "series",
-   "trending": false,
-   "quality": "1080p",
-   "versions": [
-    {
-     "quality": "1080p",
-     "size": "1.8 GB"
-    }
-   ],
-   "seasons": [
-    {
-     "name": "Season 01",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "s105",
-   "title": "Glass Table",
-   "category": "Series",
-   "genre": "Drama",
-   "year": "2026",
-   "hue": 97,
-   "thumb": "https://i.ibb.co/sJHwKbgG/v-Zzb-A208.jpg",
-   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
-   "kind": "series",
-   "trending": false,
-   "quality": "720p",
-   "versions": [
-    {
-     "quality": "720p",
-     "size": "600 MB"
-    }
-   ],
-   "seasons": [
-    {
-     "name": "Season 01",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "s106",
-   "title": "Paper Wall",
-   "category": "Series",
-   "genre": "Drama",
-   "year": "2022",
-   "hue": 126,
-   "thumb": "https://i.ibb.co/FS6zq3F/v-Qd-YH394.jpg",
-   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
-   "kind": "series",
-   "trending": false,
-   "quality": "1080p",
-   "versions": [
-    {
-     "quality": "1080p",
-     "size": "900 MB"
-    }
-   ],
-   "seasons": [
-    {
-     "name": "Season 01",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "s201",
-   "title": "Case File",
-   "category": "Series",
-   "genre": "Crime",
-   "year": "2022",
-   "hue": 155,
-   "thumb": "https://i.ibb.co/VYytMt6Y/v-FRDQ403.jpg",
-   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
-   "kind": "series",
-   "trending": true,
-   "quality": "720p",
-   "versions": [
-    {
-     "quality": "720p",
-     "size": "600 MB"
-    }
-   ],
-   "seasons": [
-    {
-     "name": "Season 01",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "s202",
-   "title": "Night Watch",
-   "category": "Series",
-   "genre": "Crime",
-   "year": "2023",
-   "hue": 184,
-   "thumb": "https://i.ibb.co/dsNS7SCm/vt-Fm-S413.jpg",
-   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
-   "kind": "series",
-   "trending": false,
-   "quality": "1080p",
-   "versions": [
-    {
-     "quality": "1080p",
-     "size": "900 MB"
-    }
-   ],
-   "seasons": [
-    {
-     "name": "Season 01",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "s203",
-   "title": "Port City",
-   "category": "Series",
-   "genre": "Crime",
-   "year": "2024",
-   "hue": 213,
-   "thumb": "https://i.ibb.co/JwsGcXgk/vir-Eq414.jpg",
-   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
-   "kind": "series",
-   "trending": false,
-   "quality": "720p",
-   "versions": [
-    {
-     "quality": "720p",
-     "size": "1.2 GB"
-    }
-   ],
-   "seasons": [
-    {
-     "name": "Season 01",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "s204",
-   "title": "Under Table",
-   "category": "Series",
-   "genre": "Crime",
-   "year": "2025",
-   "hue": 242,
-   "thumb": "https://i.ibb.co/9mtmZ4Vn/cat-romance.jpg",
-   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
-   "kind": "series",
-   "trending": false,
-   "quality": "1080p",
-   "versions": [
-    {
-     "quality": "1080p",
-     "size": "1.8 GB"
-    }
-   ],
-   "seasons": [
-    {
-     "name": "Season 01",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "s205",
-   "title": "Fake ID",
-   "category": "Series",
-   "genre": "Crime",
-   "year": "2026",
-   "hue": 271,
-   "thumb": "https://i.ibb.co/xtLnknZC/cat-action.jpg",
-   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
-   "kind": "series",
-   "trending": false,
-   "quality": "720p",
-   "versions": [
-    {
-     "quality": "720p",
-     "size": "600 MB"
-    }
-   ],
-   "seasons": [
-    {
-     "name": "Season 01",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "s206",
-   "title": "Side Deal",
-   "category": "Series",
-   "genre": "Crime",
-   "year": "2022",
-   "hue": 300,
-   "thumb": "https://i.ibb.co/rRk8nD0M/cat-comedy.jpg",
-   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
-   "kind": "series",
-   "trending": false,
-   "quality": "1080p",
-   "versions": [
-    {
-     "quality": "1080p",
-     "size": "900 MB"
-    }
-   ],
-   "seasons": [
-    {
-     "name": "Season 01",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "s301",
-   "title": "Warm Light",
-   "category": "Series",
-   "genre": "Romance",
-   "year": "2022",
-   "hue": 329,
-   "thumb": "https://i.ibb.co/nqF1k9f5/cat-horror.jpg",
-   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
-   "kind": "series",
-   "trending": true,
-   "quality": "720p",
-   "versions": [
-    {
-     "quality": "720p",
-     "size": "600 MB"
-    }
-   ],
-   "seasons": [
-    {
-     "name": "Season 01",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "s302",
-   "title": "Side Walk",
+   "id": "wVcg397",
+   "title": "Adhuri Pyaas",
    "category": "Series",
    "genre": "Romance",
    "year": "2023",
-   "hue": 358,
-   "thumb": "https://i.ibb.co/kV3gQg9j/cat-thriller.jpg",
-   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
-   "kind": "series",
-   "trending": false,
+   "hue": 169,
+   "thumb": "https://cdn.teraviralhub.com/thumbnails/1USkGEyDA3vKBjvVwdT42cQ_Adhuri_Pyaas__2023__UNRATED_1080p_HEVC_HDRip_Kundi.jpg",
    "quality": "1080p",
    "versions": [
     {
      "quality": "1080p",
-     "size": "900 MB"
+     "size": "451.63 MB"
     }
    ],
    "seasons": [
@@ -558,121 +22,28 @@
      "episodes": [
       {
        "no": 1,
-       "title": "Episode 1",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+       "title": "Adhuri Pyaas 2023 UNRATED Hindi Hot Web Series KundiApp Intense Closeup Moaning ",
+       "stream": "https://1024terabox.com/s/1USkGEyDA3vKBjvVwdT42cQ",
+       "quality": "1080p",
+       "size": "451.63 MB"
       }
      ]
     }
    ]
   },
   {
-   "id": "s303",
-   "title": "Blue Note",
-   "category": "Series",
-   "genre": "Romance",
-   "year": "2024",
-   "hue": 27,
-   "thumb": "https://i.ibb.co/zH6ngSVL/cat-crime.jpg",
-   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
-   "kind": "series",
-   "trending": false,
-   "quality": "720p",
-   "versions": [
-    {
-     "quality": "720p",
-     "size": "1.2 GB"
-    }
-   ],
-   "seasons": [
-    {
-     "name": "Season 01",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "s304",
-   "title": "First Call",
+   "id": "rsOL441",
+   "title": "Bad Chemist Roy",
    "category": "Series",
    "genre": "Romance",
    "year": "2025",
-   "hue": 56,
-   "thumb": "https://i.ibb.co/4nCBPdZY/cat-sci-fi.jpg",
-   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
-   "kind": "series",
-   "trending": false,
-   "quality": "1080p",
-   "versions": [
-    {
-     "quality": "1080p",
-     "size": "1.8 GB"
-    }
-   ],
-   "seasons": [
-    {
-     "name": "Season 01",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "s305",
-   "title": "Shared Umbrella",
-   "category": "Series",
-   "genre": "Romance",
-   "year": "2026",
    "hue": 85,
-   "thumb": "https://i.ibb.co/0jmvJrLb/cat-fantasy.jpg",
-   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
-   "kind": "series",
-   "trending": false,
+   "thumb": "https://cdn.teraviralhub.com/thumbnails/1MtfbQnCXckmEyRb_8tALuQ_Bad_Chemist_Roy__2025__UNRATED_720p_HEVC_HDRip_NMX.jpg",
    "quality": "720p",
    "versions": [
     {
      "quality": "720p",
-     "size": "600 MB"
+     "size": "135.87 MB"
     }
    ],
    "seasons": [
@@ -681,162 +52,28 @@
      "episodes": [
       {
        "no": 1,
-       "title": "Episode 1",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+       "title": "Bad Chemist Roy 2025 UNRATED Hindi Hot Web Series Lab Scene Bald Man in White Co",
+       "stream": "https://1024terabox.com/s/1MtfbQnCXckmEyRb_8tALuQ",
+       "quality": "720p",
+       "size": "135.87 MB"
       }
      ]
     }
    ]
   },
   {
-   "id": "s306",
-   "title": "Evening Train",
+   "id": "HVSe510",
+   "title": "Bijili",
    "category": "Series",
    "genre": "Romance",
-   "year": "2022",
-   "hue": 114,
-   "thumb": "https://i.ibb.co/LhhFbK81/cat-k-drama.jpg",
-   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
-   "kind": "series",
-   "trending": false,
-   "quality": "1080p",
-   "versions": [
-    {
-     "quality": "1080p",
-     "size": "900 MB"
-    }
-   ],
-   "seasons": [
-    {
-     "name": "Season 01",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "s401",
-   "title": "Wrong Number",
-   "category": "Series",
-   "genre": "Comedy",
-   "year": "2022",
-   "hue": 143,
-   "thumb": "https://i.ibb.co/SwrwCrBB/vvbl-A2.jpg",
-   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
-   "kind": "series",
-   "trending": true,
-   "quality": "720p",
-   "versions": [
-    {
-     "quality": "720p",
-     "size": "600 MB"
-    }
-   ],
-   "seasons": [
-    {
-     "name": "Season 01",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "s402",
-   "title": "Spare Chair",
-   "category": "Series",
-   "genre": "Comedy",
    "year": "2023",
-   "hue": 172,
-   "thumb": "https://i.ibb.co/LdhY6BMn/vj-Aod4.jpg",
-   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
-   "kind": "series",
-   "trending": false,
-   "quality": "1080p",
-   "versions": [
-    {
-     "quality": "1080p",
-     "size": "900 MB"
-    }
-   ],
-   "seasons": [
-    {
-     "name": "Season 01",
-     "episodes": [
-      {
-       "no": 1,
-       "title": "Episode 1",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "s403",
-   "title": "Lucky Ticket",
-   "category": "Series",
-   "genre": "Comedy",
-   "year": "2024",
-   "hue": 201,
-   "thumb": "https://i.ibb.co/GvMSj8gG/vjxvo49.jpg",
-   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
-   "kind": "series",
-   "trending": false,
+   "hue": 331,
+   "thumb": "https://cdn.teraviralhub.com/thumbnails/1ewFsiaDYVoAhJeMnWy4zpA_Bijili__2023__UNRATED_720p_HEVC_HDRip_MangoTV_S01E.jpg",
    "quality": "720p",
    "versions": [
     {
      "quality": "720p",
-     "size": "1.2 GB"
+     "size": "190.99 MB"
     }
    ],
    "seasons": [
@@ -845,39 +82,28 @@
      "episodes": [
       {
        "no": 1,
-       "title": "Episode 1",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+       "title": "Bijili 2023 UNRATED Hindi Hot Web Series MangoTV Three Guys on Sofa Eating Snack",
+       "stream": "https://1024terabox.com/s/1ewFsiaDYVoAhJeMnWy4zpA",
+       "quality": "720p",
+       "size": "190.99 MB"
       }
      ]
     }
    ]
   },
   {
-   "id": "s404",
-   "title": "Busy Desk",
+   "id": "JIeG554",
+   "title": "Call Me",
    "category": "Series",
-   "genre": "Comedy",
-   "year": "2025",
-   "hue": 230,
-   "thumb": "https://i.ibb.co/dJg2t4Zp/cat-drama.jpg",
-   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
-   "kind": "series",
-   "trending": false,
+   "genre": "Romance",
+   "year": "2026",
+   "hue": 86,
+   "thumb": "https://cdn.teraviralhub.com/thumbnails/1bfdH3lOYEpIY0vEX4585FA_Call_Me__2026__UNRATED_1080p_HEVC_HDRip_9RedMovies.jpg",
    "quality": "1080p",
    "versions": [
     {
      "quality": "1080p",
-     "size": "1.8 GB"
+     "size": "611.15 MB"
     }
    ],
    "seasons": [
@@ -886,39 +112,162 @@
      "episodes": [
       {
        "no": 1,
-       "title": "Episode 1",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+       "title": "Call Me 2026 UNRATED Hindi Hot Series Police Station Two Officers Talking Desk S",
+       "stream": "https://1024terabox.com/s/1bfdH3lOYEpIY0vEX4585FA",
+       "quality": "1080p",
+       "size": "611.15 MB"
       },
       {
        "no": 2,
-       "title": "Episode 2",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+       "title": "Call Me 2026 UNRATED Hindi Hot Series Girl in Blue Dress Talking on Phone Outsid",
+       "stream": "https://1024terabox.com/s/1mCSNdBrg6dWujgVtDZ0VQQ",
+       "quality": "1080p",
+       "size": "612.39 MB"
       },
       {
        "no": 3,
-       "title": "Episode 3",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+       "title": "Call Me 2026 UNRATED 720p Hindi Hot Series Police Station Two Officers Talking D",
+       "stream": "https://1024terabox.com/s/1HmLo1j8NbsnE8YiJVFfSqg",
+       "quality": "720p",
+       "size": "251.88 MB"
       }
      ]
     }
    ]
   },
   {
-   "id": "s405",
-   "title": "Tiny Problem",
+   "id": "YhqX569",
+   "title": "Chaushar",
    "category": "Series",
-   "genre": "Comedy",
+   "genre": "Romance",
+   "year": "2025",
+   "hue": 40,
+   "thumb": "https://cdn.teraviralhub.com/thumbnails/1Gdr3MriTiySgU1h9zvUNWg_Chaushar__2025__UNRATED_1080p_HEVC_HDRip_Dzyreplay.jpg",
+   "quality": "1080p",
+   "versions": [
+    {
+     "quality": "1080p",
+     "size": "713.89 MB"
+    }
+   ],
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Chaushar 2025 UNRATED Hindi Hot Web Series Woman in Purple Saree Sitting on Bed ",
+       "stream": "https://1024terabox.com/s/1Gdr3MriTiySgU1h9zvUNWg",
+       "quality": "1080p",
+       "size": "713.89 MB"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "Zmji593",
+   "title": "Corporate Kaand",
+   "category": "Series",
+   "genre": "Romance",
+   "year": "2024",
+   "hue": 270,
+   "thumb": "https://cdn.teraviralhub.com/thumbnails/1j6YlotQXJrUrb3L-wBDPZw_Corporate_Kaand__2024__UNRATED_1080p_HEVC_HDRip_Hu.webp",
+   "quality": "1080p",
+   "versions": [
+    {
+     "quality": "1080p",
+     "size": "1002.31 MB"
+    }
+   ],
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Corporate Kaand 2024 UNRATED Hindi Hot Series Couple Kissing Closeup Shirtless M",
+       "stream": "https://1024terabox.com/s/1j6YlotQXJrUrb3L-wBDPZw",
+       "quality": "1080p",
+       "size": "1002.31 MB"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mQEs619",
+   "title": "Dark Therapy",
+   "category": "Series",
+   "genre": "Romance",
+   "year": "2024",
+   "hue": 156,
+   "thumb": "https://cdn.teraviralhub.com/thumbnails/1M8d3a9B_-j527psBXoTlzQ_Dark_Therapy__2024__UNRATED_720p_HEVC_HDRip_MoodX_.jpg",
+   "quality": "720p",
+   "versions": [
+    {
+     "quality": "720p",
+     "size": "261.84 MB"
+    }
+   ],
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Dark Therapy 2024 UNRATED Hindi Hot Series Wet Woman Licking Man s Back Closeup",
+       "stream": "https://1024terabox.com/s/1M8d3a9B_-j527psBXoTlzQ",
+       "quality": "720p",
+       "size": "261.84 MB"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kkds621",
+   "title": "Deal",
+   "category": "Series",
+   "genre": "Romance",
+   "year": "2023",
+   "hue": 147,
+   "thumb": "https://cdn.teraviralhub.com/thumbnails/1PHSclCJpwun9H5WJRYt7-Q_Deal__2023__UNRATED_720p_HEVC_HDRip_PrimeShots_S01.jpg",
+   "quality": "720p",
+   "versions": [
+    {
+     "quality": "720p",
+     "size": "187.00 MB"
+    }
+   ],
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "Deal 2023 UNRATED Hindi Hot Series Couple Kissing on Bed Closeup Red Bindi",
+       "stream": "https://1024terabox.com/s/1PHSclCJpwun9H5WJRYt7-Q",
+       "quality": "720p",
+       "size": "187.00 MB"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "PLei555",
+   "title": "Call Me 2026 UNRATED Hindi Hot Series Girl in Blue Dress Talking on Phone Outside House",
+   "category": "Series",
+   "genre": "Romance",
    "year": "2026",
    "hue": 259,
-   "thumb": "https://i.ibb.co/PG2dM8xV/v-Nz-Az415.jpg",
-   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
-   "kind": "series",
-   "trending": false,
-   "quality": "720p",
+   "thumb": "https://cdn.teraviralhub.com/thumbnails/1mCSNdBrg6dWujgVtDZ0VQQ_Call_Me__2026__UNRATED_1080p_HEVC_HDRip_9RedMovies.jpg",
+   "quality": "1080p",
    "versions": [
     {
-     "quality": "720p",
-     "size": "600 MB"
+     "quality": "1080p",
+     "size": "612.39 MB"
     }
    ],
    "seasons": [
@@ -927,39 +276,28 @@
      "episodes": [
       {
        "no": 1,
-       "title": "Episode 1",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 2,
-       "title": "Episode 2",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
-      },
-      {
-       "no": 3,
-       "title": "Episode 3",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+       "title": "Call Me 2026 UNRATED Hindi Hot Series Girl in Blue Dress Tal",
+       "stream": "https://1024terabox.com/s/1mCSNdBrg6dWujgVtDZ0VQQ",
+       "quality": "1080p",
+       "size": "612.39 MB"
       }
      ]
     }
    ]
   },
   {
-   "id": "s406",
-   "title": "Office Cat",
+   "id": "LGMq556",
+   "title": "Call Me 2026 UNRATED 720p Hindi Hot Series Police Station Two Officers Talking Desk Scene",
    "category": "Series",
-   "genre": "Comedy",
-   "year": "2022",
-   "hue": 288,
-   "thumb": "https://i.ibb.co/84KtM0cQ/vz-TIy418.jpg",
-   "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
-   "kind": "series",
-   "trending": false,
-   "quality": "1080p",
+   "genre": "Romance",
+   "year": "2026",
+   "hue": 19,
+   "thumb": "https://cdn.teraviralhub.com/thumbnails/1HmLo1j8NbsnE8YiJVFfSqg_Call_Me__2026__UNRATED_720p_HEVC_HDRip_9RedMovies_.jpg",
+   "quality": "720p",
    "versions": [
     {
-     "quality": "1080p",
-     "size": "900 MB"
+     "quality": "720p",
+     "size": "251.88 MB"
     }
    ],
    "seasons": [
@@ -968,18 +306,159 @@
      "episodes": [
       {
        "no": 1,
-       "title": "Episode 1",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+       "title": "Call Me 2026 UNRATED 720p Hindi Hot Series Police Station Tw",
+       "stream": "https://1024terabox.com/s/1HmLo1j8NbsnE8YiJVFfSqg",
+       "quality": "720p",
+       "size": "251.88 MB"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "a_aLJB29",
+   "title": "TO BE HERO X",
+   "category": "Anime",
+   "genre": "Action",
+   "hue": 5,
+   "thumb": "https://cdn.teraviralhub.com/thumbnails/1ThrMIjScBP9CyDwUZzNB0A__AnimesTotais__TO.BE.HERO.X.S01E01.1080p.CR.WEB-DL.jpg",
+   "quality": "1080p",
+   "versions": [
+    {
+     "quality": "1080p",
+     "size": "1.41 GB"
+    }
+   ],
+   "tags": [
+    "anime"
+   ],
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "TO BE HERO X S01E01 Nice 1080p CR WEB-DL AAC2.0 H.264 MULTI",
+       "stream": "https://1024terabox.com/s/1ThrMIjScBP9CyDwUZzNB0A",
+       "quality": "1080p",
+       "size": "1.41 GB"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "a_TxKU217",
+   "title": "My Love Story with Yamada kun at Lv999",
+   "category": "Anime",
+   "genre": "Romance",
+   "hue": 350,
+   "thumb": "https://cdn.teraviralhub.com/thumbnails/thumb_69778cba74bc2.jpg",
+   "quality": "1080p",
+   "versions": [
+    {
+     "quality": "1080p",
+     "size": "197.83 MB"
+    }
+   ],
+   "tags": [
+    "anime"
+   ],
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "[Animedubhindi com] My Love Story with Yamada kun at Lv999 S01E05 1080p x265 10b",
+       "stream": "https://1024terabox.com/s/1WqCHu2hIZ_g2snVKG3CZnw",
+       "quality": "1080p",
+       "size": "197.83 MB"
       },
       {
        "no": 2,
-       "title": "Episode 2",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+       "title": "[Animedubhindi com] My Love Story with Yamada kun at Lv999 S01E04 480p x264 WEB ",
+       "stream": "https://1024terabox.com/s/1Tei-zEpCc_8xmleBClhpVw",
+       "quality": "480p",
+       "size": "82.11 MB"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "a_cPpt218",
+   "title": "Campfire Cooking in Another World with My Absurd S",
+   "category": "Anime",
+   "genre": "Comedy",
+   "hue": 255,
+   "thumb": "https://cdn.teraviralhub.com/thumbnails/1CyT1c-L1MwO8AM-tKzUVIw__Animedubhindi.com__Campfire_Cooking_in_Another_Wo.jpg",
+   "quality": "1080p",
+   "versions": [
+    {
+     "quality": "1080p",
+     "size": "212.57 MB"
+    }
+   ],
+   "tags": [
+    "anime"
+   ],
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "[Animedubhindi com] Campfire Cooking in Another World with My Absurd Skill S01E1",
+       "stream": "https://1024terabox.com/s/1CyT1c-L1MwO8AM-tKzUVIw",
+       "quality": "1080p",
+       "size": "212.57 MB"
       },
       {
-       "no": 3,
-       "title": "Episode 3",
-       "stream": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+       "no": 2,
+       "title": "[Animedubhindi com] Campfire Cooking in Another World with My Absurd Skill S01E0",
+       "stream": "https://1024terabox.com/s/15xhaTmkl-SsTlJ0T29lKzA",
+       "quality": "480p",
+       "size": "117.29 MB"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "a_hBDP219",
+   "title": "As a Reincarnated Aristocrat Ill Use My Appraisal ",
+   "category": "Anime",
+   "genre": "Action",
+   "hue": 169,
+   "thumb": "https://cdn.teraviralhub.com/thumbnails/1sqwG1sBcllF_ZTNP_r9HiA__Animedubhindi.com__As_a_Reincarnated_Aristocrat_I.jpg",
+   "quality": "720p",
+   "versions": [
+    {
+     "quality": "720p",
+     "size": "210.14 MB"
+    }
+   ],
+   "tags": [
+    "anime"
+   ],
+   "seasons": [
+    {
+     "name": "Season 01",
+     "episodes": [
+      {
+       "no": 1,
+       "title": "[Animedubhindi com] As a Reincarnated Aristocrat Ill Use My Appraisal Skill to R",
+       "stream": "https://1024terabox.com/s/1sqwG1sBcllF_ZTNP_r9HiA",
+       "quality": "720p",
+       "size": "210.14 MB"
+      },
+      {
+       "no": 2,
+       "title": "[Animedubhindi com] As a Reincarnated Aristocrat Ill Use My Appraisal Skill to R",
+       "stream": "https://1024terabox.com/s/1an9d0wtK4gesSCKWxFWR-A",
+       "quality": "720p",
+       "size": "235.59 MB"
       }
      ]
     }

@@ -58,11 +58,25 @@
   function quality(it) { return it.quality || (it.versions && it.versions[0] ? it.versions[0].quality : ""); }
   function metaLine(it) {
     var p = [it.year, it.genre, quality(it)];
-    if (it.kind === "series") p.push((it.seasons || []).length + " seasons");
+    if (it.seasons && it.seasons.length) p.push(it.seasons.length + " seasons");
     else if (it.size) p.push(it.size);
     return p.filter(Boolean).join(" · ");
   }
-  function streamOf(it) { return it.stream || CFG.DEMO_VIDEO; }
+  function streamOf(it) {
+    // Series: episode stream only (no extra top-level stream required)
+    if (it.seasons && it.seasons.length) {
+      var season = it.seasons[S.season] || it.seasons[0];
+      var eps = (season && season.episodes) || [];
+      var ep = eps[S.ep] || eps[0];
+      if (ep && ep.stream) return ep.stream;
+    }
+    // Movie: selected quality version stream, then item.stream
+    if (it.versions && it.versions.length) {
+      var v = it.versions[S.qIdx] || it.versions[0];
+      if (v && v.stream) return v.stream;
+    }
+    return it.stream || CFG.DEMO_VIDEO;
+  }
   function toast(msg) { var t = $("#toast"); t.textContent = msg; t.style.opacity = "1"; clearTimeout(t._h); t._h = setTimeout(function () { t.style.opacity = "0"; }, 1800); }
 
   // ---- views (click counts, stored on this device) ----
