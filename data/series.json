@@ -10,12 +10,6 @@
    "hue": 169,
    "thumb": "https://cdn.teraviralhub.com/thumbnails/1USkGEyDA3vKBjvVwdT42cQ_Adhuri_Pyaas__2023__UNRATED_1080p_HEVC_HDRip_Kundi.jpg",
    "quality": "1080p",
-   "versions": [
-    {
-     "quality": "1080p",
-     "size": "451.63 MB"
-    }
-   ],
    "seasons": [
     {
      "name": "Season 01",
@@ -29,7 +23,8 @@
       }
      ]
     }
-   ]
+   ],
+   "size": "451.63 MB"
   },
   {
    "id": "rsOL441",
@@ -40,12 +35,6 @@
    "hue": 85,
    "thumb": "https://cdn.teraviralhub.com/thumbnails/1MtfbQnCXckmEyRb_8tALuQ_Bad_Chemist_Roy__2025__UNRATED_720p_HEVC_HDRip_NMX.jpg",
    "quality": "720p",
-   "versions": [
-    {
-     "quality": "720p",
-     "size": "135.87 MB"
-    }
-   ],
    "seasons": [
     {
      "name": "Season 01",
@@ -59,7 +48,8 @@
       }
      ]
     }
-   ]
+   ],
+   "size": "135.87 MB"
   },
   {
    "id": "HVSe510",
@@ -70,12 +60,6 @@
    "hue": 331,
    "thumb": "https://cdn.teraviralhub.com/thumbnails/1ewFsiaDYVoAhJeMnWy4zpA_Bijili__2023__UNRATED_720p_HEVC_HDRip_MangoTV_S01E.jpg",
    "quality": "720p",
-   "versions": [
-    {
-     "quality": "720p",
-     "size": "190.99 MB"
-    }
-   ],
    "seasons": [
     {
      "name": "Season 01",
@@ -89,7 +73,8 @@
       }
      ]
     }
-   ]
+   ],
+   "size": "190.99 MB"
   },
   {
    "id": "JIeG554",
@@ -100,12 +85,6 @@
    "hue": 86,
    "thumb": "https://cdn.teraviralhub.com/thumbnails/1bfdH3lOYEpIY0vEX4585FA_Call_Me__2026__UNRATED_1080p_HEVC_HDRip_9RedMovies.jpg",
    "quality": "1080p",
-   "versions": [
-    {
-     "quality": "1080p",
-     "size": "611.15 MB"
-    }
-   ],
    "seasons": [
     {
      "name": "Season 01",
@@ -133,7 +112,8 @@
       }
      ]
     }
-   ]
+   ],
+   "size": "611.15 MB"
   },
   {
    "id": "YhqX569",
@@ -144,12 +124,6 @@
    "hue": 40,
    "thumb": "https://cdn.teraviralhub.com/thumbnails/1Gdr3MriTiySgU1h9zvUNWg_Chaushar__2025__UNRATED_1080p_HEVC_HDRip_Dzyreplay.jpg",
    "quality": "1080p",
-   "versions": [
-    {
-     "quality": "1080p",
-     "size": "713.89 MB"
-    }
-   ],
    "seasons": [
     {
      "name": "Season 01",
@@ -163,7 +137,8 @@
       }
      ]
     }
-   ]
+   ],
+   "size": "713.89 MB"
   },
   {
    "id": "Zmji593",
@@ -174,12 +149,6 @@
    "hue": 270,
    "thumb": "https://cdn.teraviralhub.com/thumbnails/1j6YlotQXJrUrb3L-wBDPZw_Corporate_Kaand__2024__UNRATED_1080p_HEVC_HDRip_Hu.webp",
    "quality": "1080p",
-   "versions": [
-    {
-     "quality": "1080p",
-     "size": "1002.31 MB"
-    }
-   ],
    "seasons": [
     {
      "name": "Season 01",
@@ -193,7 +162,8 @@
       }
      ]
     }
-   ]
+   ],
+   "size": "1002.31 MB"
   },
   {
    "id": "mQEs619",
@@ -204,12 +174,6 @@
    "hue": 156,
    "thumb": "https://cdn.teraviralhub.com/thumbnails/1M8d3a9B_-j527psBXoTlzQ_Dark_Therapy__2024__UNRATED_720p_HEVC_HDRip_MoodX_.jpg",
    "quality": "720p",
-   "versions": [
-    {
-     "quality": "720p",
-     "size": "261.84 MB"
-    }
-   ],
    "seasons": [
     {
      "name": "Season 01",
@@ -223,7 +187,8 @@
       }
      ]
     }
-   ]
+   ],
+   "size": "261.84 MB"
   },
   {
    "id": "kkds621",
@@ -234,12 +199,6 @@
    "hue": 147,
    "thumb": "https://cdn.teraviralhub.com/thumbnails/1PHSclCJpwun9H5WJRYt7-Q_Deal__2023__UNRATED_720p_HEVC_HDRip_PrimeShots_S01.jpg",
    "quality": "720p",
-   "versions": [
-    {
-     "quality": "720p",
-     "size": "187.00 MB"
-    }
-   ],
    "seasons": [
     {
      "name": "Season 01",
@@ -253,7 +212,8 @@
       }
      ]
     }
-   ]
+   ],
+   "size": "187.00 MB"
   },
   {
    "id": "PLei555",
@@ -264,12 +224,6 @@
    "hue": 259,
    "thumb": "https://cdn.teraviralhub.com/thumbnails/1mCSNdBrg6dWujgVtDZ0VQQ_Call_Me__2026__UNRATED_1080p_HEVC_HDRip_9RedMovies.jpg",
    "quality": "1080p",
-   "versions": [
-    {
-     "quality": "1080p",
-     "size": "612.39 MB"
-    }
-   ],
    "seasons": [
     {
      "name": "Season 01",
@@ -283,7 +237,8 @@
       }
      ]
     }
-   ]
+   ],
+   "size": "612.39 MB"
   },
   {
    "id": "LGMq556",
@@ -294,12 +249,6 @@
    "hue": 19,
    "thumb": "https://cdn.teraviralhub.com/thumbnails/1HmLo1j8NbsnE8YiJVFfSqg_Call_Me__2026__UNRATED_720p_HEVC_HDRip_9RedMovies_.jpg",
    "quality": "720p",
-   "versions": [
-    {
-     "quality": "720p",
-     "size": "251.88 MB"
-    }
-   ],
    "seasons": [
     {
      "name": "Season 01",
@@ -313,7 +262,8 @@
       }
      ]
     }
-   ]
+   ],
+   "size": "251.88 MB"
   },
   {
    "id": "a_aLJB29",
@@ -323,15 +273,6 @@
    "hue": 5,
    "thumb": "https://cdn.teraviralhub.com/thumbnails/1ThrMIjScBP9CyDwUZzNB0A__AnimesTotais__TO.BE.HERO.X.S01E01.1080p.CR.WEB-DL.jpg",
    "quality": "1080p",
-   "versions": [
-    {
-     "quality": "1080p",
-     "size": "1.41 GB"
-    }
-   ],
-   "tags": [
-    "anime"
-   ],
    "seasons": [
     {
      "name": "Season 01",
@@ -345,7 +286,8 @@
       }
      ]
     }
-   ]
+   ],
+   "size": "1.41 GB"
   },
   {
    "id": "a_TxKU217",
@@ -355,15 +297,6 @@
    "hue": 350,
    "thumb": "https://cdn.teraviralhub.com/thumbnails/thumb_69778cba74bc2.jpg",
    "quality": "1080p",
-   "versions": [
-    {
-     "quality": "1080p",
-     "size": "197.83 MB"
-    }
-   ],
-   "tags": [
-    "anime"
-   ],
    "seasons": [
     {
      "name": "Season 01",
@@ -384,7 +317,8 @@
       }
      ]
     }
-   ]
+   ],
+   "size": "197.83 MB"
   },
   {
    "id": "a_cPpt218",
@@ -394,15 +328,6 @@
    "hue": 255,
    "thumb": "https://cdn.teraviralhub.com/thumbnails/1CyT1c-L1MwO8AM-tKzUVIw__Animedubhindi.com__Campfire_Cooking_in_Another_Wo.jpg",
    "quality": "1080p",
-   "versions": [
-    {
-     "quality": "1080p",
-     "size": "212.57 MB"
-    }
-   ],
-   "tags": [
-    "anime"
-   ],
    "seasons": [
     {
      "name": "Season 01",
@@ -423,7 +348,8 @@
       }
      ]
     }
-   ]
+   ],
+   "size": "212.57 MB"
   },
   {
    "id": "a_hBDP219",
@@ -433,15 +359,6 @@
    "hue": 169,
    "thumb": "https://cdn.teraviralhub.com/thumbnails/1sqwG1sBcllF_ZTNP_r9HiA__Animedubhindi.com__As_a_Reincarnated_Aristocrat_I.jpg",
    "quality": "720p",
-   "versions": [
-    {
-     "quality": "720p",
-     "size": "210.14 MB"
-    }
-   ],
-   "tags": [
-    "anime"
-   ],
    "seasons": [
     {
      "name": "Season 01",
@@ -462,7 +379,8 @@
       }
      ]
     }
-   ]
+   ],
+   "size": "210.14 MB"
   }
  ]
 }

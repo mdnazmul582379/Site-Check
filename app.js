@@ -358,7 +358,7 @@
     var hasEps = seasons.length > 0;
     var eps = hasEps ? seasons[S.season].episodes : [];
     var dd = "";
-    if (vers.length) dd += '<button class="dd" type="button" data-dd="q"><span>' + esc(vers[S.qIdx].quality) + (vers[S.qIdx].size ? ' · ' + esc(vers[S.qIdx].size) : '') + '</span>' + ic("chev", 18) + '</button>';
+    if (vers.length > 1) dd += '<button class="dd" type="button" data-dd="q"><span>' + esc(vers[S.qIdx].quality) + (vers[S.qIdx].size ? ' · ' + esc(vers[S.qIdx].size) : '') + '</span>' + ic("chev", 18) + '</button>';
     if (seasons.length > 1) dd += '<button class="dd" type="button" data-dd="s"><span>' + esc(seasons[S.season].name) + '</span>' + ic("chev", 18) + '</button>';
     var resources = dd ? '<div class="res-head"><h3>Resources</h3></div><div class="res-row">' + dd + '</div>' : "";
     var epHtml = "";
