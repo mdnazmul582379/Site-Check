@@ -407,11 +407,18 @@
     var carIds = {};
     car.forEach(function (i) { carIds[i.id] = true; });
     var grid = pool.filter(function (i) { return !carIds[i.id]; }).slice(0, 10);
-    var hero = catHeroHTML(car);
+    var hero = compactHeroHTML(car);
     var gridHtml = grid.length
       ? '<div class="sec-head"><h2>More like this</h2></div><div class="vgrid">' + grid.map(vcard).join("") + '</div>'
       : "";
     return hero + gridHtml;
+  }
+  // ~2.5 cards visible under the player (smaller than home hero)
+  function compactHeroHTML(list) {
+    if (!list.length) return "";
+    var slides = list.slice(0, 10).map(heroSlide).join("");
+    var dots = list.slice(0, 10).map(function (_, i) { return "<i" + (i === 0 ? ' class="on"' : "") + "></i>"; }).join("");
+    return '<div class="hero hero-compact"><div class="hero-track" id="heroTrack">' + slides + '</div><div class="dots">' + dots + '</div></div>';
   }
   function openDetail(id) {
     var it = S.byId[id]; if (!it) return;

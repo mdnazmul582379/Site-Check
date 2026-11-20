@@ -381,3 +381,21 @@ html,body{margin:0!important;padding-left:0!important;padding-right:0!important}
   border-radius:14px!important;padding:14px 16px!important;margin-bottom:20px
 }
 .refresh-btn .ic{color:var(--brand)}
+
+/* Related carousel under player: ~2.5 cards in view */
+.hero-compact{margin-top:14px;margin-bottom:4px}
+.hero-compact .hero-track{gap:8px;padding:0 var(--g)}
+.hero-compact .cslide{flex:0 0 calc((100% - 16px) / 2.5);scroll-snap-align:start}
+.hero-compact .cs-img{border-radius:10px}
+.hero-compact .cs-card{
+  margin:-14px 4px 0;padding:6px 8px 6px 6px;border-radius:10px;gap:8px;
+  box-shadow:0 6px 14px rgba(0,0,0,.3)
+}
+.hero-compact .cs-thumb-w{flex:0 0 32%}
+.hero-compact .cs-title{font-size:11px!important;line-height:1.25!important}
+.hero-compact .cs-meta{font-size:9.5px}
+.hero-compact .cs-play{flex:0 0 28px;width:28px;height:28px}
+.hero-compact .cs-play .ic{width:12px;height:12px}
+.hero-compact .dots{margin-top:8px}
+.hero-compact .dots i{width:4px;height:4px}
+.hero-compact .dots i.on{width:10px}
