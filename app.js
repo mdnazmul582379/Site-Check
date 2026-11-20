@@ -53,7 +53,7 @@
   function ic(n, s) { s = s || 20; return '<svg class="ic" viewBox="0 0 24 24" width="' + s + '" height="' + s + '" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (IC[n] || "") + '</svg>'; }
 
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
-  function grad(it) { return "linear-gradient(135deg,hsl(" + it.hue + ",60%,36%),hsl(" + ((it.hue + 50) % 360) + ",55%,12%))"; }
+  function grad(it) { var h = (it && it.hue != null) ? it.hue : 210; return "linear-gradient(135deg,hsl(" + h + ",60%,36%),hsl(" + ((h + 50) % 360) + ",55%,12%))"; }
   function bg(it) { it = it || { hue: 0 }; return it.thumb ? 'background-image:url("' + esc(it.thumb) + '")' : "background:" + grad(it); }
   function quality(it) { return it.quality || (it.versions && it.versions[0] ? it.versions[0].quality : ""); }
   function metaLine(it) {
@@ -359,13 +359,13 @@
     var eps = hasEps ? seasons[S.season].episodes : [];
     var dd = "";
     if (vers.length > 1) dd += '<button class="dd" type="button" data-dd="q"><span>' + esc(vers[S.qIdx].quality) + (vers[S.qIdx].size ? ' · ' + esc(vers[S.qIdx].size) : '') + '</span>' + ic("chev", 18) + '</button>';
-    if (seasons.length > 1) dd += '<button class="dd" type="button" data-dd="s"><span>' + esc(seasons[S.season].name) + '</span>' + ic("chev", 18) + '</button>';
+    if (seasons.length > 1) dd += '<button class="dd" type="button" data-dd="s"><span>' + esc(seasons[S.season].name || ('Season ' + String(S.season + 1).padStart(2, '0'))) + '</span>' + ic("chev", 18) + '</button>';
     var resources = dd ? '<div class="res-head"><h3>Resources</h3></div><div class="res-row">' + dd + '</div>' : "";
     var epHtml = "";
     if (hasEps) {
       epHtml = '<div class="eps"><button class="ep' + (S.showAll ? " on" : "") + '" type="button" data-all-ep="1">All</button>' +
         eps.map(function (e, i) { return '<button class="ep' + (!S.showAll && i === S.ep ? " on" : "") + '" type="button" data-ep="' + i + '">' + String(e.no).padStart(2, "0") + '</button>'; }).join("") + '</div>';
-      if (S.showAll) epHtml += '<div class="ep-list">' + eps.map(function (e, i) { return '<button class="ep-row" type="button" data-ep="' + i + '"><span>' + String(e.no).padStart(2, "0") + '</span>' + esc(e.title) + '</button>'; }).join("") + '</div>';
+      if (S.showAll) epHtml += '<div class="ep-list">' + eps.map(function (e, i) { return '<button class="ep-row" type="button" data-ep="' + i + '"><span>' + String(e.no).padStart(2, "0") + '</span>Episode ' + e.no + '</button>'; }).join("") + '</div>';
     }
     var p = $("#player");
     p.innerHTML =
@@ -478,7 +478,7 @@
   function openDD(kind) {
     var it = S.cur;
     if (kind === "q") openSheet("Quality", it.versions.map(function (v) { return v.quality + (v.size ? " · " + v.size : ""); }), S.qIdx, function (i) { S.qIdx = i; renderDetail(); });
-    else openSheet("Season", it.seasons.map(function (s) { return s.name; }), S.season, function (i) { S.season = i; S.ep = 0; S.showAll = false; renderDetail(); });
+    else openSheet("Season", it.seasons.map(function (s, i) { return s.name || ("Season " + String(i + 1).padStart(2, "0")); }), S.season, function (i) { S.season = i; S.ep = 0; S.showAll = false; renderDetail(); });
   }
 
   // ---- events ----
