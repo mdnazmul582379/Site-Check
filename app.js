@@ -508,7 +508,17 @@
         '<div class="vp-rip l" id="ripL"><div><b>−10s</b></div></div>' +
         '<div class="vp-rip r" id="ripR"><div><b>+10s</b></div></div>' +
         '<div class="vp-badge" id="vpBadge"><b>2×</b> ' + ic("play", 12) + '</div>' +
-        '<div class="vp-top"><button class="vp-ib" id="back" type="button" aria-label="Back">' + ic("back", 22) + '</button></div>' +
+        '<div class="vp-top">' +
+          '<button class="vp-ib" id="back" type="button" aria-label="Back">' + ic("back", 22) + '</button>' +
+          '<span class="vp-sp"></span>' +
+          '<button class="vp-ib" id="vpLock" type="button" aria-label="Lock">' + ic("lock", 20) + '</button>' +
+        '</div>' +
+        '<div class="vp-lock-only hidden" id="vpLockOnly"><button class="vp-ib vp-unlock-btn" id="vpUnlock" type="button" aria-label="Unlock">' + ic("lock", 26) + '</button></div>' +
+        '<div class="vp-hud vp-hud-seek hidden" id="vpHudSeek"><span id="vpHudSeekTxt">0:00</span></div>' +
+        '<div class="vp-hud vp-hud-vol hidden" id="vpHudVol">' +
+          '<div class="vp-vol-ico">' + ic("vol", 22) + '</div>' +
+          '<div class="vp-vol-rail"><i id="vpVolFill"></i></div>' +
+        '</div>' +
         '<div class="vp-bottom">' +
           '<input class="vp-seek" id="seek" type="range" min="0" max="1000" value="0" aria-label="Seek">' +
           '<div class="vp-row">' +
@@ -690,25 +700,140 @@
     mu.onclick = function () { v.muted = !v.muted; if (!v.muted && v.volume === 0) v.volume = 1; vol.value = v.muted ? 0 : v.volume; mu.innerHTML = ic(v.muted ? "mute" : "vol", 20); };
     fit.onclick = function () { vp.classList.toggle("cover"); };
     $("#vpPip").onclick = function () { if (v.requestPictureInPicture) v.requestPictureInPicture().catch(function () { toast("Picture-in-picture is not available"); }); else toast("Picture-in-picture is not supported here"); };
-    $("#vpFull").onclick = function () { var fn = vp.requestFullscreen || vp.webkitRequestFullscreen; if (fn) fn.call(vp); else if (v.webkitEnterFullscreen) v.webkitEnterFullscreen(); };
+    function isFs() {
+      return !!(document.fullscreenElement || document.webkitFullscreenElement);
+    }
+    function syncFullIcon() {
+      var btn = $("#vpFull");
+      if (btn) btn.innerHTML = ic(isFs() ? "exitFull" : "full", 20);
+    }
+    function toggleFs() {
+      if (isFs()) {
+        var ex = document.exitFullscreen || document.webkitExitFullscreen || document.webkitCancelFullScreen;
+        if (ex) ex.call(document);
+      } else {
+        var req = vp.requestFullscreen || vp.webkitRequestFullscreen;
+        if (req) req.call(vp).catch(function () {});
+        else if (v.webkitEnterFullscreen) v.webkitEnterFullscreen();
+      }
+      setTimeout(syncFullIcon, 120);
+    }
+    $("#vpFull").onclick = function (e) { e.stopPropagation(); toggleFs(); };
+    document.addEventListener("fullscreenchange", syncFullIcon);
+    document.addEventListener("webkitfullscreenchange", syncFullIcon);
+
+    var locked = false;
+    function setLocked(on) {
+      locked = on;
+      vp.classList.toggle("locked", on);
+      var only = $("#vpLockOnly");
+      if (only) only.classList.toggle("hidden", !on);
+      if (on) {
+        vp.classList.add("idle");
+        clearTimeout(idleT);
+      } else {
+        showCtrl();
+      }
+    }
+    $("#vpLock").onclick = function (e) { e.stopPropagation(); setLocked(true); };
+    $("#vpUnlock").onclick = function (e) { e.stopPropagation(); setLocked(false); };
+
+    var mode = null; // "seek" | "vol" | null
+    var startT = 0, startVol = 1, hudT = null;
+    var hudSeek = $("#vpHudSeek"), hudSeekTxt = $("#vpHudSeekTxt");
+    var hudVol = $("#vpHudVol"), volFill = $("#vpVolFill");
+
+    function showHudSeek(sec) {
+      if (!hudSeek) return;
+      hudSeek.classList.remove("hidden");
+      if (hudVol) hudVol.classList.add("hidden");
+      var sign = sec >= 0 ? "+" : "−";
+      hudSeekTxt.textContent = sign + Math.abs(Math.round(sec)) + "s";
+      clearTimeout(hudT);
+      hudT = setTimeout(function () { hudSeek.classList.add("hidden"); }, 600);
+    }
+    function showHudVol(val) {
+      if (!hudVol) return;
+      hudVol.classList.remove("hidden");
+      if (hudSeek) hudSeek.classList.add("hidden");
+      if (volFill) volFill.style.height = Math.round(val * 100) + "%";
+      clearTimeout(hudT);
+      hudT = setTimeout(function () { hudVol.classList.add("hidden"); }, 700);
+    }
 
     g.addEventListener("pointerdown", function (e) {
-      moved = false; sx = e.clientX; sy = e.clientY; speedOn = false;
+      if (locked) return;
+      moved = false; mode = null;
+      sx = e.clientX; sy = e.clientY;
+      startT = v.currentTime || 0;
+      startVol = v.muted ? 0 : (v.volume || 0);
+      speedOn = false;
       clearTimeout(pressT);
-      pressT = setTimeout(function () { speedOn = true; v.playbackRate = 2; badge(true); }, 380);
+      try { g.setPointerCapture(e.pointerId); } catch (err) {}
+      pressT = setTimeout(function () {
+        if (!moved && !mode) { speedOn = true; v.playbackRate = 2; badge(true); }
+      }, 380);
     });
     g.addEventListener("pointermove", function (e) {
-      if (Math.abs(e.clientX - sx) > 12 || Math.abs(e.clientY - sy) > 12) { moved = true; clearTimeout(pressT); }
+      if (locked) return;
+      var dx = e.clientX - sx, dy = e.clientY - sy;
+      var adx = Math.abs(dx), ady = Math.abs(dy);
+      if (!mode && (adx > 10 || ady > 10)) {
+        moved = true;
+        clearTimeout(pressT);
+        if (speedOn) { speedOn = false; v.playbackRate = 1; badge(false); }
+        // vertical on right 45% → volume; else horizontal → seek
+        var rect = g.getBoundingClientRect();
+        var onRight = (sx - rect.left) > rect.width * 0.55;
+        if (ady > adx && onRight) mode = "vol";
+        else if (adx > ady) mode = "seek";
+        else if (ady > adx) mode = "vol"; // left side vertical still volume for MX-like feel on whole player surface when dominant vertical
+      }
+      if (mode === "seek") {
+        var dur = v.duration || 0;
+        if (!dur) return;
+        var rect = g.getBoundingClientRect();
+        var delta = (dx / rect.width) * Math.min(120, dur * 0.35);
+        var nt = Math.min(Math.max(0, startT + delta), dur);
+        v.currentTime = nt;
+        showHudSeek(nt - startT);
+        showCtrl();
+      } else if (mode === "vol") {
+        var rect = g.getBoundingClientRect();
+        var deltaV = -(dy / rect.height);
+        var nv = Math.min(1, Math.max(0, startVol + deltaV));
+        v.volume = nv;
+        v.muted = nv === 0;
+        if (vol) vol.value = nv;
+        if (mu) mu.innerHTML = ic(v.muted ? "mute" : "vol", 20);
+        showHudVol(nv);
+        showCtrl();
+      }
     });
     g.addEventListener("pointerup", function (e) {
       clearTimeout(pressT);
-      if (speedOn) { speedOn = false; v.playbackRate = 1; badge(false); return; }
+      if (locked) {
+        // tap while locked → flash unlock button only
+        var only = $("#vpLockOnly");
+        if (only) {
+          only.classList.remove("hidden");
+          clearTimeout(only._t);
+          only._t = setTimeout(function () { if (locked) only.classList.add("hidden"); }, 1800);
+        }
+        return;
+      }
+      if (speedOn) { speedOn = false; v.playbackRate = 1; badge(false); mode = null; return; }
+      if (mode) { mode = null; return; }
       if (moved) return;
       var r = g.getBoundingClientRect(), side = (e.clientX - r.left) < r.width / 2 ? "l" : "r", now = Date.now();
       if (now - lastTap < 300 && side === lastSide) { clearTimeout(tapT); lastTap = 0; skip(side === "l" ? -10 : 10, side); }
       else { lastTap = now; lastSide = side; clearTimeout(tapT); tapT = setTimeout(showCtrl, 260); }
     });
-    g.addEventListener("pointercancel", function () { clearTimeout(pressT); if (speedOn) { speedOn = false; v.playbackRate = 1; badge(false); } });
+    g.addEventListener("pointercancel", function () {
+      clearTimeout(pressT);
+      mode = null;
+      if (speedOn) { speedOn = false; v.playbackRate = 1; badge(false); }
+    });
     showCtrl();
     v.play().catch(function () {});
   }
