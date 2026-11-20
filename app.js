@@ -604,14 +604,16 @@
     var box = document.createElement("div");
     box.id = "searchSuggest";
     box.className = "search-suggest";
-    box.innerHTML = list.slice(0, 5).map(function (it) {
+    var rows = list.slice(0, 5).map(function (it) {
       return '<button type="button" class="sg-row" data-id="' + esc(it.id) + '">' +
         '<span class="sg-th" style="background:' + grad(it) + '">' +
           (it.thumb ? '<img src="' + esc(it.thumb) + '" alt="" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">' : "") +
         '</span>' +
         '<span class="sg-meta"><span class="sg-title">' + esc(it.title) + '</span>' +
-        '<span class="sg-sub">' + esc([it.year, it.category || it.genre].filter(Boolean).join(" · ")) + '</span></span></button>';
+        '<span class="sg-sub">' + esc([it.year, it.category || it.genre].filter(Boolean).join(" · ")) + '</span></span>' +
+        '<span class="sg-go">' + ic("chevR", 16) + '</span></button>';
     }).join("");
+    box.innerHTML = '<div class="sg-head"><span>Suggestions</span><span class="sg-count">' + Math.min(5, list.length) + '</span></div>' + rows;
     form.appendChild(box);
   }
   $("#searchForm").addEventListener("submit", function (e) {
