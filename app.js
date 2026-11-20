@@ -15,7 +15,7 @@
   var S = {
     cats: [], all: [], byId: {}, carousel: [], views: {}, lim: {}, focus: null,
     tab: "Home", q: "", nav: "home", cur: null, season: 0, qIdx: 0, ep: 0, showAll: false,
-    dlTab: "Downloaded", hero: 0, timer: null, sheetPick: null
+    dlTab: "Downloaded", hero: 0, timer: null, relatedTimer: null, relatedIdx: 0, sheetPick: null
   };
   var $ = function (s) { return document.querySelector(s); };
 
@@ -297,8 +297,37 @@
     }, 4500);
   }
   function setDots(idx) {
-    document.querySelectorAll(".dots i").forEach(function (d, i) {
+    // Home / category hero only (not player related)
+    var home = $("#heroTrack");
+    var root = home ? home.parentElement : null;
+    var dots = root ? root.querySelectorAll(".dots i") : document.querySelectorAll(".hero > .dots i");
+    dots.forEach(function (d, i) { d.classList.toggle("on", i === idx); });
+  }
+  function setRelatedDots(idx) {
+    document.querySelectorAll("#relatedDots i").forEach(function (d, i) {
       d.classList.toggle("on", i === idx);
+    });
+  }
+  function stopRelated() { clearInterval(S.relatedTimer); S.relatedTimer = null; }
+  function startRelated() {
+    stopRelated();
+    S.relatedIdx = 0;
+    // layout may not be ready on first paint
+    requestAnimationFrame(function () {
+      var tr = $("#relatedTrack");
+      if (!tr || tr.children.length < 2) return;
+      setRelatedDots(0);
+      tr.scrollLeft = 0;
+      S.relatedTimer = setInterval(function () {
+        var track = $("#relatedTrack");
+        if (!track || track.children.length < 2) return;
+        var n = track.children.length;
+        S.relatedIdx = ((S.relatedIdx || 0) + 1) % n;
+        var step = heroStep(track);
+        if (!step) return;
+        track.scrollTo({ left: S.relatedIdx * step, behavior: "smooth" });
+        setRelatedDots(S.relatedIdx);
+      }, 4000);
     });
   }
 
@@ -441,9 +470,9 @@
     var dots = list.slice(0, 10).map(function (_, i) {
       return '<i' + (i === 0 ? ' class="on"' : '') + '></i>';
     }).join("");
-    return '<div class="hero hero-compact related-car">' +
-      '<div class="hero-track" id="heroTrack">' + slides + '</div>' +
-      '<div class="dots">' + dots + '</div></div>';
+    return '<div class="related-car">' +
+      '<div class="related-track" id="relatedTrack">' + slides + '</div>' +
+      '<div class="related-dots" id="relatedDots">' + dots + '</div></div>';
   }
   function openDetail(id) {
     var it = S.byId[id]; if (!it) return;
@@ -496,10 +525,10 @@
     p.classList.remove("hidden");
     document.body.classList.add("in-player");
     attachPlayer();
-    S.hero = 0;
-    startHero();
+    startRelated();
   }
   function closeDetail() {
+    stopRelated();
     var v = $("#vid");
     if (v) { v.pause(); v.removeAttribute("src"); v.load(); }
     var p = $("#player");
@@ -618,6 +647,13 @@
       if (idx < 0) idx = 0;
       if (idx > e.target.children.length - 1) idx = e.target.children.length - 1;
       S.hero = idx; setDots(idx);
+    }
+    if (e.target && e.target.id === "relatedTrack") {
+      var stepR = heroStep(e.target) || 1;
+      var idxR = Math.round(e.target.scrollLeft / stepR);
+      if (idxR < 0) idxR = 0;
+      if (idxR > e.target.children.length - 1) idxR = e.target.children.length - 1;
+      S.relatedIdx = idxR; setRelatedDots(idxR);
     }
   }, true);
   function setSearch() { S.nav = "home"; resetViewState(); setNav("home"); hideSuggest(); render(); }
