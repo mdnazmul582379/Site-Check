@@ -10,6 +10,8 @@
   var PAGE = CFG.PAGE, PREVIEW = CFG.PREVIEW;
   var TABS = ["Home", "Trending", "Movie", "Series", "Midnight", "Anime", "Kids", "Desi Porn", "Foreign Porn", "18+ Vmax", "18+ JAV", "Indo"];
   var HOME_ORDER = ["Trending", "Movie", "Series", "Midnight", "Anime", "Kids", "Desi Porn", "Foreign Porn", "18+ Vmax", "18+ JAV", "Indo"];
+  // Categories that skip genre rows: carousel (10) + direct grid.
+  var DIRECT_CATS = ["Midnight", "Desi Porn", "Foreign Porn", "18+ Vmax", "18+ JAV", "Indo"];
   var S = {
     cats: [], all: [], byId: {}, carousel: [], views: {}, lim: {}, focus: null,
     tab: "Home", q: "", nav: "home", cur: null, season: 0, qIdx: 0, ep: 0, showAll: false,
@@ -128,12 +130,15 @@
   }
   function tabSections() {
     var t = S.tab;
-    // Category tab: genre rows only (5 + All). No repeated category title.
     if (HOME_ORDER.indexOf(t) > -1) {
       var pool = byCategory(S.all, t);
       if (t === "Trending") {
         var trend = trendingList();
         if (trend.length) pool = trend;
+      }
+      // Direct categories: no genre rows — handled in renderTab with carousel + grid
+      if (DIRECT_CATS.indexOf(t) > -1) {
+        return [sec("C|" + t, t, pool, PREVIEW, true)];
       }
       var gens = genresIn(pool);
       if (!gens.length) return [sec("C|" + t, t, pool, PREVIEW, true)];
@@ -151,7 +156,7 @@
   function searchSections() {
     var q = S.q.trim().toLowerCase();
     var list = S.all.filter(function (i) { return i.title.toLowerCase().indexOf(q) > -1 || (i.genre || "").toLowerCase().indexOf(q) > -1 || (i.category || "").toLowerCase().indexOf(q) > -1; });
-    return [sec("Q|results", "Results", list, PREVIEW, true)];
+    return [sec("Q|results", "Results", list, PREVIEW, true)]; // title used once in sectionHTML when no outer pg-title
   }
   function currentSections() {
     if (S.q.trim()) return searchSections();
@@ -162,11 +167,28 @@
     var secs = currentSections();
     for (var i = 0; i < secs.length; i++) if (secs[i].key === key) return secs[i];
     if (S.cur && key === "D|" + S.cur.id) return forYouSection();
+    if (S._directSec && S._directSec.key === key) return S._directSec;
     return null;
   }
   function forYouSection() {
     var it = S.cur;
-    return sec("D|" + it.id, "For you", S.all.filter(function (i) { return i.id !== it.id; }).slice(0, 40), PAGE);
+    return sec("D|" + it.id, "For you", relatedPool(it).slice(0, 40), PAGE);
+  }
+  function relatedPool(it) {
+    var cat = it.category || it.genre || "";
+    var same = S.all.filter(function (i) { return i.id !== it.id && (i.category === cat || i.genre === cat); });
+    if (same.length < 12) {
+      same = same.concat(S.all.filter(function (i) { return i.id !== it.id && same.indexOf(i) < 0; }));
+    }
+    return same;
+  }
+  function shuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
   }
   // Category rows show 5 with an "All" button. "All" opens that section (20 items, stays in it).
   // "See more" adds 20 each time. Mixed sections (All tab, single genre, search) show 20 with See more.
@@ -220,10 +242,15 @@
     refreshKeep(key);
   }
   function moreFor(key) {
-    var s = findSection(key); if (!s) return;
+    var s = findSection(key) || (S._directSec && S._directSec.key === key ? S._directSec : null);
+    if (!s) return;
     var cur = Math.min(S.lim[key] || PREVIEW, s.list.length);
     S.lim[key] = Math.min(cur + CFG.STEP, s.list.length);
     S.focus = key;
+    if (DIRECT_CATS.indexOf(S.tab) > -1 && key.indexOf("C|") === 0) {
+      renderTab();
+      return;
+    }
     refreshKeep(key);
   }
 
@@ -289,20 +316,47 @@
       sectionsHTML(homeSections());
     startHero();
   }
+  function catHeroHTML(list) {
+    if (!list.length) return "";
+    var slides = list.slice(0, 10).map(heroSlide).join("");
+    var dots = list.slice(0, 10).map(function (_, i) { return "<i" + (i === 0 ? ' class="on"' : "") + "></i>"; }).join("");
+    return '<div class="hero"><div class="hero-track" id="heroTrack">' + slides + '</div><div class="dots">' + dots + '</div></div>';
+  }
   function renderTab() {
+    var t = S.tab;
+    if (DIRECT_CATS.indexOf(t) > -1) {
+      var pool = byCategory(S.all, t);
+      var heroItems = pool.slice(0, 10);
+      var heroIds = {};
+      heroItems.forEach(function (i) { heroIds[i.id] = true; });
+      var rest = pool.filter(function (i) { return !heroIds[i.id]; });
+      var key = "C|" + t;
+      var lim = S.focus === key ? (S.lim[key] || PREVIEW) : PREVIEW;
+      var shown = rest.slice(0, Math.min(lim, rest.length));
+      var more = rest.length > shown.length
+        ? '<div class="more-row"><button class="more-btn" type="button" data-more="' + esc(key) + '">See more</button></div>'
+        : "";
+      // stash list for moreFor via synthetic section
+      S._directSec = sec(key, t, rest, PREVIEW, true);
+      $("#main").innerHTML = catHeroHTML(heroItems) +
+        (shown.length ? '<div class="sec-head"><h2>More <small>' + rest.length + '</small></h2></div><div class="vgrid">' + shown.map(vcard).join("") + '</div>' + more : "");
+      S.hero = 0;
+      startHero();
+      return;
+    }
     $("#main").innerHTML = sectionsHTML(tabSections());
   }
   function renderSearch() {
-    $("#main").innerHTML = '<div class="pg-title">Results</div>' + sectionsHTML(searchSections());
+    // Section head already shows "Results" + count — do not add a second title.
+    $("#main").innerHTML = sectionsHTML(searchSections());
   }
   function renderDownloads() {
-    var pick = S.dlTab;
+    var fy = shuffle(S.all).slice(0, 8);
     $("#main").innerHTML =
-      '<div class="pg-head"><h1>Downloads</h1><button class="pill-s" id="transfer" type="button">Transfer</button></div>' +
-      '<div class="seg">' + ["Downloaded", "Local files", "Received"].map(function (t) { return '<button type="button" data-dltab="' + t + '" class="' + (t === pick ? "on" : "") + '">' + t + '</button>'; }).join("") + '</div>' +
+      '<div class="pg-head"><h1>Downloads</h1></div>' +
       '<div class="dl-empty"><div class="dl-ico">' + ic("download", 52) + '</div><p>Your downloads will show up here</p></div>' +
-      '<div class="sec-head"><h2>For You</h2></div><div class="vgrid">' + S.all.slice(0, 6).map(vcard).join("") + '</div>' +
-      '<button class="wide" id="refresh" type="button">' + ic("refresh", 16) + '<span>Refresh new content</span></button>';
+      '<div class="sec-head"><h2>For You</h2></div><div class="vgrid">' + fy.map(vcard).join("") + '</div>' +
+      '<button class="wide refresh-btn" id="refresh" type="button">' + ic("refresh", 18) + '<span>Refresh new content</span></button>';
   }
   function renderMe() {
     var row = function (label, icon, value) {
@@ -347,6 +401,18 @@
   function resetViewState() { S.lim = {}; S.focus = null; }
 
   // ---- detail ----
+  function relatedHTML(it) {
+    var pool = relatedPool(it);
+    var car = pool.slice(0, 10);
+    var carIds = {};
+    car.forEach(function (i) { carIds[i.id] = true; });
+    var grid = pool.filter(function (i) { return !carIds[i.id]; }).slice(0, 10);
+    var hero = catHeroHTML(car);
+    var gridHtml = grid.length
+      ? '<div class="sec-head"><h2>More like this</h2></div><div class="vgrid">' + grid.map(vcard).join("") + '</div>'
+      : "";
+    return hero + gridHtml;
+  }
   function openDetail(id) {
     var it = S.byId[id]; if (!it) return;
     countView(id);
@@ -393,7 +459,7 @@
       '<div class="d-body"><h2 class="d-title">' + esc(it.title) + '</h2><div class="d-meta">' + esc(metaLine(it)) + '</div>' +
         '<div class="d-btns"><button class="pill" id="addList" type="button">' + ic("plus", 16) + '<span>Add to list</span></button><button class="pill" id="share" type="button">' + ic("share", 16) + '<span>Share</span></button></div>' +
         resources + epHtml +
-        sectionHTML(forYouSection()) +
+        relatedHTML(it) +
       '</div>';
     p.classList.remove("hidden");
     document.body.classList.add("in-player");
@@ -494,7 +560,7 @@
     if ((t = e.target.closest("[data-ep]"))) return playEp(+t.dataset.ep);
     if ((t = e.target.closest("[data-dltab]"))) { S.dlTab = t.dataset.dltab; return renderDownloads(); }
     if (e.target.closest("#transfer")) return toast("Transfer is not available in demo mode");
-    if (e.target.closest("#refresh")) return toast("Nothing new in demo mode");
+    if (e.target.closest("#refresh")) { if (S.nav === "downloads") { renderDownloads(); toast("Refreshed"); } else toast("Nothing new"); return; }
     if (e.target.closest("#loginBtn")) return toast("Login is not available in demo mode");
     if ((t = e.target.closest("[data-all]"))) return allFor(t.dataset.all);
     if ((t = e.target.closest("[data-more]"))) return moreFor(t.dataset.more);
@@ -517,9 +583,56 @@
       S.hero = idx; setDots(idx);
     }
   }, true);
-  function setSearch() { S.nav = "home"; resetViewState(); setNav("home"); render(); }
-  $("#searchForm").addEventListener("submit", function (e) { e.preventDefault(); S.q = $("#searchInput").value; setSearch(); });
-  $("#searchInput").addEventListener("input", function (e) { S.q = e.target.value; setSearch(); });
+  function setSearch() { S.nav = "home"; resetViewState(); setNav("home"); hideSuggest(); render(); }
+  function matchQuery(q) {
+    q = (q || "").trim().toLowerCase();
+    if (!q) return [];
+    return S.all.filter(function (i) {
+      return (i.title || "").toLowerCase().indexOf(q) > -1 ||
+        (i.genre || "").toLowerCase().indexOf(q) > -1 ||
+        (i.category || "").toLowerCase().indexOf(q) > -1;
+    });
+  }
+  function hideSuggest() {
+    var box = $("#searchSuggest");
+    if (box) box.remove();
+  }
+  function showSuggest(list) {
+    hideSuggest();
+    var form = $("#searchForm");
+    if (!form || !list.length) return;
+    var box = document.createElement("div");
+    box.id = "searchSuggest";
+    box.className = "search-suggest";
+    box.innerHTML = list.slice(0, 5).map(function (it) {
+      return '<button type="button" class="sg-row" data-id="' + esc(it.id) + '">' +
+        '<span class="sg-th" style="background:' + grad(it) + '">' +
+          (it.thumb ? '<img src="' + esc(it.thumb) + '" alt="" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">' : "") +
+        '</span>' +
+        '<span class="sg-meta"><span class="sg-title">' + esc(it.title) + '</span>' +
+        '<span class="sg-sub">' + esc([it.year, it.category || it.genre].filter(Boolean).join(" · ")) + '</span></span></button>';
+    }).join("");
+    form.appendChild(box);
+  }
+  $("#searchForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    S.q = $("#searchInput").value;
+    hideSuggest();
+    setSearch();
+  });
+  $("#searchInput").addEventListener("input", function (e) {
+    var val = e.target.value;
+    S.q = ""; // typing only drives suggest, not full results page
+    if (!val.trim()) { hideSuggest(); if (S.nav === "home") render(); return; }
+    showSuggest(matchQuery(val));
+  });
+  $("#searchInput").addEventListener("focus", function () {
+    var val = $("#searchInput").value;
+    if (val.trim()) showSuggest(matchQuery(val));
+  });
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest("#searchForm")) hideSuggest();
+  }, true);
   document.addEventListener("keydown", function (e) {
     if (e.key !== "Escape") return;
     if ($("#sheet").classList.contains("open")) closeSheet(); else closeDetail();

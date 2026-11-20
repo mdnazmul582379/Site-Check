@@ -54,6 +54,38 @@ Items from `video.json` and `series.json` are merged into one list (`S.all`). Ea
 
 ---
 
+
+## Direct categories (no genre rows)
+
+These categories skip genre grouping. On the category tab the UI shows:
+
+1. A **carousel of the first 10** items in that category  
+2. A **grid of the remaining** items (first 20, then See more)
+
+Configured in `app.js` as `DIRECT_CATS`:
+
+- Midnight  
+- Desi Porn  
+- Foreign Porn  
+- 18+ Vmax  
+- 18+ JAV  
+- Indo  
+
+Other categories (Movie, Series, Anime, …) still use **genre rows** (5 cards + All).
+
+## Search
+
+- **While typing:** up to 5 live suggestions under the search field (tap a row to open).  
+- **Search button / submit:** full Results page (section title once — not duplicated).  
+
+## Player “related” block
+
+Below the player: carousel of up to 10 items from the **same category**, then a grid of **10 different** items from that pool. Not a genre row of 5.
+
+## Downloads page
+
+Title only (no Transfer, no Downloaded/Local/Received tabs). Empty state + random **For You** grid; **Refresh new content** reshuffles the grid.
+
 ## Categories and genres
 
 Top-level **category** values used by tabs and Home rows (must stay consistent with `TABS` / `HOME_ORDER` in `app.js` and `categories.json`):
