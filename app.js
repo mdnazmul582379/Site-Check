@@ -453,7 +453,8 @@
     var gridHtml = grid.length
       ? '<div class="sec-head"><h2>More like this</h2></div><div class="vgrid">' + grid.map(vcard).join("") + '</div>'
       : "";
-    return hero + gridHtml;
+    var head = car.length ? '<div class="sec-head"><h2>Related</h2></div>' : "";
+    return head + hero + gridHtml;
   }
   // Related under player: image + title only (~2.5 visible), no play chip / mini-thumb card
   function relatedSlide(it) {
@@ -498,6 +499,11 @@
     p.innerHTML =
       '<div class="vp" id="vp">' +
         '<video id="vid" class="vp-video" playsinline preload="metadata"></video>' +
+        '<div class="vp-poster" id="vpPoster">' +
+          (it.thumb ? '<img src="' + esc(it.thumb) + '" alt="" decoding="async" referrerpolicy="no-referrer">' : '') +
+          '<div class="vp-dim"></div><div class="vp-spin" aria-hidden="true"></div>' +
+          '<div class="vp-load-msg" id="vpLoadMsg">Loading stream…</div>' +
+        '</div>' +
         '<div class="vp-gest" id="vpGest"></div>' +
         '<div class="vp-rip l" id="ripL"><div><b>−10s</b></div></div>' +
         '<div class="vp-rip r" id="ripR"><div><b>+10s</b></div></div>' +
@@ -530,7 +536,10 @@
   function closeDetail() {
     stopRelated();
     var v = $("#vid");
-    if (v) { v.pause(); v.removeAttribute("src"); v.load(); }
+    if (v) {
+      try { if (v._hls) { v._hls.destroy(); v._hls = null; } } catch (e) {}
+      v.pause(); v.removeAttribute("src"); v.load();
+    }
     var p = $("#player");
     p.classList.add("hidden"); p.innerHTML = "";
     document.body.classList.remove("in-player");
@@ -538,14 +547,128 @@
   function playEp(i) { S.ep = i; S.showAll = false; renderDetail(); }
 
   // ---- custom player: double tap ±10s, hold for 2x, fit, PiP, volume, fullscreen ----
+  function isDirectMedia(url) {
+    if (!url) return false;
+    var u = url.toLowerCase();
+    return /\.(mp4|webm|mkv|m3u8)(\?|$)/.test(u) || u.indexOf("m3u8") > -1;
+  }
+  function isTeraboxShare(url) {
+    if (!url) return false;
+    return /terabox\.com|1024terabox\.com|teraboxapp\.com|nebula-url/i.test(url);
+  }
+  function extractPlayUrls(file) {
+    var playUrl = null, usingFast = false;
+    if (file && file.fast_stream_url && typeof file.fast_stream_url === "object") {
+      var keys = Object.keys(file.fast_stream_url);
+      if (keys.length) {
+        keys.sort(function (a, b) { return (parseInt(b, 10) || 0) - (parseInt(a, 10) || 0); });
+        playUrl = file.fast_stream_url[keys[0]];
+        usingFast = !!playUrl;
+      }
+    }
+    var fallback = (file && (file.stream_url || file.streamUrl)) || null;
+    if (!playUrl) { playUrl = fallback; fallback = null; usingFast = false; }
+    else if (fallback === playUrl) fallback = null;
+    return { playUrl: playUrl, fallbackUrl: fallback, usingFast: usingFast };
+  }
+  function resolveStream(raw) {
+    raw = (raw || "").trim();
+    if (!raw) return Promise.reject(new Error("No stream link"));
+    if (isDirectMedia(raw) && !isTeraboxShare(raw)) {
+      return Promise.resolve({ playUrl: raw, fallbackUrl: null, usingFast: false });
+    }
+    if (!CFG.TERABOX_API) return Promise.reject(new Error("Terabox API not configured"));
+    var headers = { "Content-Type": "application/json" };
+    if (CFG.PRACTICE_KEY) headers["X-Practice-Key"] = CFG.PRACTICE_KEY;
+    return fetch(CFG.TERABOX_API, {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify({ url: raw })
+    }).then(function (r) {
+      if (!r.ok) throw new Error("API error " + r.status);
+      return r.json();
+    }).then(function (data) {
+      if (!(data && data.status === "success" && data.list && data.list.length)) {
+        throw new Error((data && data.message) || "Could not resolve Terabox link");
+      }
+      var ex = extractPlayUrls(data.list[0]);
+      if (!ex.playUrl) throw new Error("No playable URL in API response");
+      return ex;
+    });
+  }
+  function attachMedia(v, url, hlsRef) {
+    if (hlsRef.hls) { try { hlsRef.hls.destroy(); } catch (e) {} hlsRef.hls = null; }
+    var isHls = url && (url.toLowerCase().indexOf(".m3u8") > -1 || url.toLowerCase().indexOf("m3u8") > -1);
+    if (isHls && window.Hls && Hls.isSupported()) {
+      var hls = new Hls({ enableWorker: true, maxBufferLength: 60 });
+      hlsRef.hls = hls;
+      hls.loadSource(url);
+      hls.attachMedia(v);
+      hls.on(Hls.Events.ERROR, function (_, data) {
+        if (data && data.fatal) v.dispatchEvent(new Event("error"));
+      });
+    } else {
+      v.src = url;
+      v.load();
+    }
+  }
   function attachPlayer() {
     var vp = $("#vp"), v = $("#vid"), g = $("#vpGest"), seek = $("#seek"), tm = $("#vpTime"), pb = $("#vpPlay"), vol = $("#vpVol"), mu = $("#vpMute"), fit = $("#vpFit");
-    var list = [streamOf(S.cur)].concat(CFG.DEMO_SOURCES || []).filter(function (x, i, a) { return x && a.indexOf(x) === i; });
-    var si = 0, idleT = null, pressT = null, speedOn = false, moved = false, sx = 0, sy = 0, lastTap = 0, lastSide = "", tapT = null;
-    v.src = list[si]; v.load();
+    var poster = $("#vpPoster"), loadMsg = $("#vpLoadMsg");
+    var idleT = null, pressT = null, speedOn = false, moved = false, sx = 0, sy = 0, lastTap = 0, lastSide = "", tapT = null;
+    var hlsRef = { hls: null };
+    var triedFallback = false;
+    var resolved = null;
+
+    function showPoster(msg) {
+      if (poster) poster.classList.remove("hide");
+      if (loadMsg) loadMsg.textContent = msg || "Loading stream…";
+    }
+    function hidePoster() {
+      if (poster) poster.classList.add("hide");
+    }
+    function failPlay(msg) {
+      showPoster(msg || "Playback failed");
+      if (loadMsg) loadMsg.textContent = msg || "Playback failed";
+      toast(msg || "Could not play this video");
+    }
+
+    showPoster("Resolving stream…");
+    var raw = streamOf(S.cur);
+    resolveStream(raw).then(function (ex) {
+      resolved = ex;
+      showPoster(ex.usingFast ? "Starting fast stream…" : "Starting stream…");
+      attachMedia(v, ex.playUrl, hlsRef);
+      v.play().catch(function () { v.muted = true; return v.play(); }).catch(function () {});
+    }).catch(function (err) {
+      // last resort demo only if no real link path worked
+      var demo = CFG.DEMO_VIDEO;
+      if (demo) {
+        showPoster("Using demo fallback…");
+        attachMedia(v, demo, hlsRef);
+        v.play().catch(function () {});
+        toast((err && err.message) || "Stream resolve failed – demo fallback");
+      } else {
+        failPlay((err && err.message) || "Stream resolve failed");
+      }
+    });
+
     v.addEventListener("error", function () {
-      if (si < list.length - 1) { si++; v.src = list[si]; v.load(); v.play().catch(function () {}); }
-      else toast("Demo video could not be loaded");
+      if (resolved && resolved.fallbackUrl && !triedFallback) {
+        triedFallback = true;
+        showPoster("Retrying standard stream…");
+        attachMedia(v, resolved.fallbackUrl, hlsRef);
+        v.play().catch(function () {});
+        return;
+      }
+      failPlay("Stream could not be played");
+    });
+    v.addEventListener("playing", function () { hidePoster(); });
+    v.addEventListener("canplay", function () { /* keep poster until playing for smoother handoff */ });
+    v.addEventListener("waiting", function () {
+      if (poster && poster.classList.contains("hide") && loadMsg) {
+        /* brief buffer indicator could go here */
+      }
     });
     function fmt(s) {
       s = isFinite(s) ? Math.max(0, Math.floor(s)) : 0;

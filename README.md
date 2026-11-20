@@ -339,3 +339,18 @@ When the owner provides one or more files such as `General-Movies-*.json`, `VMAX
 9. Push only when the owner says to push.
 
 End of Grok-only import guide.
+
+
+## Playback (Terabox)
+
+Item `stream` values are usually Terabox share links (`https://1024terabox.com/s/...`).
+
+On open, the player:
+
+1. Shows the item **thumbnail** + spinner  
+2. `POST`s the share URL to `TFP_CONFIG.TERABOX_API` with `X-Practice-Key`  
+3. Plays `fast_stream_url` (preferred) or `stream_url`  
+4. Hides poster when `playing` fires  
+5. On failure tries the alternate URL, then optional `DEMO_VIDEO`
+
+Direct `.mp4` / `.m3u8` links skip the API. HLS uses `hls.js` from CDN.
