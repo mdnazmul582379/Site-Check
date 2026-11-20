@@ -278,16 +278,29 @@
       '<button class="cs-play" type="button" data-id="' + esc(it.id) + '" aria-label="Play">' + ic("play", 14) + '</button></div></div>';
   }
   function stopHero() { clearInterval(S.timer); }
+  function heroStep(tr) {
+    if (!tr || !tr.children.length) return 0;
+    var gap = 10;
+    try {
+      var st = window.getComputedStyle(tr);
+      gap = parseFloat(st.columnGap || st.gap) || 10;
+    } catch (e) {}
+    return tr.children[0].offsetWidth + gap;
+  }
   function startHero() {
     stopHero();
     S.timer = setInterval(function () {
       var tr = $("#heroTrack"); if (!tr || tr.children.length < 2) return;
       S.hero = (S.hero + 1) % tr.children.length;
-      tr.scrollTo({ left: S.hero * (tr.children[0].offsetWidth + 10), behavior: "smooth" });
+      tr.scrollTo({ left: S.hero * heroStep(tr), behavior: "smooth" });
       setDots(S.hero);
-    }, 5000);
+    }, 4500);
   }
-  function setDots(idx) { document.querySelectorAll(".dots i").forEach(function (d, i) { d.className = i === idx ? "on" : ""; }); }
+  function setDots(idx) {
+    document.querySelectorAll(".dots i").forEach(function (d, i) {
+      d.classList.toggle("on", i === idx);
+    });
+  }
 
   // ---- views ----
   // Category tile thumbnail follows the carousel: same genre first, otherwise the first carousel thumbnail.
@@ -413,12 +426,24 @@
       : "";
     return hero + gridHtml;
   }
-  // ~2.5 cards visible under the player (smaller than home hero)
+  // Related under player: image + title only (~2.5 visible), no play chip / mini-thumb card
+  function relatedSlide(it) {
+    var img = it.thumb
+      ? '<img src="' + esc(it.thumb) + '" alt="" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">'
+      : "";
+    return '<button type="button" class="rslide" data-id="' + esc(it.id) + '">' +
+      '<span class="rs-img" style="background:' + grad(it) + '">' + img + '</span>' +
+      '<span class="rs-title">' + esc(it.title) + '</span></button>';
+  }
   function compactHeroHTML(list) {
     if (!list.length) return "";
-    var slides = list.slice(0, 10).map(heroSlide).join("");
-    var dots = list.slice(0, 10).map(function (_, i) { return "<i" + (i === 0 ? ' class="on"' : "") + "></i>"; }).join("");
-    return '<div class="hero hero-compact"><div class="hero-track" id="heroTrack">' + slides + '</div><div class="dots">' + dots + '</div></div>';
+    var slides = list.slice(0, 10).map(relatedSlide).join("");
+    var dots = list.slice(0, 10).map(function (_, i) {
+      return '<i' + (i === 0 ? ' class="on"' : '') + '></i>';
+    }).join("");
+    return '<div class="hero hero-compact related-car">' +
+      '<div class="hero-track" id="heroTrack">' + slides + '</div>' +
+      '<div class="dots">' + dots + '</div></div>';
   }
   function openDetail(id) {
     var it = S.byId[id]; if (!it) return;
@@ -471,6 +496,8 @@
     p.classList.remove("hidden");
     document.body.classList.add("in-player");
     attachPlayer();
+    S.hero = 0;
+    startHero();
   }
   function closeDetail() {
     var v = $("#vid");
@@ -586,7 +613,10 @@
   // Hero dots only. Sections never expand on scroll; only See more does that.
   document.addEventListener("scroll", function (e) {
     if (e.target && e.target.id === "heroTrack") {
-      var idx = Math.round(e.target.scrollLeft / (e.target.children[0].offsetWidth + 10));
+      var step = heroStep(e.target) || 1;
+      var idx = Math.round(e.target.scrollLeft / step);
+      if (idx < 0) idx = 0;
+      if (idx > e.target.children.length - 1) idx = e.target.children.length - 1;
       S.hero = idx; setDots(idx);
     }
   }, true);
