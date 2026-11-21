@@ -511,9 +511,9 @@
         '<div class="vp-top">' +
           '<button class="vp-ib" id="back" type="button" aria-label="Back">' + ic("back", 22) + '</button>' +
           '<span class="vp-sp"></span>' +
-          '<button class="vp-ib" id="vpLock" type="button" aria-label="Lock">' + ic("lock", 20) + '</button>' +
+          '<button class="vp-ib vp-lock-btn" id="vpLock" type="button" aria-label="Lock">' + ic("unlock", 20) + '</button>' +
         '</div>' +
-        '<div class="vp-lock-only hidden" id="vpLockOnly"><button class="vp-ib vp-unlock-btn" id="vpUnlock" type="button" aria-label="Unlock">' + ic("lock", 26) + '</button></div>' +
+        '<button class="vp-ib vp-lock-float hidden" id="vpLockFloat" type="button" aria-label="Unlock">' + ic("lock", 22) + '</button>' +
         '<div class="vp-hud vp-hud-seek hidden" id="vpHudSeek"><span id="vpHudSeekTxt">0:00</span></div>' +
         '<div class="vp-hud vp-hud-vol hidden" id="vpHudVol">' +
           '<div class="vp-vol-ico">' + ic("vol", 22) + '</div>' +
@@ -526,7 +526,6 @@
             '<span class="vp-time" id="vpTime">0:00 / 0:00</span>' +
             '<span class="vp-sp"></span>' +
             '<button class="vp-ib" id="vpMute" type="button" aria-label="Mute">' + ic("vol", 20) + '</button>' +
-            '<input class="vp-vol" id="vpVol" type="range" min="0" max="1" step="0.05" value="1" aria-label="Volume">' +
             '<button class="vp-ib" id="vpFit" type="button" aria-label="Fit">' + ic("fit", 20) + '</button>' +
             '<button class="vp-ib" id="vpPip" type="button" aria-label="Picture in picture">' + ic("pip", 20) + '</button>' +
             '<button class="vp-ib" id="vpFull" type="button" aria-label="Fullscreen">' + ic("full", 20) + '</button>' +
@@ -623,7 +622,7 @@
     }
   }
   function attachPlayer() {
-    var vp = $("#vp"), v = $("#vid"), g = $("#vpGest"), seek = $("#seek"), tm = $("#vpTime"), pb = $("#vpPlay"), vol = $("#vpVol"), mu = $("#vpMute"), fit = $("#vpFit");
+    var vp = $("#vp"), v = $("#vid"), g = $("#vpGest"), seek = $("#seek"), tm = $("#vpTime"), pb = $("#vpPlay"), mu = $("#vpMute"), fit = $("#vpFit");
     var poster = $("#vpPoster"), loadMsg = $("#vpLoadMsg");
     var idleT = null, pressT = null, speedOn = false, moved = false, sx = 0, sy = 0, lastTap = 0, lastSide = "", tapT = null;
     var hlsRef = { hls: null };
@@ -686,7 +685,13 @@
       return (h ? h + ":" + String(m).padStart(2, "0") : String(m)) + ":" + String(x).padStart(2, "0");
     }
     function sync() { var d = v.duration || 0, c = v.currentTime || 0; tm.textContent = fmt(c) + " / " + fmt(d); seek.value = d ? Math.round(c / d * 1000) : 0; }
-    function showCtrl() { vp.classList.remove("idle"); clearTimeout(idleT); if (!v.paused) idleT = setTimeout(function () { vp.classList.add("idle"); }, 2800); }
+    function showCtrl() {
+      if (locked) return;
+      vp.classList.remove("idle");
+      if (lockFloat) lockFloat.classList.add("hidden");
+      clearTimeout(idleT);
+      if (!v.paused) idleT = setTimeout(function () { vp.classList.add("idle"); }, 2800);
+    }
     function flash(side) { var el = $(side === "l" ? "#ripL" : "#ripR"); el.classList.add("on"); clearTimeout(el._t); el._t = setTimeout(function () { el.classList.remove("on"); }, 500); }
     function skip(sec, side) { var max = v.duration || Infinity; v.currentTime = Math.min(Math.max(0, (v.currentTime || 0) + sec), max); flash(side); showCtrl(); }
     function badge(on) { $("#vpBadge").classList.toggle("on", on); }
@@ -696,8 +701,15 @@
     v.addEventListener("pause", function () { pb.innerHTML = ic("play", 22); vp.classList.remove("idle"); clearTimeout(idleT); });
     pb.onclick = function () { if (v.paused) v.play().catch(function () {}); else v.pause(); };
     seek.oninput = function () { if (v.duration) v.currentTime = seek.value / 1000 * v.duration; };
-    vol.oninput = function () { v.volume = +vol.value; v.muted = +vol.value === 0; mu.innerHTML = ic(v.muted ? "mute" : "vol", 20); };
-    mu.onclick = function () { v.muted = !v.muted; if (!v.muted && v.volume === 0) v.volume = 1; vol.value = v.muted ? 0 : v.volume; mu.innerHTML = ic(v.muted ? "mute" : "vol", 20); };
+    mu.onclick = function () {
+      if (v.muted || v.volume === 0) {
+        v.muted = false;
+        if (v.volume === 0) v.volume = 1;
+      } else {
+        v.muted = true;
+      }
+      mu.innerHTML = ic(v.muted || v.volume === 0 ? "mute" : "vol", 20);
+    };
     fit.onclick = function () { vp.classList.toggle("cover"); };
     $("#vpPip").onclick = function () { if (v.requestPictureInPicture) v.requestPictureInPicture().catch(function () { toast("Picture-in-picture is not available"); }); else toast("Picture-in-picture is not supported here"); };
     function isFs() {
@@ -723,20 +735,41 @@
     document.addEventListener("webkitfullscreenchange", syncFullIcon);
 
     var locked = false;
+    var lockBtn = $("#vpLock");
+    var lockFloat = $("#vpLockFloat");
     function setLocked(on) {
       locked = on;
       vp.classList.toggle("locked", on);
-      var only = $("#vpLockOnly");
-      if (only) only.classList.toggle("hidden", !on);
+      if (lockBtn) {
+        lockBtn.innerHTML = ic(on ? "lock" : "unlock", 20);
+        lockBtn.setAttribute("aria-label", on ? "Unlock" : "Lock");
+      }
+      if (lockFloat) {
+        lockFloat.innerHTML = ic("lock", 22);
+        lockFloat.classList.toggle("hidden", true);
+      }
       if (on) {
-        vp.classList.add("idle");
+        // show lock icon briefly then hide with other chrome
+        vp.classList.remove("idle");
         clearTimeout(idleT);
+        idleT = setTimeout(function () {
+          vp.classList.add("idle");
+          if (lockFloat) lockFloat.classList.add("hidden");
+        }, 2000);
       } else {
+        if (lockFloat) lockFloat.classList.add("hidden");
         showCtrl();
       }
     }
-    $("#vpLock").onclick = function (e) { e.stopPropagation(); setLocked(true); };
-    $("#vpUnlock").onclick = function (e) { e.stopPropagation(); setLocked(false); };
+    if (lockBtn) lockBtn.onclick = function (e) {
+      e.stopPropagation();
+      if (locked) setLocked(false);
+      else setLocked(true);
+    };
+    if (lockFloat) lockFloat.onclick = function (e) {
+      e.stopPropagation();
+      setLocked(false);
+    };
 
     var mode = null; // "seek" | "vol" | null
     var startT = 0, startVol = 1, hudT = null;
@@ -804,7 +837,6 @@
         var nv = Math.min(1, Math.max(0, startVol + deltaV));
         v.volume = nv;
         v.muted = nv === 0;
-        if (vol) vol.value = nv;
         if (mu) mu.innerHTML = ic(v.muted ? "mute" : "vol", 20);
         showHudVol(nv);
         showCtrl();
@@ -813,12 +845,13 @@
     g.addEventListener("pointerup", function (e) {
       clearTimeout(pressT);
       if (locked) {
-        // tap while locked → flash unlock button only
-        var only = $("#vpLockOnly");
-        if (only) {
-          only.classList.remove("hidden");
-          clearTimeout(only._t);
-          only._t = setTimeout(function () { if (locked) only.classList.add("hidden"); }, 1800);
+        // tap while locked → show lock icon only (same idle rules)
+        if (lockFloat) {
+          lockFloat.classList.remove("hidden");
+          clearTimeout(lockFloat._t);
+          lockFloat._t = setTimeout(function () {
+            if (locked) lockFloat.classList.add("hidden");
+          }, 2000);
         }
         return;
       }
