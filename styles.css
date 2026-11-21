@@ -487,3 +487,24 @@ html,body{margin:0!important;padding-left:0!important;padding-right:0!important}
   background:var(--brand);border-radius:999px
 }
 .vp-top .vp-sp{flex:1}
+
+/* Speed menu + labels */
+.vp-speed-lab{font-size:11px;font-weight:800;color:#fff;letter-spacing:.02em}
+.vp-speed-menu{
+  position:absolute;right:12px;bottom:58px;z-index:6;
+  display:flex;flex-direction:column;min-width:72px;
+  background:rgba(20,22,28,.94);border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.5)
+}
+.vp-speed-menu.hidden{display:none}
+.vp-speed-menu button{
+  border:0;background:transparent;color:#e8eaed;padding:10px 14px;
+  font-size:13px;font-weight:650;text-align:center;cursor:pointer
+}
+.vp-speed-menu button.on{background:rgba(34,226,138,.16);color:var(--brand)}
+.vp-speed-menu button:active{background:rgba(255,255,255,.06)}
+.vp:fullscreen .vp-bottom, .vp:-webkit-full-screen .vp-bottom{padding-bottom:max(10px, env(safe-area-inset-bottom))}
+.vp:fullscreen .vp-top, .vp:-webkit-full-screen .vp-top{padding-top:max(10px, env(safe-area-inset-top))}
+/* Never show native video controls */
+.vp-video::-webkit-media-controls{display:none!important}
+.vp-video::-webkit-media-controls-enclosure{display:none!important}

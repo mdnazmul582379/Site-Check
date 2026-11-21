@@ -53,7 +53,9 @@
     x: '<path d="M18 6L6 18M6 6l12 12"/>',
     exitFull: '<path d="M9 3v4a2 2 0 0 1-2 2H3"/><path d="M15 3v4a2 2 0 0 0 2 2h4"/><path d="M9 21v-4a2 2 0 0 0-2-2H3"/><path d="M15 21v-4a2 2 0 0 1 2-2h4"/>',
     lock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
-    unlock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.5-1.5"/>'
+    unlock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.5-1.5"/>',
+    speed: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    rotate: '<path d="M4 12a8 8 0 0 1 14-5.3"/><path d="M18 4v4h-4"/><path d="M20 12a8 8 0 0 1-14 5.3"/><path d="M6 20v-4h4"/>'
   };
   function ic(n, s) { s = s || 20; return '<svg class="ic" viewBox="0 0 24 24" width="' + s + '" height="' + s + '" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (IC[n] || "") + '</svg>'; }
 
@@ -501,7 +503,7 @@
     var p = $("#player");
     p.innerHTML =
       '<div class="vp" id="vp">' +
-        '<video id="vid" class="vp-video" playsinline preload="metadata"></video>' +
+        '<video id="vid" class="vp-video" playsinline webkit-playsinline preload="metadata" controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture="false"></video>' +
         '<div class="vp-poster" id="vpPoster">' +
           (it.thumb ? '<img src="' + esc(it.thumb) + '" alt="" decoding="async" referrerpolicy="no-referrer">' : '') +
           '<div class="vp-dim"></div><div class="vp-spin" aria-hidden="true"></div>' +
@@ -529,10 +531,13 @@
             '<span class="vp-time" id="vpTime">0:00 / 0:00</span>' +
             '<span class="vp-sp"></span>' +
             '<button class="vp-ib" id="vpMute" type="button" aria-label="Mute">' + ic("vol", 20) + '</button>' +
+            '<button class="vp-ib" id="vpSpeed" type="button" aria-label="Speed"><span class="vp-speed-lab" id="vpSpeedLab">1x</span></button>' +
+            '<button class="vp-ib" id="vpOrient" type="button" aria-label="Orientation">' + ic("rotate", 20) + '</button>' +
             '<button class="vp-ib" id="vpFit" type="button" aria-label="Fit">' + ic("fit", 20) + '</button>' +
             '<button class="vp-ib" id="vpPip" type="button" aria-label="Picture in picture">' + ic("pip", 20) + '</button>' +
             '<button class="vp-ib" id="vpFull" type="button" aria-label="Fullscreen">' + ic("full", 20) + '</button>' +
           '</div>' +
+          '<div class="vp-speed-menu hidden" id="vpSpeedMenu"></div>' +
         '</div>' +
       '</div>' +
       '<div class="d-body"><h2 class="d-title">' + esc(it.title) + '</h2><div class="d-meta">' + esc(metaLine(it)) + '</div>' +
@@ -626,6 +631,14 @@
   }
   function attachPlayer() {
     var vp = $("#vp"), v = $("#vid"), g = $("#vpGest"), seek = $("#seek"), tm = $("#vpTime"), pb = $("#vpPlay"), mu = $("#vpMute"), fit = $("#vpFit");
+    try {
+      v.controls = false;
+      v.removeAttribute("controls");
+      v.setAttribute("playsinline", "");
+      v.setAttribute("webkit-playsinline", "");
+      v.setAttribute("controlslist", "nodownload nofullscreen noremoteplayback");
+      if ("disableRemotePlayback" in v) v.disableRemotePlayback = true;
+    } catch (e) {}
     var poster = $("#vpPoster"), loadMsg = $("#vpLoadMsg");
     var idleT = null, pressT = null, speedOn = false, moved = false, sx = 0, sy = 0, lastTap = 0, lastSide = "", tapT = null;
     var hlsRef = { hls: null };
@@ -725,17 +738,83 @@
     function toggleFs() {
       if (isFs()) {
         var ex = document.exitFullscreen || document.webkitExitFullscreen || document.webkitCancelFullScreen;
-        if (ex) ex.call(document);
+        if (ex) try { ex.call(document); } catch (e) {}
       } else {
-        var req = vp.requestFullscreen || vp.webkitRequestFullscreen;
-        if (req) req.call(vp).catch(function () {});
-        else if (v.webkitEnterFullscreen) v.webkitEnterFullscreen();
+        // Always fullscreen the custom container — never video.webkitEnterFullscreen (native chrome).
+        var req = vp.requestFullscreen || vp.webkitRequestFullscreen || vp.mozRequestFullScreen;
+        if (req) {
+          try {
+            var p = req.call(vp);
+            if (p && p.catch) p.catch(function () { toast("Fullscreen not available"); });
+          } catch (e) { toast("Fullscreen not available"); }
+        } else {
+          toast("Fullscreen not available on this browser");
+        }
       }
-      setTimeout(syncFullIcon, 120);
+      setTimeout(syncFullIcon, 150);
     }
     $("#vpFull").onclick = function (e) { e.stopPropagation(); toggleFs(); };
     document.addEventListener("fullscreenchange", syncFullIcon);
     document.addEventListener("webkitfullscreenchange", syncFullIcon);
+
+    // Speed menu (our UI only)
+    var SPEEDS = [0.5, 0.75, 1, 1.25, 1.5, 2];
+    var speedBtn = $("#vpSpeed"), speedMenu = $("#vpSpeedMenu"), speedLab = $("#vpSpeedLab");
+    function setSpeed(r) {
+      v.playbackRate = r;
+      if (speedLab) speedLab.textContent = (r === 1 ? "1x" : r + "x");
+      if (speedMenu) {
+        speedMenu.querySelectorAll("[data-sp]").forEach(function (b) {
+          b.classList.toggle("on", parseFloat(b.getAttribute("data-sp")) === r);
+        });
+        speedMenu.classList.add("hidden");
+      }
+      showCtrl();
+    }
+    if (speedMenu) {
+      speedMenu.innerHTML = SPEEDS.map(function (r) {
+        return '<button type="button" data-sp="' + r + '"' + (r === 1 ? ' class="on"' : '') + '>' + (r === 1 ? "1x" : r + "x") + '</button>';
+      }).join("");
+      speedMenu.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-sp]");
+        if (!b) return;
+        e.stopPropagation();
+        setSpeed(parseFloat(b.getAttribute("data-sp")));
+      });
+    }
+    if (speedBtn) speedBtn.onclick = function (e) {
+      e.stopPropagation();
+      if (!speedMenu) return;
+      speedMenu.classList.toggle("hidden");
+      showCtrl();
+    };
+
+    // Orientation toggle (fullscreen landscape/portrait) — Screen Orientation API
+    var orientBtn = $("#vpOrient");
+    var orientMode = "auto"; // auto | landscape | portrait
+    function applyOrient() {
+      var o = screen.orientation || screen.mozOrientation;
+      if (!o || !o.lock) {
+        toast("Orientation lock not supported here");
+        return;
+      }
+      var target = orientMode === "landscape" ? "portrait-primary" : "landscape-primary";
+      orientMode = orientMode === "landscape" ? "portrait" : "landscape";
+      o.lock(target).then(function () {
+        toast(orientMode === "landscape" ? "Landscape" : "Portrait");
+      }).catch(function () {
+        toast("Could not lock orientation");
+      });
+    }
+    if (orientBtn) orientBtn.onclick = function (e) {
+      e.stopPropagation();
+      if (!isFs()) {
+        // enter fullscreen first then lock
+        toggleFs();
+        setTimeout(applyOrient, 300);
+      } else applyOrient();
+      showCtrl();
+    };
 
     var locked = false;
     var lockBtn = $("#vpLock");
