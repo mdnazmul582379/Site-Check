@@ -25,16 +25,17 @@
     download: '<path d="M12 4v11"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/>',
     user: '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
     search: '<circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>',
-    play: '<path d="M7 4.5v15a1 1 0 0 0 1.5.9l12-7.5a1 1 0 0 0 0-1.8l-12-7.5A1 1 0 0 0 7 4.5z" fill="currentColor" stroke="none"/>',
-    pause: '<rect x="6" y="4.5" width="4" height="15" rx="1.2" fill="currentColor" stroke="none"/><rect x="14" y="4.5" width="4" height="15" rx="1.2" fill="currentColor" stroke="none"/>',
+    play: '<path d="M8 5.2v13.6a1 1 0 0 0 1.54.84l10.4-6.8a1 1 0 0 0 0-1.68L9.54 4.36A1 1 0 0 0 8 5.2z" fill="currentColor" stroke="none"/>',
+    pause: '<rect x="6.5" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/><rect x="14" y="5" width="3.5" height="14" rx="1" fill="currentColor" stroke="none"/>',
     back: '<path d="M15 18l-6-6 6-6"/>',
     chev: '<path d="M6 9l6 6 6-6"/>',
     chevR: '<path d="M9 6l6 6-6 6"/>',
-    vol: '<path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5.5a9 9 0 0 1 0 13"/>',
-    mute: '<path d="M4 9v6h4l5 4V5L8 9z"/><path d="M17 9l5 6M22 9l-5 6"/>',
+    vol: '<path d="M4 9v6h3.5L12 19V5L7.5 9H4z" fill="currentColor" stroke="none"/><path d="M15.5 9a3.5 3.5 0 0 1 0 6"/><path d="M18 6.5a6.5 6.5 0 0 1 0 11"/>',
+    mute: '<path d="M4 9v6h3.5L12 19V5L7.5 9H4z" fill="currentColor" stroke="none"/><path d="M16 9l5 6M21 9l-5 6"/>',
     fit: '<path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/>',
     pip: '<rect x="3" y="5" width="18" height="14" rx="2"/><rect x="12" y="11" width="6" height="5" rx="1" fill="currentColor" stroke="none"/>',
-    full: '<path d="M3 9V5a2 2 0 0 1 2-2h4"/><path d="M21 9V5a2 2 0 0 0-2-2h-4"/><path d="M3 15v4a2 2 0 0 0 2 2h4"/><path d="M21 15v4a2 2 0 0 1-2 2h-4"/>',
+    full: '<path d="M4 9V5.5A1.5 1.5 0 0 1 5.5 4H9"/><path d="M20 9V5.5A1.5 1.5 0 0 0 18.5 4H15"/><path d="M4 15v3.5A1.5 1.5 0 0 0 5.5 20H9"/><path d="M20 15v3.5a1.5 1.5 0 0 1-1.5 1.5H15"/>',
+    exitFull: '<path d="M9 4v3.5A1.5 1.5 0 0 1 7.5 9H4"/><path d="M15 4v3.5A1.5 1.5 0 0 0 16.5 9H20"/><path d="M9 20v-3.5A1.5 1.5 0 0 0 7.5 15H4"/><path d="M15 20v-3.5a1.5 1.5 0 0 1 1.5-1.5H20"/>',
     filter: '<path d="M3 5h18l-7 8v6l-4 2v-8z"/>',
     check: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
     plus: '<path d="M12 5v14M5 12h14"/>',
@@ -55,7 +56,7 @@
     lock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
     unlock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.5-1.5"/>',
     speed: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
-    rotate: '<path d="M4 12a8 8 0 0 1 14-5.3"/><path d="M18 4v4h-4"/><path d="M20 12a8 8 0 0 1-14 5.3"/><path d="M6 20v-4h4"/>'
+    rotate: '<rect x="8" y="2.5" width="8" height="14" rx="1.6"/><path d="M11 14.5h2"/><path d="M4.5 14.5a7.5 7.5 0 0 0 12.2 2.2"/><path d="M17.5 19v-3.2h-3.2"/><path d="M19.5 9.5A7.5 7.5 0 0 0 7.3 7.3"/><path d="M6.5 5V8.2H9.7"/>'
   };
   function ic(n, s) { s = s || 20; return '<svg class="ic" viewBox="0 0 24 24" width="' + s + '" height="' + s + '" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (IC[n] || "") + '</svg>'; }
 
@@ -502,7 +503,7 @@
     }
     var p = $("#player");
     p.innerHTML =
-      '<div class="vp" id="vp">' +
+      '<div class="vp loading idle" id="vp">' +
         '<video id="vid" class="vp-video" playsinline webkit-playsinline preload="metadata" controlslist="nodownload nofullscreen noremoteplayback nodownload" disablepictureinpicture x-webkit-airplay="deny"></video>' +
         '<div class="vp-poster" id="vpPoster">' +
           (it.thumb ? '<img src="' + esc(it.thumb) + '" alt="" decoding="async" referrerpolicy="no-referrer">' : '') +
@@ -528,7 +529,6 @@
           '<div class="vp-bri-ico">☀</div>' +
           '<div class="vp-vol-rail"><i id="vpBriFill"></i></div>' +
         '</div>' +
-        '<div class="vp-hud vp-hud-bri-pct hidden" id="vpHudBriPct"><span id="vpBriPctTxt">100%</span></div>' +
         '<div class="vp-aspect-toast hidden" id="vpAspectToast"></div>' +
         '<div class="vp-bottom">' +
           '<input class="vp-seek" id="seek" type="range" min="0" max="1000" value="0" aria-label="Seek">' +
@@ -734,8 +734,26 @@
     function badge(on) { $("#vpBadge").classList.toggle("on", on); }
     v.addEventListener("timeupdate", sync);
     v.addEventListener("loadedmetadata", sync);
-    v.addEventListener("play", function () { pb.innerHTML = ic("pause", 22); showCtrl(); });
-    v.addEventListener("pause", function () { pb.innerHTML = ic("play", 22); vp.classList.remove("idle"); clearTimeout(idleT); });
+    v.addEventListener("playing", function () {
+      vp.classList.remove("loading");
+      if (poster) poster.classList.add("hide");
+      pb.innerHTML = ic("pause", 22);
+      showCtrl();
+    });
+    v.addEventListener("play", function () { pb.innerHTML = ic("pause", 22); });
+    v.addEventListener("pause", function () {
+      pb.innerHTML = ic("play", 22);
+      if (!vp.classList.contains("loading")) {
+        vp.classList.remove("idle");
+        clearTimeout(idleT);
+      }
+    });
+    v.addEventListener("waiting", function () {
+      // buffering mid-play: keep controls, optional spinner only on poster if still visible
+    });
+    v.addEventListener("loadstart", function () {
+      vp.classList.add("loading");
+    });
     pb.onclick = function () { if (v.paused) v.play().catch(function () {}); else v.pause(); };
     seek.oninput = function () { if (v.duration) v.currentTime = seek.value / 1000 * v.duration; };
     mu.onclick = function () {
@@ -926,13 +944,10 @@
     var hudSeek = $("#vpHudSeek"), hudSeekTxt = $("#vpHudSeekTxt");
     var hudVol = $("#vpHudVol"), volFill = $("#vpVolFill");
     var hudBri = $("#vpHudBri"), briFill = $("#vpBriFill");
-    var hudBriPct = $("#vpHudBriPct"), briPctTxt = $("#vpBriPctTxt");
-
     function hideAllHud() {
       if (hudSeek) hudSeek.classList.add("hidden");
       if (hudVol) hudVol.classList.add("hidden");
       if (hudBri) hudBri.classList.add("hidden");
-      if (hudBriPct) hudBriPct.classList.add("hidden");
     }
     function showHudSeek(sec) {
       if (!hudSeek) return;
@@ -957,10 +972,6 @@
       if (hudBri) {
         hudBri.classList.remove("hidden");
         if (briFill) briFill.style.height = pct + "%";
-      }
-      if (hudBriPct) {
-        hudBriPct.classList.remove("hidden");
-        if (briPctTxt) briPctTxt.textContent = "☀ " + pct + "%";
       }
       clearTimeout(hudT);
       hudT = setTimeout(hideAllHud, 800);
@@ -1064,7 +1075,7 @@
       mode = null;
       if (speedOn) { speedOn = false; v.playbackRate = 1; badge(false); }
     });
-    showCtrl();
+    // stay idle+loading until first 'playing' — only poster spinner visible
     v.play().catch(function () {});
   }
 

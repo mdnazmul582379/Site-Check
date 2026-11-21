@@ -596,13 +596,6 @@ html,body{margin:0!important;padding-left:0!important;padding-right:0!important}
 }
 
 /* Brightness center percentage — always matches left rail */
-.vp-hud-bri-pct{
-  position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);z-index:7;
-  background:rgba(0,0,0,.62);padding:8px 14px;border-radius:12px;
-  font-size:15px;font-weight:700;color:#fff;letter-spacing:.02em;
-  pointer-events:none;white-space:nowrap
-}
-.vp-hud-bri-pct.hidden{display:none}
 /* Left bri rail polish */
 .vp-hud-bri{
   position:absolute;left:14px;top:50%;transform:translateY(-50%);z-index:5;
@@ -610,4 +603,16 @@ html,body{margin:0!important;padding-left:0!important;padding-right:0!important}
   background:rgba(0,0,0,.55);padding:12px 8px;border-radius:16px
 }
 .vp-vol-rail i{height:0%} /* default empty; JS sets exact % */
+
+/* While stream loads: only poster + spinner, no control bars */
+.vp.loading .vp-top,
+.vp.loading .vp-bottom,
+.vp.loading .vp-speed-menu,
+.vp.loading .vp-badge,
+.vp.loading .vp-rip{opacity:0!important;pointer-events:none!important}
+.vp.loading .vp-poster{opacity:1;pointer-events:auto}
+/* Icon polish */
+.vp-ib .ic{display:block}
+.vp-row .vp-ib{width:40px;height:40px}
+.vp-top .vp-ib{width:40px;height:40px}
 
