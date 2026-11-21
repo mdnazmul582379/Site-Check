@@ -771,29 +771,37 @@
       showCtrl();
     };
 
-    // Orientation lock (landscape ↔ portrait) — only meaningful in fullscreen
+    // Orientation: try Screen Orientation API; if blocked, CSS-rotate video (always works)
     var orientBtn = $("#vpOrient");
-    var orientMode = "landscape";
+    var orientMode = "landscape"; // landscape | portrait
     function applyOrient() {
-      var o = screen.orientation || screen.mozOrientation;
-      if (!o || !o.lock) {
-        toast("Orientation lock not supported on this device");
-        return;
+      var nextIsPortrait = orientMode === "landscape";
+      var nextLock = nextIsPortrait ? "portrait-primary" : "landscape-primary";
+      var o = screen.orientation;
+      function done(ok, via) {
+        orientMode = nextIsPortrait ? "portrait" : "landscape";
+        // CSS rotate only when OS lock unavailable (avoid double-rotate)
+        vp.classList.toggle("rot90", via === "css" && orientMode === "portrait");
+        if (orientBtn) orientBtn.classList.toggle("on", orientMode === "portrait");
+        toast(orientMode === "portrait" ? "Portrait" : "Landscape");
       }
-      var next = orientMode === "landscape" ? "portrait-primary" : "landscape-primary";
-      orientMode = orientMode === "landscape" ? "portrait" : "landscape";
-      o.lock(next).then(function () {
-        toast(orientMode === "landscape" ? "Landscape" : "Portrait");
-      }).catch(function () {
-        toast("Could not lock orientation");
-      });
+      if (o && typeof o.lock === "function") {
+        var p = o.lock(nextLock);
+        if (p && p.then) {
+          p.then(function () { done(true, "api"); }).catch(function () {
+            // API blocked — visual rotate still applies
+            done(false, "css");
+          });
+          return;
+        }
+      }
+      done(false, "css");
     }
     if (orientBtn) orientBtn.onclick = function (e) {
       e.stopPropagation();
       if (!isFs()) {
-        // enter FS first, then lock
         toggleFs();
-        setTimeout(applyOrient, 350);
+        setTimeout(applyOrient, 400);
       } else {
         applyOrient();
       }
@@ -805,6 +813,12 @@
     function syncFullIcon() {
       var btn = $("#vpFull");
       if (btn) btn.innerHTML = ic(isFs() ? "exitFull" : "full", 20);
+      // leaving FS → clear visual rotate
+      if (!isFs()) {
+        vp.classList.remove("rot90");
+        orientMode = "landscape";
+        if (orientBtn) orientBtn.classList.remove("on");
+      }
     }
     function toggleFs() {
       if (isFs()) {

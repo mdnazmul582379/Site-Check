@@ -158,8 +158,8 @@ img.cs-img{height:auto}
 /* custom video player */
 .vp{position:relative;width:100%;aspect-ratio:16/9;background:#000;overflow:hidden;user-select:none;-webkit-user-select:none;touch-action:none}
 .vp-video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000}
-.vp.cover .vp-video{object-fit:cover}
-.vp.stretch .vp-video{object-fit:fill}
+.vp.cover .vp-video{object-fit:cover!important}
+.vp.stretch .vp-video{object-fit:fill!important}
 .vp-gest{position:absolute;inset:0;z-index:1}
 .vp-top,.vp-bottom{position:absolute;left:0;right:0;z-index:3;transition:opacity .25s ease}
 .vp-top{top:0;display:flex;align-items:center;padding:10px var(--g);background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,0))}
@@ -442,6 +442,10 @@ html,body{margin:0!important;padding-left:0!important;padding-right:0!important}
   width:100%;height:100%;aspect-ratio:auto;max-width:none;background:#000
 }
 .vp:fullscreen .vp-video, .vp:-webkit-full-screen .vp-video{object-fit:contain}
+.vp:fullscreen.cover .vp-video, .vp:-webkit-full-screen.cover .vp-video{object-fit:cover!important}
+.vp:fullscreen.stretch .vp-video, .vp:-webkit-full-screen.stretch .vp-video{object-fit:fill!important}
+.vp.cover .vp-video{object-fit:cover!important}
+.vp.stretch .vp-video{object-fit:fill!important}
 
 /* Lock mode: hide chrome; floating lock icon top-right */
 .vp.locked .vp-top .vp-ib:not(.vp-lock-btn),
@@ -577,4 +581,17 @@ html,body{margin:0!important;padding-left:0!important;padding-right:0!important}
   text-shadow:0 2px 12px rgba(0,0,0,.7);pointer-events:none
 }
 .vp-aspect-toast.hidden{display:none}
+
+/* Visual portrait rotate inside fullscreen when OS lock unavailable */
+.vp.rot90 .vp-video{
+  position:absolute;left:50%;top:50%;
+  width:100vh;height:100vw;
+  max-width:none;max-height:none;
+  transform:translate(-50%,-50%) rotate(90deg);
+  transform-origin:center center;
+}
+.vp:fullscreen.rot90 .vp-video, .vp:-webkit-full-screen.rot90 .vp-video{
+  width:100vh;height:100vw;
+  transform:translate(-50%,-50%) rotate(90deg);
+}
 
