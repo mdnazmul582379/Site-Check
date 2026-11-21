@@ -524,6 +524,11 @@
           '<div class="vp-vol-ico">' + ic("vol", 22) + '</div>' +
           '<div class="vp-vol-rail"><i id="vpVolFill"></i></div>' +
         '</div>' +
+        '<div class="vp-hud vp-hud-bri hidden" id="vpHudBri">' +
+          '<div class="vp-bri-ico">☀</div>' +
+          '<div class="vp-vol-rail"><i id="vpBriFill"></i></div>' +
+        '</div>' +
+        '<div class="vp-aspect-toast hidden" id="vpAspectToast"></div>' +
         '<div class="vp-bottom">' +
           '<input class="vp-seek" id="seek" type="range" min="0" max="1000" value="0" aria-label="Seek">' +
           '<div class="vp-row">' +
@@ -741,12 +746,28 @@
       }
       mu.innerHTML = ic(v.muted || v.volume === 0 ? "mute" : "vol", 20);
     };
+    // Aspect cycle: 100% (contain) → CROP (cover) → STRETCH (fill)
     var fitBtn = $("#vpFit");
+    var aspectModes = ["contain", "cover", "fill"];
+    var aspectLabels = { contain: "100%", cover: "CROP", fill: "STRETCH" };
+    var aspectIdx = 0;
+    function applyAspect(idx) {
+      aspectIdx = ((idx % 3) + 3) % 3;
+      vp.classList.remove("cover", "stretch");
+      if (aspectModes[aspectIdx] === "cover") vp.classList.add("cover");
+      if (aspectModes[aspectIdx] === "fill") vp.classList.add("stretch");
+      if (fitBtn) fitBtn.classList.toggle("on", aspectIdx !== 0);
+      var toastEl = $("#vpAspectToast");
+      if (toastEl) {
+        toastEl.textContent = aspectLabels[aspectModes[aspectIdx]];
+        toastEl.classList.remove("hidden");
+        clearTimeout(toastEl._t);
+        toastEl._t = setTimeout(function () { toastEl.classList.add("hidden"); }, 900);
+      }
+    }
     if (fitBtn) fitBtn.onclick = function (e) {
       e.stopPropagation();
-      vp.classList.toggle("cover");
-      // visual feedback: swap icon weight via class
-      fitBtn.classList.toggle("on", vp.classList.contains("cover"));
+      applyAspect(aspectIdx + 1);
       showCtrl();
     };
 
@@ -884,27 +905,46 @@
       setLocked(false);
     };
 
-    var mode = null; // "seek" | "vol" | null
-    var startT = 0, startVol = 1, hudT = null;
+    var mode = null; // "seek" | "vol" | "bri" | null
+    var startT = 0, startVol = 1, startBri = 1, hudT = null;
+    var briLevel = 1; // 0..1 filter brightness
     var hudSeek = $("#vpHudSeek"), hudSeekTxt = $("#vpHudSeekTxt");
     var hudVol = $("#vpHudVol"), volFill = $("#vpVolFill");
+    var hudBri = $("#vpHudBri"), briFill = $("#vpBriFill");
 
+    function hideAllHud() {
+      if (hudSeek) hudSeek.classList.add("hidden");
+      if (hudVol) hudVol.classList.add("hidden");
+      if (hudBri) hudBri.classList.add("hidden");
+    }
     function showHudSeek(sec) {
       if (!hudSeek) return;
+      hideAllHud();
       hudSeek.classList.remove("hidden");
-      if (hudVol) hudVol.classList.add("hidden");
       var sign = sec >= 0 ? "+" : "−";
       hudSeekTxt.textContent = sign + Math.abs(Math.round(sec)) + "s";
       clearTimeout(hudT);
-      hudT = setTimeout(function () { hudSeek.classList.add("hidden"); }, 600);
+      hudT = setTimeout(hideAllHud, 600);
     }
     function showHudVol(val) {
       if (!hudVol) return;
+      hideAllHud();
       hudVol.classList.remove("hidden");
-      if (hudSeek) hudSeek.classList.add("hidden");
       if (volFill) volFill.style.height = Math.round(val * 100) + "%";
       clearTimeout(hudT);
-      hudT = setTimeout(function () { hudVol.classList.add("hidden"); }, 700);
+      hudT = setTimeout(hideAllHud, 700);
+    }
+    function showHudBri(val) {
+      if (!hudBri) return;
+      hideAllHud();
+      hudBri.classList.remove("hidden");
+      if (briFill) briFill.style.height = Math.round(val * 100) + "%";
+      clearTimeout(hudT);
+      hudT = setTimeout(hideAllHud, 700);
+    }
+    function setBrightness(val) {
+      briLevel = Math.min(1, Math.max(0.05, val));
+      v.style.filter = "brightness(" + briLevel + ")";
     }
 
     g.addEventListener("pointerdown", function (e) {
@@ -913,6 +953,7 @@
       sx = e.clientX; sy = e.clientY;
       startT = v.currentTime || 0;
       startVol = v.muted ? 0 : (v.volume || 0);
+      startBri = briLevel;
       speedOn = false;
       clearTimeout(pressT);
       try { g.setPointerCapture(e.pointerId); } catch (err) {}
@@ -928,12 +969,16 @@
         moved = true;
         clearTimeout(pressT);
         if (speedOn) { speedOn = false; v.playbackRate = 1; badge(false); }
-        // vertical on right 45% → volume; else horizontal → seek
+        // MX-style: right third vertical → volume; left third vertical → brightness; horizontal → seek
         var rect = g.getBoundingClientRect();
-        var onRight = (sx - rect.left) > rect.width * 0.55;
-        if (ady > adx && onRight) mode = "vol";
-        else if (adx > ady) mode = "seek";
-        else if (ady > adx) mode = "vol"; // left side vertical still volume for MX-like feel on whole player surface when dominant vertical
+        var xRatio = (sx - rect.left) / rect.width;
+        if (ady > adx) {
+          if (xRatio > 0.6) mode = "vol";
+          else if (xRatio < 0.4) mode = "bri";
+          else mode = "vol"; // center vertical still volume
+        } else {
+          mode = "seek";
+        }
       }
       if (mode === "seek") {
         var dur = v.duration || 0;
@@ -952,6 +997,13 @@
         v.muted = nv === 0;
         if (mu) mu.innerHTML = ic(v.muted ? "mute" : "vol", 20);
         showHudVol(nv);
+        showCtrl();
+      } else if (mode === "bri") {
+        var rect = g.getBoundingClientRect();
+        var deltaB = -(dy / rect.height);
+        var nb = Math.min(1, Math.max(0.05, startBri + deltaB));
+        setBrightness(nb);
+        showHudBri(nb);
         showCtrl();
       }
     });
