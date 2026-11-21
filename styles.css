@@ -490,7 +490,7 @@ html,body{margin:0!important;padding-left:0!important;padding-right:0!important}
   position:relative;overflow:hidden
 }
 .vp-vol-rail i{
-  position:absolute;left:0;right:0;bottom:0;height:50%;
+  position:absolute;left:0;right:0;bottom:0;height:0%;
   background:var(--brand);border-radius:999px
 }
 .vp-top .vp-sp{flex:1}
@@ -582,16 +582,32 @@ html,body{margin:0!important;padding-left:0!important;padding-right:0!important}
 }
 .vp-aspect-toast.hidden{display:none}
 
-/* Visual portrait rotate inside fullscreen when OS lock unavailable */
+/* Visual portrait rotate — -90deg (was inverted with +90) */
 .vp.rot90 .vp-video{
   position:absolute;left:50%;top:50%;
   width:100vh;height:100vw;
   max-width:none;max-height:none;
-  transform:translate(-50%,-50%) rotate(90deg);
+  transform:translate(-50%,-50%) rotate(-90deg);
   transform-origin:center center;
 }
 .vp:fullscreen.rot90 .vp-video, .vp:-webkit-full-screen.rot90 .vp-video{
   width:100vh;height:100vw;
-  transform:translate(-50%,-50%) rotate(90deg);
+  transform:translate(-50%,-50%) rotate(-90deg);
 }
+
+/* Brightness center percentage — always matches left rail */
+.vp-hud-bri-pct{
+  position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);z-index:7;
+  background:rgba(0,0,0,.62);padding:8px 14px;border-radius:12px;
+  font-size:15px;font-weight:700;color:#fff;letter-spacing:.02em;
+  pointer-events:none;white-space:nowrap
+}
+.vp-hud-bri-pct.hidden{display:none}
+/* Left bri rail polish */
+.vp-hud-bri{
+  position:absolute;left:14px;top:50%;transform:translateY(-50%);z-index:5;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  background:rgba(0,0,0,.55);padding:12px 8px;border-radius:16px
+}
+.vp-vol-rail i{height:0%} /* default empty; JS sets exact % */
 

@@ -528,6 +528,7 @@
           '<div class="vp-bri-ico">☀</div>' +
           '<div class="vp-vol-rail"><i id="vpBriFill"></i></div>' +
         '</div>' +
+        '<div class="vp-hud vp-hud-bri-pct hidden" id="vpHudBriPct"><span id="vpBriPctTxt">100%</span></div>' +
         '<div class="vp-aspect-toast hidden" id="vpAspectToast"></div>' +
         '<div class="vp-bottom">' +
           '<input class="vp-seek" id="seek" type="range" min="0" max="1000" value="0" aria-label="Seek">' +
@@ -781,7 +782,7 @@
       function done(ok, via) {
         orientMode = nextIsPortrait ? "portrait" : "landscape";
         // CSS rotate only when OS lock unavailable (avoid double-rotate)
-        vp.classList.toggle("rot90", via === "css" && orientMode === "portrait");
+        vp.classList.toggle("rot90", via === "css" && orientMode === "portrait"); // CSS uses -90deg
         if (orientBtn) orientBtn.classList.toggle("on", orientMode === "portrait");
         toast(orientMode === "portrait" ? "Portrait" : "Landscape");
       }
@@ -925,11 +926,13 @@
     var hudSeek = $("#vpHudSeek"), hudSeekTxt = $("#vpHudSeekTxt");
     var hudVol = $("#vpHudVol"), volFill = $("#vpVolFill");
     var hudBri = $("#vpHudBri"), briFill = $("#vpBriFill");
+    var hudBriPct = $("#vpHudBriPct"), briPctTxt = $("#vpBriPctTxt");
 
     function hideAllHud() {
       if (hudSeek) hudSeek.classList.add("hidden");
       if (hudVol) hudVol.classList.add("hidden");
       if (hudBri) hudBri.classList.add("hidden");
+      if (hudBriPct) hudBriPct.classList.add("hidden");
     }
     function showHudSeek(sec) {
       if (!hudSeek) return;
@@ -949,16 +952,23 @@
       hudT = setTimeout(hideAllHud, 700);
     }
     function showHudBri(val) {
-      if (!hudBri) return;
+      var pct = Math.round(Math.min(1, Math.max(0, val)) * 100);
       hideAllHud();
-      hudBri.classList.remove("hidden");
-      if (briFill) briFill.style.height = Math.round(val * 100) + "%";
+      if (hudBri) {
+        hudBri.classList.remove("hidden");
+        if (briFill) briFill.style.height = pct + "%";
+      }
+      if (hudBriPct) {
+        hudBriPct.classList.remove("hidden");
+        if (briPctTxt) briPctTxt.textContent = "☀ " + pct + "%";
+      }
       clearTimeout(hudT);
-      hudT = setTimeout(hideAllHud, 700);
+      hudT = setTimeout(hideAllHud, 800);
     }
     function setBrightness(val) {
-      briLevel = Math.min(1, Math.max(0.05, val));
-      v.style.filter = "brightness(" + briLevel + ")";
+      // 0.0 .. 1.0 — allow full dark for accurate match with HUD %
+      briLevel = Math.min(1, Math.max(0, val));
+      v.style.filter = briLevel >= 0.995 ? "none" : ("brightness(" + briLevel + ")");
     }
 
     g.addEventListener("pointerdown", function (e) {
@@ -1015,7 +1025,7 @@
       } else if (mode === "bri") {
         var rect = g.getBoundingClientRect();
         var deltaB = -(dy / rect.height);
-        var nb = Math.min(1, Math.max(0.05, startBri + deltaB));
+        var nb = Math.min(1, Math.max(0, startBri + deltaB));
         setBrightness(nb);
         showHudBri(nb);
         showCtrl();
