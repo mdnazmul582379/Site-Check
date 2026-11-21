@@ -532,9 +532,6 @@
             '<span class="vp-sp"></span>' +
             '<button class="vp-ib" id="vpMute" type="button" aria-label="Mute">' + ic("vol", 20) + '</button>' +
             '<button class="vp-ib" id="vpSpeed" type="button" aria-label="Speed"><span class="vp-speed-lab" id="vpSpeedLab">1x</span></button>' +
-            '<button class="vp-ib" id="vpOrient" type="button" aria-label="Orientation">' + ic("rotate", 20) + '</button>' +
-            '<button class="vp-ib" id="vpFit" type="button" aria-label="Fit">' + ic("fit", 20) + '</button>' +
-            '<button class="vp-ib" id="vpPip" type="button" aria-label="Picture in picture">' + ic("pip", 20) + '</button>' +
             '<button class="vp-ib" id="vpFull" type="button" aria-label="Fullscreen">' + ic("full", 20) + '</button>' +
           '</div>' +
           '<div class="vp-speed-menu hidden" id="vpSpeedMenu"></div>' +
@@ -630,7 +627,7 @@
     }
   }
   function attachPlayer() {
-    var vp = $("#vp"), v = $("#vid"), g = $("#vpGest"), seek = $("#seek"), tm = $("#vpTime"), pb = $("#vpPlay"), mu = $("#vpMute"), fit = $("#vpFit");
+    var vp = $("#vp"), v = $("#vid"), g = $("#vpGest"), seek = $("#seek"), tm = $("#vpTime"), pb = $("#vpPlay"), mu = $("#vpMute");
     try {
       v.controls = false;
       v.removeAttribute("controls");
@@ -701,12 +698,26 @@
       return (h ? h + ":" + String(m).padStart(2, "0") : String(m)) + ":" + String(x).padStart(2, "0");
     }
     function sync() { var d = v.duration || 0, c = v.currentTime || 0; tm.textContent = fmt(c) + " / " + fmt(d); seek.value = d ? Math.round(c / d * 1000) : 0; }
+    function closeSpeedMenu() {
+      if (speedMenu) speedMenu.classList.add("hidden");
+    }
     function showCtrl() {
       if (locked) return;
       vp.classList.remove("idle");
       if (lockFloat) lockFloat.classList.add("hidden");
       clearTimeout(idleT);
-      if (!v.paused) idleT = setTimeout(function () { vp.classList.add("idle"); }, 2800);
+      if (!v.paused) idleT = setTimeout(function () { vp.classList.add("idle"); closeSpeedMenu(); }, 2800);
+    }
+    function hideCtrl() {
+      if (locked) return;
+      vp.classList.add("idle");
+      closeSpeedMenu();
+      clearTimeout(idleT);
+    }
+    function toggleCtrl() {
+      if (locked) return;
+      if (vp.classList.contains("idle")) showCtrl();
+      else hideCtrl();
     }
     function flash(side) { var el = $(side === "l" ? "#ripL" : "#ripR"); el.classList.add("on"); clearTimeout(el._t); el._t = setTimeout(function () { el.classList.remove("on"); }, 500); }
     function skip(sec, side) { var max = v.duration || Infinity; v.currentTime = Math.min(Math.max(0, (v.currentTime || 0) + sec), max); flash(side); showCtrl(); }
@@ -726,8 +737,6 @@
       }
       mu.innerHTML = ic(v.muted || v.volume === 0 ? "mute" : "vol", 20);
     };
-    fit.onclick = function () { vp.classList.toggle("cover"); };
-    $("#vpPip").onclick = function () { if (v.requestPictureInPicture) v.requestPictureInPicture().catch(function () { toast("Picture-in-picture is not available"); }); else toast("Picture-in-picture is not supported here"); };
     function isFs() {
       return !!(document.fullscreenElement || document.webkitFullscreenElement);
     }
@@ -786,33 +795,6 @@
       e.stopPropagation();
       if (!speedMenu) return;
       speedMenu.classList.toggle("hidden");
-      showCtrl();
-    };
-
-    // Orientation toggle (fullscreen landscape/portrait) — Screen Orientation API
-    var orientBtn = $("#vpOrient");
-    var orientMode = "auto"; // auto | landscape | portrait
-    function applyOrient() {
-      var o = screen.orientation || screen.mozOrientation;
-      if (!o || !o.lock) {
-        toast("Orientation lock not supported here");
-        return;
-      }
-      var target = orientMode === "landscape" ? "portrait-primary" : "landscape-primary";
-      orientMode = orientMode === "landscape" ? "portrait" : "landscape";
-      o.lock(target).then(function () {
-        toast(orientMode === "landscape" ? "Landscape" : "Portrait");
-      }).catch(function () {
-        toast("Could not lock orientation");
-      });
-    }
-    if (orientBtn) orientBtn.onclick = function (e) {
-      e.stopPropagation();
-      if (!isFs()) {
-        // enter fullscreen first then lock
-        toggleFs();
-        setTimeout(applyOrient, 300);
-      } else applyOrient();
       showCtrl();
     };
 
@@ -942,7 +924,15 @@
       if (moved) return;
       var r = g.getBoundingClientRect(), side = (e.clientX - r.left) < r.width / 2 ? "l" : "r", now = Date.now();
       if (now - lastTap < 300 && side === lastSide) { clearTimeout(tapT); lastTap = 0; skip(side === "l" ? -10 : 10, side); }
-      else { lastTap = now; lastSide = side; clearTimeout(tapT); tapT = setTimeout(showCtrl, 260); }
+      else { lastTap = now; lastSide = side; clearTimeout(tapT); tapT = setTimeout(function () {
+        // MX-style: tap toggles chrome; also close speed menu if open
+        if (speedMenu && !speedMenu.classList.contains("hidden")) {
+          closeSpeedMenu();
+          showCtrl();
+        } else {
+          toggleCtrl();
+        }
+      }, 260); }
     });
     g.addEventListener("pointercancel", function () {
       clearTimeout(pressT);

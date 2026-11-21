@@ -272,7 +272,7 @@ Playback resolution order in `streamOf()`:
 - **Watch History (Me):** compact 16:9 cards, last 10 demo items; no All control.  
 - **Me page:** no standalone “Me” page title above the login card.  
 - **Downloads:** empty state with download icon + For You grid.  
-- **Player:** custom controls; quality sheet only if multiple `versions`; season sheet only if multiple seasons.
+- **Player:** custom controls (play, seek, mute, speed, fullscreen, lock). Orient / Fit / PiP buttons removed. Single-tap toggles chrome (MX-style); speed menu is centered and closes on outside tap or idle. Quality sheet only if multiple `versions`; season sheet only if multiple seasons.
 
 When you change any of the above in code, **update this README in the same change** so the next editor does not rely on outdated rules.
 
