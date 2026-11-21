@@ -616,3 +616,17 @@ html,body{margin:0!important;padding-left:0!important;padding-right:0!important}
 .vp-row .vp-ib{width:40px;height:40px}
 .vp-top .vp-ib{width:40px;height:40px}
 
+/* Download pill — appears after API with subtle animation */
+.d-btns{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.dl-pill{
+  opacity:0;transform:translateY(6px) scale(.96);
+  transition:opacity .35s ease, transform .35s ease;
+  pointer-events:none
+}
+.dl-pill.dl-in{
+  opacity:1;transform:translateY(0) scale(1);
+  pointer-events:auto
+}
+.dl-pill.hidden{display:none}
+.dl-pill.dl-in.hidden{display:none}
+

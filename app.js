@@ -56,7 +56,7 @@
     lock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
     unlock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.5-1.5"/>',
     speed: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
-    rotate: '<rect x="8" y="2.5" width="8" height="14" rx="1.6"/><path d="M11 14.5h2"/><path d="M4.5 14.5a7.5 7.5 0 0 0 12.2 2.2"/><path d="M17.5 19v-3.2h-3.2"/><path d="M19.5 9.5A7.5 7.5 0 0 0 7.3 7.3"/><path d="M6.5 5V8.2H9.7"/>'
+    rotate: '<path d="M7 20.5H4.5A1.5 1.5 0 0 1 3 19v-2.5"/><path d="M3 16.5 6.5 20.5"/><path d="M17 3.5h2.5A1.5 1.5 0 0 1 21 5v2.5"/><path d="M21 7.5 17.5 3.5"/><rect x="7.5" y="7" width="9" height="10" rx="1.5"/>'
   };
   function ic(n, s) { s = s || 20; return '<svg class="ic" viewBox="0 0 24 24" width="' + s + '" height="' + s + '" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (IC[n] || "") + '</svg>'; }
 
@@ -481,10 +481,32 @@
       '<div class="related-track" id="relatedTrack">' + slides + '</div>' +
       '<div class="related-dots" id="relatedDots">' + dots + '</div></div>';
   }
+
+  function videoShareUrl(id) {
+    var base = location.origin + location.pathname.replace(/\/index\.html$/i, "/");
+    if (base.slice(-1) !== "/") base += "/";
+    return base + "?v=" + encodeURIComponent(id);
+  }
+  function openFromQuery() {
+    try {
+      var q = new URLSearchParams(location.search);
+      var id = q.get("v") || q.get("id");
+      if (!id && location.hash) {
+        var m = location.hash.match(/[#&?]v=([^&]+)/);
+        if (m) id = decodeURIComponent(m[1]);
+      }
+      if (id && S.byId[id]) openDetail(id);
+    } catch (e) {}
+  }
   function openDetail(id) {
     var it = S.byId[id]; if (!it) return;
     countView(id);
     S.cur = it; S.season = 0; S.qIdx = 0; S.ep = 0; S.showAll = false;
+    try {
+      var u = new URL(location.href);
+      u.searchParams.set("v", id);
+      history.replaceState(null, "", u.pathname + "?" + u.searchParams.toString());
+    } catch (e) {}
     renderDetail();
   }
   function renderDetail() {
@@ -546,7 +568,7 @@
         '<div class="vp-speed-menu hidden" id="vpSpeedMenu"></div>' +
       '</div>' +
       '<div class="d-body"><h2 class="d-title">' + esc(it.title) + '</h2><div class="d-meta">' + esc(metaLine(it)) + '</div>' +
-        '<div class="d-btns"><button class="pill" id="addList" type="button">' + ic("plus", 16) + '<span>Add to list</span></button><button class="pill" id="share" type="button">' + ic("share", 16) + '<span>Share</span></button></div>' +
+        '<div class="d-btns"><button class="pill" id="addList" type="button">' + ic("plus", 16) + '<span>Add to list</span></button><button class="pill" id="share" type="button">' + ic("share", 16) + '<span>Share</span></button><button class="pill dl-pill hidden" id="dlBtn" type="button" aria-label="Download">' + ic("download", 16) + '<span>Download</span></button></div>' +
         resources + epHtml +
         relatedHTML(it) +
       '</div>';
@@ -565,6 +587,12 @@
     var p = $("#player");
     p.classList.add("hidden"); p.innerHTML = "";
     document.body.classList.remove("in-player");
+    try {
+      var u = new URL(location.href);
+      u.searchParams.delete("v"); u.searchParams.delete("id");
+      var qs = u.searchParams.toString();
+      history.replaceState(null, "", u.pathname + (qs ? "?" + qs : ""));
+    } catch (e) {}
   }
   function playEp(i) { S.ep = i; S.showAll = false; renderDetail(); }
 
@@ -591,7 +619,10 @@
     var fallback = (file && (file.stream_url || file.streamUrl)) || null;
     if (!playUrl) { playUrl = fallback; fallback = null; usingFast = false; }
     else if (fallback === playUrl) fallback = null;
-    return { playUrl: playUrl, fallbackUrl: fallback, usingFast: usingFast };
+    // download link from API (common field names) — fall back to best stream URL
+    var downloadUrl = (file && (file.download_url || file.downloadUrl || file.dlink || file.download || file.direct_link)) || null;
+    if (!downloadUrl) downloadUrl = playUrl || fallback || null;
+    return { playUrl: playUrl, fallbackUrl: fallback, usingFast: usingFast, downloadUrl: downloadUrl };
   }
   function resolveStream(raw) {
     raw = (raw || "").trim();
@@ -669,6 +700,14 @@
     var raw = streamOf(S.cur);
     resolveStream(raw).then(function (ex) {
       resolved = ex;
+      // reveal Download after API returns (subtle animation)
+      var dlBtn = $("#dlBtn");
+      if (dlBtn && ex.downloadUrl) {
+        dlBtn.dataset.href = ex.downloadUrl;
+        dlBtn.classList.remove("hidden");
+        // reflow then animate
+        requestAnimationFrame(function () { dlBtn.classList.add("dl-in"); });
+      }
       showPoster(ex.usingFast ? "Starting fast stream…" : "Starting stream…");
       attachMedia(v, ex.playUrl, hlsRef);
       v.play().catch(function () { v.muted = true; return v.play(); }).catch(function () {});
@@ -1106,7 +1145,30 @@
     if ((t = e.target.closest("[data-si]"))) { var f = S.sheetPick; closeSheet(); if (f) f(+t.dataset.si); return; }
     if (e.target.closest("[data-sh]")) return closeSheet();
     if (e.target.closest("#addList")) return toast("Added to list");
-    if (e.target.closest("#share")) { if (navigator.share) navigator.share({ title: S.cur.title }).catch(function () {}); else toast("Share is not available here"); return; }
+    if (e.target.closest("#share")) {
+      if (!S.cur) return;
+      var shareUrl = videoShareUrl(S.cur.id);
+      var shareData = { title: S.cur.title || "TeraFast Play", text: (S.cur.title || "Watch") + " — TeraFast Play", url: shareUrl };
+      if (navigator.share) {
+        navigator.share(shareData).catch(function () {});
+      } else if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(shareUrl).then(function () { toast("Link copied"); }).catch(function () { toast(shareUrl); });
+      } else {
+        toast(shareUrl);
+      }
+      return;
+    }
+    if (e.target.closest("#dlBtn")) {
+      var db = e.target.closest("#dlBtn");
+      var href = db && db.dataset.href;
+      if (!href) return toast("Download not ready");
+      // open download URL (browser handles file)
+      var a = document.createElement("a");
+      a.href = href; a.target = "_blank"; a.rel = "noopener"; a.download = "";
+      document.body.appendChild(a); a.click(); a.remove();
+      toast("Download started");
+      return;
+    }
     if ((t = e.target.closest("[data-dd]"))) return openDD(t.dataset.dd);
     if (e.target.closest("[data-all-ep]")) { S.showAll = !S.showAll; return renderDetail(); }
     if ((t = e.target.closest("[data-ep]"))) return playEp(+t.dataset.ep);
@@ -1215,5 +1277,6 @@
     S.all.forEach(function (i) { S.byId[i.id] = i; });
     S.carousel = (res[1].items || []).map(function (id) { return S.byId[id]; }).filter(Boolean);
     render();
+    openFromQuery();
   }).catch(function () { $("#main").innerHTML = '<div class="empty">Could not load content.</div>'; });
 })();
