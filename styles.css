@@ -94,7 +94,9 @@ img.cs-img{height:auto}
 .bottom-nav button.active .bn-ico{color:var(--brand)}
 
 /* detail / player */
-.player{position:fixed;inset:0;z-index:50;background:var(--bg);overflow-y:auto;-webkit-overflow-scrolling:touch;max-width:520px;margin:0 auto}
+.player{position:fixed;inset:0;z-index:50;background:var(--bg);overflow:hidden;max-width:520px;margin:0 auto;display:flex;flex-direction:column}
+.player .vp{flex:0 0 auto;width:100%;aspect-ratio:16/9;max-height:56vh}
+.player .d-body{flex:1 1 auto;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
 .pl-top{position:absolute;top:0;left:0;right:0;z-index:6;display:flex;align-items:center;padding:calc(8px + env(safe-area-inset-top,0px)) var(--g) 8px}
 .back-btn{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:20px;color:#fff;background:rgba(0,0,0,.45)}
 .pl-stage{position:relative;width:100%;aspect-ratio:16/9;background:#000}
@@ -488,42 +490,36 @@ html,body{margin:0!important;padding-left:0!important;padding-right:0!important}
 }
 .vp-top .vp-sp{flex:1}
 
-/* Speed menu — native-style vertical rail, right side, clean type */
+/* Speed menu — compact native-style rail */
 .vp-speed-lab{font-size:12px;font-weight:800;color:#fff;letter-spacing:.02em}
 .vp-speed-menu{
-  position:absolute;right:10px;top:50%;transform:translateY(-50%);z-index:8;
+  position:absolute;right:8px;top:50%;transform:translateY(-50%);z-index:8;
   display:flex;flex-direction:column;align-items:stretch;
-  min-width:56px;width:56px;
-  background:rgba(18,20,26,.92);border:1px solid rgba(255,255,255,.1);
-  border-radius:14px;overflow:hidden;
-  box-shadow:0 8px 28px rgba(0,0,0,.45);
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)
+  width:48px;min-width:48px;
+  background:rgba(12,14,18,.94);border:1px solid rgba(255,255,255,.1);
+  border-radius:12px;overflow:hidden;
+  box-shadow:0 8px 24px rgba(0,0,0,.5);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)
 }
 .vp-speed-menu.hidden{display:none!important}
-.vp.idle .vp-speed-menu{display:none!important;pointer-events:none!important}
-.vp.locked .vp-speed-menu{display:none!important;pointer-events:none!important}
-
+.vp.idle .vp-speed-menu,.vp.locked .vp-speed-menu{display:none!important;pointer-events:none!important}
 .vp-speed-menu button{
-  border:0;background:transparent;color:rgba(255,255,255,.88);
-  padding:11px 0;margin:0;
-  font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;
-  text-align:center;cursor:pointer;line-height:1.15;
-  letter-spacing:0.01em
+  border:0;background:transparent;color:rgba(255,255,255,.9);
+  padding:9px 0;margin:0;
+  font-size:12px;font-weight:600;font-variant-numeric:tabular-nums;
+  text-align:center;cursor:pointer;line-height:1.1;letter-spacing:0
 }
 .vp-speed-menu button + button{border-top:1px solid rgba(255,255,255,.06)}
-.vp-speed-menu button.on{
-  background:rgba(34,226,138,.2);color:var(--brand);font-weight:800
-}
+.vp-speed-menu button.on{background:rgba(34,226,138,.22);color:var(--brand);font-weight:800}
 .vp-speed-menu button:active{background:rgba(255,255,255,.08)}
-/* Keep inside player; slightly higher when bottom chrome visible so it clears the bar */
-.vp:not(.idle) .vp-speed-menu{top:46%;transform:translateY(-50%)}
+.vp:not(.idle) .vp-speed-menu{top:48%;transform:translateY(-50%)}
 .vp:fullscreen .vp-speed-menu,.vp:-webkit-full-screen .vp-speed-menu{
-  right:max(12px, env(safe-area-inset-right));
+  right:max(10px, env(safe-area-inset-right));
   top:50%;transform:translateY(-50%);
-  width:60px;min-width:60px
+  width:52px;min-width:52px
 }
 .vp:fullscreen .vp-speed-menu button,.vp:-webkit-full-screen .vp-speed-menu button{
-  padding:13px 0;font-size:15px
+  padding:10px 0;font-size:13px
 }
 .vp:fullscreen .vp-bottom, .vp:-webkit-full-screen .vp-bottom{padding-bottom:max(10px, env(safe-area-inset-bottom))}
 .vp:fullscreen .vp-top, .vp:-webkit-full-screen .vp-top{padding-top:max(10px, env(safe-area-inset-top))}
@@ -553,16 +549,11 @@ html,body{margin:0!important;padding-left:0!important;padding-right:0!important}
 }
 .vp-video::-moz-media-controls { display: none !important; }
 
-/* Fullscreen: hide our speed control so native 1x is not doubled */
-.vp:fullscreen #vpSpeed,
-.vp:-webkit-full-screen #vpSpeed,
-.vp:fullscreen .vp-speed-menu,
-.vp:-webkit-full-screen .vp-speed-menu {
-  display: none !important;
-}
-/* Fit button slightly emphasized in FS */
+/* Orient only in fullscreen */
+.vp-orient{display:none!important}
+.vp:fullscreen .vp-orient,
+.vp:-webkit-full-screen .vp-orient{display:grid!important}
+/* Fit active state */
 .vp:fullscreen #vpFit.on,
-.vp:-webkit-full-screen #vpFit.on {
-  color: var(--brand);
-}
+.vp:-webkit-full-screen #vpFit.on{color:var(--brand)}
 

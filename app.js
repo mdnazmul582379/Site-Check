@@ -533,6 +533,7 @@
             '<button class="vp-ib" id="vpMute" type="button" aria-label="Mute">' + ic("vol", 20) + '</button>' +
             '<button class="vp-ib" id="vpSpeed" type="button" aria-label="Speed"><span class="vp-speed-lab" id="vpSpeedLab">1x</span></button>' +
             '<button class="vp-ib" id="vpFit" type="button" aria-label="Fit">' + ic("fit", 20) + '</button>' +
+            '<button class="vp-ib vp-orient" id="vpOrient" type="button" aria-label="Orientation">' + ic("rotate", 20) + '</button>' +
             '<button class="vp-ib" id="vpFull" type="button" aria-label="Fullscreen">' + ic("full", 20) + '</button>' +
           '</div>' +
         '</div>' +
@@ -746,6 +747,35 @@
       vp.classList.toggle("cover");
       // visual feedback: swap icon weight via class
       fitBtn.classList.toggle("on", vp.classList.contains("cover"));
+      showCtrl();
+    };
+
+    // Orientation lock (landscape ↔ portrait) — only meaningful in fullscreen
+    var orientBtn = $("#vpOrient");
+    var orientMode = "landscape";
+    function applyOrient() {
+      var o = screen.orientation || screen.mozOrientation;
+      if (!o || !o.lock) {
+        toast("Orientation lock not supported on this device");
+        return;
+      }
+      var next = orientMode === "landscape" ? "portrait-primary" : "landscape-primary";
+      orientMode = orientMode === "landscape" ? "portrait" : "landscape";
+      o.lock(next).then(function () {
+        toast(orientMode === "landscape" ? "Landscape" : "Portrait");
+      }).catch(function () {
+        toast("Could not lock orientation");
+      });
+    }
+    if (orientBtn) orientBtn.onclick = function (e) {
+      e.stopPropagation();
+      if (!isFs()) {
+        // enter FS first, then lock
+        toggleFs();
+        setTimeout(applyOrient, 350);
+      } else {
+        applyOrient();
+      }
       showCtrl();
     };
     function isFs() {
