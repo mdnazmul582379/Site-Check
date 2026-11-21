@@ -503,7 +503,7 @@
     var p = $("#player");
     p.innerHTML =
       '<div class="vp" id="vp">' +
-        '<video id="vid" class="vp-video" playsinline webkit-playsinline preload="metadata" controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture="false"></video>' +
+        '<video id="vid" class="vp-video" playsinline webkit-playsinline preload="metadata" controlslist="nodownload nofullscreen noremoteplayback nodownload" disablepictureinpicture x-webkit-airplay="deny"></video>' +
         '<div class="vp-poster" id="vpPoster">' +
           (it.thumb ? '<img src="' + esc(it.thumb) + '" alt="" decoding="async" referrerpolicy="no-referrer">' : '') +
           '<div class="vp-dim"></div><div class="vp-spin" aria-hidden="true"></div>' +
@@ -534,8 +534,8 @@
             '<button class="vp-ib" id="vpSpeed" type="button" aria-label="Speed"><span class="vp-speed-lab" id="vpSpeedLab">1x</span></button>' +
             '<button class="vp-ib" id="vpFull" type="button" aria-label="Fullscreen">' + ic("full", 20) + '</button>' +
           '</div>' +
-          '<div class="vp-speed-menu hidden" id="vpSpeedMenu"></div>' +
         '</div>' +
+        '<div class="vp-speed-menu hidden" id="vpSpeedMenu"></div>' +
       '</div>' +
       '<div class="d-body"><h2 class="d-title">' + esc(it.title) + '</h2><div class="d-meta">' + esc(metaLine(it)) + '</div>' +
         '<div class="d-btns"><button class="pill" id="addList" type="button">' + ic("plus", 16) + '<span>Add to list</span></button><button class="pill" id="share" type="button">' + ic("share", 16) + '<span>Share</span></button></div>' +
@@ -634,6 +634,8 @@
       v.setAttribute("playsinline", "");
       v.setAttribute("webkit-playsinline", "");
       v.setAttribute("controlslist", "nodownload nofullscreen noremoteplayback");
+      v.setAttribute("disablepictureinpicture", "");
+      if ("disablePictureInPicture" in v) v.disablePictureInPicture = true;
       if ("disableRemotePlayback" in v) v.disableRemotePlayback = true;
     } catch (e) {}
     var poster = $("#vpPoster"), loadMsg = $("#vpLoadMsg");
@@ -763,8 +765,15 @@
       setTimeout(syncFullIcon, 150);
     }
     $("#vpFull").onclick = function (e) { e.stopPropagation(); toggleFs(); };
-    document.addEventListener("fullscreenchange", syncFullIcon);
-    document.addEventListener("webkitfullscreenchange", syncFullIcon);
+    function killNativeChrome() {
+      try {
+        v.controls = false;
+        v.removeAttribute("controls");
+        if ("disablePictureInPicture" in v) v.disablePictureInPicture = true;
+      } catch (e) {}
+    }
+    document.addEventListener("fullscreenchange", function () { syncFullIcon(); killNativeChrome(); });
+    document.addEventListener("webkitfullscreenchange", function () { syncFullIcon(); killNativeChrome(); });
 
     // Speed menu (our UI only)
     var SPEEDS = [0.5, 0.75, 1, 1.25, 1.5, 2];
@@ -782,7 +791,8 @@
     }
     if (speedMenu) {
       speedMenu.innerHTML = SPEEDS.map(function (r) {
-        return '<button type="button" data-sp="' + r + '"' + (r === 1 ? ' class="on"' : '') + '>' + (r === 1 ? "1x" : r + "x") + '</button>';
+        var lab = (r === 1 ? "1.0" : String(r));
+        return '<button type="button" data-sp="' + r + '"' + (r === 1 ? ' class="on"' : '') + '>' + lab + '</button>';
       }).join("");
       speedMenu.addEventListener("click", function (e) {
         var b = e.target.closest("[data-sp]");

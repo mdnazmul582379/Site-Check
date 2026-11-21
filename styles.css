@@ -488,28 +488,67 @@ html,body{margin:0!important;padding-left:0!important;padding-right:0!important}
 }
 .vp-top .vp-sp{flex:1}
 
-/* Speed menu + labels — centered, readable, stays inside player */
+/* Speed menu — native-style vertical rail, right side, clean type */
 .vp-speed-lab{font-size:12px;font-weight:800;color:#fff;letter-spacing:.02em}
 .vp-speed-menu{
-  position:absolute;left:50%;bottom:50%;transform:translate(-50%,50%);z-index:6;
-  display:flex;flex-direction:column;min-width:96px;max-width:min(160px,80%);
-  background:rgba(16,18,24,.96);border:1px solid rgba(255,255,255,.14);
-  border-radius:14px;overflow:hidden;box-shadow:0 12px 32px rgba(0,0,0,.55);
-  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)
+  position:absolute;right:10px;top:50%;transform:translateY(-50%);z-index:8;
+  display:flex;flex-direction:column;align-items:stretch;
+  min-width:56px;width:56px;
+  background:rgba(18,20,26,.92);border:1px solid rgba(255,255,255,.1);
+  border-radius:14px;overflow:hidden;
+  box-shadow:0 8px 28px rgba(0,0,0,.45);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)
 }
-.vp-speed-menu.hidden{display:none}
+.vp-speed-menu.hidden{display:none!important}
+.vp.idle .vp-speed-menu{display:none!important;pointer-events:none!important}
+.vp.locked .vp-speed-menu{display:none!important;pointer-events:none!important}
+
 .vp-speed-menu button{
-  border:0;background:transparent;color:#e8eaed;padding:12px 18px;
-  font-size:15px;font-weight:700;text-align:center;cursor:pointer;line-height:1.2
+  border:0;background:transparent;color:rgba(255,255,255,.88);
+  padding:11px 0;margin:0;
+  font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;
+  text-align:center;cursor:pointer;line-height:1.15;
+  letter-spacing:0.01em
 }
-.vp-speed-menu button.on{background:rgba(34,226,138,.18);color:var(--brand)}
+.vp-speed-menu button + button{border-top:1px solid rgba(255,255,255,.06)}
+.vp-speed-menu button.on{
+  background:rgba(34,226,138,.2);color:var(--brand);font-weight:800
+}
 .vp-speed-menu button:active{background:rgba(255,255,255,.08)}
-/* When bottom chrome is visible, keep menu above the bar a bit in non-FS */
-.vp:not(.idle) .vp-speed-menu{bottom:72px;transform:translate(-50%,0)}
-.vp:fullscreen .vp-speed-menu,.vp:-webkit-full-screen .vp-speed-menu{bottom:50%;transform:translate(-50%,50%)}
-.vp:fullscreen:not(.idle) .vp-speed-menu,.vp:-webkit-full-screen:not(.idle) .vp-speed-menu{bottom:90px;transform:translate(-50%,0)}
+/* Keep inside player; slightly higher when bottom chrome visible so it clears the bar */
+.vp:not(.idle) .vp-speed-menu{top:46%;transform:translateY(-50%)}
+.vp:fullscreen .vp-speed-menu,.vp:-webkit-full-screen .vp-speed-menu{
+  right:max(12px, env(safe-area-inset-right));
+  top:50%;transform:translateY(-50%);
+  width:60px;min-width:60px
+}
+.vp:fullscreen .vp-speed-menu button,.vp:-webkit-full-screen .vp-speed-menu button{
+  padding:13px 0;font-size:15px
+}
 .vp:fullscreen .vp-bottom, .vp:-webkit-full-screen .vp-bottom{padding-bottom:max(10px, env(safe-area-inset-bottom))}
 .vp:fullscreen .vp-top, .vp:-webkit-full-screen .vp-top{padding-top:max(10px, env(safe-area-inset-top))}
 /* Never show native video controls */
 .vp-video::-webkit-media-controls{display:none!important}
 .vp-video::-webkit-media-controls-enclosure{display:none!important}
+
+/* Aggressively hide native media UI (Chrome / Safari / Android) */
+.vp-video::-webkit-media-controls,
+.vp-video::-webkit-media-controls-enclosure,
+.vp-video::-webkit-media-controls-panel,
+.vp-video::-webkit-media-controls-play-button,
+.vp-video::-webkit-media-controls-start-playback-button,
+.vp-video::-webkit-media-controls-timeline,
+.vp-video::-webkit-media-controls-current-time-display,
+.vp-video::-webkit-media-controls-time-remaining-display,
+.vp-video::-webkit-media-controls-mute-button,
+.vp-video::-webkit-media-controls-volume-slider,
+.vp-video::-webkit-media-controls-fullscreen-button,
+.vp-video::-webkit-media-controls-overlay-play-button,
+.vp-video::-webkit-media-controls-toggle-closed-captions-button {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+.vp-video::-moz-media-controls { display: none !important; }
