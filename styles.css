@@ -552,3 +552,17 @@ html,body{margin:0!important;padding-left:0!important;padding-right:0!important}
   height: 0 !important;
 }
 .vp-video::-moz-media-controls { display: none !important; }
+
+/* Fullscreen: hide our speed control so native 1x is not doubled */
+.vp:fullscreen #vpSpeed,
+.vp:-webkit-full-screen #vpSpeed,
+.vp:fullscreen .vp-speed-menu,
+.vp:-webkit-full-screen .vp-speed-menu {
+  display: none !important;
+}
+/* Fit button slightly emphasized in FS */
+.vp:fullscreen #vpFit.on,
+.vp:-webkit-full-screen #vpFit.on {
+  color: var(--brand);
+}
+

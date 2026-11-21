@@ -532,6 +532,7 @@
             '<span class="vp-sp"></span>' +
             '<button class="vp-ib" id="vpMute" type="button" aria-label="Mute">' + ic("vol", 20) + '</button>' +
             '<button class="vp-ib" id="vpSpeed" type="button" aria-label="Speed"><span class="vp-speed-lab" id="vpSpeedLab">1x</span></button>' +
+            '<button class="vp-ib" id="vpFit" type="button" aria-label="Fit">' + ic("fit", 20) + '</button>' +
             '<button class="vp-ib" id="vpFull" type="button" aria-label="Fullscreen">' + ic("full", 20) + '</button>' +
           '</div>' +
         '</div>' +
@@ -738,6 +739,14 @@
         v.muted = true;
       }
       mu.innerHTML = ic(v.muted || v.volume === 0 ? "mute" : "vol", 20);
+    };
+    var fitBtn = $("#vpFit");
+    if (fitBtn) fitBtn.onclick = function (e) {
+      e.stopPropagation();
+      vp.classList.toggle("cover");
+      // visual feedback: swap icon weight via class
+      fitBtn.classList.toggle("on", vp.classList.contains("cover"));
+      showCtrl();
     };
     function isFs() {
       return !!(document.fullscreenElement || document.webkitFullscreenElement);
