@@ -1213,15 +1213,33 @@
     var copyBtn = $("#shareCopy");
     if (copyBtn) copyBtn.onclick = function (e) {
       e.stopPropagation();
-      function done() {
+      function copyText(str) {
+        if (navigator.clipboard && navigator.clipboard.writeText && window.isSecureContext) {
+          return navigator.clipboard.writeText(str);
+        }
+        return new Promise(function (resolve, reject) {
+          try {
+            var ta = document.createElement("textarea");
+            ta.value = str;
+            ta.setAttribute("readonly", "");
+            ta.style.cssText = "position:fixed;left:-9999px;top:0;opacity:0";
+            document.body.appendChild(ta);
+            ta.select();
+            ta.setSelectionRange(0, str.length);
+            var ok = document.execCommand("copy");
+            document.body.removeChild(ta);
+            if (ok) resolve(); else reject(new Error("copy failed"));
+          } catch (err) { reject(err); }
+        });
+      }
+      copyText(url).then(function () {
         closeSheet();
-        toastOk("Link copied");
-      }
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(url).then(done).catch(function () { toast(url); closeSheet(); });
-      } else {
-        done();
-      }
+        // after sheet starts closing so toast is visible above player
+        setTimeout(function () { toastOk("Link copied"); }, 80);
+      }).catch(function () {
+        closeSheet();
+        setTimeout(function () { toast(url); }, 80);
+      });
     };
   }
   function openSheet(title, opts, sel, pick) {

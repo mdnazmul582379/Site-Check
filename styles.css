@@ -131,7 +131,7 @@ img.cs-img{height:auto}
 .sh-o{width:100%;display:flex;justify-content:space-between;align-items:center;padding:14px 4px;border-top:1px solid var(--line);font-size:15px}
 .sh-o b{color:var(--brand)}
 
-.toast{position:fixed;left:50%;bottom:80px;transform:translateX(-50%);background:#2a2d38;color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:.25s;z-index:80;pointer-events:none}
+.toast{position:fixed;left:50%;bottom:max(88px, calc(24px + env(safe-area-inset-bottom,0px)));transform:translateX(-50%);background:#2a2d38;color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:opacity .25s;z-index:100;pointer-events:none;max-width:min(90vw,360px);text-align:center;box-shadow:0 8px 28px rgba(0,0,0,.45)}
 
 /* ===== polish pass ===== */
 .ic{display:block;flex:0 0 auto}
