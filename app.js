@@ -1178,20 +1178,17 @@
         svg: '<path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.05 10.1c0 .9-.5 1.68-1.22 2.12-.1 3.02-3.27 5.16-6.83 5.16s-6.73-2.14-6.83-5.16A2.44 2.44 0 0 1 4 12.1c0-.9.5-1.68 1.22-2.12a3.6 3.6 0 0 1 3.55-2.9c.7 0 1.36.18 1.95.49L12 5.4l1.28 2.17c.59-.31 1.25-.49 1.95-.49a3.6 3.6 0 0 1 3.55 2.9c.72.44 1.27 1.22 1.27 2.12z"/>' }
     ];
     var sh = $("#sheet");
-    var rows = channels.map(function (c) {
-      return '<button type="button" class="share-row" data-share-href="' + esc(c.href) + '">' +
+    var icons = channels.map(function (c) {
+      return '<button type="button" class="share-ico-btn" data-share-href="' + esc(c.href) + '" aria-label="' + esc(c.label) + '" title="' + esc(c.label) + '">' +
         '<span class="share-ico" style="background:' + c.color + '">' +
-        '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">' + c.svg + '</svg></span>' +
-        '<span class="share-lab">' + esc(c.label) + '</span>' +
-        '<span class="share-go">' + ic("chevR", 16) + '</span></button>';
+        '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">' + c.svg + '</svg></span></button>';
     }).join("");
     sh.innerHTML =
       '<div class="sh-bd" data-sh="1"></div>' +
       '<div class="sh-panel share-panel">' +
         '<div class="grip"></div>' +
         '<div class="sh-t">Share</div>' +
-        '<div class="share-sub">' + esc(title) + '</div>' +
-        '<div class="share-list">' + rows + '</div>' +
+        '<div class="share-icons">' + icons + '</div>' +
         '<button type="button" class="share-copy" id="shareCopy">' +
           '<span class="share-copy-ico">' + ic("share", 18) + '</span>' +
           '<span>Copy link</span></button>' +
