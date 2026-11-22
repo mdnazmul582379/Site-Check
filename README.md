@@ -354,3 +354,16 @@ On open, the player:
 5. On failure tries the alternate URL, then optional `DEMO_VIDEO`
 
 Direct `.mp4` / `.m3u8` links skip the API. HLS uses `hls.js` from CDN.
+
+
+## Deep links & Share
+
+Share builds a link from the **current page origin** (no hard-coded domain):
+
+`https://your-host/path/?v=ITEM_ID`
+
+For series, optional episode position:
+
+`?v=SERIES_ID&s=0&e=2` — season index `s` and episode index `e` (0-based).
+
+Opening that URL loads the catalog then opens that item (and episode). Share uses `navigator.share` when available, otherwise copies the link.

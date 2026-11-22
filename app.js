@@ -482,10 +482,39 @@
       '<div class="related-dots" id="relatedDots">' + dots + '</div></div>';
   }
 
-  function videoShareUrl(id) {
-    var base = location.origin + location.pathname.replace(/\/index\.html$/i, "/");
-    if (base.slice(-1) !== "/") base += "/";
-    return base + "?v=" + encodeURIComponent(id);
+  // Deep-link / share: always current host + path, never hard-coded domain.
+  // Series: ?v=SERIES_ID&s=SEASON_INDEX&e=EPISODE_INDEX (0-based).
+  function videoShareUrl(id, season, ep) {
+    id = id || (S.cur && S.cur.id);
+    if (!id) return location.href;
+    var path = location.pathname || "/";
+    path = path.replace(/\/index\.html$/i, "/");
+    if (path.slice(-1) !== "/") path += "/";
+    var u = new URL(path, location.origin);
+    u.searchParams.set("v", id);
+    var it = S.byId[id];
+    if (it && it.seasons && it.seasons.length) {
+      var si = season != null ? season : (S.cur && S.cur.id === id ? S.season : 0);
+      var ei = ep != null ? ep : (S.cur && S.cur.id === id ? S.ep : 0);
+      if (si > 0) u.searchParams.set("s", String(si));
+      else u.searchParams.delete("s");
+      if (ei > 0) u.searchParams.set("e", String(ei));
+      else u.searchParams.delete("e");
+    } else {
+      u.searchParams.delete("s");
+      u.searchParams.delete("e");
+    }
+    return u.toString();
+  }
+  function syncWatchUrl() {
+    try {
+      if (!S.cur) return;
+      var next = videoShareUrl(S.cur.id, S.season, S.ep);
+      var cur = location.pathname + location.search;
+      var n = new URL(next);
+      var want = n.pathname + n.search;
+      if (cur !== want) history.replaceState(null, "", want);
+    } catch (e) {}
   }
   function openFromQuery() {
     try {
@@ -495,18 +524,28 @@
         var m = location.hash.match(/[#&?]v=([^&]+)/);
         if (m) id = decodeURIComponent(m[1]);
       }
-      if (id && S.byId[id]) openDetail(id);
+      if (!id || !S.byId[id]) return;
+      var si = parseInt(q.get("s") || "0", 10) || 0;
+      var ei = parseInt(q.get("e") || "0", 10) || 0;
+      openDetail(id, si, ei);
     } catch (e) {}
   }
-  function openDetail(id) {
+  function openDetail(id, season, ep) {
     var it = S.byId[id]; if (!it) return;
     countView(id);
-    S.cur = it; S.season = 0; S.qIdx = 0; S.ep = 0; S.showAll = false;
-    try {
-      var u = new URL(location.href);
-      u.searchParams.set("v", id);
-      history.replaceState(null, "", u.pathname + "?" + u.searchParams.toString());
-    } catch (e) {}
+    S.cur = it;
+    S.qIdx = 0;
+    S.showAll = false;
+    var seasons = it.seasons || [];
+    if (seasons.length) {
+      S.season = Math.max(0, Math.min(season || 0, seasons.length - 1));
+      var eps = (seasons[S.season] && seasons[S.season].episodes) || [];
+      S.ep = Math.max(0, Math.min(ep || 0, Math.max(0, eps.length - 1)));
+    } else {
+      S.season = 0;
+      S.ep = 0;
+    }
+    syncWatchUrl();
     renderDetail();
   }
   function renderDetail() {
@@ -589,12 +628,12 @@
     document.body.classList.remove("in-player");
     try {
       var u = new URL(location.href);
-      u.searchParams.delete("v"); u.searchParams.delete("id");
+      u.searchParams.delete("v"); u.searchParams.delete("id"); u.searchParams.delete("s"); u.searchParams.delete("e");
       var qs = u.searchParams.toString();
       history.replaceState(null, "", u.pathname + (qs ? "?" + qs : ""));
     } catch (e) {}
   }
-  function playEp(i) { S.ep = i; S.showAll = false; renderDetail(); }
+  function playEp(i) { S.ep = i; S.showAll = false; syncWatchUrl(); renderDetail(); }
 
   // ---- custom player: double tap ±10s, hold for 2x, fit, PiP, volume, fullscreen ----
   function isDirectMedia(url) {
@@ -1135,7 +1174,7 @@
   function openDD(kind) {
     var it = S.cur;
     if (kind === "q") openSheet("Quality", it.versions.map(function (v) { return v.quality + (v.size ? " · " + v.size : ""); }), S.qIdx, function (i) { S.qIdx = i; renderDetail(); });
-    else openSheet("Season", it.seasons.map(function (s, i) { return s.name || ("Season " + String(i + 1).padStart(2, "0")); }), S.season, function (i) { S.season = i; S.ep = 0; S.showAll = false; renderDetail(); });
+    else openSheet("Season", it.seasons.map(function (s, i) { return s.name || ("Season " + String(i + 1).padStart(2, "0")); }), S.season, function (i) { S.season = i; S.ep = 0; S.showAll = false; syncWatchUrl(); renderDetail(); });
   }
 
   // ---- events ----
@@ -1146,15 +1185,35 @@
     if (e.target.closest("[data-sh]")) return closeSheet();
     if (e.target.closest("#addList")) return toast("Added to list");
     if (e.target.closest("#share")) {
-      if (!S.cur) return;
-      var shareUrl = videoShareUrl(S.cur.id);
-      var shareData = { title: S.cur.title || "TeraFast Play", text: (S.cur.title || "Watch") + " — TeraFast Play", url: shareUrl };
-      if (navigator.share) {
-        navigator.share(shareData).catch(function () {});
-      } else if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(shareUrl).then(function () { toast("Link copied"); }).catch(function () { toast(shareUrl); });
-      } else {
+      if (!S.cur) return toast("Nothing to share");
+      // Always the item currently on screen (series keeps series id + season/ep in query).
+      var shareUrl = videoShareUrl(S.cur.id, S.season, S.ep);
+      var shareData = {
+        title: S.cur.title || "TeraFast Play",
+        text: (S.cur.title || "Watch") + " — TeraFast Play",
+        url: shareUrl
+      };
+      function copyLink() {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          return navigator.clipboard.writeText(shareUrl).then(function () {
+            toast("Link copied");
+          }).catch(function () {
+            toast(shareUrl);
+          });
+        }
         toast(shareUrl);
+        return Promise.resolve();
+      }
+      if (navigator.share) {
+        navigator.share(shareData).then(function () {
+          toast("Shared");
+        }).catch(function (err) {
+          // User cancel → silent; other errors → copy
+          if (err && (err.name === "AbortError" || err.name === "NotAllowedError")) return;
+          copyLink();
+        });
+      } else {
+        copyLink();
       }
       return;
     }
