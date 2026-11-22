@@ -85,7 +85,22 @@
     }
     return it.stream || CFG.DEMO_VIDEO;
   }
-  function toast(msg) { var t = $("#toast"); t.textContent = msg; t.style.opacity = "1"; clearTimeout(t._h); t._h = setTimeout(function () { t.style.opacity = "0"; }, 1800); }
+  function toast(msg) {
+      var t = $("#toast");
+      t.classList.remove("toast-ok");
+      t.innerHTML = esc(msg);
+      t.style.opacity = "1";
+      clearTimeout(t._h);
+      t._h = setTimeout(function () { t.style.opacity = "0"; }, 1800);
+    }
+    function toastOk(msg) {
+      var t = $("#toast");
+      t.classList.add("toast-ok");
+      t.innerHTML = '<span class="toast-check" aria-hidden="true">✓</span><span class="toast-msg">' + esc(msg) + '</span>';
+      t.style.opacity = "1";
+      clearTimeout(t._h);
+      t._h = setTimeout(function () { t.style.opacity = "0"; t.classList.remove("toast-ok"); }, 2000);
+    }
 
   // ---- views (click counts, stored on this device) ----
   function loadViews() { try { return JSON.parse(localStorage.getItem("tfp_views") || "{}"); } catch (e) { return {}; } }
@@ -1168,8 +1183,8 @@
     var channels = [
       { id: "fb", label: "Facebook", color: "#1877F2", href: "https://www.facebook.com/sharer/sharer.php?u=" + encU,
         svg: '<path fill="currentColor" d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.7 4.54-4.7 1.31 0 2.69.24 2.69.24v2.97h-1.52c-1.5 0-1.96.93-1.96 1.89v2.26h3.34l-.53 3.49h-2.81V24C19.61 23.09 24 18.1 24 12.07z"/>' },
-      { id: "x", label: "X / Twitter", color: "#e7e9ea", href: "https://twitter.com/intent/tweet?url=" + encU + "&text=" + encT,
-        svg: '<path fill="currentColor" d="M18.9 2H22l-6.78 7.75L23.2 22h-6.5l-5.09-6.65L5.8 22H2.7l7.25-8.29L.8 2h6.66l4.6 6.1L18.9 2zm-1.14 18h1.8L6.35 3.9H4.42L17.76 20z"/>' },
+      { id: "x", label: "X", color: "#000000", href: "https://twitter.com/intent/tweet?url=" + encU + "&text=" + encT,
+        svg: '<path fill="#fff" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.727-8.849L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>' },
       { id: "tg", label: "Telegram", color: "#2AABEE", href: "https://t.me/share/url?url=" + encU + "&text=" + encT,
         svg: '<path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.2l-1.86 8.77c-.14.62-.5.77-1.02.48l-2.82-2.08-1.36 1.31c-.15.15-.28.28-.57.28l.2-2.86 5.22-4.71c.23-.2-.05-.31-.35-.12l-6.45 4.06-2.78-.87c-.6-.19-.61-.6.13-.89l10.86-4.19c.5-.19.94.12.82.82z"/>' },
       { id: "wa", label: "WhatsApp", color: "#25D366", href: "https://wa.me/?text=" + encodeURIComponent(text + "\n" + url),
@@ -1187,7 +1202,6 @@
       '<div class="sh-bd" data-sh="1"></div>' +
       '<div class="sh-panel share-panel">' +
         '<div class="grip"></div>' +
-        '<div class="sh-t">Share</div>' +
         '<div class="share-icons">' + icons + '</div>' +
         '<button type="button" class="share-copy" id="shareCopy">' +
           '<span class="share-copy-ico">' + ic("share", 18) + '</span>' +
@@ -1199,12 +1213,14 @@
     var copyBtn = $("#shareCopy");
     if (copyBtn) copyBtn.onclick = function (e) {
       e.stopPropagation();
-      function done() { closeSheet(); toast("Link copied"); }
+      function done() {
+        closeSheet();
+        toastOk("Link copied");
+      }
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(url).then(done).catch(function () { toast(url); closeSheet(); });
       } else {
-        toast(url);
-        closeSheet();
+        done();
       }
     };
   }

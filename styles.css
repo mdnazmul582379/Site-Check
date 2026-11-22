@@ -632,29 +632,46 @@ html,body{margin:0!important;padding-left:0!important;padding-right:0!important}
 
 
 
-/* Share sheet — icon grid + copy */
-.share-panel{padding-bottom:calc(20px + env(safe-area-inset-bottom,0px))}
-.share-panel .sh-t{text-align:center;margin-bottom:16px;font-size:17px}
+
+/* Share sheet — tight gaps aligned with app gutter */
+.share-panel{
+  padding:10px var(--g) calc(16px + env(safe-area-inset-bottom,0px))!important
+}
+.share-panel .grip{margin:2px auto 12px}
 .share-icons{
-  display:flex;justify-content:center;align-items:center;flex-wrap:wrap;
-  gap:14px;padding:4px 8px 18px
+  display:flex;justify-content:space-between;align-items:center;
+  gap:10px;padding:0 0 14px;width:100%
 }
 .share-ico-btn{
-  border:0;background:transparent;padding:0;cursor:pointer;
-  border-radius:16px;-webkit-tap-highlight-color:transparent
+  flex:1;border:0;background:transparent;padding:0;cursor:pointer;
+  border-radius:16px;display:flex;justify-content:center;
+  -webkit-tap-highlight-color:transparent
 }
 .share-ico-btn:active{transform:scale(.92)}
 .share-ico{
-  width:52px;height:52px;border-radius:16px;
+  width:50px;height:50px;border-radius:15px;
   display:grid;place-items:center;color:#fff;
-  box-shadow:0 6px 16px rgba(0,0,0,.28)
+  box-shadow:0 4px 14px rgba(0,0,0,.3)
 }
 .share-ico svg{display:block}
 .share-copy{
   display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
-  margin-top:2px;padding:14px 16px;border-radius:14px;border:1px solid rgba(34,226,138,.3);
-  background:linear-gradient(135deg,rgba(34,226,138,.18),rgba(34,226,138,.06));
+  margin:0;padding:13px 16px;border-radius:14px;border:1px solid rgba(34,226,138,.28);
+  background:linear-gradient(135deg,rgba(34,226,138,.16),rgba(34,226,138,.05));
   color:#dfffea;font-size:15px;font-weight:700;cursor:pointer
 }
 .share-copy:active{transform:scale(.98)}
 .share-copy-ico{display:grid;place-items:center;color:var(--brand)}
+
+/* Success toast (dark mode) */
+.toast.toast-ok{
+  display:flex;align-items:center;gap:8px;
+  background:#1c2220;border:1px solid rgba(34,226,138,.35);
+  padding:12px 18px;min-width:0
+}
+.toast-check{
+  width:22px;height:22px;border-radius:50%;
+  background:var(--brand);color:#04140a;
+  display:grid;place-items:center;font-size:13px;font-weight:800;flex:0 0 auto
+}
+.toast-msg{color:#fff;font-size:13px;font-weight:650}
