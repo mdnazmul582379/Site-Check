@@ -87,19 +87,32 @@
   }
   function toast(msg) {
       var t = $("#toast");
-      t.classList.remove("toast-ok");
-      t.innerHTML = esc(msg);
-      t.style.opacity = "1";
+      if (!t) return;
+      t.classList.remove("toast-ok", "show");
+      t.innerHTML = '<span class="toast-msg">' + esc(msg) + '</span>';
+      // reflow for animation restart
+      void t.offsetWidth;
+      t.classList.add("show");
       clearTimeout(t._h);
-      t._h = setTimeout(function () { t.style.opacity = "0"; }, 1800);
+      t._h = setTimeout(function () { t.classList.remove("show"); }, 2000);
     }
     function toastOk(msg) {
       var t = $("#toast");
+      if (!t) return;
+      t.classList.remove("show");
       t.classList.add("toast-ok");
-      t.innerHTML = '<span class="toast-check" aria-hidden="true">✓</span><span class="toast-msg">' + esc(msg) + '</span>';
-      t.style.opacity = "1";
+      t.innerHTML =
+        '<span class="toast-check" aria-hidden="true">' +
+          '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>' +
+        '</span>' +
+        '<span class="toast-msg">' + esc(msg || "Link copied") + '</span>';
+      void t.offsetWidth;
+      t.classList.add("show");
       clearTimeout(t._h);
-      t._h = setTimeout(function () { t.style.opacity = "0"; t.classList.remove("toast-ok"); }, 2000);
+      t._h = setTimeout(function () {
+        t.classList.remove("show");
+        setTimeout(function () { t.classList.remove("toast-ok"); }, 280);
+      }, 2200);
     }
 
   // ---- views (click counts, stored on this device) ----
