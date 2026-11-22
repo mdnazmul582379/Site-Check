@@ -1158,6 +1158,59 @@
   }
 
   // ---- bottom sheet ----
+  function openShareSheet() {
+    if (!S.cur) return toast("Nothing to share");
+    var url = videoShareUrl(S.cur.id, S.season, S.ep);
+    var title = S.cur.title || "TeraFast Play";
+    var text = title + " — TeraFast Play";
+    var encU = encodeURIComponent(url);
+    var encT = encodeURIComponent(text);
+    var channels = [
+      { id: "fb", label: "Facebook", color: "#1877F2", href: "https://www.facebook.com/sharer/sharer.php?u=" + encU,
+        svg: '<path fill="currentColor" d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.7 4.54-4.7 1.31 0 2.69.24 2.69.24v2.97h-1.52c-1.5 0-1.96.93-1.96 1.89v2.26h3.34l-.53 3.49h-2.81V24C19.61 23.09 24 18.1 24 12.07z"/>' },
+      { id: "x", label: "X / Twitter", color: "#e7e9ea", href: "https://twitter.com/intent/tweet?url=" + encU + "&text=" + encT,
+        svg: '<path fill="currentColor" d="M18.9 2H22l-6.78 7.75L23.2 22h-6.5l-5.09-6.65L5.8 22H2.7l7.25-8.29L.8 2h6.66l4.6 6.1L18.9 2zm-1.14 18h1.8L6.35 3.9H4.42L17.76 20z"/>' },
+      { id: "tg", label: "Telegram", color: "#2AABEE", href: "https://t.me/share/url?url=" + encU + "&text=" + encT,
+        svg: '<path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.2l-1.86 8.77c-.14.62-.5.77-1.02.48l-2.82-2.08-1.36 1.31c-.15.15-.28.28-.57.28l.2-2.86 5.22-4.71c.23-.2-.05-.31-.35-.12l-6.45 4.06-2.78-.87c-.6-.19-.61-.6.13-.89l10.86-4.19c.5-.19.94.12.82.82z"/>' },
+      { id: "wa", label: "WhatsApp", color: "#25D366", href: "https://wa.me/?text=" + encodeURIComponent(text + "\n" + url),
+        svg: '<path fill="currentColor" d="M12 2a10 10 0 0 0-8.67 15.06L2 22l5.1-1.33A10 10 0 1 0 12 2zm0 18.2a8.18 8.18 0 0 1-4.17-1.14l-.3-.18-3.03.79.81-2.95-.2-.31A8.2 8.2 0 1 1 12 20.2zm4.5-6.13c-.25-.12-1.46-.72-1.69-.8s-.39-.12-.56.12-.64.8-.79.97-.29.19-.54.06a6.7 6.7 0 0 1-1.97-1.22 7.4 7.4 0 0 1-1.37-1.7c-.14-.25 0-.38.11-.5s.25-.29.37-.44.16-.25.25-.41.04-.31-.02-.43-.56-1.35-.77-1.85c-.2-.48-.41-.41-.56-.42h-.48c-.16 0-.43.06-.66.31s-.86.84-.86 2.05.88 2.38 1 2.54 1.73 2.64 4.19 3.7c.59.25 1.04.41 1.4.52.59.19 1.12.16 1.54.1.47-.07 1.46-.6 1.67-1.17s.21-1.07.15-1.17-.22-.18-.47-.3z"/>' },
+      { id: "rd", label: "Reddit", color: "#FF4500", href: "https://www.reddit.com/submit?url=" + encU + "&title=" + encT,
+        svg: '<path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.05 10.1c0 .9-.5 1.68-1.22 2.12-.1 3.02-3.27 5.16-6.83 5.16s-6.73-2.14-6.83-5.16A2.44 2.44 0 0 1 4 12.1c0-.9.5-1.68 1.22-2.12a3.6 3.6 0 0 1 3.55-2.9c.7 0 1.36.18 1.95.49L12 5.4l1.28 2.17c.59-.31 1.25-.49 1.95-.49a3.6 3.6 0 0 1 3.55 2.9c.72.44 1.27 1.22 1.27 2.12z"/>' }
+    ];
+    var sh = $("#sheet");
+    var rows = channels.map(function (c) {
+      return '<button type="button" class="share-row" data-share-href="' + esc(c.href) + '">' +
+        '<span class="share-ico" style="background:' + c.color + '">' +
+        '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">' + c.svg + '</svg></span>' +
+        '<span class="share-lab">' + esc(c.label) + '</span>' +
+        '<span class="share-go">' + ic("chevR", 16) + '</span></button>';
+    }).join("");
+    sh.innerHTML =
+      '<div class="sh-bd" data-sh="1"></div>' +
+      '<div class="sh-panel share-panel">' +
+        '<div class="grip"></div>' +
+        '<div class="sh-t">Share</div>' +
+        '<div class="share-sub">' + esc(title) + '</div>' +
+        '<div class="share-list">' + rows + '</div>' +
+        '<button type="button" class="share-copy" id="shareCopy">' +
+          '<span class="share-copy-ico">' + ic("share", 18) + '</span>' +
+          '<span>Copy link</span></button>' +
+      '</div>';
+    sh.classList.remove("hidden");
+    requestAnimationFrame(function () { sh.classList.add("open"); });
+    // bind once per open via dataset on panel
+    var copyBtn = $("#shareCopy");
+    if (copyBtn) copyBtn.onclick = function (e) {
+      e.stopPropagation();
+      function done() { closeSheet(); toast("Link copied"); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(function () { toast(url); closeSheet(); });
+      } else {
+        toast(url);
+        closeSheet();
+      }
+    };
+  }
   function openSheet(title, opts, sel, pick) {
     S.sheetPick = pick;
     var sh = $("#sheet");
@@ -1184,37 +1237,11 @@
     if ((t = e.target.closest("[data-si]"))) { var f = S.sheetPick; closeSheet(); if (f) f(+t.dataset.si); return; }
     if (e.target.closest("[data-sh]")) return closeSheet();
     if (e.target.closest("#addList")) return toast("Added to list");
-    if (e.target.closest("#share")) {
-      if (!S.cur) return toast("Nothing to share");
-      // Always the item currently on screen (series keeps series id + season/ep in query).
-      var shareUrl = videoShareUrl(S.cur.id, S.season, S.ep);
-      var shareData = {
-        title: S.cur.title || "TeraFast Play",
-        text: (S.cur.title || "Watch") + " — TeraFast Play",
-        url: shareUrl
-      };
-      function copyLink() {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          return navigator.clipboard.writeText(shareUrl).then(function () {
-            toast("Link copied");
-          }).catch(function () {
-            toast(shareUrl);
-          });
-        }
-        toast(shareUrl);
-        return Promise.resolve();
-      }
-      if (navigator.share) {
-        navigator.share(shareData).then(function () {
-          toast("Shared");
-        }).catch(function (err) {
-          // User cancel → silent; other errors → copy
-          if (err && (err.name === "AbortError" || err.name === "NotAllowedError")) return;
-          copyLink();
-        });
-      } else {
-        copyLink();
-      }
+    if (e.target.closest("#share")) { openShareSheet(); return; }
+    if ((t = e.target.closest("[data-share-href]"))) {
+      var href = t.getAttribute("data-share-href");
+      closeSheet();
+      if (href) window.open(href, "_blank", "noopener,noreferrer");
       return;
     }
     if (e.target.closest("#dlBtn")) {

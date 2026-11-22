@@ -630,3 +630,31 @@ html,body{margin:0!important;padding-left:0!important;padding-right:0!important}
 .dl-pill.hidden{display:none}
 .dl-pill.dl-in.hidden{display:none}
 
+
+/* Share sheet */
+.share-panel .share-sub{
+  font-size:12px;color:var(--muted);margin:-2px 0 12px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.35
+}
+.share-list{display:flex;flex-direction:column;gap:2px;margin-bottom:10px}
+.share-row{
+  display:flex;align-items:center;gap:12px;width:100%;
+  padding:11px 4px;border:0;background:transparent;color:#e8eaed;
+  text-align:left;cursor:pointer;border-radius:12px
+}
+.share-row:active{background:rgba(255,255,255,.05)}
+.share-ico{
+  flex:0 0 40px;width:40px;height:40px;border-radius:12px;
+  display:grid;place-items:center;color:#fff
+}
+.share-ico svg{display:block}
+.share-lab{flex:1;font-size:15px;font-weight:650}
+.share-go{opacity:.35;display:grid;place-items:center}
+.share-copy{
+  display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+  margin-top:4px;padding:14px 16px;border-radius:14px;border:1px solid rgba(34,226,138,.3);
+  background:linear-gradient(135deg,rgba(34,226,138,.18),rgba(34,226,138,.06));
+  color:#dfffea;font-size:15px;font-weight:700;cursor:pointer
+}
+.share-copy:active{transform:scale(.98)}
+.share-copy-ico{display:grid;place-items:center;color:var(--brand)}
