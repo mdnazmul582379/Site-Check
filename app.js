@@ -788,7 +788,7 @@
           '<button class="pill' + (inList(it.id) ? ' on pill-on' : '') + '" id="addList" type="button">' + ic(inList(it.id) ? "check" : "plus", 16) + '<span>' + (inList(it.id) ? "In list" : "Add to list") + '</span></button>' +
           '<button class="pill' + (inLikes(it.id) ? ' on pill-heart' : '') + '" id="likeBtn" type="button">' + ic("heart", 16) + '<span>' + (inLikes(it.id) ? "Liked" : "Like") + '</span></button>' +
           '<button class="pill" id="share" type="button">' + ic("share", 16) + '<span>Share</span></button>' +
-          '<button class="pill dl-pill hidden" id="dlBtn" type="button" aria-label="Download">' + ic("download", 16) + '<span>Download</span></button></div>' +
+          '<button class="pill dl-ico-btn is-off" id="dlBtn" type="button" aria-label="Download" disabled>' + ic("download", 18) + '</button></div>' +
         resources + epHtml +
         relatedHTML(it) +
       '</div>';
@@ -920,9 +920,9 @@
       var dlBtn = $("#dlBtn");
       if (dlBtn && ex.downloadUrl) {
         dlBtn.dataset.href = ex.downloadUrl;
-        dlBtn.classList.remove("hidden");
-        // reflow then animate
-        requestAnimationFrame(function () { dlBtn.classList.add("dl-in"); });
+        dlBtn.disabled = false;
+        dlBtn.classList.remove("is-off");
+        dlBtn.classList.add("is-on");
       }
       showPoster(ex.usingFast ? "Starting fast stream…" : "Starting stream…");
       attachMedia(v, ex.playUrl, hlsRef);
@@ -1195,7 +1195,7 @@
 
     var mode = null; // "seek" | "vol" | "bri" | null
     var startT = 0, startVol = 1, startBri = 1, hudT = null;
-    var briLevel = 1; // 0.25 .. 2.0 (can boost above native)
+    var briLevel = 1; // 0 .. 1
     var hudSeek = $("#vpHudSeek"), hudSeekTxt = $("#vpHudSeekTxt");
     var hudVol = $("#vpHudVol"), volFill = $("#vpVolFill");
     var hudBri = $("#vpHudBri"), briFill = $("#vpBriFill");
@@ -1225,15 +1225,14 @@
       hideAllHud();
       if (hudBri) {
         hudBri.classList.remove("hidden");
-        if (briFill) briFill.style.height = Math.round(((briLevel - 0.25) / 1.75) * 100) + "%";
+        if (briFill) briFill.style.height = Math.round(briLevel * 100) + "%";
       }
       clearTimeout(hudT);
       hudT = setTimeout(hideAllHud, 800);
     }
     function setBrightness(val) {
-      // Boost allowed above 1.0 (up to 2x) via CSS filter
-      briLevel = Math.min(2, Math.max(0.25, val));
-      v.style.filter = Math.abs(briLevel - 1) < 0.02 ? "none" : ("brightness(" + briLevel + ")");
+      briLevel = Math.min(1, Math.max(0, val));
+      v.style.filter = briLevel >= 0.995 ? "none" : ("brightness(" + briLevel + ")");
     }
 
     g.addEventListener("pointerdown", function (e) {
@@ -1289,9 +1288,8 @@
         showCtrl();
       } else if (mode === "bri") {
         var rect = g.getBoundingClientRect();
-        // Full swipe ≈ 1.2 range so user can reach 2.0 boost easily
-        var deltaB = -(dy / rect.height) * 1.2;
-        var nb = Math.min(2, Math.max(0.25, startBri + deltaB));
+        var deltaB = -(dy / rect.height);
+        var nb = Math.min(1, Math.max(0, startBri + deltaB));
         setBrightness(nb);
         showHudBri();
         showCtrl();
