@@ -478,14 +478,32 @@
     var likeN = loadIdArr("tfp_likes").length;
     var row = function (label, icon, value, action) {
       var act = action ? ' data-me="' + action + '"' : "";
-      return '<button type="button" class="mrow"' + act + '><span class="ml">' + ic(icon, 20) + '<span>' + label + '</span></span><span class="mv">' + (value != null ? '<em>' + value + '</em>' : '') + ic("chevR", 16) + '</span></button>';
+      return '<button type="button" class="mrow"' + act + '>' +
+        '<span class="ml">' + ic(icon, 20) + '<span>' + label + '</span></span>' +
+        '<span class="mv">' + (value != null ? '<em>' + value + '</em>' : '') + ic("chevR", 16) + '</span>' +
+      '</button>';
     };
     $("#main").innerHTML =
-      '<div class="me"><div class="me-card"><div class="av">G</div><div><b>Log in to your account</b><span>Demo mode</span></div><button class="login" id="loginBtn" type="button">' + ic("login", 16) + ' Log in</button></div>' +
-      '<div class="mpanel">' + row("My List", "bookmark", listN, "list") + row("My Likes", "heart", likeN, "likes") + row("Watch History", "clock") +
-        '<div class="vrow hist">' + S.all.slice(0, 10).map(histCard).join("") + '</div>' + row("Messages", "message") + '</div>' +
-      '<div class="mpanel">' + row("Community", "users", 0) + row("Posts", "plus", 0) + row("My Comments", "message", 0) + '</div>' +
-      '<div class="mpanel">' + row("Settings", "settings") + '</div></div>';
+      '<div class="me">' +
+        '<div class="mcard">' +
+          '<div class="me-av" aria-hidden="true">G</div>' +
+          '<div class="me-info"><b>Log in to your account</b><span class="pd">Demo mode</span></div>' +
+          '<button class="login" id="loginBtn" type="button">' + ic("login", 16) + '<span>Log in</span></button>' +
+        '</div>' +
+        '<div class="mpanel">' +
+          row("My List", "bookmark", listN, "list") +
+          row("My Likes", "heart", likeN, "likes") +
+          row("Watch History", "clock") +
+          '<div class="vrow hist">' + S.all.slice(0, 10).map(histCard).join("") + '</div>' +
+          row("Messages", "message") +
+        '</div>' +
+        '<div class="mpanel">' +
+          row("Community", "users", 0) +
+          row("Posts", "plus", 0) +
+          row("My Comments", "message", 0) +
+        '</div>' +
+        '<div class="mpanel">' + row("Settings", "settings") + '</div>' +
+      '</div>';
   }
   function renderSaved(kind) {
     var ids = loadIdArr(kind === "likes" ? "tfp_likes" : "tfp_list");

@@ -75,7 +75,8 @@ img.cs-img{height:auto}
 .mcard{display:flex;align-items:center;gap:var(--gap);margin:var(--g);padding:var(--g);background:var(--card);border-radius:16px}
 .me-av{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand2));display:grid;place-items:center;font-weight:800;color:#04140a;flex:0 0 auto}
 .me-info{flex:1;min-width:0}
-.me-info b{font-size:15px}
+.me-info b{display:block;font-size:15px;line-height:1.25}
+.me-info span,.me-info .pd{display:block;font-size:12px;color:var(--muted);margin-top:2px}
 .pd{font-size:12px;color:var(--muted)}
 .login{background:linear-gradient(90deg,var(--brand),var(--brand2));color:#04140a;font-weight:700;border-radius:999px;padding:9px 18px;font-size:14px}
 .mpanel{margin:0 var(--g) var(--g);background:var(--card);border-radius:16px;overflow:hidden;padding-bottom:4px}
@@ -740,8 +741,16 @@ html,body{margin:0!important;padding-left:0!important;padding-right:0!important}
 .pill.pill-heart .ic{color:#fb7185!important}
 button.mrow{
   width:100%;display:flex;justify-content:space-between;align-items:center;
-  background:transparent;border:0;color:inherit;padding:0;text-align:left;cursor:pointer
+  background:transparent;border:0;color:inherit;
+  padding:14px var(--g);text-align:left;cursor:pointer;font:inherit
 }
+button.mrow .ml{display:flex;align-items:center;gap:12px}
+button.mrow .mv{color:var(--muted);display:flex;align-items:center;gap:6px}
+button.mrow .mv em{font-style:normal;font-weight:700;color:var(--muted)}
+.me-info span.pd,.me-info .pd{display:block;margin-top:2px}
+.mcard .login{flex:0 0 auto;white-space:nowrap}
+.me{padding-bottom:calc(72px + env(safe-area-inset-bottom,0px))}
+
 .saved-head{display:flex;align-items:center;gap:10px;padding:12px var(--g) 8px}
 .saved-head h1{font-size:20px;margin:0;flex:1}
 .saved-n{color:var(--muted);font-size:13px;font-weight:700}
