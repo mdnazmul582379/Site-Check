@@ -906,3 +906,24 @@ button.mrow .mv em{font-style:normal;font-weight:700;color:var(--muted)}
 .set-action.danger{color:#fda4a4}
 .set-action.danger .ic{color:#f87171}
 .reduce-motion .hero-track,.reduce-motion .related-track{scroll-behavior:auto}
+
+/* Request form sheet */
+.req-panel{padding-bottom:calc(18px + env(safe-area-inset-bottom,0px))!important}
+.req-form{display:flex;flex-direction:column;gap:12px;padding:4px 0 0}
+.req-field{display:flex;flex-direction:column;gap:6px}
+.req-field span{font-size:12px;font-weight:650;color:var(--muted)}
+.req-field input{
+  width:100%;box-sizing:border-box;border-radius:12px;border:1px solid var(--line);
+  background:#12141a;color:#fff;padding:12px 14px;font-size:15px;outline:0
+}
+.req-field input:focus{border-color:rgba(34,226,138,.45)}
+.req-send{
+  margin-top:6px;width:100%;border:0;border-radius:14px;padding:14px 16px;
+  font-size:15px;font-weight:800;cursor:pointer;
+  background:linear-gradient(135deg,rgba(34,226,138,.95),rgba(20,180,110,.9));
+  color:#04140a
+}
+.req-send.is-off,.req-send:disabled{
+  opacity:.4;cursor:not-allowed;filter:grayscale(.2)
+}
+.req-send:not(:disabled):active{transform:scale(.98)}

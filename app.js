@@ -13,7 +13,12 @@
   // Categories that skip genre rows: carousel (10) + direct grid.
   var DIRECT_CATS = ["Midnight", "Desi Porn", "Foreign Porn", "JAV", "Indo"];
   // Tabs that show a compact 18+ badge (no "18+" text in the name).
-  // Social links for Request Movie/Series (owner can replace # later)
+  // Request form → Telegram bot (set token + chatId when ready)
+  var REQUEST_BOT = {
+    token: "", // e.g. "123456:ABC-DEF..."
+    chatId: "" // channel/group id e.g. "-100..."
+  };
+  // Social links (owner can replace # later)
   var SOCIAL_LINKS = [
     { id: "tg", label: "Telegram", color: "#2AABEE", href: "#telegram",
       svg: '<path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.2l-1.86 8.77c-.14.62-.5.77-1.02.48l-2.82-2.08-1.36 1.31c-.15.15-.28.28-.57.28l.2-2.86 5.22-4.71c.23-.2-.05-.31-.35-.12l-6.45 4.06-2.78-.87c-.6-.19-.61-.6.13-.89l10.86-4.19c.5-.19.94.12.82.82z"/>' },
@@ -510,6 +515,7 @@
           '<div class="vrow hist">' + S.all.slice(0, 10).map(histCard).join("") + '</div>' +
         '</div>' +
         '<div class="mpanel">' +
+          row("Our Social Media", "users", null, "social") +
           row("Request Movie / Series", "message", null, "request") +
         '</div>' +
         '<div class="mpanel">' +
@@ -517,7 +523,7 @@
         '</div>' +
       '</div>';
   }
-  function openRequestSheet() {
+  function openSocialSheet() {
     var icons = SOCIAL_LINKS.map(function (c) {
       var bg = c.color.indexOf("gradient") > -1 ? c.color : c.color;
       return '<button type="button" class="share-ico-btn" data-social-href="' + esc(c.href) + '" aria-label="' + esc(c.label) + '" title="' + esc(c.label) + '">' +
@@ -529,12 +535,92 @@
       '<div class="sh-bd" data-sh="1"></div>' +
       '<div class="sh-panel share-panel">' +
         '<div class="grip"></div>' +
-        '<div class="sh-t" style="text-align:center;margin-bottom:6px">Request Movie / Series</div>' +
-        '<p class="req-hint">Message us on social — tell the title you want added.</p>' +
+        '<div class="sh-t" style="text-align:center;margin-bottom:6px">Our Social Media</div>' +
+        '<p class="req-hint">Follow us for updates, new drops and support.</p>' +
         '<div class="share-icons">' + icons + '</div>' +
       '</div>';
     sh.classList.remove("hidden");
     requestAnimationFrame(function () { sh.classList.add("open"); });
+  }
+  function openRequestSheet() {
+    var sh = $("#sheet");
+    sh.innerHTML =
+      '<div class="sh-bd" data-sh="1"></div>' +
+      '<div class="sh-panel share-panel req-panel">' +
+        '<div class="grip"></div>' +
+        '<div class="sh-t" style="text-align:center;margin-bottom:4px">Request Movie / Series</div>' +
+        '<p class="req-hint">Fill every field. We review requests and add when available.</p>' +
+        '<form class="req-form" id="reqForm" autocomplete="on">' +
+          '<label class="req-field"><span>Title / Name</span><input id="reqName" type="text" maxlength="120" placeholder="Movie or series name" required></label>' +
+          '<label class="req-field"><span>Year</span><input id="reqYear" type="text" inputmode="numeric" maxlength="4" placeholder="e.g. 2024" required></label>' +
+          '<label class="req-field"><span>Contact</span><input id="reqContact" type="text" maxlength="80" placeholder="Phone, username or email" required></label>' +
+          '<button type="submit" class="req-send is-off" id="reqSend" disabled>Send request</button>' +
+        '</form>' +
+      '</div>';
+    sh.classList.remove("hidden");
+    requestAnimationFrame(function () { sh.classList.add("open"); });
+    var form = $("#reqForm"), name = $("#reqName"), year = $("#reqYear"), contact = $("#reqContact"), send = $("#reqSend");
+    function valid() {
+      var n = (name.value || "").trim().length >= 2;
+      var y = /^\d{4}$/.test((year.value || "").trim());
+      var c = (contact.value || "").trim().length >= 3;
+      var ok = n && y && c;
+      if (send) {
+        send.disabled = !ok;
+        send.classList.toggle("is-off", !ok);
+      }
+      return ok;
+    }
+    ["input", "change"].forEach(function (ev) {
+      form.addEventListener(ev, valid);
+    });
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (!valid()) return;
+      var payload = {
+        name: name.value.trim(),
+        year: year.value.trim(),
+        contact: contact.value.trim(),
+        at: new Date().toISOString()
+      };
+      sendRequestToChannel(payload).then(function () {
+        closeSheet();
+        toastOk("Request sent");
+      }).catch(function (err) {
+        toast((err && err.message) || "Could not send request");
+      });
+    });
+    valid();
+  }
+  function sendRequestToChannel(data) {
+    var token = REQUEST_BOT.token;
+    var chatId = REQUEST_BOT.chatId;
+    var text =
+      "🎬 *New request*\n" +
+      "• Title: `" + data.name.replace(/[`_*\[]/g, "") + "`\n" +
+      "• Year: `" + data.year + "`\n" +
+      "• Contact: `" + data.contact.replace(/[`_*\[]/g, "") + "`\n" +
+      "• Time: `" + data.at + "`";
+    if (!token || !chatId) {
+      // System ready — owner has not set bot credentials yet
+      return Promise.reject(new Error("Request system not connected yet"));
+    }
+    var url = "https://api.telegram.org/bot" + encodeURIComponent(token) + "/sendMessage";
+    return fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: text,
+        parse_mode: "Markdown"
+      })
+    }).then(function (r) {
+      if (!r.ok) throw new Error("Send failed (" + r.status + ")");
+      return r.json();
+    }).then(function (j) {
+      if (j && j.ok === false) throw new Error(j.description || "Telegram error");
+      return j;
+    });
   }
   function loadPref(key, def) {
     try {
@@ -570,11 +656,10 @@
           '<button type="button" class="set-action" data-set="clear-list"><span class="ml">' + ic("bookmark", 20) + '<span>Clear My List</span></span></button>' +
           '<button type="button" class="set-action" data-set="clear-likes"><span class="ml">' + ic("heart", 20) + '<span>Clear My Likes</span></span></button>' +
           '<button type="button" class="set-action" data-set="clear-views"><span class="ml">' + ic("clock", 20) + '<span>Clear view counts</span></span></button>' +
-          '<button type="button" class="set-action danger" data-set="clear-all"><span class="ml">' + ic("settings", 20) + '<span>Reset app data</span></span></button>' +
+          '<button type="button" class="set-action danger" data-set="clear-all"><span class="ml">' + ic("settings", 20) + '<span>Clear account data</span></span></button>' +
         '</div>' +
         '<div class="mpanel set-panel">' +
-          srow("App version", "TeraFast Play · demo", '<span class="set-val">1.0</span>') +
-          srow("Stream API", "Terabox worker", '<span class="set-val">On</span>') +
+          srow("App version", "TeraFast Play", '<span class="set-val">1.0</span>') +
         '</div>' +
       '</div>';
   }
@@ -1629,6 +1714,7 @@
     if ((t = e.target.closest("[data-me]"))) {
       var kind = t.getAttribute("data-me");
       if (kind === "list" || kind === "likes") { renderSaved(kind); pushHist(false); return; }
+      if (kind === "social") { openSocialSheet(); return; }
       if (kind === "request") { openRequestSheet(); return; }
       if (kind === "settings") { renderSettings(); pushHist(false); return; }
       if (kind === "history") { toast("Watch history shows recent titles below"); return; }
@@ -1674,7 +1760,7 @@
           ["autoplay","wifiDl","reduceMotion"].forEach(function (k) { localStorage.removeItem("tfp_pref_" + k); });
         } catch (err) {}
         S.views = {};
-        toastOk("App data reset");
+        toastOk("Account data cleared");
         renderSettings();
       }
       return;
