@@ -498,7 +498,7 @@
         ? '<div class="vgrid saved-grid">' + items.map(vcard).join("") + '</div>'
         : '<div class="empty">' + esc(empty) + '</div>');
   }
-  function ) {
+  function render() {
     stopHero();
     $("#top").classList.toggle("hidden", S.nav !== "home");
     if (S.nav === "downloads") return renderDownloads();
