@@ -440,9 +440,24 @@ html,body{margin:0!important;padding-left:0!important;padding-right:0!important}
 .vp-poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .vp-dim{position:absolute;inset:0;background:rgba(0,0,0,.55)}
 .vp-spin{
-  position:relative;z-index:1;width:44px;height:44px;border-radius:50%;
-  border:3px solid rgba(255,255,255,.2);border-top-color:var(--brand);
-  animation:vpSpin .8s linear infinite
+  position:relative;z-index:1;width:48px;height:48px;border-radius:50%;
+  color:var(--brand);transform:rotateZ(45deg);perspective:1000px
+}
+.vp-spin:before,.vp-spin:after{
+  content:"";display:block;position:absolute;inset:0;border-radius:50%;
+  animation:tfpSpin 1s linear infinite
+}
+.vp-spin:before{transform:rotateX(70deg)}
+.vp-spin:after{transform:rotateY(70deg);color:#fff;animation-delay:.4s}
+@keyframes tfpSpin{
+  0%,100%{box-shadow:.2em 0 0 0 currentColor}
+  12%{box-shadow:.2em .2em 0 0 currentColor}
+  25%{box-shadow:0 .2em 0 0 currentColor}
+  37%{box-shadow:-.2em .2em 0 0 currentColor}
+  50%{box-shadow:-.2em 0 0 0 currentColor}
+  62%{box-shadow:-.2em -.2em 0 0 currentColor}
+  75%{box-shadow:0 -.2em 0 0 currentColor}
+  87%{box-shadow:.2em -.2em 0 0 currentColor}
 }
 .vp-load-msg{
   position:absolute;bottom:18%;left:0;right:0;z-index:1;
@@ -708,3 +723,35 @@ html,body{margin:0!important;padding-left:0!important;padding-right:0!important}
 }
 .tabs button.active .tab-18{box-shadow:0 0 0 1px rgba(255,255,255,.2),0 1px 4px rgba(225,29,72,.45)}
 .tab-lab{line-height:1}
+
+/* List / like active pills */
+.pill.on.pill-on,.pill.pill-on{
+  background:rgba(34,226,138,.18)!important;
+  border-color:rgba(34,226,138,.55)!important;
+  color:#b8f5d0!important
+}
+.pill.on.pill-on .ic,.pill.pill-on .ic{color:var(--brand)!important}
+.pill.on.pill-heart,.pill.pill-heart{
+  background:rgba(244,63,94,.16)!important;
+  border-color:rgba(244,63,94,.5)!important;
+  color:#fecdd3!important
+}
+.pill.pill-heart .ic{color:#fb7185!important}
+button.mrow{
+  width:100%;display:flex;justify-content:space-between;align-items:center;
+  background:transparent;border:0;color:inherit;padding:0;text-align:left;cursor:pointer
+}
+.saved-head{display:flex;align-items:center;gap:10px;padding:12px var(--g) 8px}
+.saved-head h1{font-size:20px;margin:0;flex:1}
+.saved-n{color:var(--muted);font-size:13px;font-weight:700}
+.back-inline{
+  width:36px;height:36px;border-radius:50%;border:0;
+  background:rgba(255,255,255,.06);color:#fff;display:grid;place-items:center
+}
+.saved-grid{padding:8px var(--g) 24px}
+
+/* Player chrome polish */
+.vp-bottom{backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.vp-top{backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.vp-seek{height:22px}
+.vp-ib.on{color:var(--brand)}

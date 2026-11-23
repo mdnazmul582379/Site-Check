@@ -367,3 +367,13 @@ For series, optional episode position:
 `?v=SERIES_ID&s=0&e=2` — season index `s` and episode index `e` (0-based).
 
 Opening that URL loads the catalog then opens that item (and episode). Share uses `navigator.share` when available, otherwise copies the link.
+
+
+## Data order (for AI / editors)
+
+When adding titles to `data/video.json` or `data/series.json`:
+
+1. **Prepend** new items at the **top** of the `items` array (do not append at the bottom).
+2. Each category’s **carousel uses the first 10** items of that category in array order.
+3. The remaining items show as grid cards in the same order.
+4. Keep existing ids stable; never reshuffle old entries unless the owner asks.

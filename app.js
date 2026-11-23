@@ -126,6 +126,34 @@
     S.views[id] = (S.views[id] || 0) + 1;
     try { localStorage.setItem("tfp_views", JSON.stringify(S.views)); } catch (e) {}
   }
+  function loadIdArr(key) {
+    try {
+      var a = JSON.parse(localStorage.getItem(key) || "[]");
+      return Array.isArray(a) ? a : [];
+    } catch (e) { return []; }
+  }
+  function saveIdArr(key, arr) {
+    try { localStorage.setItem(key, JSON.stringify(arr)); } catch (e) {}
+  }
+  function inList(id) { return loadIdArr("tfp_list").indexOf(id) > -1; }
+  function inLikes(id) { return loadIdArr("tfp_likes").indexOf(id) > -1; }
+  function toggleList(id) {
+    var a = loadIdArr("tfp_list");
+    var i = a.indexOf(id);
+    if (i > -1) a.splice(i, 1); else a.unshift(id);
+    saveIdArr("tfp_list", a);
+    return i === -1;
+  }
+  function toggleLike(id) {
+    var a = loadIdArr("tfp_likes");
+    var i = a.indexOf(id);
+    if (i > -1) a.splice(i, 1); else a.unshift(id);
+    saveIdArr("tfp_likes", a);
+    return i === -1;
+  }
+  function itemsFromIds(ids) {
+    return ids.map(function (id) { return S.byId[id]; }).filter(Boolean);
+  }
   // Trending = most clicked items, excluding the carousel (those are already in the hero).
   function trendingList() {
     var inCar = {};
@@ -446,17 +474,31 @@
       '<button class="wide refresh-btn" id="refresh" type="button">' + ic("refresh", 18) + '<span>Refresh new content</span></button>';
   }
   function renderMe() {
-    var row = function (label, icon, value) {
-      return '<div class="mrow"><span class="ml">' + ic(icon, 20) + '<span>' + label + '</span></span><span class="mv">' + (value != null ? '<em>' + value + '</em>' : '') + ic("chevR", 16) + '</span></div>';
+    var listN = loadIdArr("tfp_list").length;
+    var likeN = loadIdArr("tfp_likes").length;
+    var row = function (label, icon, value, action) {
+      var act = action ? ' data-me="' + action + '"' : "";
+      return '<button type="button" class="mrow"' + act + '><span class="ml">' + ic(icon, 20) + '<span>' + label + '</span></span><span class="mv">' + (value != null ? '<em>' + value + '</em>' : '') + ic("chevR", 16) + '</span></button>';
     };
     $("#main").innerHTML =
-      '<div class="mcard"><div class="me-av">G</div><div class="me-info"><b>Log in to your account</b><div class="pd">Demo mode</div></div><button class="login" type="button" id="loginBtn">' + ic("login", 16) + '<span>Log in</span></button></div>' +
-      '<div class="mpanel">' + row("My List", "bookmark", 0) + row("My Likes", "heart", 0) + row("Watch History", "clock") +
-        '<div class="vrow hist">' + S.all.slice(-10).reverse().map(histCard).join("") + '</div>' + row("Messages", "message") + '</div>' +
+      '<div class="me"><div class="me-card"><div class="av">G</div><div><b>Log in to your account</b><span>Demo mode</span></div><button class="login" id="loginBtn" type="button">' + ic("login", 16) + ' Log in</button></div>' +
+      '<div class="mpanel">' + row("My List", "bookmark", listN, "list") + row("My Likes", "heart", likeN, "likes") + row("Watch History", "clock") +
+        '<div class="vrow hist">' + S.all.slice(0, 10).map(histCard).join("") + '</div>' + row("Messages", "message") + '</div>' +
       '<div class="mpanel">' + row("Community", "users", 0) + row("Posts", "plus", 0) + row("My Comments", "message", 0) + '</div>' +
-      '<div class="mpanel">' + row("Settings", "settings") + row("Study Mode", "book") + row("Feedback", "feedback") + '</div>';
+      '<div class="mpanel">' + row("Settings", "settings") + '</div></div>';
   }
-  function render() {
+  function renderSaved(kind) {
+    var ids = loadIdArr(kind === "likes" ? "tfp_likes" : "tfp_list");
+    var items = itemsFromIds(ids);
+    var title = kind === "likes" ? "My Likes" : "My List";
+    var empty = kind === "likes" ? "No liked videos yet" : "Your list is empty";
+    $("#main").innerHTML =
+      '<div class="pg-head saved-head"><button type="button" class="back-inline" data-me-back="1" aria-label="Back">' + ic("back", 20) + '</button><h1>' + esc(title) + '</h1><span class="saved-n">' + items.length + '</span></div>' +
+      (items.length
+        ? '<div class="vgrid saved-grid">' + items.map(vcard).join("") + '</div>'
+        : '<div class="empty">' + esc(empty) + '</div>');
+  }
+  function ) {
     stopHero();
     $("#top").classList.toggle("hidden", S.nav !== "home");
     if (S.nav === "downloads") return renderDownloads();
@@ -742,7 +784,11 @@
         '<div class="vp-speed-menu hidden" id="vpSpeedMenu"></div>' +
       '</div>' +
       '<div class="d-body"><h2 class="d-title">' + esc(it.title) + '</h2><div class="d-meta">' + esc(metaLine(it)) + '</div>' +
-        '<div class="d-btns"><button class="pill" id="addList" type="button">' + ic("plus", 16) + '<span>Add to list</span></button><button class="pill" id="share" type="button">' + ic("share", 16) + '<span>Share</span></button><button class="pill dl-pill hidden" id="dlBtn" type="button" aria-label="Download">' + ic("download", 16) + '<span>Download</span></button></div>' +
+        '<div class="d-btns">' +
+          '<button class="pill' + (inList(it.id) ? ' on pill-on' : '') + '" id="addList" type="button">' + ic(inList(it.id) ? "check" : "plus", 16) + '<span>' + (inList(it.id) ? "In list" : "Add to list") + '</span></button>' +
+          '<button class="pill' + (inLikes(it.id) ? ' on pill-heart' : '') + '" id="likeBtn" type="button">' + ic("heart", 16) + '<span>' + (inLikes(it.id) ? "Liked" : "Like") + '</span></button>' +
+          '<button class="pill" id="share" type="button">' + ic("share", 16) + '<span>Share</span></button>' +
+          '<button class="pill dl-pill hidden" id="dlBtn" type="button" aria-label="Download">' + ic("download", 16) + '<span>Download</span></button></div>' +
         resources + epHtml +
         relatedHTML(it) +
       '</div>';
@@ -1149,7 +1195,7 @@
 
     var mode = null; // "seek" | "vol" | "bri" | null
     var startT = 0, startVol = 1, startBri = 1, hudT = null;
-    var briLevel = 1; // 0..1 filter brightness
+    var briLevel = 1; // 0.25 .. 2.0 (can boost above native)
     var hudSeek = $("#vpHudSeek"), hudSeekTxt = $("#vpHudSeekTxt");
     var hudVol = $("#vpHudVol"), volFill = $("#vpVolFill");
     var hudBri = $("#vpHudBri"), briFill = $("#vpBriFill");
@@ -1175,20 +1221,19 @@
       clearTimeout(hudT);
       hudT = setTimeout(hideAllHud, 700);
     }
-    function showHudBri(val) {
-      var pct = Math.round(Math.min(1, Math.max(0, val)) * 100);
+    function showHudBri() {
       hideAllHud();
       if (hudBri) {
         hudBri.classList.remove("hidden");
-        if (briFill) briFill.style.height = pct + "%";
+        if (briFill) briFill.style.height = Math.round(((briLevel - 0.25) / 1.75) * 100) + "%";
       }
       clearTimeout(hudT);
       hudT = setTimeout(hideAllHud, 800);
     }
     function setBrightness(val) {
-      // 0.0 .. 1.0 — allow full dark for accurate match with HUD %
-      briLevel = Math.min(1, Math.max(0, val));
-      v.style.filter = briLevel >= 0.995 ? "none" : ("brightness(" + briLevel + ")");
+      // Boost allowed above 1.0 (up to 2x) via CSS filter
+      briLevel = Math.min(2, Math.max(0.25, val));
+      v.style.filter = Math.abs(briLevel - 1) < 0.02 ? "none" : ("brightness(" + briLevel + ")");
     }
 
     g.addEventListener("pointerdown", function (e) {
@@ -1244,10 +1289,11 @@
         showCtrl();
       } else if (mode === "bri") {
         var rect = g.getBoundingClientRect();
-        var deltaB = -(dy / rect.height);
-        var nb = Math.min(1, Math.max(0, startBri + deltaB));
+        // Full swipe ≈ 1.2 range so user can reach 2.0 boost easily
+        var deltaB = -(dy / rect.height) * 1.2;
+        var nb = Math.min(2, Math.max(0.25, startBri + deltaB));
         setBrightness(nb);
-        showHudBri(nb);
+        showHudBri();
         showCtrl();
       }
     });
@@ -1383,7 +1429,37 @@
     if (e.target.closest("#back")) return closeDetail();
     if ((t = e.target.closest("[data-si]"))) { var f = S.sheetPick; closeSheet(); if (f) f(+t.dataset.si); return; }
     if (e.target.closest("[data-sh]")) return closeSheet();
-    if (e.target.closest("#addList")) return toast("Added to list");
+    if (e.target.closest("#addList")) {
+      if (!S.cur) return;
+      var on = toggleList(S.cur.id);
+      var btn = $("#addList");
+      if (btn) {
+        btn.classList.toggle("on", on);
+        btn.classList.toggle("pill-on", on);
+        btn.innerHTML = ic(on ? "check" : "plus", 16) + "<span>" + (on ? "In list" : "Add to list") + "</span>";
+      }
+      toastOk(on ? "Added to My List" : "Removed from list");
+      return;
+    }
+    if (e.target.closest("#likeBtn")) {
+      if (!S.cur) return;
+      var liked = toggleLike(S.cur.id);
+      var lb = $("#likeBtn");
+      if (lb) {
+        lb.classList.toggle("on", liked);
+        lb.classList.toggle("pill-heart", liked);
+        lb.innerHTML = ic("heart", 16) + "<span>" + (liked ? "Liked" : "Like") + "</span>";
+      }
+      toastOk(liked ? "Added to My Likes" : "Removed from likes");
+      return;
+    }
+    if ((t = e.target.closest("[data-me]"))) {
+      var kind = t.getAttribute("data-me");
+      if (kind === "list" || kind === "likes") { renderSaved(kind); pushHist(false); return; }
+      toast("Coming soon");
+      return;
+    }
+    if (e.target.closest("[data-me-back]")) { renderMe(); pushHist(false); return; }
     if (e.target.closest("#share")) { openShareSheet(); return; }
     if ((t = e.target.closest("[data-share-href]"))) {
       var href = t.getAttribute("data-share-href");
