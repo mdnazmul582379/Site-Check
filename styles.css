@@ -871,3 +871,38 @@ button.mrow .mv em{font-style:normal;font-weight:700;color:var(--muted)}
 .vp-hud-vol .vp-vol-rail i{
   transition:height .05s linear, background .15s ease
 }
+
+/* Request + Settings (Me) */
+.req-hint{
+  text-align:center;font-size:12.5px;color:var(--muted);
+  margin:0 0 14px;line-height:1.4;padding:0 8px
+}
+.set-panel{padding:4px 0}
+.set-row{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:14px var(--g);border-top:1px solid var(--line)
+}
+.set-panel .set-row:first-child,.set-panel .set-action:first-child{border-top:0}
+.set-txt{min-width:0;flex:1}
+.set-txt b{display:block;font-size:14.5px;font-weight:650}
+.set-txt span{display:block;font-size:12px;color:var(--muted);margin-top:2px;line-height:1.3}
+.set-val{font-size:13px;color:var(--muted);font-weight:600}
+.set-tog{
+  width:46px;height:28px;border-radius:999px;border:0;padding:2px;
+  background:rgba(255,255,255,.12);position:relative;flex:0 0 auto;cursor:pointer
+}
+.set-tog i{
+  display:block;width:24px;height:24px;border-radius:50%;background:#fff;
+  transition:transform .2s ease;transform:translateX(0)
+}
+.set-tog.on{background:rgba(34,226,138,.45)}
+.set-tog.on i{transform:translateX(18px);background:#fff}
+.set-action{
+  width:100%;display:flex;align-items:center;padding:14px var(--g);
+  border:0;border-top:1px solid var(--line);background:transparent;
+  color:inherit;font:inherit;text-align:left;cursor:pointer
+}
+.set-action .ml{display:flex;align-items:center;gap:12px}
+.set-action.danger{color:#fda4a4}
+.set-action.danger .ic{color:#f87171}
+.reduce-motion .hero-track,.reduce-motion .related-track{scroll-behavior:auto}

@@ -13,6 +13,19 @@
   // Categories that skip genre rows: carousel (10) + direct grid.
   var DIRECT_CATS = ["Midnight", "Desi Porn", "Foreign Porn", "JAV", "Indo"];
   // Tabs that show a compact 18+ badge (no "18+" text in the name).
+  // Social links for Request Movie/Series (owner can replace # later)
+  var SOCIAL_LINKS = [
+    { id: "tg", label: "Telegram", color: "#2AABEE", href: "#telegram",
+      svg: '<path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.2l-1.86 8.77c-.14.62-.5.77-1.02.48l-2.82-2.08-1.36 1.31c-.15.15-.28.28-.57.28l.2-2.86 5.22-4.71c.23-.2-.05-.31-.35-.12l-6.45 4.06-2.78-.87c-.6-.19-.61-.6.13-.89l10.86-4.19c.5-.19.94.12.82.82z"/>' },
+    { id: "ig", label: "Instagram", color: "linear-gradient(135deg,#f58529,#dd2a7b,#8134af)", href: "#instagram",
+      svg: '<path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-3.2-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9C2.4 3.9 4 2.4 7.1 2.3 8.4 2.2 8.8 2.2 12 2.2m0 1.8c-3.1 0-3.5 0-4.7.1-2.4.1-3.6 1.3-3.7 3.7-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 2.4 1.3 3.6 3.7 3.7 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c2.4-.1 3.6-1.3 3.7-3.7.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-2.4-1.3-3.6-3.7-3.7-1.2-.1-1.6-.1-4.7-.1zm0 3.2a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6zm0 1.8a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.9-2.1a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z"/>' },
+    { id: "fb", label: "Facebook", color: "#1877F2", href: "#facebook",
+      svg: '<path fill="currentColor" d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.7 4.54-4.7 1.31 0 2.69.24 2.69.24v2.97h-1.52c-1.5 0-1.96.93-1.96 1.89v2.26h3.34l-.53 3.49h-2.81V24C19.61 23.09 24 18.1 24 12.07z"/>' },
+    { id: "x", label: "X / Twitter", color: "#000000", href: "#twitter",
+      svg: '<path fill="#fff" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.727-8.849L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>' },
+    { id: "pin", label: "Pinterest", color: "#E60023", href: "#pinterest",
+      svg: '<path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.08 3.15 9.42 7.6 11.16-.1-.95-.2-2.4 0-3.44.22-.94 1.4-5.96 1.4-5.96s-.36-.72-.36-1.78c0-1.67.97-2.92 2.17-2.92 1.02 0 1.52.77 1.52 1.69 0 1.03-.66 2.57-1 4-.28 1.2.6 2.17 1.78 2.17 2.13 0 3.77-2.25 3.77-5.5 0-2.87-2.06-4.88-5.01-4.88-3.41 0-5.41 2.56-5.41 5.2 0 1.03.4 2.14.9 2.74.1.12.11.22.08.34l-.34 1.36c-.05.22-.17.27-.4.16-1.5-.7-2.44-2.89-2.44-4.65 0-3.78 2.75-7.26 7.92-7.26 4.16 0 7.4 2.96 7.4 6.92 0 4.13-2.6 7.45-6.22 7.45-1.21 0-2.36-.63-2.75-1.38l-.75 2.85c-.27 1.04-1 2.35-1.49 3.15C9.6 23.79 10.78 24 12 24c6.63 0 12-5.37 12-12S18.63 0 12 0z"/>' }
+  ];
   var ADULT_TABS = { "Midnight": 1, "Desi Porn": 1, "Foreign Porn": 1, "JAV": 1, "Indo": 1 };
   // Map display tab → data category (legacy names in JSON).
   var CAT_DATA = { "JAV": "18+ JAV" };
@@ -493,16 +506,76 @@
         '<div class="mpanel">' +
           row("My List", "bookmark", listN, "list") +
           row("My Likes", "heart", likeN, "likes") +
-          row("Watch History", "clock") +
+          row("Watch History", "clock", null, "history") +
           '<div class="vrow hist">' + S.all.slice(0, 10).map(histCard).join("") + '</div>' +
-          row("Messages", "message") +
         '</div>' +
         '<div class="mpanel">' +
-          row("Community", "users", 0) +
-          row("Posts", "plus", 0) +
-          row("My Comments", "message", 0) +
+          row("Request Movie / Series", "message", null, "request") +
         '</div>' +
-        '<div class="mpanel">' + row("Settings", "settings") + '</div>' +
+        '<div class="mpanel">' +
+          row("Settings", "settings", null, "settings") +
+        '</div>' +
+      '</div>';
+  }
+  function openRequestSheet() {
+    var icons = SOCIAL_LINKS.map(function (c) {
+      var bg = c.color.indexOf("gradient") > -1 ? c.color : c.color;
+      return '<button type="button" class="share-ico-btn" data-social-href="' + esc(c.href) + '" aria-label="' + esc(c.label) + '" title="' + esc(c.label) + '">' +
+        '<span class="share-ico" style="background:' + bg + '">' +
+        '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">' + c.svg + '</svg></span></button>';
+    }).join("");
+    var sh = $("#sheet");
+    sh.innerHTML =
+      '<div class="sh-bd" data-sh="1"></div>' +
+      '<div class="sh-panel share-panel">' +
+        '<div class="grip"></div>' +
+        '<div class="sh-t" style="text-align:center;margin-bottom:6px">Request Movie / Series</div>' +
+        '<p class="req-hint">Message us on social — tell the title you want added.</p>' +
+        '<div class="share-icons">' + icons + '</div>' +
+      '</div>';
+    sh.classList.remove("hidden");
+    requestAnimationFrame(function () { sh.classList.add("open"); });
+  }
+  function loadPref(key, def) {
+    try {
+      var v = localStorage.getItem("tfp_pref_" + key);
+      if (v == null) return def;
+      if (v === "true") return true;
+      if (v === "false") return false;
+      return v;
+    } catch (e) { return def; }
+  }
+  function savePref(key, val) {
+    try { localStorage.setItem("tfp_pref_" + key, String(val)); } catch (e) {}
+  }
+  function renderSettings() {
+    var autoplay = loadPref("autoplay", true);
+    var wifiOnly = loadPref("wifiDl", false);
+    var reduce = loadPref("reduceMotion", false);
+    function tog(key, on) {
+      return '<button type="button" class="set-tog' + (on ? " on" : "") + '" data-pref="' + key + '" aria-pressed="' + (on ? "true" : "false") + '"><i></i></button>';
+    }
+    function srow(label, sub, right) {
+      return '<div class="set-row"><div class="set-txt"><b>' + esc(label) + '</b>' + (sub ? '<span>' + esc(sub) + '</span>' : '') + '</div>' + right + '</div>';
+    }
+    $("#main").innerHTML =
+      '<div class="me settings-page">' +
+        '<div class="pg-head saved-head"><button type="button" class="back-inline" data-me-back="1" aria-label="Back">' + ic("back", 20) + '</button><h1>Settings</h1></div>' +
+        '<div class="mpanel set-panel">' +
+          srow("Autoplay next", "Play related when a video ends", tog("autoplay", autoplay)) +
+          srow("Wi‑Fi only downloads", "Avoid mobile data for downloads", tog("wifiDl", wifiOnly)) +
+          srow("Reduce motion", "Less animation on carousels", tog("reduceMotion", reduce)) +
+        '</div>' +
+        '<div class="mpanel set-panel">' +
+          '<button type="button" class="set-action" data-set="clear-list"><span class="ml">' + ic("bookmark", 20) + '<span>Clear My List</span></span></button>' +
+          '<button type="button" class="set-action" data-set="clear-likes"><span class="ml">' + ic("heart", 20) + '<span>Clear My Likes</span></span></button>' +
+          '<button type="button" class="set-action" data-set="clear-views"><span class="ml">' + ic("clock", 20) + '<span>Clear view counts</span></span></button>' +
+          '<button type="button" class="set-action danger" data-set="clear-all"><span class="ml">' + ic("settings", 20) + '<span>Reset app data</span></span></button>' +
+        '</div>' +
+        '<div class="mpanel set-panel">' +
+          srow("App version", "TeraFast Play · demo", '<span class="set-val">1.0</span>') +
+          srow("Stream API", "Terabox worker", '<span class="set-val">On</span>') +
+        '</div>' +
       '</div>';
   }
   function renderSaved(kind) {
@@ -1556,10 +1629,56 @@
     if ((t = e.target.closest("[data-me]"))) {
       var kind = t.getAttribute("data-me");
       if (kind === "list" || kind === "likes") { renderSaved(kind); pushHist(false); return; }
-      toast("Coming soon");
+      if (kind === "request") { openRequestSheet(); return; }
+      if (kind === "settings") { renderSettings(); pushHist(false); return; }
+      if (kind === "history") { toast("Watch history shows recent titles below"); return; }
       return;
     }
     if (e.target.closest("[data-me-back]")) { renderMe(); pushHist(false); return; }
+    if ((t = e.target.closest("[data-social-href]"))) {
+      var href = t.getAttribute("data-social-href") || "#";
+      closeSheet();
+      if (href.charAt(0) === "#") toast("Social link will be set soon");
+      else window.open(href, "_blank", "noopener,noreferrer");
+      return;
+    }
+    if ((t = e.target.closest("[data-pref]"))) {
+      var key = t.getAttribute("data-pref");
+      var on = !t.classList.contains("on");
+      t.classList.toggle("on", on);
+      t.setAttribute("aria-pressed", on ? "true" : "false");
+      savePref(key, on);
+      if (key === "reduceMotion") document.documentElement.classList.toggle("reduce-motion", on);
+      toastOk(on ? "Enabled" : "Disabled");
+      return;
+    }
+    if ((t = e.target.closest("[data-set]"))) {
+      var act = t.getAttribute("data-set");
+      if (act === "clear-list") {
+        saveIdArr("tfp_list", []);
+        toastOk("My List cleared");
+        renderSettings();
+      } else if (act === "clear-likes") {
+        saveIdArr("tfp_likes", []);
+        toastOk("My Likes cleared");
+        renderSettings();
+      } else if (act === "clear-views") {
+        S.views = {};
+        try { localStorage.removeItem("tfp_views"); } catch (err) {}
+        toastOk("View counts cleared");
+      } else if (act === "clear-all") {
+        try {
+          localStorage.removeItem("tfp_list");
+          localStorage.removeItem("tfp_likes");
+          localStorage.removeItem("tfp_views");
+          ["autoplay","wifiDl","reduceMotion"].forEach(function (k) { localStorage.removeItem("tfp_pref_" + k); });
+        } catch (err) {}
+        S.views = {};
+        toastOk("App data reset");
+        renderSettings();
+      }
+      return;
+    }
     if (e.target.closest("#share")) { openShareSheet(); return; }
     if ((t = e.target.closest("[data-share-href]"))) {
       var href = t.getAttribute("data-share-href");
