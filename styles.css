@@ -851,3 +851,14 @@ button.mrow{
   pointer-events:auto!important
 }
 .dl-btn.is-on .ic{color:#ff6b6b!important}
+
+/* Volume HUD percent + boost (red) state */
+.vp-vol-pct{
+  font-size:11px;font-weight:800;color:#fff;letter-spacing:.02em;
+  font-variant-numeric:tabular-nums;min-width:36px;text-align:center
+}
+.vp-hud-vol.is-boost .vp-vol-pct{color:#fecaca}
+#vpVolFill.boost{background:#ef4444!important}
+.vp-hud-vol .vp-vol-rail i{
+  transition:height .05s linear, background .15s ease
+}

@@ -928,8 +928,12 @@
       attachMedia(v, ex.playUrl, hlsRef);
       v.volume = 1;
       v.muted = false;
-      v.play().catch(function () {
-        // autoplay policy: start muted then unmute on first user gesture
+      volLevel = 1;
+      v.play().then(function () {
+        // Prefer unmuted playback at full native level
+        v.muted = false;
+        v.volume = 1;
+      }).catch(function () {
         v.muted = true;
         return v.play();
       }).catch(function () {});
@@ -1199,56 +1203,71 @@
       setLocked(false);
     };
 
-    // Volume: Web Audio gain allows real boost up to 200% (HTML video.volume max is 1.0)
-    var volLevel = 1; // 0 .. 2
-    var audioCtx = null, mediaSrc = null, gainNode = null;
+    // Volume 0–200%: native path at ≤100%; Web Audio GainNode for real boost >100%
+    var volLevel = 1; // 0 .. 2 linear gain
+    var audioCtx = null, mediaSrc = null, gainNode = null, gainReady = false;
     function ensureGain() {
-      if (gainNode) return true;
+      if (gainReady && gainNode) return true;
       var AC = window.AudioContext || window.webkitAudioContext;
       if (!AC) return false;
       try {
-        audioCtx = new AC();
-        mediaSrc = audioCtx.createMediaElementSource(v);
-        gainNode = audioCtx.createGain();
-        gainNode.gain.value = volLevel;
-        mediaSrc.connect(gainNode);
-        gainNode.connect(audioCtx.destination);
+        if (!audioCtx) audioCtx = new AC();
+        if (!mediaSrc) {
+          mediaSrc = audioCtx.createMediaElementSource(v);
+          gainNode = audioCtx.createGain();
+          gainNode.gain.value = 1;
+          mediaSrc.connect(gainNode);
+          gainNode.connect(audioCtx.destination);
+        }
+        gainReady = true;
         return true;
       } catch (err) {
-        gainNode = null;
+        gainReady = false;
         return false;
       }
     }
     function resumeAudio() {
-      if (audioCtx && audioCtx.state === "suspended") {
-        try { audioCtx.resume(); } catch (e) {}
+      try {
+        if (audioCtx && audioCtx.state === "suspended") audioCtx.resume();
+      } catch (e) {}
+    }
+    function applyVolume() {
+      var level = volLevel;
+      if (level <= 0.001) {
+        v.muted = true;
+        v.volume = 0;
+        if (gainNode) {
+          try { gainNode.gain.setValueAtTime(0, audioCtx.currentTime); } catch (e) { gainNode.gain.value = 0; }
+        }
+      } else {
+        v.muted = false;
+        // Always keep element at full; route loudness through gain when available
+        if (ensureGain()) {
+          resumeAudio();
+          v.volume = 1;
+          try { gainNode.gain.setValueAtTime(level, audioCtx.currentTime); }
+          catch (e) { gainNode.gain.value = level; }
+        } else {
+          // No Web Audio: clamp to 100%
+          v.volume = Math.min(1, level);
+        }
       }
+      if (mu) mu.innerHTML = ic(v.muted || level <= 0.001 ? "mute" : "vol", 20);
     }
     function setVolumeLevel(level) {
       volLevel = Math.min(2, Math.max(0, level));
-      if (volLevel <= 0) {
-        v.muted = true;
-        if (gainNode) gainNode.gain.value = 0;
-      } else {
-        v.muted = false;
-        if (ensureGain()) {
-          // element stays at full; gain controls loudness (can exceed 100%)
-          v.volume = 1;
-          gainNode.gain.value = volLevel;
-        } else {
-          v.volume = Math.min(1, volLevel);
-        }
-      }
-      if (mu) mu.innerHTML = ic(v.muted || volLevel === 0 ? "mute" : "vol", 20);
+      applyVolume();
     }
-    // Start at true 100%
-    setVolumeLevel(1);
+    // Default 100% — native full volume (gain graph created on first adjust/boost)
+    v.volume = 1;
+    v.muted = false;
+    volLevel = 1;
 
     var mode = null; // "seek" | "vol" | "bri" | null
     var startT = 0, startVol = 1, startBri = 1, hudT = null;
     var briLevel = 1; // 0 .. 1
     var hudSeek = $("#vpHudSeek"), hudSeekTxt = $("#vpHudSeekTxt");
-    var hudVol = $("#vpHudVol"), volFill = $("#vpVolFill");
+    var hudVol = $("#vpHudVol"), volFill = $("#vpVolFill"), volPct = $("#vpVolPct");
     var hudBri = $("#vpHudBri"), briFill = $("#vpBriFill");
     function hideAllHud() {
       if (hudSeek) hudSeek.classList.add("hidden");
@@ -1268,10 +1287,23 @@
       if (!hudVol) return;
       hideAllHud();
       hudVol.classList.remove("hidden");
-      // val is 0..2 → fill 0..100% of boost range
-      if (volFill) volFill.style.height = Math.round((val / 2) * 100) + "%";
+      // 0–100%: green empty→full. 100–200%: red empty→full (green resets)
+      var pct = Math.round(val * 100);
+      if (volPct) volPct.textContent = pct + "%";
+      if (volFill) {
+        if (val <= 1) {
+          volFill.style.height = Math.round(val * 100) + "%";
+          volFill.style.background = "var(--brand)";
+          volFill.classList.remove("boost");
+        } else {
+          volFill.style.height = Math.round((val - 1) * 100) + "%";
+          volFill.style.background = "#ef4444";
+          volFill.classList.add("boost");
+        }
+      }
+      hudVol.classList.toggle("is-boost", val > 1.001);
       clearTimeout(hudT);
-      hudT = setTimeout(hideAllHud, 700);
+      hudT = setTimeout(hideAllHud, 800);
     }
     function showHudBri() {
       hideAllHud();
@@ -1332,8 +1364,8 @@
         showCtrl();
       } else if (mode === "vol") {
         var rect = g.getBoundingClientRect();
-        // Full vertical swipe covers ~0 → 200%
-        var deltaV = -(dy / rect.height) * 2;
+        // One full vertical swipe ≈ 0 → 200%
+        var deltaV = -(dy / Math.max(1, rect.height)) * 2;
         var nv = Math.min(2, Math.max(0, startVol + deltaV));
         setVolumeLevel(nv);
         showHudVol(nv);
