@@ -696,3 +696,15 @@ html,body{margin:0!important;padding-left:0!important;padding-right:0!important}
 .toast.toast-ok .toast-msg{
   color:#fff;font-size:15.5px;font-weight:700;letter-spacing:.015em
 }
+
+/* 18+ badge on adult category tabs (icon-like, not text prefix) */
+.tabs button.tab-adult{display:inline-flex;align-items:center;gap:6px}
+.tab-18{
+  flex:0 0 auto;display:inline-grid;place-items:center;
+  min-width:22px;height:16px;padding:0 5px;border-radius:4px;
+  background:linear-gradient(135deg,#e11d48,#be123c);
+  color:#fff;font-size:9px;font-weight:800;letter-spacing:.02em;
+  line-height:1;box-shadow:0 1px 4px rgba(225,29,72,.35)
+}
+.tabs button.active .tab-18{box-shadow:0 0 0 1px rgba(255,255,255,.2),0 1px 4px rgba(225,29,72,.45)}
+.tab-lab{line-height:1}

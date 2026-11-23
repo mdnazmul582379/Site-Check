@@ -8,10 +8,14 @@
   var CFG = Object.assign({ DEMO_VIDEO: "", DEMO_SOURCES: [], HERO_SLIDES: 6, PAGE: 5, PREVIEW: 20, STEP: 20 }, window.TFP_CONFIG || {});
   var FILES = { categories: "data/categories.json", carousel: "data/carousel.json", video: "data/video.json", series: "data/series.json" };
   var PAGE = CFG.PAGE, PREVIEW = CFG.PREVIEW;
-  var TABS = ["Home", "Trending", "Movie", "Series", "Midnight", "Anime", "Kids", "Desi Porn", "Foreign Porn", "18+ Vmax", "18+ JAV", "Indo"];
-  var HOME_ORDER = ["Trending", "Movie", "Series", "Midnight", "Anime", "Kids", "Desi Porn", "Foreign Porn", "18+ Vmax", "18+ JAV", "Indo"];
+  var TABS = ["Home", "Trending", "Movie", "Series", "Midnight", "Anime", "Kids", "Desi Porn", "Foreign Porn", "JAV", "Indo"];
+  var HOME_ORDER = ["Trending", "Movie", "Series", "Midnight", "Anime", "Kids", "Desi Porn", "Foreign Porn", "JAV", "Indo"];
   // Categories that skip genre rows: carousel (10) + direct grid.
-  var DIRECT_CATS = ["Midnight", "Desi Porn", "Foreign Porn", "18+ Vmax", "18+ JAV", "Indo"];
+  var DIRECT_CATS = ["Midnight", "Desi Porn", "Foreign Porn", "JAV", "Indo"];
+  // Tabs that show a compact 18+ badge (no "18+" text in the name).
+  var ADULT_TABS = { "Midnight": 1, "Desi Porn": 1, "Foreign Porn": 1, "JAV": 1, "Indo": 1 };
+  // Map display tab → data category (legacy names in JSON).
+  var CAT_DATA = { "JAV": "18+ JAV" };
   var S = {
     cats: [], all: [], byId: {}, carousel: [], views: {}, lim: {}, focus: null,
     tab: "Home", q: "", nav: "home", cur: null, season: 0, qIdx: 0, ep: 0, showAll: false,
@@ -55,6 +59,7 @@
     exitFull: '<path d="M9 3v4a2 2 0 0 1-2 2H3"/><path d="M15 3v4a2 2 0 0 0 2 2h4"/><path d="M9 21v-4a2 2 0 0 0-2-2H3"/><path d="M15 21v-4a2 2 0 0 1 2-2h4"/>',
     lock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
     unlock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.5-1.5"/>',
+    adult: '<circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" font-size="9" font-weight="800" fill="currentColor" stroke="none" font-family="Inter,system-ui,sans-serif">18</text>',
     speed: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
     rotate: '<path d="M7 20.5H4.5A1.5 1.5 0 0 1 3 19v-2.5"/><path d="M3 16.5 6.5 20.5"/><path d="M17 3.5h2.5A1.5 1.5 0 0 1 21 5v2.5"/><path d="M21 7.5 17.5 3.5"/><rect x="7.5" y="7" width="9" height="10" rx="1.5"/>'
   };
@@ -137,7 +142,9 @@
   function bySrc(src) { return S.all.filter(function (i) { return i._src === src; }); }
   function isAnime(i) { return !!(i.tags && i.tags.indexOf("anime") > -1); }
   function byGenre(list, g) { return list.filter(function (i) { return i.genre === g; }); }
+  function dataCat(name) { return CAT_DATA[name] || name; }
   function byCategory(list, c) {
+    c = dataCat(c);
     return list.filter(function (i) {
       if (i.category) return i.category === c;
       return i.genre === c;
@@ -267,6 +274,7 @@
         renderTabs();
         render();
         window.scrollTo(0, 0);
+        pushHist(false);
         return;
       }
     }
@@ -274,6 +282,7 @@
     S.lim[key] = Math.min(PREVIEW, s.list.length);
     S.focus = key;
     refreshKeep(key);
+    pushHist(false);
   }
   function moreFor(key) {
     var s = findSection(key) || (S._directSec && S._directSec.key === key ? S._directSec : null);
@@ -283,9 +292,11 @@
     S.focus = key;
     if (DIRECT_CATS.indexOf(S.tab) > -1 && key.indexOf("C|") === 0) {
       renderTab();
+      pushHist(false);
       return;
     }
     refreshKeep(key);
+    pushHist(false);
   }
 
   // ---- cards ----
@@ -456,7 +467,8 @@
   }
   function renderTabs() {
     $("#tabs").innerHTML = TABS.map(function (t) {
-      return '<button type="button" data-tab="' + esc(t) + '" class="' + (t === S.tab ? "active" : "") + '">' + esc(t) + '</button>';
+      var badge = ADULT_TABS[t] ? '<span class="tab-18" aria-label="18 plus">18</span>' : "";
+      return '<button type="button" data-tab="' + esc(t) + '" class="' + (t === S.tab ? "active" : "") + (ADULT_TABS[t] ? " tab-adult" : "") + '">' + badge + '<span class="tab-lab">' + esc(t) + '</span></button>';
     }).join("");
     scrollActiveTab();
   }
@@ -475,6 +487,100 @@
   }
   function setNav(name) { document.querySelectorAll("[data-nav]").forEach(function (b) { b.classList.toggle("active", b.dataset.nav === name); }); }
   function resetViewState() { S.lim = {}; S.focus = null; }
+
+  // ---- app history (phone back = previous in-app step) ----
+  var HIST_SKIP = false;
+  function snapshot() {
+    return {
+      nav: S.nav,
+      tab: S.tab,
+      q: S.q || "",
+      focus: S.focus,
+      lim: Object.assign({}, S.lim),
+      detail: !!(S.cur && document.body.classList.contains("in-player")),
+      id: S.cur ? S.cur.id : null,
+      season: S.season || 0,
+      ep: S.ep || 0
+    };
+  }
+  function routeUrl(st) {
+    try {
+      var u = new URL(location.href);
+      u.search = "";
+      if (st.detail && st.id) {
+        u.searchParams.set("v", st.id);
+        if (st.season) u.searchParams.set("s", String(st.season));
+        if (st.ep) u.searchParams.set("e", String(st.ep));
+      } else if (st.nav && st.nav !== "home") {
+        u.searchParams.set("nav", st.nav);
+      } else if (st.tab && st.tab !== "Home") {
+        u.searchParams.set("tab", st.tab);
+      }
+      if (st.focus) u.searchParams.set("focus", st.focus);
+      return u.pathname + (u.searchParams.toString() ? "?" + u.searchParams.toString() : "");
+    } catch (e) {
+      return location.pathname;
+    }
+  }
+  function pushHist(replace) {
+    if (HIST_SKIP) return;
+    var st = snapshot();
+    var url = routeUrl(st);
+    try {
+      if (replace) history.replaceState(st, "", url);
+      else history.pushState(st, "", url);
+    } catch (e) {}
+  }
+  function applySnapshot(st) {
+    if (!st) return;
+    HIST_SKIP = true;
+    try {
+      S.nav = st.nav || "home";
+      S.tab = st.tab || "Home";
+      S.q = st.q || "";
+      S.focus = st.focus || null;
+      S.lim = st.lim || {};
+      if ($("#searchInput")) $("#searchInput").value = S.q;
+      setNav(S.nav);
+      renderTabs();
+      if (st.detail && st.id && S.byId[st.id]) {
+        S.cur = S.byId[st.id];
+        S.season = st.season || 0;
+        S.ep = st.ep || 0;
+        S.qIdx = 0;
+        S.showAll = false;
+        renderDetail();
+      } else {
+        if (document.body.classList.contains("in-player")) {
+          // soft close without pushing history
+          stopRelated();
+          var v = $("#vid");
+          if (v) {
+            try { if (v._hls) { v._hls.destroy(); v._hls = null; } } catch (e) {}
+            v.pause(); v.removeAttribute("src"); v.load();
+          }
+          var p = $("#player");
+          if (p) { p.classList.add("hidden"); p.innerHTML = ""; }
+          document.body.classList.remove("in-player");
+          S.cur = null;
+        }
+        render();
+      }
+      window.scrollTo(0, 0);
+    } finally {
+      HIST_SKIP = false;
+    }
+  }
+  window.addEventListener("popstate", function (e) {
+    if (e.state) applySnapshot(e.state);
+    else {
+      // no state — leave site level; ensure player closed
+      if (document.body.classList.contains("in-player")) {
+        applySnapshot({ nav: "home", tab: "Home", q: "", focus: null, lim: {}, detail: false });
+      }
+    }
+  });
+
 
   // ---- detail ----
   function relatedHTML(it) {
@@ -575,6 +681,7 @@
     }
     syncWatchUrl();
     renderDetail();
+    pushHist(false);
   }
   function renderDetail() {
     var it = S.cur, seasons = it.seasons || [], vers = it.versions || [];
@@ -654,14 +761,10 @@
     var p = $("#player");
     p.classList.add("hidden"); p.innerHTML = "";
     document.body.classList.remove("in-player");
-    try {
-      var u = new URL(location.href);
-      u.searchParams.delete("v"); u.searchParams.delete("id"); u.searchParams.delete("s"); u.searchParams.delete("e");
-      var qs = u.searchParams.toString();
-      history.replaceState(null, "", u.pathname + (qs ? "?" + qs : ""));
-    } catch (e) {}
+    S.cur = null;
+    pushHist(false);
   }
-  function playEp(i) { S.ep = i; S.showAll = false; syncWatchUrl(); renderDetail(); }
+  function playEp(i) { S.ep = i; S.showAll = false; syncWatchUrl(); renderDetail(); pushHist(true); }
 
   // ---- custom player: double tap ±10s, hold for 2x, fit, PiP, volume, fullscreen ----
   function isDirectMedia(url) {
@@ -1308,16 +1411,18 @@
     if (e.target.closest("#loginBtn")) return toast("Login is not available in demo mode");
     if ((t = e.target.closest("[data-all]"))) return allFor(t.dataset.all);
     if ((t = e.target.closest("[data-more]"))) return moreFor(t.dataset.more);
-    if (e.target.closest("[data-reset]")) { S.focus = null; return render(); }
+    if (e.target.closest("[data-reset]")) { S.focus = null; render(); pushHist(false); return; }
     if ((t = e.target.closest("[data-id]"))) return openDetail(t.dataset.id);
     if ((t = e.target.closest("[data-tab]"))) {
       S.tab = t.dataset.tab; S.q = ""; $("#searchInput").value = ""; S.nav = "home";
-      resetViewState(); setNav("home"); renderTabs(); render(); window.scrollTo(0, 0); return;
+      resetViewState(); setNav("home"); renderTabs(); render(); window.scrollTo(0, 0);
+      pushHist(false); return;
     }
     if ((t = e.target.closest("[data-nav]"))) {
       S.nav = t.dataset.nav;
       if (S.nav === "home") { S.tab = "Home"; S.q = ""; $("#searchInput").value = ""; renderTabs(); }
       resetViewState(); setNav(S.nav); render(); window.scrollTo(0, 0);
+      pushHist(false);
     }
   });
   // Hero dots only. Sections never expand on scroll; only See more does that.
@@ -1404,9 +1509,14 @@
     var tag = function (arr, src) { return (arr.items || []).map(function (i) { i._src = src; return i; }); };
     S.cats = res[0].items || [];
     S.all = tag(res[2], "movies").concat(tag(res[3], "series"));
-    S.all.forEach(function (i) { S.byId[i.id] = i; });
+    S.all.forEach(function (i) {
+      if (i.category === "18+ Vmax") i.category = "Midnight";
+      if (i.category === "18+ JAV") { /* keep data name; tab maps via CAT_DATA */ }
+      S.byId[i.id] = i;
+    });
     S.carousel = (res[1].items || []).map(function (id) { return S.byId[id]; }).filter(Boolean);
     render();
     openFromQuery();
+    pushHist(true);
   }).catch(function () { $("#main").innerHTML = '<div class="empty">Could not load content.</div>'; });
 })();
