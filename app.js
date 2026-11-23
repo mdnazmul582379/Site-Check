@@ -788,7 +788,7 @@
           '<button class="pill' + (inList(it.id) ? ' on pill-on' : '') + '" id="addList" type="button">' + ic(inList(it.id) ? "check" : "plus", 16) + '<span>' + (inList(it.id) ? "In list" : "Add to list") + '</span></button>' +
           '<button class="pill' + (inLikes(it.id) ? ' on pill-heart' : '') + '" id="likeBtn" type="button">' + ic("heart", 16) + '<span>' + (inLikes(it.id) ? "Liked" : "Like") + '</span></button>' +
           '<button class="pill" id="share" type="button">' + ic("share", 16) + '<span>Share</span></button>' +
-          '<button class="pill dl-ico-btn is-off" id="dlBtn" type="button" aria-label="Download" disabled>' + ic("download", 18) + '</button></div>' +
+          '<button class="pill dl-btn is-off" id="dlBtn" type="button" aria-label="Download" disabled>' + ic("download", 16) + '<span>Download</span></button></div>' +
         resources + epHtml +
         relatedHTML(it) +
       '</div>';
