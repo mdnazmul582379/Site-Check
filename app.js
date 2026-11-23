@@ -125,10 +125,8 @@
       t.classList.remove("show");
       t.classList.add("toast-ok");
       t.innerHTML =
-        '<span class="toast-check" aria-hidden="true">' +
-          '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>' +
-        '</span>' +
-        '<span class="toast-msg">' + esc(msg || "Link copied") + '</span>';
+        '<span class="toast-check" aria-hidden="true">✓</span>' +
+        '<span class="toast-msg">' + esc(msg || "Done") + '</span>';
       void t.offsetWidth;
       t.classList.add("show");
       clearTimeout(t._h);
