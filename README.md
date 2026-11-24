@@ -12,7 +12,7 @@ Mobile-first static SPA for browsing and playing movies / series. The browser lo
 2. **Never remove** Terabox / worker settings from `config.js` unless the owner asks.
 3. **Do not invent** categories, tabs, or JSON fields that are not documented here.
 4. When adding catalog items, **prepend** them to the top of the relevant `items` array (newest first).
-5. Keep **full titles** — do not crop or “clean” titles from source data.
+5. Keep **full titles** — do not crop or “clean” titles from source data. Always keep the exact full title string as stored in the JSON (file_name / source title). Never shorten, translate, or “beautify” titles.
 6. After changing behavior (tabs, player, Me page, JSON shape), **update this README** in the same change so the next AI stays aligned.
 7. Only change what the owner asked for. Do not “drive-by” rewrite unrelated UI.
 8. Prefer small, reviewable commits. Do not force-push or rewrite history unless asked.
@@ -66,8 +66,8 @@ Mobile-first static SPA for browsing and playing movies / series. The browser lo
 
 Defined in `app.js`:
 
-- **`TABS` / `HOME_ORDER`:** Home, Trending, Movie, Series, Midnight, Anime, Kids, Desi Porn, Foreign Porn, JAV, Indo  
-- **`DIRECT_CATS`:** Midnight, Desi Porn, Foreign Porn, JAV, Indo — **no genre rows**; category carousel (first 10 of pool) + grid of the rest  
+- **`TABS` / `HOME_ORDER`:** Home, Trending, Movie, Series, Midnight, Anime, Kids, Desi Porn, Russian Porn, JAV, Indo  
+- **`DIRECT_CATS`:** Midnight, Desi Porn, Russian Porn, JAV, Indo — **no genre rows**; category carousel (first 10 of pool) + grid of the rest  
 - **`ADULT_TABS`:** shows a compact red **18** badge on the tab label (not the text prefix `"18+ …"`)  
 - **`CAT_DATA`:** maps display tab `JAV` → data category `"18+ JAV"` when filtering JSON  
 
@@ -307,6 +307,18 @@ Plain text (no chip/box), single line, near the bottom of the screen. Success ma
 - This repo cannot deploy Workers by itself; the owner updates Cloudflare Dashboard / Wrangler.
 
 ---
+
+
+
+---
+
+## Catalog update notes (2026-11-24)
+
+- **Movie** tab: all previous Movie items removed and replaced with the owner-supplied 15 titles (Drishyam series, The Ugly Stepsister, MCU entries, Jailer / Jailer 2). Titles are kept **exactly** as provided in source JSON — do not shorten.
+- Thumbs for these movies use TMDB original posters supplied by the owner.
+- **Carousel** reduced to **2** hero ids only: `XicM2103` (The Ugly Stepsister), `RhxX2562` (Jailer 2).
+- New category/tab: **Hentai** (placed after Anime). Marked adult (18 badge). Direct grid (no genre rows).
+- **Foreign Porn** renamed to **Russian Porn** everywhere (tabs, categories, JSON category field, DIRECT_CATS, ADULT_TABS).
 
 ## License / content note
 
