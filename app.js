@@ -8,10 +8,10 @@
   var CFG = Object.assign({ DEMO_VIDEO: "", DEMO_SOURCES: [], HERO_SLIDES: 15, PAGE: 5, PREVIEW: 20, STEP: 20 }, window.TFP_CONFIG || {});
   var FILES = { categories: "data/categories.json", carousel: "data/carousel.json", video: "data/video.json", series: "data/series.json" };
   var PAGE = CFG.PAGE, PREVIEW = CFG.PREVIEW;
-  var TABS = ["Home", "Trending", "Movie", "Series", "Midnight", "Anime", "Kids", "Desi Porn", "Foreign Porn", "JAV", "Indo"];
-  var HOME_ORDER = ["Trending", "Movie", "Series", "Midnight", "Anime", "Kids", "Desi Porn", "Foreign Porn", "JAV", "Indo"];
+  var TABS = ["Home", "Trending", "Movie", "Series", "Midnight", "Anime", "Hentai", "Kids", "Desi Porn", "Russian Porn", "JAV", "Indo"];
+  var HOME_ORDER = ["Trending", "Movie", "Series", "Midnight", "Anime", "Hentai", "Kids", "Desi Porn", "Russian Porn", "JAV", "Indo"];
   // Categories that skip genre rows: carousel (10) + direct grid.
-  var DIRECT_CATS = ["Midnight", "Desi Porn", "Foreign Porn", "JAV", "Indo"];
+  var DIRECT_CATS = ["Midnight", "Hentai", "Desi Porn", "Russian Porn", "JAV", "Indo"];
   // Tabs that show a compact 18+ badge (no "18+" text in the name).
   // Requests go through CFG.REQUEST_API (worker holds bot secrets)
   // Social links (owner can replace # later)
@@ -27,7 +27,7 @@
     { id: "pin", label: "Pinterest", color: "#E60023", href: "#pinterest",
       svg: '<path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.08 3.15 9.42 7.6 11.16-.1-.95-.2-2.4 0-3.44.22-.94 1.4-5.96 1.4-5.96s-.36-.72-.36-1.78c0-1.67.97-2.92 2.17-2.92 1.02 0 1.52.77 1.52 1.69 0 1.03-.66 2.57-1 4-.28 1.2.6 2.17 1.78 2.17 2.13 0 3.77-2.25 3.77-5.5 0-2.87-2.06-4.88-5.01-4.88-3.41 0-5.41 2.56-5.41 5.2 0 1.03.4 2.14.9 2.74.1.12.11.22.08.34l-.34 1.36c-.05.22-.17.27-.4.16-1.5-.7-2.44-2.89-2.44-4.65 0-3.78 2.75-7.26 7.92-7.26 4.16 0 7.4 2.96 7.4 6.92 0 4.13-2.6 7.45-6.22 7.45-1.21 0-2.36-.63-2.75-1.38l-.75 2.85c-.27 1.04-1 2.35-1.49 3.15C9.6 23.79 10.78 24 12 24c6.63 0 12-5.37 12-12S18.63 0 12 0z"/>' }
   ];
-  var ADULT_TABS = { "Midnight": 1, "Desi Porn": 1, "Foreign Porn": 1, "JAV": 1, "Indo": 1 };
+  var ADULT_TABS = { "Midnight": 1, "Hentai": 1, "Desi Porn": 1, "Russian Porn": 1, "JAV": 1, "Indo": 1 };
   // Map display tab → data category (legacy names in JSON).
   var CAT_DATA = { "JAV": "18+ JAV" };
   var S = {
