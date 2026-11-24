@@ -82,11 +82,31 @@
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
   function grad(it) { var h = (it && it.hue != null) ? it.hue : 210; return "linear-gradient(135deg,hsl(" + h + ",60%,36%),hsl(" + ((h + 50) % 360) + ",55%,12%))"; }
   function bg(it) { it = it || { hue: 0 }; return it.thumb ? 'background-image:url("' + esc(it.thumb) + '")' : "background:" + grad(it); }
-  function quality(it) { return it.quality || (it.versions && it.versions[0] ? it.versions[0].quality : ""); }
+  function selectedVersion(it) {
+    if (!it) return null;
+    if (it.versions && it.versions.length) {
+      var idx = (S.cur && S.cur.id === it.id) ? (S.qIdx || 0) : 0;
+      return it.versions[idx] || it.versions[0] || null;
+    }
+    return null;
+  }
+  function quality(it) {
+    var v = selectedVersion(it);
+    if (v && v.quality) return v.quality;
+    return it.quality || "";
+  }
+  function sizeOf(it) {
+    var v = selectedVersion(it);
+    if (v && v.size) return v.size;
+    return it.size || "";
+  }
   function metaLine(it) {
     var p = [it.year, it.genre, quality(it)];
     if (it.seasons && it.seasons.length) p.push(it.seasons.length + " seasons");
-    else if (it.size) p.push(it.size);
+    else {
+      var sz = sizeOf(it);
+      if (sz) p.push(sz);
+    }
     return p.filter(Boolean).join(" · ");
   }
   function streamOf(it) {
@@ -451,15 +471,43 @@
   }
   function catHeroHTML(list) {
     if (!list.length) return "";
-    var slides = list.slice(0, 10).map(heroSlide).join("");
-    var dots = list.slice(0, 10).map(function (_, i) { return "<i" + (i === 0 ? ' class="on"' : "") + "></i>"; }).join("");
+    var slides = list.slice(0, 15).map(heroSlide).join("");
+    var dots = list.slice(0, 15).map(function (_, i) { return "<i" + (i === 0 ? ' class="on"' : "") + "></i>"; }).join("");
     return '<div class="hero"><div class="hero-track" id="heroTrack">' + slides + '</div><div class="dots">' + dots + '</div></div>';
+  }
+  // Random unique hero slides for category carousels (never fixed order).
+  function pickHero(pool, n) {
+    n = n || 15;
+    if (!pool || !pool.length) return [];
+    return shuffle(pool.slice()).slice(0, Math.min(n, pool.length));
   }
   function renderTab() {
     var t = S.tab;
+    // Trending: adult-only pool + top random carousel (15)
+    if (t === "Trending") {
+      var pool = trendingList();
+      if (!pool.length) pool = S.all.filter(isAdultItem);
+      var heroItems = pickHero(pool, 15);
+      var heroIds = {};
+      heroItems.forEach(function (i) { heroIds[i.id] = true; });
+      var rest = pool.filter(function (i) { return !heroIds[i.id]; });
+      var key = "C|Trending";
+      var lim = S.focus === key ? (S.lim[key] || PREVIEW) : PREVIEW;
+      var shown = rest.slice(0, Math.min(lim, rest.length));
+      var more = rest.length > shown.length
+        ? '<div class="more-row"><button class="more-btn" type="button" data-more="' + esc(key) + '">See more</button></div>'
+        : "";
+      S._directSec = sec(key, t, rest, PREVIEW, true);
+      $("#main").innerHTML = catHeroHTML(heroItems) +
+        (shown.length ? '<div class="sec-head"><h2>More <small>' + rest.length + '</small></h2></div><div class="vgrid">' + shown.map(vcard).join("") + '</div>' + more : "");
+      S.hero = 0;
+      startHero();
+      return;
+    }
     if (DIRECT_CATS.indexOf(t) > -1) {
       var pool = byCategory(S.all, t);
-      var heroItems = pool.slice(0, 10);
+      // Random 15 from this category each time (unique shuffle)
+      var heroItems = pickHero(pool, 15);
       var heroIds = {};
       heroItems.forEach(function (i) { heroIds[i.id] = true; });
       var rest = pool.filter(function (i) { return !heroIds[i.id]; });
@@ -1688,7 +1736,11 @@
   }
   function openDD(kind) {
     var it = S.cur;
-    if (kind === "q") openSheet("Quality", it.versions.map(function (v) { return v.quality + (v.size ? " · " + v.size : ""); }), S.qIdx, function (i) { S.qIdx = i; renderDetail(); });
+    if (kind === "q") openSheet("Quality", it.versions.map(function (v) { return v.quality + (v.size ? " · " + v.size : ""); }), S.qIdx, function (i) {
+      S.qIdx = i;
+      // Force full detail+player rebuild so meta, download, and terabox resolve use the new version
+      renderDetail();
+    });
     else openSheet("Season", it.seasons.map(function (s, i) { return s.name || ("Season " + String(i + 1).padStart(2, "0")); }), S.season, function (i) { S.season = i; S.ep = 0; S.showAll = false; syncWatchUrl(); renderDetail(); });
   }
 
