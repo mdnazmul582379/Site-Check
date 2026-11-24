@@ -1,18 +1,31 @@
 # TeraFast Play (Site-Check)
 
-Static, mobile-first catalog UI for browsing movies and series. Data is driven by local JSON files under `data/`. There is no backend in this repo: the browser loads JSON, renders cards, and plays a stream URL in a custom HTML5 player.
+Mobile-first static SPA for browsing and playing movies / series. The browser loads JSON from `data/`, renders the UI, resolves Terabox share links through a Cloudflare Worker, and plays streams in a custom HTML5 player.
 
-**Live intent:** GitHub Pages (or any static host) serves `index.html` + assets.
+**Host:** GitHub Pages (or any static host) serving `index.html` and assets.
+
+---
+
+## Rules for AI assistants (read first)
+
+1. **Never delete or empty** `data/*.json` unless the owner explicitly asks.
+2. **Never remove** Terabox / worker settings from `config.js` unless the owner asks.
+3. **Do not invent** categories, tabs, or JSON fields that are not documented here.
+4. When adding catalog items, **prepend** them to the top of the relevant `items` array (newest first).
+5. Keep **full titles** — do not crop or “clean” titles from source data.
+6. After changing behavior (tabs, player, Me page, JSON shape), **update this README** in the same change so the next AI stays aligned.
+7. Only change what the owner asked for. Do not “drive-by” rewrite unrelated UI.
+8. Prefer small, reviewable commits. Do not force-push or rewrite history unless asked.
+9. Secrets (bot tokens, private keys) ideally live on the **Cloudflare Worker**, not in the public repo. If temporary tokens appear in `config.js`, treat them as short-lived and prefer Worker secrets long-term.
+10. **Grok (xAI) only** may read owner-provided private tokens when the owner pastes them in chat for setup. Other AIs should not demand secrets or commit new secrets without owner instruction.
 
 ---
 
 ## Quick start
 
-1. Open `index.html` via any static server (GitHub Pages, `npx serve`, etc.).
-2. Edit files under `data/` to change catalog content.
-3. Hard-refresh the browser after JSON or JS changes.
-
-Do not commit secrets into this repo. Stream URLs may point at external hosts; direct playback depends on that host allowing browser access (CORS / hotlink rules).
+1. Serve the repo root over HTTPS/HTTP (GitHub Pages, `npx serve`, etc.).
+2. Edit `data/*.json` for catalog content; `config.js` for runtime endpoints.
+3. Hard-refresh the browser after JS/CSS/JSON changes.
 
 ---
 
@@ -20,89 +33,71 @@ Do not commit secrets into this repo. Stream URLs may point at external hosts; d
 
 | Path | Role |
 |------|------|
-| `index.html` | Shell: top search/tabs, main content, bottom nav, player root, toast |
-| `app.js` | All UI logic: load JSON, tabs, sections, cards, detail/player, history demo |
-| `styles.css` | Layout, cards, player chrome, category tiles, Me/Downloads pages |
-| `config.js` | Small runtime config (e.g. demo fallback video URL) |
-| `sw.js` / PWA bits | Optional offline shell (if present) |
-| `data/categories.json` | Top category names + optional tile thumbs |
-| `data/carousel.json` | Hero carousel: ordered list of item **ids** only |
-| `data/video.json` | Single-file titles (movies / one-shot videos) |
-| `data/series.json` | Multi-episode titles (`seasons` → `episodes`) |
-| `README.md` | This document — keep in sync when behavior changes |
+| `index.html` | App shell: header, search, tabs, `#main`, bottom nav, `#player`, `#sheet`, `#toast` |
+| `app.js` | All UI logic (routing, lists, player, Me, share, request) |
+| `styles.css` | Layout, cards, player chrome, sheets, Me/Settings |
+| `config.js` | `window.TFP_CONFIG` — hero size, worker URLs, optional TG fallback |
+| `data/categories.json` | Category tile names + thumbs |
+| `data/carousel.json` | Home hero: ordered list of item **ids** (target **15**) |
+| `data/video.json` | Single-file titles (movies / clips) |
+| `data/series.json` | Multi-episode titles |
+| `worker-request-route.js` | Reference Cloudflare Worker handler for `/request` (Telegram) |
+| `README.md` | This file — keep in sync with code |
 
 ---
 
-## How the app loads data
+## Config (`config.js`)
 
-On startup, `app.js` fetches:
-
-1. `data/categories.json`
-2. `data/carousel.json`
-3. `data/video.json`
-4. `data/series.json`
-
-Items from `video.json` and `series.json` are merged into one list (`S.all`). Each item is tagged with `_src` (`movies` or `series`) at runtime only (not stored in files).
-
-**Home tab:** one horizontal row per category in `HOME_ORDER` (see `app.js`), five cards each, with **All ›**.
-
-**Category tab (e.g. Movie):** rows per **genre** inside that category (five cards + All).
-
-**All on Home:** switches to that category tab and scrolls the tab bar so the active tab is visible.
-
-**Search:** filters `S.all` by title / genre / category text.
+| Key | Meaning |
+|-----|---------|
+| `HERO_SLIDES` | Home hero slide count (currently **15**) |
+| `PAGE` | Cards per section preview on Home genre/category rows (5) |
+| `PREVIEW` | Initial grid size for direct categories / expanded lists (20) |
+| `STEP` | “See more” increment |
+| `DEMO_VIDEO` / `DEMO_SOURCES` | Fallback media if resolve fails |
+| `TERABOX_API` | Worker URL that resolves Terabox share links → playable URL |
+| `PRACTICE_KEY` | Header `X-Practice-Key` for the worker |
+| `REQUEST_API` | Worker URL for movie/series requests (`POST` JSON) |
+| `TG_BOT_TOKEN` / `TG_CHAT_ID` | Optional temporary client-side Telegram fallback if worker does not return `{ ok: true }` |
 
 ---
 
+## Tabs and categories
 
-## Direct categories (no genre rows)
+Defined in `app.js`:
 
-These categories skip genre grouping. On the category tab the UI shows:
+- **`TABS` / `HOME_ORDER`:** Home, Trending, Movie, Series, Midnight, Anime, Kids, Desi Porn, Foreign Porn, JAV, Indo  
+- **`DIRECT_CATS`:** Midnight, Desi Porn, Foreign Porn, JAV, Indo — **no genre rows**; category carousel (first 10 of pool) + grid of the rest  
+- **`ADULT_TABS`:** shows a compact red **18** badge on the tab label (not the text prefix `"18+ …"`)  
+- **`CAT_DATA`:** maps display tab `JAV` → data category `"18+ JAV"` when filtering JSON  
 
-1. A **carousel of the first 10** items in that category  
-2. A **grid of the remaining** items (first 20, then See more)
+**Legacy:** `"18+ Vmax"` items are normalized to category **`Midnight`** at load time. Do not reintroduce a separate Vmax tab unless the owner asks.
 
-Configured in `app.js` as `DIRECT_CATS`:
+`categories.json` `name` values should match tab/category names used in data (JAV, not `"18+ JAV"`, for the tile label).
 
-- Midnight  
-- Desi Porn  
-- Foreign Porn  
-- 18+ Vmax  
-- 18+ JAV  
-- Indo  
+---
 
-Other categories (Movie, Series, Anime, …) still use **genre rows** (5 cards + All).
+## How data loads
 
-## Search
+On startup `app.js` fetches:
 
-- **While typing:** up to 5 live suggestions under the search field (tap a row to open).  
-- **Search button / submit:** full Results page (section title once — not duplicated).  
+1. `data/categories.json`  
+2. `data/carousel.json`  
+3. `data/video.json`  
+4. `data/series.json`  
 
-## Player “related” block
+`video` + `series` items merge into `S.all` / `S.byId`.
 
-Below the player: carousel of up to 10 items from the **same category**, then a grid of **10 different** items from that pool. Not a genre row of 5.
+| Screen | Behavior |
+|--------|----------|
+| **Home** | Hero from `carousel.json` (up to `HERO_SLIDES`). Category tiles. One row per `HOME_ORDER` entry (5 cards + **All**). |
+| **Home → All** | Switches to that category tab (does not expand in place). Tab bar scrolls active tab into view. |
+| **Genre category** (Movie, Series, Anime, …) | Rows grouped by **genre**; 5 cards + All / See more. |
+| **Direct category** | Hero = first **10** items of that category (array order). Grid = remaining; See more uses `PREVIEW` / `STEP`. |
+| **Search** | Filters by title / genre / category; live suggest + results. |
+| **Trending** | Driven by local click counts (`tfp_views`), excluding pure carousel-only logic as implemented in code. |
 
-## Downloads page
-
-Title only (no Transfer, no Downloaded/Local/Received tabs). Empty state + random **For You** grid; **Refresh new content** reshuffles the grid.
-
-## Categories and genres
-
-Top-level **category** values used by tabs and Home rows (must stay consistent with `TABS` / `HOME_ORDER` in `app.js` and `categories.json`):
-
-- Trending  
-- Movie  
-- Series  
-- Midnight  
-- Anime  
-- Kids  
-- Desi Porn  
-- Foreign Porn  
-- 18+ Vmax  
-- 18+ JAV  
-- Indo  
-
-**genre** is a sub-label inside a category (e.g. Action, Romance, Drama). Home rows are categories; inside a category tab, rows are genres.
+**Ordering rule for editors/AI:** always **prepend** new items to `items[]` so “newest” stay first. Carousel ids in `carousel.json` should list the preferred hero order (keep ~15 ids that exist in video/series).
 
 ---
 
@@ -118,29 +113,26 @@ Top-level **category** values used by tabs and Home rows (must stay consistent w
 }
 ```
 
-- `name` — must match a category used in items / tabs  
-- `thumb` — optional; category tile background  
-
 ### `data/carousel.json`
 
 ```json
 {
-  "items": ["avms689", "wVcg397", "tr_vblA2"]
+  "items": ["id1", "id2", "id3"]
 }
 ```
 
-Ids must exist in `video.json` or `series.json`.
+Ids must exist in `video.json` or `series.json`. Prefer **15** ids for the home hero.
 
-### `data/video.json` — single stream (movie / one-shot)
+### `data/video.json` — single title (movie / clip)
 
-**One quality only** — do **not** include `versions`:
+**One quality** — omit `versions`:
 
 ```json
 {
   "items": [
     {
-      "id": "avms689",
-      "title": "Full original title from source, not cropped",
+      "id": "uniqueId",
+      "title": "Full original title from source",
       "category": "Movie",
       "genre": "Thriller",
       "year": "2015",
@@ -153,52 +145,53 @@ Ids must exist in `video.json` or `series.json`.
 }
 ```
 
-**Two or more qualities** — add `versions` (each with its own `stream`). Root `stream` / `quality` / `size` should match the preferred default entry:
+**Multiple qualities** — include `versions` (each with its own `stream`). Root `stream` / `quality` / `size` = default:
 
 ```json
 {
-  "id": "zTIy418",
+  "id": "uniqueId",
   "title": "Full title",
-  "category": "18+ Vmax",
+  "category": "Midnight",
   "genre": "Romance",
-  "year": "2026",
+  "year": "2024",
   "thumb": "https://cdn.example.com/poster.jpg",
-  "stream": "https://1024terabox.com/s/1080p-link",
+  "stream": "https://1024terabox.com/s/1080p",
   "quality": "1080p",
   "size": "1.31 GB",
   "versions": [
-    { "quality": "1080p", "size": "1.31 GB", "stream": "https://1024terabox.com/s/1080p-link" },
-    { "quality": "720p",  "size": "503.80 MB", "stream": "https://1024terabox.com/s/720p-link" }
+    { "quality": "1080p", "size": "1.31 GB", "stream": "https://1024terabox.com/s/1080p" },
+    { "quality": "720p", "size": "500 MB", "stream": "https://1024terabox.com/s/720p" }
   ]
 }
 ```
 
-UI rule: the **Resources → Quality** dropdown is shown only when `versions.length > 1`.
+Quality dropdown in the UI appears only when `versions.length > 1`.
 
-### `data/series.json` — episodes only carry stream / quality / size
+**Do not use:** `hue`, `tags`, `kind`, `trending` as required fields (not part of the active schema).
 
-- **No** top-level `stream`, `quality`, or `size` on the series object.  
-- **No** per-episode `title` (the series `title` is enough; the UI lists `Episode N`).  
-- **Season `name`:** omit when there is only **one** season. Required when there are **two or more** seasons.
+### `data/series.json` — episodes own the streams
 
-**Single season:**
+- No required top-level `stream` / `quality` / `size` on the series object.  
+- **One season only:** you may omit a fancy season name or use a single season entry.  
+- **Episode objects** carry `stream` (and optional `quality` / `size` if needed by future UI).
 
 ```json
 {
-  "id": "wVcg397",
-  "title": "Adhuri Pyaas",
-  "category": "Series",
-  "genre": "Romance",
-  "year": "2023",
-  "thumb": "https://cdn.example.com/poster.jpg",
-  "seasons": [
+  "items": [
     {
-      "episodes": [
+      "id": "s101",
+      "title": "Series title",
+      "category": "Series",
+      "genre": "Drama",
+      "year": "2023",
+      "thumb": "https://cdn.example.com/poster.jpg",
+      "seasons": [
         {
-          "no": 1,
-          "stream": "https://1024terabox.com/s/....",
-          "quality": "1080p",
-          "size": "451.63 MB"
+          "name": "Season 01",
+          "episodes": [
+            { "no": 1, "title": "Episode 1", "stream": "https://1024terabox.com/s/ep1" },
+            { "no": 2, "title": "Episode 2", "stream": "https://1024terabox.com/s/ep2" }
+          ]
         }
       ]
     }
@@ -206,174 +199,115 @@ UI rule: the **Resources → Quality** dropdown is shown only when `versions.len
 }
 ```
 
-**Multiple seasons:**
-
-```json
-{
-  "id": "show01",
-  "title": "Example Show",
-  "category": "Series",
-  "genre": "Drama",
-  "year": "2024",
-  "thumb": "https://cdn.example.com/poster.jpg",
-  "seasons": [
-    {
-      "name": "Season 01",
-      "episodes": [
-        { "no": 1, "stream": "https://...", "quality": "720p", "size": "400 MB" },
-        { "no": 2, "stream": "https://...", "quality": "720p", "size": "410 MB" }
-      ]
-    },
-    {
-      "name": "Season 02",
-      "episodes": [
-        { "no": 1, "stream": "https://...", "quality": "1080p", "size": "800 MB" }
-      ]
-    }
-  ]
-}
-```
-
-Playback resolution order in `streamOf()`:
-
-1. Current episode `stream` (if `seasons` exist)  
-2. Selected `versions[i].stream` (multi-quality movies)  
-3. Item `stream`  
-4. `config.js` demo fallback  
+For a single-season show, one `seasons[]` entry is enough. Episode titles are optional if you only show numbers.
 
 ---
-
-## Fields reference
-
-| Field | Used on | Notes |
-|-------|---------|--------|
-| `id` | all | Stable unique string; carousel references this |
-| `title` | all | Full display title; do not crop source names |
-| `category` | all | Top tab / Home row |
-| `genre` | all | Row inside a category tab |
-| `year` | optional | Shown in meta when present |
-| `thumb` | all | Poster URL (16:9 cards) |
-| `stream` | movies only | Primary play URL |
-| `quality` / `size` | movies; episodes | Meta line / episode meta |
-| `versions` | movies only | Only if **2+** qualities |
-| `seasons` | series only | Array of `{ name?, episodes[] }` |
-| `episodes[].no` | series | Episode number |
-| `episodes[].stream` | series | Required per episode |
-
-**Removed / do not add:** `hue`, `tags`, `kind`, `trending`, root-level `stream`/`quality`/`size` on series, episode `title`, JSON root `_note`.
-
----
-
-## UI behavior (for feature edits)
-
-- **Tabs:** `TABS` and `HOME_ORDER` in `app.js` must stay aligned with category names in data.  
-- **Home All ›:** jumps to that category tab (`allFor` on keys `H|CategoryName`).  
-- **Category All ›:** expands that genre section in place (See more / Back).  
-- **Watch History (Me):** compact 16:9 cards, last 10 demo items; no All control.  
-- **Me page:** no standalone “Me” page title above the login card.  
-- **Downloads:** empty state with download icon + For You grid.  
-- **Player:** custom controls (play, seek, mute, speed, fullscreen, lock). Orient / Fit / PiP buttons removed. Single-tap toggles chrome (MX-style); speed menu is centered and closes on outside tap or idle. Quality sheet only if multiple `versions`; season sheet only if multiple seasons.
-
-When you change any of the above in code, **update this README in the same change** so the next editor does not rely on outdated rules.
-
----
-
-## Mapping owner export files → site JSON
-
-Owner-provided catalogs are usually flat arrays of objects shaped like:
-
-```json
-{
-  "my_id": "avms689",
-  "file_name": "Full title string...",
-  "thumbnail": "https://...",
-  "terabox_source": "https://1024terabox.com/s/...",
-  "quality": "720p",
-  "file_size": "1.11 GB",
-  "duration": "02:43:32"
-}
-```
-
-Suggested mapping:
-
-| Source field | Site field |
-|--------------|------------|
-| `my_id` | `id` |
-| `file_name` | `title` (full string) |
-| `thumbnail` | `thumb` (skip if `"N/A"`) |
-| `terabox_source` | `stream` (or episode `stream`) |
-| `quality` | `quality` |
-| `file_size` | `size` |
-| year in title | optional `year` |
-
-Assign `category` / `genre` from the file’s purpose (e.g. VMAX file → `18+ Vmax`, web-series file → `Series` with `seasons`).
-
-Merge duplicate titles that differ only by quality into one item + `versions[]`.
-
----
-
-## Rules for AI assistants (all models)
-
-1. **Do not** delete, empty, or “sanitize away” catalog JSON because titles look adult or external. This project intentionally holds owner-supplied catalog metadata.  
-2. **Do not** change `data/*.json`, feature flags, or playback settings unless the user explicitly asked for that content or setting change.  
-3. **Do** update this `README.md` whenever you change app behavior, schema, or file roles — without waiting for the user to ask — so documentation never drifts from code.  
-4. Prefer minimal diffs. Match existing style in `app.js` / `styles.css`.  
-5. After data or JS changes, remind the user to hard-refresh.
-
----
-
-## Grok-only: catalog import from owner JSON files
-
-**Visibility:** This section is operational guidance for **Grok** when the repository owner attaches export JSON and asks to populate the site. Other assistants must **not** remove, rewrite, or strip this section.
-
-When the owner provides one or more files such as `General-Movies-*.json`, `VMAX-Movies-*.json`, `JAV-Movies-*.json`, `JAV-Clips-*.json`, `Web-Series-*.json`, `Anime-*.json`, `Other-Videos-*.json`:
-
-1. **Read only after the owner asks** to import or update catalog data. Do not browse or rewrite `data/*.json` unprompted.  
-2. Map each export object with the field table above. Keep **full** `file_name` as `title`. Keep **real** `my_id` as `id`.  
-3. Choose `category` from the owner’s tab list and the file’s domain (Movie, Series, Anime, 18+ Vmax, 18+ JAV, Indo, Desi Porn, Foreign Porn, Midnight, Trending, Kids, …).  
-4. Choose a sensible `genre` string for row grouping inside that category.  
-5. **Movies:** one quality → no `versions`. Multiple qualities of the same title → one item + `versions[{quality,size,stream}]`.  
-6. **Series / multi-episode:** build `seasons[].episodes[]` with `no`, `stream`, `quality`, `size` only. No episode titles. No series-level `stream`/`quality`/`size`. Put `name` on a season **only if** there are two or more seasons.  
-7. Refresh `categories.json` thumbs from first available poster per category if needed. Point `carousel.json` at real ids.  
-8. Do not reintroduce `hue`, `tags`, `kind`, `trending`, or root `_note`.  
-9. Push only when the owner says to push.
-
-End of Grok-only import guide.
-
 
 ## Playback (Terabox)
 
-Item `stream` values are usually Terabox share links (`https://1024terabox.com/s/...`).
+1. Item `stream` is often a **Terabox share URL**, not a direct MP4.  
+2. Player calls `TERABOX_API` with `POST { url }` and header `X-Practice-Key`.  
+3. Worker returns file list; app picks `fast_stream_url` (best quality) or `stream_url`.  
+4. Plays via `<video>` + **hls.js** when the URL is HLS.  
+5. Poster + 3D-style spinner until playback starts.  
+6. Download button enables when a `download_url` (or equivalent) is present; click opens the file URL in a new tab so the browser/CDN can start the download.
 
-On open, the player:
+Demo fallback video is used only if resolve fails and `DEMO_VIDEO` is set.
 
-1. Shows the item **thumbnail** + spinner  
-2. `POST`s the share URL to `TFP_CONFIG.TERABOX_API` with `X-Practice-Key`  
-3. Plays `fast_stream_url` (preferred) or `stream_url`  
-4. Hides poster when `playing` fires  
-5. On failure tries the alternate URL, then optional `DEMO_VIDEO`
+---
 
-Direct `.mp4` / `.m3u8` links skip the API. HLS uses `hls.js` from CDN.
+## Custom player (summary)
 
+- Gestures: horizontal seek; right/center vertical **volume** (0–200% with Web Audio gain when available); left vertical **brightness** (0–1).  
+- Volume HUD: **0–100% green** fill; **100–200% red** fill (bar resets at 100%).  
+- Lock control, speed menu, aspect modes, fullscreen on the `.vp` container (not native video chrome).  
+- Share: bottom sheet (Facebook, X, Telegram, WhatsApp, Reddit) + copy link (deep link `?v=&s=&e=` for series).  
+- Related: compact carousel + “More like this” grid from the same category pool.
 
-## Deep links & Share
+---
 
-Share builds a link from the **current page origin** (no hard-coded domain):
+## Me page
 
-`https://your-host/path/?v=ITEM_ID`
+| Row | Behavior |
+|-----|----------|
+| Login card | Guest label (“Browsing as guest”); login is demo toast only |
+| My List / My Likes | `localStorage` ids (`tfp_list`, `tfp_likes`); detail page toggles |
+| Watch History | Horizontal recent cards (current implementation uses catalog slice; views in `tfp_views`) |
+| Our Social Media | Bottom sheet icon row (`SOCIAL_LINKS` in `app.js` — replace `#` hrefs with real URLs) |
+| Request Movie / Series | Form: name, year (4 digits), contact → `sendRequestToChannel` |
+| Settings | Toggles (`tfp_pref_*`), clear list/likes/views, **Clear account data** |
 
-For series, optional episode position:
+### Request pipeline
 
-`?v=SERIES_ID&s=0&e=2` — season index `s` and episode index `e` (0-based).
+1. Prefer `POST REQUEST_API` with practice key; success body must be `{ "ok": true }` after a real Telegram send.  
+2. If worker is not ready, fallback to Telegram Bot API using `TG_BOT_TOKEN` + `TG_CHAT_ID` in config (temporary).  
+3. Production: put token/chat id in **Worker secrets** and use `worker-request-route.js` as the `/request` handler.
 
-Opening that URL loads the catalog then opens that item (and episode). Share uses `navigator.share` when available, otherwise copies the link.
+---
 
+## In-app back button
 
-## Data order (for AI / editors)
+`history.pushState` / `popstate` track tab, nav, focus, and detail so the phone back key steps through UI instead of exiting immediately.
 
-When adding titles to `data/video.json` or `data/series.json`:
+Deep links: `?v=ITEM_ID`, optional `&s=seasonIndex&e=episodeIndex`.
 
-1. **Prepend** new items at the **top** of the `items` array (do not append at the bottom).
-2. Each category’s **carousel uses the first 10** items of that category in array order.
-3. The remaining items show as grid cards in the same order.
-4. Keep existing ids stable; never reshuffle old entries unless the owner asks.
+---
+
+## localStorage keys
+
+| Key | Use |
+|-----|-----|
+| `tfp_list` | My List ids (JSON array) |
+| `tfp_likes` | My Likes ids |
+| `tfp_views` | Click counts object |
+| `tfp_pref_autoplay` | Settings toggle |
+| `tfp_pref_wifiDl` | Settings toggle |
+| `tfp_pref_reduceMotion` | Settings toggle |
+
+---
+
+## Toasts
+
+Plain text (no chip/box), single line, near the bottom of the screen. Success may prefix `✓`.
+
+---
+
+## Editing checklist (for humans and AIs)
+
+**Add movies**
+
+1. Prepend objects to `data/video.json` → `items`.  
+2. Set `category` to a known tab category.  
+3. Optional: put new ids at the front of `data/carousel.json` (keep ~15).  
+4. Ensure `thumb` and `stream` are valid HTTPS URLs.
+
+**Add series**
+
+1. Prepend to `data/series.json` with `seasons[].episodes[].stream`.  
+2. Same category/genre rules as movies.
+
+**Change tabs**
+
+1. Update `TABS`, `HOME_ORDER`, `DIRECT_CATS`, `ADULT_TABS`, `CAT_DATA` in `app.js` together.  
+2. Update `categories.json`.  
+3. Update this README.
+
+**Do not**
+
+- Strip adult categories or data without owner order.  
+- Replace custom player with a third-party player unless asked.  
+- Commit unrelated reformatting of entire `app.js` / `styles.css`.
+
+---
+
+## Cloudflare Worker (optional ops)
+
+- **Terabox resolve:** already pointed at `TERABOX_API`.  
+- **Requests:** implement `/request` using `worker-request-route.js`; set secrets `TG_BOT_TOKEN`, `TG_CHAT_ID`, `PRACTICE_KEY`.  
+- This repo cannot deploy Workers by itself; the owner updates Cloudflare Dashboard / Wrangler.
+
+---
+
+## License / content note
+
+Demo and catalog URLs are owner-supplied placeholders for UI development. Respect source and hosting terms when deploying publicly.
