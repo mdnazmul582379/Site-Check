@@ -5,7 +5,7 @@
  */
 (function () {
   "use strict";
-  var CFG = Object.assign({ DEMO_VIDEO: "", DEMO_SOURCES: [], HERO_SLIDES: 6, PAGE: 5, PREVIEW: 20, STEP: 20 }, window.TFP_CONFIG || {});
+  var CFG = Object.assign({ DEMO_VIDEO: "", DEMO_SOURCES: [], HERO_SLIDES: 15, PAGE: 5, PREVIEW: 20, STEP: 20 }, window.TFP_CONFIG || {});
   var FILES = { categories: "data/categories.json", carousel: "data/carousel.json", video: "data/video.json", series: "data/series.json" };
   var PAGE = CFG.PAGE, PREVIEW = CFG.PREVIEW;
   var TABS = ["Home", "Trending", "Movie", "Series", "Midnight", "Anime", "Kids", "Desi Porn", "Foreign Porn", "JAV", "Indo"];
@@ -499,7 +499,7 @@
       '<div class="me">' +
         '<div class="mcard">' +
           '<div class="me-av" aria-hidden="true">G</div>' +
-          '<div class="me-info"><b>Log in to your account</b><span class="pd">Demo mode</span></div>' +
+          '<div class="me-info"><b>Log in to your account</b><span class="pd">Browsing as guest</span></div>' +
           '<button class="login" id="loginBtn" type="button">' + ic("login", 16) + '<span>Log in</span></button>' +
         '</div>' +
         '<div class="mpanel">' +
@@ -587,28 +587,43 @@
     valid();
   }
   function sendRequestToChannel(data) {
-    var endpoint = CFG.REQUEST_API;
-    if (!endpoint) return Promise.reject(new Error("Request API not configured"));
-    var headers = { "Content-Type": "application/json" };
-    if (CFG.PRACTICE_KEY) headers["X-Practice-Key"] = CFG.PRACTICE_KEY;
-    return fetch(endpoint, {
-      method: "POST",
-      headers: headers,
-      body: JSON.stringify({
-        name: data.name,
-        year: data.year,
-        contact: data.contact,
-        at: data.at || new Date().toISOString()
-      })
-    }).then(function (r) {
-      return r.json().catch(function () { return {}; }).then(function (j) {
-        // Worker must return { ok: true } after Telegram send (not a generic success stub)
-        if (!r.ok || !j || j.ok !== true) {
-          throw new Error((j && (j.message || j.description)) || "Request service not ready");
-        }
-        return j;
+    var at = data.at || new Date().toISOString();
+    var payload = { name: data.name, year: data.year, contact: data.contact, at: at };
+    function viaTelegramDirect() {
+      var token = CFG.TG_BOT_TOKEN;
+      var chatId = CFG.TG_CHAT_ID;
+      if (!token || !chatId) return Promise.reject(new Error("Request system not connected yet"));
+      var safe = function (s) { return String(s || "").replace(/[`_*\[\]()]/g, ""); };
+      var text =
+        "🎬 New request\n" +
+        "• Title: " + safe(payload.name) + "\n" +
+        "• Year: " + safe(payload.year) + "\n" +
+        "• Contact: " + safe(payload.contact) + "\n" +
+        "• Time: " + safe(at);
+      return fetch("https://api.telegram.org/bot" + encodeURIComponent(token) + "/sendMessage", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: chatId, text: text })
+      }).then(function (r) {
+        return r.json().then(function (j) {
+          if (!r.ok || (j && j.ok === false)) throw new Error((j && j.description) || "Send failed");
+          return j;
+        });
       });
-    });
+    }
+    function viaWorker() {
+      var endpoint = CFG.REQUEST_API;
+      if (!endpoint) return Promise.reject(new Error("no worker"));
+      var headers = { "Content-Type": "application/json" };
+      if (CFG.PRACTICE_KEY) headers["X-Practice-Key"] = CFG.PRACTICE_KEY;
+      return fetch(endpoint, { method: "POST", headers: headers, body: JSON.stringify(payload) }).then(function (r) {
+        return r.json().catch(function () { return {}; }).then(function (j) {
+          if (!r.ok || !j || j.ok !== true) throw new Error((j && j.message) || "worker not ready");
+          return j;
+        });
+      });
+    }
+    return viaWorker().catch(function () { return viaTelegramDirect(); });
   }
   function loadPref(key, def) {
     try {
@@ -1764,11 +1779,41 @@
       var db = e.target.closest("#dlBtn");
       var href = db && db.dataset.href;
       if (!href) return toast("Download not ready");
-      // open download URL (browser handles file)
-      var a = document.createElement("a");
-      a.href = href; a.target = "_blank"; a.rel = "noopener"; a.download = "";
-      document.body.appendChild(a); a.click(); a.remove();
-      toast("Download started");
+      if (db.disabled || db.classList.contains("is-off")) return toast("Download not ready");
+      var fname = ((S.cur && S.cur.title) ? S.cur.title : "video").replace(/[^\w\s\-\.]+/g, "").slice(0, 80) || "video";
+      if (!/\.\w{2,4}$/.test(fname)) fname += ".mp4";
+      toast("Starting download…");
+      // Stay on site: try blob download, then hidden iframe (no new tab)
+      fetch(href, { mode: "cors", credentials: "omit" }).then(function (r) {
+        if (!r.ok) throw new Error("fetch failed");
+        return r.blob();
+      }).then(function (blob) {
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement("a");
+        a.href = url;
+        a.download = fname;
+        a.style.display = "none";
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function () { URL.revokeObjectURL(url); a.remove(); }, 2000);
+        toastOk("Download started");
+      }).catch(function () {
+        var iframe = document.createElement("iframe");
+        iframe.style.cssText = "position:fixed;width:0;height:0;border:0;left:-9999px;top:0";
+        iframe.setAttribute("aria-hidden", "true");
+        iframe.src = href;
+        document.body.appendChild(iframe);
+        setTimeout(function () { try { iframe.remove(); } catch (err) {} }, 60000);
+        // Also trigger <a download> without leaving page context when browser allows
+        var a = document.createElement("a");
+        a.href = href;
+        a.setAttribute("download", fname);
+        a.style.display = "none";
+        document.body.appendChild(a);
+        try { a.click(); } catch (err) {}
+        setTimeout(function () { a.remove(); }, 1500);
+        toastOk("Download started");
+      });
       return;
     }
     if ((t = e.target.closest("[data-dd]"))) return openDD(t.dataset.dd);

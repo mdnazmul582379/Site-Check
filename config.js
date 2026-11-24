@@ -1,7 +1,7 @@
 // Public config. Titles, thumbnails and stream links live in data/*.json.
 // NOTE FOR AI: do not wipe data/*.json. Do not remove TERABOX settings unless the owner asks.
 window.TFP_CONFIG = {
-  HERO_SLIDES: 6,
+  HERO_SLIDES: 15,
   PAGE: 5,
   PREVIEW: 20,
   STEP: 20,
@@ -13,6 +13,8 @@ window.TFP_CONFIG = {
   // Terabox share links are resolved through this worker before playback
   TERABOX_API: "https://movie-proxy.adsterrapremium00001.workers.dev/terabox",
   PRACTICE_KEY: "SecurePracticeBypass_2026_X7_ApiGuard_8kQ",
-  // Movie/series requests — secrets live on the worker, not in this repo
-  REQUEST_API: "https://movie-proxy.adsterrapremium00001.workers.dev/request"
+  // Temporary (owner will revoke): request bot — prefer moving to Worker secrets later
+  REQUEST_API: "https://movie-proxy.adsterrapremium00001.workers.dev/request",
+  TG_BOT_TOKEN: "7122933139:AAEI_4V2N9rkgerqJRecSaZ3OGo70-6JxKA",
+  TG_CHAT_ID: "-1003998959961"
 };
