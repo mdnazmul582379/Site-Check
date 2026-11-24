@@ -1780,40 +1780,19 @@
       var href = db && db.dataset.href;
       if (!href) return toast("Download not ready");
       if (db.disabled || db.classList.contains("is-off")) return toast("Download not ready");
+      // Direct file URL — browser starts download / shows CDN download page
+      var a = document.createElement("a");
+      a.href = href;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      // hint filename when same-origin; cross-origin CDN still controls response
       var fname = ((S.cur && S.cur.title) ? S.cur.title : "video").replace(/[^\w\s\-\.]+/g, "").slice(0, 80) || "video";
       if (!/\.\w{2,4}$/.test(fname)) fname += ".mp4";
-      toast("Starting download…");
-      // Stay on site: try blob download, then hidden iframe (no new tab)
-      fetch(href, { mode: "cors", credentials: "omit" }).then(function (r) {
-        if (!r.ok) throw new Error("fetch failed");
-        return r.blob();
-      }).then(function (blob) {
-        var url = URL.createObjectURL(blob);
-        var a = document.createElement("a");
-        a.href = url;
-        a.download = fname;
-        a.style.display = "none";
-        document.body.appendChild(a);
-        a.click();
-        setTimeout(function () { URL.revokeObjectURL(url); a.remove(); }, 2000);
-        toastOk("Download started");
-      }).catch(function () {
-        var iframe = document.createElement("iframe");
-        iframe.style.cssText = "position:fixed;width:0;height:0;border:0;left:-9999px;top:0";
-        iframe.setAttribute("aria-hidden", "true");
-        iframe.src = href;
-        document.body.appendChild(iframe);
-        setTimeout(function () { try { iframe.remove(); } catch (err) {} }, 60000);
-        // Also trigger <a download> without leaving page context when browser allows
-        var a = document.createElement("a");
-        a.href = href;
-        a.setAttribute("download", fname);
-        a.style.display = "none";
-        document.body.appendChild(a);
-        try { a.click(); } catch (err) {}
-        setTimeout(function () { a.remove(); }, 1500);
-        toastOk("Download started");
-      });
+      try { a.setAttribute("download", fname); } catch (err) {}
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      toastOk("Download started");
       return;
     }
     if ((t = e.target.closest("[data-dd]"))) return openDD(t.dataset.dd);
