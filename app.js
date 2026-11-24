@@ -166,11 +166,17 @@
   function itemsFromIds(ids) {
     return ids.map(function (id) { return S.byId[id]; }).filter(Boolean);
   }
-  // Trending = most clicked items, excluding the carousel (those are already in the hero).
+  // Trending = adult catalog only (not mainstream Movie/Series/Kids), ranked by clicks.
+  // Adult categories: Midnight, Hentai, Desi Porn, Russian Porn, JAV, Indo.
+  var TREND_ADULT = { "Midnight": 1, "Hentai": 1, "Desi Porn": 1, "Russian Porn": 1, "JAV": 1, "Indo": 1, "18+ JAV": 1 };
+  function isAdultItem(i) {
+    var c = i.category || "";
+    return !!(TREND_ADULT[c] || ADULT_TABS[c]);
+  }
   function trendingList() {
     var inCar = {};
     S.carousel.forEach(function (i) { inCar[i.id] = true; });
-    return S.all.filter(function (i) { return !inCar[i.id]; })
+    return S.all.filter(function (i) { return !inCar[i.id] && isAdultItem(i); })
       .map(function (it, idx) { return { it: it, idx: idx }; })
       .sort(function (a, b) { return (S.views[b.it.id] || 0) - (S.views[a.it.id] || 0) || a.idx - b.idx; })
       .map(function (x) { return x.it; });
@@ -773,17 +779,7 @@
         renderDetail();
       } else {
         if (document.body.classList.contains("in-player")) {
-          // soft close without pushing history
-          stopRelated();
-          var v = $("#vid");
-          if (v) {
-            try { if (v._hls) { v._hls.destroy(); v._hls = null; } } catch (e) {}
-            v.pause(); v.removeAttribute("src"); v.load();
-          }
-          var p = $("#player");
-          if (p) { p.classList.add("hidden"); p.innerHTML = ""; }
-          document.body.classList.remove("in-player");
-          S.cur = null;
+          softCloseDetail();
         }
         render();
       }
@@ -868,7 +864,8 @@
       var cur = location.pathname + location.search;
       var n = new URL(next);
       var want = n.pathname + n.search;
-      if (cur !== want) history.replaceState(null, "", want);
+      // Keep history state object — never replaceState(null) or phone-back loses the stack.
+      if (cur !== want) history.replaceState(snapshot(), "", want);
     } catch (e) {}
   }
   function openFromQuery() {
@@ -977,6 +974,18 @@
     startRelated();
   }
   function closeDetail() {
+    // Prefer browser back so every in-app step (tab → focus → detail) is restored.
+    // If no history entry, soft-close and replaceState.
+    if (document.body.classList.contains("in-player") && history.length > 1) {
+      try {
+        history.back();
+        return;
+      } catch (e) {}
+    }
+    softCloseDetail();
+    pushHist(true);
+  }
+  function softCloseDetail() {
     stopRelated();
     var v = $("#vid");
     if (v) {
@@ -984,10 +993,9 @@
       v.pause(); v.removeAttribute("src"); v.load();
     }
     var p = $("#player");
-    p.classList.add("hidden"); p.innerHTML = "";
+    if (p) { p.classList.add("hidden"); p.innerHTML = ""; }
     document.body.classList.remove("in-player");
     S.cur = null;
-    pushHist(false);
   }
   function playEp(i) { S.ep = i; S.showAll = false; syncWatchUrl(); renderDetail(); pushHist(true); }
 
@@ -1723,7 +1731,10 @@
       if (kind === "history") { toast("Watch history shows recent titles below"); return; }
       return;
     }
-    if (e.target.closest("[data-me-back]")) { renderMe(); pushHist(false); return; }
+    if (e.target.closest("[data-me-back]")) {
+      if (history.length > 1) { try { history.back(); return; } catch (err) {} }
+      renderMe(); pushHist(true); return;
+    }
     if ((t = e.target.closest("[data-social-href]"))) {
       var href = t.getAttribute("data-social-href") || "#";
       closeSheet();
