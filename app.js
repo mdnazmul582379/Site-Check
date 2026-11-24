@@ -602,8 +602,9 @@
       })
     }).then(function (r) {
       return r.json().catch(function () { return {}; }).then(function (j) {
-        if (!r.ok || (j && j.ok === false)) {
-          throw new Error((j && (j.message || j.description)) || ("Send failed (" + r.status + ")"));
+        // Worker must return { ok: true } after Telegram send (not a generic success stub)
+        if (!r.ok || !j || j.ok !== true) {
+          throw new Error((j && (j.message || j.description)) || "Request service not ready");
         }
         return j;
       });
