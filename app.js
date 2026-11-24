@@ -13,11 +13,7 @@
   // Categories that skip genre rows: carousel (10) + direct grid.
   var DIRECT_CATS = ["Midnight", "Desi Porn", "Foreign Porn", "JAV", "Indo"];
   // Tabs that show a compact 18+ badge (no "18+" text in the name).
-  // Request form → Telegram bot (set token + chatId when ready)
-  var REQUEST_BOT = {
-    token: "", // e.g. "123456:ABC-DEF..."
-    chatId: "" // channel/group id e.g. "-100..."
-  };
+  // Requests go through CFG.REQUEST_API (worker holds bot secrets)
   // Social links (owner can replace # later)
   var SOCIAL_LINKS = [
     { id: "tg", label: "Telegram", color: "#2AABEE", href: "#telegram",
@@ -547,7 +543,7 @@
       '<div class="sh-panel share-panel req-panel">' +
         '<div class="grip"></div>' +
         '<div class="sh-t" style="text-align:center;margin-bottom:4px">Request Movie / Series</div>' +
-        '<p class="req-hint">Fill every field. We review requests and add when available.</p>' +
+        '<p class="req-hint">Enter title, year and contact — then send.</p>' +
         '<form class="req-form" id="reqForm" autocomplete="on">' +
           '<label class="req-field"><span>Title / Name</span><input id="reqName" type="text" maxlength="120" placeholder="Movie or series name" required></label>' +
           '<label class="req-field"><span>Year</span><input id="reqYear" type="text" inputmode="numeric" maxlength="4" placeholder="e.g. 2024" required></label>' +
@@ -591,33 +587,26 @@
     valid();
   }
   function sendRequestToChannel(data) {
-    var token = REQUEST_BOT.token;
-    var chatId = REQUEST_BOT.chatId;
-    var text =
-      "🎬 *New request*\n" +
-      "• Title: `" + data.name.replace(/[`_*\[]/g, "") + "`\n" +
-      "• Year: `" + data.year + "`\n" +
-      "• Contact: `" + data.contact.replace(/[`_*\[]/g, "") + "`\n" +
-      "• Time: `" + data.at + "`";
-    if (!token || !chatId) {
-      // System ready — owner has not set bot credentials yet
-      return Promise.reject(new Error("Request system not connected yet"));
-    }
-    var url = "https://api.telegram.org/bot" + encodeURIComponent(token) + "/sendMessage";
-    return fetch(url, {
+    var endpoint = CFG.REQUEST_API;
+    if (!endpoint) return Promise.reject(new Error("Request API not configured"));
+    var headers = { "Content-Type": "application/json" };
+    if (CFG.PRACTICE_KEY) headers["X-Practice-Key"] = CFG.PRACTICE_KEY;
+    return fetch(endpoint, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: headers,
       body: JSON.stringify({
-        chat_id: chatId,
-        text: text,
-        parse_mode: "Markdown"
+        name: data.name,
+        year: data.year,
+        contact: data.contact,
+        at: data.at || new Date().toISOString()
       })
     }).then(function (r) {
-      if (!r.ok) throw new Error("Send failed (" + r.status + ")");
-      return r.json();
-    }).then(function (j) {
-      if (j && j.ok === false) throw new Error(j.description || "Telegram error");
-      return j;
+      return r.json().catch(function () { return {}; }).then(function (j) {
+        if (!r.ok || (j && j.ok === false)) {
+          throw new Error((j && (j.message || j.description)) || ("Send failed (" + r.status + ")"));
+        }
+        return j;
+      });
     });
   }
   function loadPref(key, def) {

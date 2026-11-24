@@ -12,5 +12,7 @@ window.TFP_CONFIG = {
   ],
   // Terabox share links are resolved through this worker before playback
   TERABOX_API: "https://movie-proxy.adsterrapremium00001.workers.dev/terabox",
-  PRACTICE_KEY: "SecurePracticeBypass_2026_X7_ApiGuard_8kQ"
+  PRACTICE_KEY: "SecurePracticeBypass_2026_X7_ApiGuard_8kQ",
+  // Movie/series requests — secrets live on the worker, not in this repo
+  REQUEST_API: "https://movie-proxy.adsterrapremium00001.workers.dev/request"
 };
