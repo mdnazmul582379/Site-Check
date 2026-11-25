@@ -204,10 +204,31 @@
 
   // ---- sections: preview, See more (+40 first, then +20 each), focus ----
   function sec(key, title, list, preview, mixed) { return { key: key, title: title, list: list, preview: preview, mixed: !!mixed }; }
-  function genresOf(list) { var g = []; list.forEach(function (i) { if (g.indexOf(i.genre) < 0) g.push(i.genre); }); return g; }
+  // Multi-genre: "Crime, Thriller" or "Action, Sci-Fi" → separate section tags.
+  // Split on comma only (not spaces) so one post can appear in 2+ genre rows.
+  function genreTags(it) {
+    var raw = (it && it.genre) ? String(it.genre) : "";
+    if (!raw) return [];
+    return raw.split(",").map(function (s) { return s.trim(); }).filter(Boolean);
+  }
+  function genresOf(list) {
+    var g = [];
+    list.forEach(function (i) {
+      genreTags(i).forEach(function (t) {
+        if (g.indexOf(t) < 0) g.push(t);
+      });
+    });
+    return g;
+  }
   function bySrc(src) { return S.all.filter(function (i) { return i._src === src; }); }
   function isAnime(i) { return !!(i.tags && i.tags.indexOf("anime") > -1); }
-  function byGenre(list, g) { return list.filter(function (i) { return i.genre === g; }); }
+  function byGenre(list, g) {
+    return list.filter(function (i) {
+      var tags = genreTags(i);
+      if (tags.length) return tags.indexOf(g) > -1;
+      return i.genre === g;
+    });
+  }
   function dataCat(name) { return CAT_DATA[name] || name; }
   function byCategory(list, c) {
     c = dataCat(c);
@@ -219,8 +240,9 @@
   function genresIn(list) {
     var g = [];
     list.forEach(function (i) {
-      var name = i.genre || "";
-      if (name && g.indexOf(name) < 0) g.push(name);
+      genreTags(i).forEach(function (t) {
+        if (g.indexOf(t) < 0) g.push(t);
+      });
     });
     return g;
   }
@@ -232,7 +254,8 @@
         var trend = trendingList();
         if (trend.length) list = trend;
       }
-      return sec("H|" + name, name, list, PAGE);
+      // Random order so multi-genre posts are not always stacked in fixed serial
+      return sec("H|" + name, name, shuffle(list.slice()), PAGE);
     });
   }
   function tabSections() {
@@ -248,10 +271,20 @@
         return [sec("C|" + t, t, pool, PREVIEW, true)];
       }
       var gens = genresIn(pool);
-      if (!gens.length) return [sec("C|" + t, t, pool, PREVIEW, true)];
-      return gens.map(function (g) {
-        return sec("C|" + t + "|" + g, g, byGenre(pool, g), PAGE);
+      if (!gens.length) return [sec("C|" + t, t, shuffle(pool.slice()), PREVIEW, true)];
+      // Each genre row: random order (not fixed serial) so same multi-genre post
+      // is not always first in every section when scrolling down.
+      var rows = gens.map(function (g) {
+        return sec("C|" + t + "|" + g, g, shuffle(byGenre(pool, g).slice()), PAGE);
       });
+      // Movie tab: append Midnight category posts at the bottom (same section style)
+      if (t === "Movie") {
+        var mid = byCategory(S.all, "Midnight");
+        if (mid.length) {
+          rows.push(sec("C|Movie|Midnight", "Midnight", shuffle(mid.slice()), PAGE));
+        }
+      }
+      return rows;
     }
     if (t === "All") {
       return [sec("A|All", "All", S.all, PREVIEW, true)].concat(
