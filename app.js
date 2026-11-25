@@ -277,12 +277,11 @@
       var rows = gens.map(function (g) {
         return sec("C|" + t + "|" + g, g, shuffle(byGenre(pool, g).slice()), PAGE);
       });
-      // Movie tab: append Midnight category posts at the bottom (same section style)
-      if (t === "Movie") {
-        var mid = byCategory(S.all, "Midnight");
-        if (mid.length) {
-          rows.push(sec("C|Movie|Midnight", "Midnight", shuffle(mid.slice()), PAGE));
-        }
+      // Every genre-based tab ends with a Midnight section (same style as Movie).
+      // DIRECT_CATS never reach here — they use carousel + grid only.
+      var mid = byCategory(S.all, "Midnight");
+      if (mid.length) {
+        rows.push(sec("C|" + t + "|Midnight", "Midnight", shuffle(mid.slice()), PAGE));
       }
       return rows;
     }
