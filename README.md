@@ -67,7 +67,7 @@ Mobile-first static SPA for browsing and playing movies / series. The browser lo
 Defined in `app.js`:
 
 - **`TABS` / `HOME_ORDER`:** Home, Trending, Movie, Series, Midnight, Anime, Kids, Desi Porn, Russian Porn, JAV, Indo  
-- **`DIRECT_CATS`:** Midnight, Desi Porn, Russian Porn, JAV, Indo — **no genre rows**; category carousel (first 10 of pool) + grid of the rest  
+- **`DIRECT_CATS`:** Midnight, Hentai, Desi Porn, Russian Porn, JAV, Indo — **no genre rows**; random 15-item category carousel + grid of the rest  
 - **`ADULT_TABS`:** shows a compact red **18** badge on the tab label (not the text prefix `"18+ …"`)  
 - **`CAT_DATA`:** maps display tab `JAV` → data category `"18+ JAV"` when filtering JSON  
 
@@ -278,13 +278,14 @@ Plain text (no chip/box), single line, near the bottom of the screen. Success ma
 
 1. Prepend objects to `data/video.json` → `items`.  
 2. Set `category` to a known tab category.  
-3. Optional: put new ids at the front of `data/carousel.json` (keep ~15).  
-4. Ensure `thumb` and `stream` are valid HTTPS URLs.
+3. Set `genre` to **two real genres from Google**, comma-separated (see Genre rules).  
+4. Optional: put new ids at the front of `data/carousel.json` (Home hero only).  
+5. Ensure `thumb` and `stream` are valid HTTPS URLs; use `versions[]` for multi-quality.
 
 **Add series**
 
 1. Prepend to `data/series.json` with `seasons[].episodes[].stream`.  
-2. Same category/genre rules as movies.
+2. Same category + **two Google genres** rules as movies.
 
 **Change tabs**
 
@@ -311,6 +312,41 @@ Plain text (no chip/box), single line, near the bottom of the screen. Success ma
 
 
 ---
+
+
+---
+
+## Genre rules (all categories that use genre rows)
+
+Applies to **Movie**, **Series**, **Anime**, **Kids**, and any future tab that is **not** in `DIRECT_CATS`.
+
+### Two real genres per item
+
+1. Every catalog item that has a `genre` field **must** list **exactly two real genres**, comma-separated:
+   - Correct: `"Crime, Thriller"`, `"Action, Sci-Fi"`, `"Horror, Fantasy"`, `"Action, Comedy"`
+   - Wrong: `"Crime Thriller"` (no comma → one fake combined label)
+   - Wrong: only one genre when a second real one exists
+2. **Source of truth for the two genres:** Google the official title (IMDb / Google knowledge panel / Wikipedia). Use the **two primary genres** shown there (e.g. Google shows `Thriller/Crime` → store `"Thriller, Crime"` or `"Crime, Thriller"`).
+3. Do **not** invent genres. Do **not** use marketing words (`Hot`, `Full Movie`, quality strings) as genre.
+4. The UI splits on **comma only**. One item can appear in **two genre rows** on purpose — that is correct.
+
+### Section order and randomness
+
+1. Genre rows are built from all unique tags found in that category’s pool.
+2. **Inside each genre row**, items are shown in **random order** every time the tab is rendered (not a fixed serial list). This avoids the same multi-genre title always sitting first in every row.
+3. **After all genre rows**, every genre-based tab appends a final section titled **Midnight** filled with items whose `category` is `Midnight` (random order, same card UI). Same system as the Movie tab footer.
+
+### Direct (no genre rows)
+
+`DIRECT_CATS` — Midnight, Hentai, Desi Porn, Russian Porn, JAV, Indo — **do not** use genre rows. They use a **random 15-item category carousel** + grid. Home hero still follows `data/carousel.json` only.
+
+### Checklist when adding/editing JSON
+
+1. Set `category` to a known tab name.
+2. Set `genre` to **two Google-verified genres**, comma-separated.
+3. Keep the **full original title** (never shorten).
+4. Valid HTTPS `thumb` + `stream` (and `versions[]` when multiple qualities exist).
+
 
 ## Catalog update notes (2026-11-24)
 
