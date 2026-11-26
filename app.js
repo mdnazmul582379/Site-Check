@@ -1059,6 +1059,7 @@
         '<div class="vp-poster" id="vpPoster">' +
           (it.thumb ? '<img src="' + esc(it.thumb) + '" alt="" decoding="async" referrerpolicy="no-referrer">' : '') +
           '<div class="vp-dim"></div><div class="vp-spin" aria-hidden="true"></div>' +
+          '<div class="vp-err" aria-hidden="true">!</div>' +
           '<div class="vp-load-msg" id="vpLoadMsg">Loading stream…</div>' +
         '</div>' +
         '<div class="vp-gest" id="vpGest"></div>' +
@@ -1148,6 +1149,7 @@
         '<div class="vp-poster" id="vpPoster">' +
           (it.thumb ? '<img src="' + esc(it.thumb) + '" alt="" decoding="async" referrerpolicy="no-referrer">' : '') +
           '<div class="vp-dim"></div><div class="vp-spin" aria-hidden="true"></div>' +
+          '<div class="vp-err" aria-hidden="true">!</div>' +
           '<div class="vp-load-msg" id="vpLoadMsg">Loading stream…</div>' +
         '</div>' +
         '<div class="vp-gest" id="vpGest"></div>' +
@@ -1204,8 +1206,7 @@
     if (eps.length && i >= eps.length) i = eps.length - 1;
 
     var p = $("#player");
-    // Not in player yet → full open
-    if (!p || p.classList.contains("hidden") || !p.querySelector("#vp")) {
+    if (!p || p.classList.contains("hidden") || !p.querySelector("#vp") || !p.querySelector("#vid")) {
       S.ep = i;
       S.showAll = false;
       syncWatchUrl();
@@ -1218,7 +1219,7 @@
     S.showAll = false;
     syncWatchUrl();
 
-    // 1) Active chip only — strip stays mounted (scrollLeft preserved)
+    // Chips + smooth scroll (strip never unmounted)
     var bar = p.querySelector(".eps");
     if (bar) {
       var chips = bar.querySelectorAll("button.ep");
@@ -1229,11 +1230,10 @@
       }
       var epList = p.querySelector(".ep-list");
       if (epList) epList.remove();
-      // 2) Smooth ease from current offset → center active
       scrollActiveEp(true);
     }
 
-    // 3) Title / meta
+    // Title / meta only
     var displayTitle = it.title;
     var epMetaExtra = "";
     var _ep = eps[S.ep];
@@ -1256,7 +1256,6 @@
       metaEl.textContent = parts.filter(Boolean).join(" · ");
     }
 
-    // 4) Reset download pill
     var dlBtn = $("#dlBtn");
     if (dlBtn) {
       dlBtn.disabled = true;
@@ -1265,23 +1264,12 @@
       try { delete dlBtn.dataset.href; } catch (e) { dlBtn.removeAttribute("data-href"); }
     }
 
-    // 5) Rebuild only the video stage (new nodes = clean listeners). Episode strip untouched.
-    var oldVp = $("#vp");
-    if (oldVp) {
-      try {
-        var ov = $("#vid");
-        if (ov) {
-          try { if (ov._hls) { ov._hls.destroy(); ov._hls = null; } } catch (e1) {}
-          try { ov.pause(); ov.removeAttribute("src"); ov.load(); } catch (e2) {}
-        }
-      } catch (e3) {}
-      oldVp.outerHTML = playerStageHtml(it);
-      attachPlayer();
-    } else {
-      renderDetail();
-    }
+    // Same player shell: only re-resolve stream (URL already updated via syncWatchUrl)
+    if (typeof S._reloadStream === "function") S._reloadStream();
+    else renderDetail();
     pushHist(true);
   }
+
 
   // ---- custom player: double tap ±10s, hold for 2x, fit, PiP, volume, fullscreen ----
   function isDirectMedia(url) {
@@ -1429,72 +1417,129 @@
     var triedFallback = false;
     var resolved = null;
 
-    function showPoster(msg) {
-      if (poster) poster.classList.remove("hide");
+    var suppressError = false;
+    var streamArmed = false; // true only after we intentionally set a playable URL
+    var failTimer = null;
+    S._playerSeq = (S._playerSeq || 0) + 1;
+    var thisPlayer = S._playerSeq;
+
+    function showPoster(msg, isErr) {
+      if (poster) {
+        poster.classList.remove("hide");
+        poster.classList.toggle("is-error", !!isErr);
+      }
       if (loadMsg) loadMsg.textContent = msg || "Loading stream…";
+      if (vp) vp.classList.toggle("has-error", !!isErr);
     }
     function hidePoster() {
-      if (poster) poster.classList.add("hide");
+      if (poster) {
+        poster.classList.add("hide");
+        poster.classList.remove("is-error");
+      }
+      if (vp) vp.classList.remove("has-error");
+      if (failTimer) { clearTimeout(failTimer); failTimer = null; }
     }
+    // Only hard-fail when we are sure. Never toast.
     function failPlay(msg) {
-      showPoster(msg || "Playback failed");
-      if (loadMsg) loadMsg.textContent = msg || "Playback failed";
-      toast(msg || "Could not play this video");
+      if (thisPlayer !== S._playerSeq) return;
+      suppressError = true;
+      streamArmed = false;
+      if (failTimer) { clearTimeout(failTimer); failTimer = null; }
+      if (vp) vp.classList.remove("loading");
+      showPoster(msg || "Stream could not be played", true);
     }
 
-    showPoster("Resolving stream…");
-    var raw = streamOf(S.cur);
-    var myGen = resolveGen;
-    resolveStream(raw).then(function (ex) {
-      if (myGen !== resolveGen) return;
-      if (!$("#vid") || $("#vid") !== v) return;
-      resolved = ex;
-      // reveal Download after API returns
-      var dlBtn = $("#dlBtn");
-      if (dlBtn && ex.downloadUrl) {
-        dlBtn.dataset.href = ex.downloadUrl;
-        dlBtn.disabled = false;
-        dlBtn.classList.remove("is-off");
-        dlBtn.classList.add("is-on");
-      }
-      showPoster(ex.usingFast ? "Starting fast stream…" : "Starting stream…");
-      attachMedia(v, ex.playUrl, hlsRef);
-      v.volume = 1;
-      v.muted = false;
-      volLevel = 1;
-      v.play().then(function () {
-        // Prefer unmuted playback at full native level
-        v.muted = false;
+    function quietClearMedia() {
+      suppressError = true;
+      streamArmed = false;
+      try { if (hlsRef.hls) { hlsRef.hls.destroy(); hlsRef.hls = null; } } catch (e) {}
+      try {
+        v.pause();
+        v.removeAttribute("src");
+        v.load();
+      } catch (e2) {}
+      // Brief window: ignore error events from teardown
+      setTimeout(function () { if (thisPlayer === S._playerSeq) suppressError = false; }, 80);
+    }
+
+    function beginResolve() {
+      if (thisPlayer !== S._playerSeq) return;
+      triedFallback = false;
+      resolved = null;
+      streamArmed = false;
+      if (failTimer) { clearTimeout(failTimer); failTimer = null; }
+      if (vp) { vp.classList.add("loading"); vp.classList.remove("has-error"); }
+      showPoster("Resolving stream…", false);
+      quietClearMedia();
+      var raw = streamOf(S.cur);
+      var myGen = resolveGen;
+      resolveStream(raw).then(function (ex) {
+        if (myGen !== resolveGen || thisPlayer !== S._playerSeq) return;
+        if (!$("#vid") || $("#vid") !== v) return;
+        resolved = ex;
+        var dlBtn = $("#dlBtn");
+        if (dlBtn && ex.downloadUrl) {
+          dlBtn.dataset.href = ex.downloadUrl;
+          dlBtn.disabled = false;
+          dlBtn.classList.remove("is-off");
+          dlBtn.classList.add("is-on");
+        } else if (dlBtn) {
+          dlBtn.disabled = true;
+          dlBtn.classList.add("is-off");
+          dlBtn.classList.remove("is-on");
+        }
+        showPoster(ex.usingFast ? "Starting fast stream…" : "Starting stream…", false);
+        suppressError = false;
+        streamArmed = true;
+        attachMedia(v, ex.playUrl, hlsRef);
         v.volume = 1;
-      }).catch(function () {
-        v.muted = true;
-        return v.play();
-      }).catch(function () {});
-    }).catch(function (err) {
-      if (myGen !== resolveGen) return;
-      if (err && err.name === "AbortError") return;
-      if (err && String(err.message || "") === "stale") return;
-      // last resort demo only if no real link path worked
-      var demo = CFG.DEMO_VIDEO;
-      if (demo) {
-        showPoster("Using demo fallback…");
-        attachMedia(v, demo, hlsRef);
-        v.play().catch(function () {});
-        toast((err && err.message) || "Stream resolve failed – demo fallback");
-      } else {
-        failPlay((err && err.message) || "Stream resolve failed");
-      }
-    });
+        v.muted = false;
+        volLevel = 1;
+        v.play().then(function () {
+          v.muted = false;
+          v.volume = 1;
+        }).catch(function () {
+          v.muted = true;
+          return v.play();
+        }).catch(function () {});
+      }).catch(function (err) {
+        if (myGen !== resolveGen || thisPlayer !== S._playerSeq) return;
+        if (err && err.name === "AbortError") return;
+        if (err && String(err.message || "") === "stale") return;
+        // Real resolve failure — show in-player error only (no toast)
+        failPlay("Stream could not be played");
+      });
+    }
+
+    // Episode switch / quality change: reload stream without rebuilding the page
+    S._reloadStream = function () {
+      if (thisPlayer !== S._playerSeq) return;
+      abortActiveResolve();
+      beginResolve();
+    };
+
+    beginResolve();
 
     v.addEventListener("error", function () {
+      if (thisPlayer !== S._playerSeq) return;
+      if (suppressError || !streamArmed) return;
       if (resolved && resolved.fallbackUrl && !triedFallback) {
         triedFallback = true;
-        showPoster("Retrying standard stream…");
+        showPoster("Retrying standard stream…", false);
+        suppressError = true;
         attachMedia(v, resolved.fallbackUrl, hlsRef);
+        setTimeout(function () { if (thisPlayer === S._playerSeq) suppressError = false; }, 80);
         v.play().catch(function () {});
         return;
       }
-      failPlay("Stream could not be played");
+      // Debounce: only mark failed if still not playing after a short wait
+      if (failTimer) clearTimeout(failTimer);
+      failTimer = setTimeout(function () {
+        failTimer = null;
+        if (thisPlayer !== S._playerSeq) return;
+        if (!v || v.readyState >= 2 || !v.paused && !v.error) return;
+        failPlay("Stream could not be played");
+      }, 600);
     });
     v.addEventListener("playing", function () { hidePoster(); });
     v.addEventListener("canplay", function () { /* keep poster until playing for smoother handoff */ });

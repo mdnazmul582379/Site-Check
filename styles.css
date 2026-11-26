@@ -931,3 +931,17 @@ button.mrow .mv em{font-style:normal;font-weight:700;color:var(--muted)}
   opacity:.4;cursor:not-allowed;filter:grayscale(.2)
 }
 .req-send:not(:disabled):active{transform:scale(.98)}
+
+
+/* In-player hard error (no toast) */
+.vp-err{
+  display:none;width:52px;height:52px;border-radius:50%;
+  align-items:center;justify-content:center;
+  font-size:28px;font-weight:800;color:#fff;line-height:1;
+  background:rgba(220,40,40,.92);box-shadow:0 4px 20px rgba(0,0,0,.45);
+  position:relative;z-index:2;margin-bottom:10px
+}
+.vp-poster.is-error .vp-spin{display:none!important}
+.vp-poster.is-error .vp-err{display:flex}
+.vp-poster.is-error .vp-load-msg{color:#fda4a4;font-weight:650}
+.vp.has-error{/* keep chrome usable */}
