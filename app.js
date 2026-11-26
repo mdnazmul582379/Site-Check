@@ -204,6 +204,10 @@
 
   // ---- sections: preview, See more (+40 first, then +20 each), focus ----
   function sec(key, title, list, preview, mixed) { return { key: key, title: title, list: list, preview: preview, mixed: !!mixed }; }
+  function sectionTitle(title) {
+    if (title === "Midnight") return "[18+] Midnight";
+    return title || "";
+  }
   // Multi-genre: "Crime, Thriller" or "Action, Sci-Fi" → separate section tags.
   // Split on comma only (not spaces) so one post can appear in 2+ genre rows.
   function genreTags(it) {
@@ -339,7 +343,7 @@
     var body = expanded
       ? '<div class="vgrid">' + shown.map(vcard).join("") + '</div>'
       : '<div class="vrow">' + shown.map(vcard).join("") + '</div>';
-    var head = '<div class="sec-head"><h2>' + esc(s.title) + ' <small>' + n + '</small></h2>' +
+    var head = '<div class="sec-head"><h2>' + esc(sectionTitle(s.title)) + ' <small>' + n + '</small></h2>' +
       (!expanded && n > PAGE ? '<button class="all-btn" type="button" data-all="' + esc(s.key) + '">All ' + ic("chevR", 14) + '</button>' : '') + '</div>';
     var more = expanded && lim < n ? '<div class="more-row"><button class="see-more" type="button" data-more="' + esc(s.key) + '">See more</button></div>' : "";
     return '<section class="grp">' + head + body + more + '</section>';
@@ -792,6 +796,18 @@
     if (typeof bar.scrollTo === "function") bar.scrollTo({ left: left, behavior: "smooth" });
     else bar.scrollLeft = left;
   }
+  function scrollActiveEp() {
+    var bar = document.querySelector("#player .eps") || document.querySelector(".eps");
+    if (!bar) return;
+    var btn = bar.querySelector("button.ep.on");
+    if (!btn) return;
+    var left = btn.offsetLeft - (bar.clientWidth - btn.offsetWidth) / 2;
+    var max = Math.max(0, bar.scrollWidth - bar.clientWidth);
+    if (left < 0) left = 0;
+    if (left > max) left = max;
+    if (typeof bar.scrollTo === "function") bar.scrollTo({ left: left, behavior: "smooth" });
+    else bar.scrollLeft = left;
+  }
   function setNav(name) { document.querySelectorAll("[data-nav]").forEach(function (b) { b.classList.toggle("active", b.dataset.nav === name); }); }
   function resetViewState() { S.lim = {}; S.focus = null; }
 
@@ -963,6 +979,7 @@
     } catch (e) {}
   }
   function openDetail(id, season, ep) {
+    abortActiveResolve();
     var it = S.byId[id]; if (!it) return;
     countView(id);
     S.cur = it;
@@ -1068,6 +1085,7 @@
     p.classList.remove("hidden");
     document.body.classList.add("in-player");
     attachPlayer();
+    requestAnimationFrame(function () { requestAnimationFrame(scrollActiveEp); });
     startRelated();
   }
   function closeDetail() {
@@ -1083,6 +1101,7 @@
     pushHist(true);
   }
   function softCloseDetail() {
+    abortActiveResolve();
     stopRelated();
     var v = $("#vid");
     if (v) {
@@ -1094,7 +1113,14 @@
     document.body.classList.remove("in-player");
     S.cur = null;
   }
-  function playEp(i) { S.ep = i; S.showAll = false; syncWatchUrl(); renderDetail(); pushHist(true); }
+  function playEp(i) {
+    abortActiveResolve();
+    S.ep = i;
+    S.showAll = false;
+    syncWatchUrl();
+    renderDetail();
+    pushHist(true);
+  }
 
   // ---- custom player: double tap ±10s, hold for 2x, fit, PiP, volume, fullscreen ----
   function isDirectMedia(url) {
@@ -1124,28 +1150,87 @@
     if (!downloadUrl) downloadUrl = playUrl || fallback || null;
     return { playUrl: playUrl, fallbackUrl: fallback, usingFast: usingFast, downloadUrl: downloadUrl };
   }
+  // Stream resolve: abort stale requests + sessionStorage cache (2 hours)
+  var STREAM_CACHE_KEY = "tfp_stream_cache_v1";
+  var STREAM_TTL_MS = 2 * 60 * 60 * 1000;
+  var resolveGen = 0;
+  function readStreamCache() {
+    try {
+      var o = JSON.parse(sessionStorage.getItem(STREAM_CACHE_KEY) || "{}");
+      return o && typeof o === "object" ? o : {};
+    } catch (e) { return {}; }
+  }
+  function writeStreamCache(map) {
+    try { sessionStorage.setItem(STREAM_CACHE_KEY, JSON.stringify(map)); } catch (e) {}
+  }
+  function getCachedStream(raw) {
+    var map = readStreamCache();
+    var hit = map[raw];
+    if (!hit || !hit.playUrl) return null;
+    if (!hit.exp || Date.now() > hit.exp) {
+      delete map[raw];
+      writeStreamCache(map);
+      return null;
+    }
+    return {
+      playUrl: hit.playUrl,
+      fallbackUrl: hit.fallbackUrl || null,
+      usingFast: !!hit.usingFast,
+      downloadUrl: hit.downloadUrl || hit.playUrl || null,
+      fromCache: true
+    };
+  }
+  function setCachedStream(raw, ex) {
+    if (!raw || !ex || !ex.playUrl) return;
+    var map = readStreamCache();
+    var now = Date.now();
+    Object.keys(map).forEach(function (k) {
+      if (!map[k] || !map[k].exp || map[k].exp < now) delete map[k];
+    });
+    map[raw] = {
+      playUrl: ex.playUrl,
+      fallbackUrl: ex.fallbackUrl || null,
+      usingFast: !!ex.usingFast,
+      downloadUrl: ex.downloadUrl || ex.playUrl || null,
+      exp: now + STREAM_TTL_MS
+    };
+    writeStreamCache(map);
+  }
+  function abortActiveResolve() {
+    resolveGen += 1;
+    if (S._resolveAbort) {
+      try { S._resolveAbort.abort(); } catch (e) {}
+      S._resolveAbort = null;
+    }
+  }
   function resolveStream(raw) {
     raw = (raw || "").trim();
     if (!raw) return Promise.reject(new Error("No stream link"));
     if (isDirectMedia(raw) && !isTeraboxShare(raw)) {
-      return Promise.resolve({ playUrl: raw, fallbackUrl: null, usingFast: false });
+      return Promise.resolve({ playUrl: raw, fallbackUrl: null, usingFast: false, downloadUrl: raw });
     }
+    var cached = getCachedStream(raw);
+    if (cached) return Promise.resolve(cached);
     if (!CFG.TERABOX_API) return Promise.reject(new Error("Terabox API not configured"));
+    var myGen = resolveGen;
+    var controller = (typeof AbortController !== "undefined") ? new AbortController() : null;
+    if (controller) S._resolveAbort = controller;
     var headers = { "Content-Type": "application/json" };
     if (CFG.PRACTICE_KEY) headers["X-Practice-Key"] = CFG.PRACTICE_KEY;
-    return fetch(CFG.TERABOX_API, {
-      method: "POST",
-      headers: headers,
-      body: JSON.stringify({ url: raw })
-    }).then(function (r) {
+    var opts = { method: "POST", headers: headers, body: JSON.stringify({ url: raw }) };
+    if (controller) opts.signal = controller.signal;
+    return fetch(CFG.TERABOX_API, opts).then(function (r) {
+      if (myGen !== resolveGen) throw new Error("stale");
       if (!r.ok) throw new Error("API error " + r.status);
       return r.json();
     }).then(function (data) {
+      if (myGen !== resolveGen) throw new Error("stale");
       if (!(data && data.status === "success" && data.list && data.list.length)) {
         throw new Error((data && data.message) || "Could not resolve Terabox link");
       }
       var ex = extractPlayUrls(data.list[0]);
       if (!ex.playUrl) throw new Error("No playable URL in API response");
+      setCachedStream(raw, ex);
       return ex;
     });
   }
@@ -1198,9 +1283,12 @@
 
     showPoster("Resolving stream…");
     var raw = streamOf(S.cur);
+    var myGen = resolveGen;
     resolveStream(raw).then(function (ex) {
+      if (myGen !== resolveGen) return;
+      if (!$("#vid") || $("#vid") !== v) return;
       resolved = ex;
-      // reveal Download after API returns (subtle animation)
+      // reveal Download after API returns
       var dlBtn = $("#dlBtn");
       if (dlBtn && ex.downloadUrl) {
         dlBtn.dataset.href = ex.downloadUrl;
@@ -1222,6 +1310,9 @@
         return v.play();
       }).catch(function () {});
     }).catch(function (err) {
+      if (myGen !== resolveGen) return;
+      if (err && err.name === "AbortError") return;
+      if (err && String(err.message || "") === "stale") return;
       // last resort demo only if no real link path worked
       var demo = CFG.DEMO_VIDEO;
       if (demo) {
