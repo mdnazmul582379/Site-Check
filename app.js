@@ -796,7 +796,7 @@
     if (typeof bar.scrollTo === "function") bar.scrollTo({ left: left, behavior: "smooth" });
     else bar.scrollLeft = left;
   }
-  function scrollActiveEp() {
+  function scrollActiveEp(smooth) {
     var bar = document.querySelector("#player .eps") || document.querySelector(".eps");
     if (!bar) return;
     var btn = bar.querySelector("button.ep.on");
@@ -805,7 +805,9 @@
     var max = Math.max(0, bar.scrollWidth - bar.clientWidth);
     if (left < 0) left = 0;
     if (left > max) left = max;
-    if (typeof bar.scrollTo === "function") bar.scrollTo({ left: left, behavior: "smooth" });
+    // Full detail rebuild starts at scrollLeft=0 — use instant snap so we never animate from the start.
+    // In-place episode changes keep current scrollLeft and may use smooth.
+    if (smooth && typeof bar.scrollTo === "function") bar.scrollTo({ left: left, behavior: "smooth" });
     else bar.scrollLeft = left;
   }
   function setNav(name) { document.querySelectorAll("[data-nav]").forEach(function (b) { b.classList.toggle("active", b.dataset.nav === name); }); }
@@ -1085,7 +1087,12 @@
     p.classList.remove("hidden");
     document.body.classList.add("in-player");
     attachPlayer();
-    requestAnimationFrame(function () { requestAnimationFrame(scrollActiveEp); });
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        if (S._preserveEpScroll) return; // playEp restores strip + smooth-scrolls
+        scrollActiveEp(false);
+      });
+    });
     startRelated();
   }
   function closeDetail() {
@@ -1115,10 +1122,64 @@
   }
   function playEp(i) {
     abortActiveResolve();
+    var it = S.cur;
+    var seasons = (it && it.seasons) || [];
+    if (!it || !seasons.length) {
+      S.ep = i;
+      S.showAll = false;
+      syncWatchUrl();
+      renderDetail();
+      pushHist(true);
+      return;
+    }
+    var eps = (seasons[S.season] && seasons[S.season].episodes) || [];
+    if (i < 0) i = 0;
+    if (eps.length && i >= eps.length) i = eps.length - 1;
     S.ep = i;
     S.showAll = false;
     syncWatchUrl();
+
+    var p = $("#player");
+    if (!p || p.classList.contains("hidden")) {
+      renderDetail();
+      pushHist(true);
+      return;
+    }
+
+    // Update chip active state on the live strip (keeps current scrollLeft)
+    var bar = p.querySelector(".eps");
+    if (bar) {
+      var chips = bar.querySelectorAll("button.ep");
+      for (var c = 0; c < chips.length; c++) {
+        var btn = chips[c];
+        if (btn.hasAttribute("data-all-ep")) btn.classList.remove("on");
+        else btn.classList.toggle("on", +btn.getAttribute("data-ep") === i);
+      }
+      var epList = p.querySelector(".ep-list");
+      if (epList) epList.remove();
+    }
+
+    // Rebuild player/stream, but put the same strip back so we never flash scroll=0
+    var savedScroll = bar ? bar.scrollLeft : 0;
+    var savedEps = bar ? bar.outerHTML : "";
+    S._preserveEpScroll = true;
     renderDetail();
+    S._preserveEpScroll = false;
+
+    if (savedEps) {
+      var bar2 = document.querySelector("#player .eps");
+      if (bar2) {
+        bar2.outerHTML = savedEps;
+        bar2 = document.querySelector("#player .eps");
+        if (bar2) {
+          bar2.scrollLeft = savedScroll;
+          // Smooth travel from old position toward the newly active chip
+          requestAnimationFrame(function () { scrollActiveEp(true); });
+        }
+      }
+    } else {
+      scrollActiveEp(false);
+    }
     pushHist(true);
   }
 
