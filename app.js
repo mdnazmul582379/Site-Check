@@ -805,10 +805,31 @@
     var max = Math.max(0, bar.scrollWidth - bar.clientWidth);
     if (left < 0) left = 0;
     if (left > max) left = max;
-    // Full detail rebuild starts at scrollLeft=0 — use instant snap so we never animate from the start.
-    // In-place episode changes keep current scrollLeft and may use smooth.
-    if (smooth && typeof bar.scrollTo === "function") bar.scrollTo({ left: left, behavior: "smooth" });
-    else bar.scrollLeft = left;
+    if (!smooth) {
+      bar.scrollLeft = left;
+      return;
+    }
+    // Custom ease-out so mobile always animates (native smooth is often instant/janky)
+    var from = bar.scrollLeft;
+    var dist = left - from;
+    if (Math.abs(dist) < 2) {
+      bar.scrollLeft = left;
+      return;
+    }
+    if (bar._epAnim) cancelAnimationFrame(bar._epAnim);
+    var dur = Math.min(420, Math.max(220, Math.abs(dist) * 0.55));
+    var t0 = performance.now();
+    function step(now) {
+      var t = Math.min(1, (now - t0) / dur);
+      var e = 1 - Math.pow(1 - t, 3); // ease-out cubic
+      bar.scrollLeft = from + dist * e;
+      if (t < 1) bar._epAnim = requestAnimationFrame(step);
+      else {
+        bar.scrollLeft = left;
+        bar._epAnim = 0;
+      }
+    }
+    bar._epAnim = requestAnimationFrame(step);
   }
   function setNav(name) { document.querySelectorAll("[data-nav]").forEach(function (b) { b.classList.toggle("active", b.dataset.nav === name); }); }
   function resetViewState() { S.lim = {}; S.focus = null; }
@@ -1120,6 +1141,52 @@
     document.body.classList.remove("in-player");
     S.cur = null;
   }
+  function playerStageHtml(it) {
+    return (
+      '<div class="vp loading idle" id="vp">' +
+        '<video id="vid" class="vp-video" playsinline webkit-playsinline preload="metadata" controlslist="nodownload nofullscreen noremoteplayback nodownload" disablepictureinpicture x-webkit-airplay="deny"></video>' +
+        '<div class="vp-poster" id="vpPoster">' +
+          (it.thumb ? '<img src="' + esc(it.thumb) + '" alt="" decoding="async" referrerpolicy="no-referrer">' : '') +
+          '<div class="vp-dim"></div><div class="vp-spin" aria-hidden="true"></div>' +
+          '<div class="vp-load-msg" id="vpLoadMsg">Loading stream…</div>' +
+        '</div>' +
+        '<div class="vp-gest" id="vpGest"></div>' +
+        '<div class="vp-rip l" id="ripL"><div><b>−10s</b></div></div>' +
+        '<div class="vp-rip r" id="ripR"><div><b>+10s</b></div></div>' +
+        '<div class="vp-badge" id="vpBadge"><b>2×</b> ' + ic("play", 12) + '</div>' +
+        '<div class="vp-top">' +
+          '<button class="vp-ib" id="back" type="button" aria-label="Back">' + ic("back", 22) + '</button>' +
+          '<span class="vp-sp"></span>' +
+          '<button class="vp-ib vp-lock-btn" id="vpLock" type="button" aria-label="Lock">' + ic("unlock", 20) + '</button>' +
+        '</div>' +
+        '<button class="vp-ib vp-lock-float hidden" id="vpLockFloat" type="button" aria-label="Unlock">' + ic("lock", 22) + '</button>' +
+        '<div class="vp-hud vp-hud-seek hidden" id="vpHudSeek"><span id="vpHudSeekTxt">0:00</span></div>' +
+        '<div class="vp-hud vp-hud-vol hidden" id="vpHudVol">' +
+          '<div class="vp-vol-ico">' + ic("vol", 22) + '</div>' +
+          '<div class="vp-vol-rail"><i id="vpVolFill"></i></div>' +
+        '</div>' +
+        '<div class="vp-hud vp-hud-bri hidden" id="vpHudBri">' +
+          '<div class="vp-bri-ico">☀</div>' +
+          '<div class="vp-vol-rail"><i id="vpBriFill"></i></div>' +
+        '</div>' +
+        '<div class="vp-aspect-toast hidden" id="vpAspectToast"></div>' +
+        '<div class="vp-bottom">' +
+          '<input class="vp-seek" id="seek" type="range" min="0" max="1000" value="0" aria-label="Seek">' +
+          '<div class="vp-row">' +
+            '<button class="vp-ib" id="vpPlay" type="button" aria-label="Play">' + ic("play", 22) + '</button>' +
+            '<span class="vp-time" id="vpTime">0:00 / 0:00</span>' +
+            '<span class="vp-sp"></span>' +
+            '<button class="vp-ib" id="vpMute" type="button" aria-label="Mute">' + ic("vol", 20) + '</button>' +
+            '<button class="vp-ib" id="vpSpeed" type="button" aria-label="Speed"><span class="vp-speed-lab" id="vpSpeedLab">1x</span></button>' +
+            '<button class="vp-ib" id="vpFit" type="button" aria-label="Fit">' + ic("fit", 20) + '</button>' +
+            '<button class="vp-ib vp-orient" id="vpOrient" type="button" aria-label="Orientation">' + ic("rotate", 20) + '</button>' +
+            '<button class="vp-ib" id="vpFull" type="button" aria-label="Fullscreen">' + ic("full", 20) + '</button>' +
+          '</div>' +
+        '</div>' +
+        '<div class="vp-speed-menu hidden" id="vpSpeedMenu"></div>' +
+      '</div>'
+    );
+  }
   function playEp(i) {
     abortActiveResolve();
     var it = S.cur;
@@ -1135,50 +1202,83 @@
     var eps = (seasons[S.season] && seasons[S.season].episodes) || [];
     if (i < 0) i = 0;
     if (eps.length && i >= eps.length) i = eps.length - 1;
-    S.ep = i;
-    S.showAll = false;
-    syncWatchUrl();
 
     var p = $("#player");
-    if (!p || p.classList.contains("hidden")) {
+    // Not in player yet → full open
+    if (!p || p.classList.contains("hidden") || !p.querySelector("#vp")) {
+      S.ep = i;
+      S.showAll = false;
+      syncWatchUrl();
       renderDetail();
       pushHist(true);
       return;
     }
 
-    // Update chip active state on the live strip (keeps current scrollLeft)
+    S.ep = i;
+    S.showAll = false;
+    syncWatchUrl();
+
+    // 1) Active chip only — strip stays mounted (scrollLeft preserved)
     var bar = p.querySelector(".eps");
     if (bar) {
       var chips = bar.querySelectorAll("button.ep");
       for (var c = 0; c < chips.length; c++) {
-        var btn = chips[c];
-        if (btn.hasAttribute("data-all-ep")) btn.classList.remove("on");
-        else btn.classList.toggle("on", +btn.getAttribute("data-ep") === i);
+        var b = chips[c];
+        if (b.hasAttribute("data-all-ep")) b.classList.remove("on");
+        else b.classList.toggle("on", +b.getAttribute("data-ep") === i);
       }
       var epList = p.querySelector(".ep-list");
       if (epList) epList.remove();
+      // 2) Smooth ease from current offset → center active
+      scrollActiveEp(true);
     }
 
-    // Rebuild player/stream, but put the same strip back so we never flash scroll=0
-    var savedScroll = bar ? bar.scrollLeft : 0;
-    var savedEps = bar ? bar.outerHTML : "";
-    S._preserveEpScroll = true;
-    renderDetail();
-    S._preserveEpScroll = false;
-
-    if (savedEps) {
-      var bar2 = document.querySelector("#player .eps");
-      if (bar2) {
-        bar2.outerHTML = savedEps;
-        bar2 = document.querySelector("#player .eps");
-        if (bar2) {
-          bar2.scrollLeft = savedScroll;
-          // Smooth travel from old position toward the newly active chip
-          requestAnimationFrame(function () { scrollActiveEp(true); });
-        }
+    // 3) Title / meta
+    var displayTitle = it.title;
+    var epMetaExtra = "";
+    var _ep = eps[S.ep];
+    if (_ep) {
+      if (_ep.title) displayTitle = _ep.title;
+      else if (_ep.no) displayTitle = it.title + " · E" + String(_ep.no).padStart(2, "0");
+      if (_ep.quality || _ep.size) epMetaExtra = [_ep.quality, _ep.size].filter(Boolean).join(" · ");
+    }
+    var titleEl = p.querySelector(".d-title");
+    var metaEl = p.querySelector(".d-meta");
+    if (titleEl) titleEl.textContent = displayTitle;
+    if (metaEl) {
+      var parts = [it.year, it.genre];
+      if (epMetaExtra) parts.push(epMetaExtra);
+      else {
+        var q = quality(it);
+        if (q) parts.push(q);
+        if (it.size) parts.push(it.size);
       }
+      metaEl.textContent = parts.filter(Boolean).join(" · ");
+    }
+
+    // 4) Reset download pill
+    var dlBtn = $("#dlBtn");
+    if (dlBtn) {
+      dlBtn.disabled = true;
+      dlBtn.classList.add("is-off");
+      dlBtn.classList.remove("is-on");
+      try { delete dlBtn.dataset.href; } catch (e) { dlBtn.removeAttribute("data-href"); }
+    }
+
+    // 5) Rebuild only the video stage (new nodes = clean listeners). Episode strip untouched.
+    var oldVp = $("#vp");
+    if (oldVp) {
+      try {
+        var ov = $("#vid");
+        if (ov) {
+          try { if (ov._hls) { ov._hls.destroy(); ov._hls = null; } } catch (e1) {}
+          try { ov.pause(); ov.removeAttribute("src"); ov.load(); } catch (e2) {}
+        }
+      } catch (e3) {}
+      oldVp.outerHTML = playerStageHtml(it);
+      attachPlayer();
     } else {
-      scrollActiveEp(false);
+      renderDetail();
     }
     pushHist(true);
   }
