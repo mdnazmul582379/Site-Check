@@ -983,6 +983,20 @@
   }
   function renderDetail() {
     var it = S.cur, seasons = it.seasons || [], vers = it.versions || [];
+    // Series: show the active episode's own title under the player
+    var displayTitle = it.title;
+    var epMetaExtra = "";
+    if (seasons.length) {
+      var _eps = (seasons[S.season] && seasons[S.season].episodes) || [];
+      var _ep = _eps[S.ep];
+      if (_ep) {
+        if (_ep.title) displayTitle = _ep.title;
+        else if (_ep.no) displayTitle = it.title + " · E" + String(_ep.no).padStart(2, "0");
+        if (_ep.quality || _ep.size) {
+          epMetaExtra = [_ep.quality, _ep.size].filter(Boolean).join(" · ");
+        }
+      }
+    }
     var hasEps = seasons.length > 0;
     var eps = hasEps ? seasons[S.season].episodes : [];
     var dd = "";
@@ -993,7 +1007,10 @@
     if (hasEps) {
       epHtml = '<div class="eps"><button class="ep' + (S.showAll ? " on" : "") + '" type="button" data-all-ep="1">All</button>' +
         eps.map(function (e, i) { return '<button class="ep' + (!S.showAll && i === S.ep ? " on" : "") + '" type="button" data-ep="' + i + '">' + String(e.no).padStart(2, "0") + '</button>'; }).join("") + '</div>';
-      if (S.showAll) epHtml += '<div class="ep-list">' + eps.map(function (e, i) { return '<button class="ep-row" type="button" data-ep="' + i + '"><span>' + String(e.no).padStart(2, "0") + '</span>Episode ' + e.no + '</button>'; }).join("") + '</div>';
+      if (S.showAll) epHtml += '<div class="ep-list">' + eps.map(function (e, i) {
+        var lab = e.title ? e.title : ("Episode " + e.no);
+        return '<button class="ep-row' + (i === S.ep ? " on" : "") + '" type="button" data-ep="' + i + '"><span>' + String(e.no).padStart(2, "0") + '</span>' + esc(lab) + '</button>';
+      }).join("") + '</div>';
     }
     var p = $("#player");
     p.innerHTML =
@@ -1039,7 +1056,7 @@
         '</div>' +
         '<div class="vp-speed-menu hidden" id="vpSpeedMenu"></div>' +
       '</div>' +
-      '<div class="d-body"><h2 class="d-title">' + esc(it.title) + '</h2><div class="d-meta">' + esc(metaLine(it)) + '</div>' +
+      '<div class="d-body"><h2 class="d-title">' + esc(displayTitle) + '</h2><div class="d-meta">' + esc((function(){ if(!seasons.length) return metaLine(it); var p=[it.year, it.genre]; if(epMetaExtra) p.push(epMetaExtra); else { var q=quality(it); if(q) p.push(q); if(it.size) p.push(it.size);} return p.filter(Boolean).join(" · "); })()) + '</div>' +
         '<div class="d-btns">' +
           '<button class="pill' + (inList(it.id) ? ' on pill-on' : '') + '" id="addList" type="button">' + ic(inList(it.id) ? "check" : "plus", 16) + '<span>' + (inList(it.id) ? "In list" : "Add to list") + '</span></button>' +
           '<button class="pill' + (inLikes(it.id) ? ' on pill-heart' : '') + '" id="likeBtn" type="button">' + ic("heart", 16) + '<span>' + (inLikes(it.id) ? "Liked" : "Like") + '</span></button>' +
