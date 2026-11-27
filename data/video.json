@@ -1,6 +1,208 @@
 {
   "items": [
     {
+      "id": "m-avengers-age-of-ultron-2015",
+      "title": "Avengers: Age of Ultron (2015) 480p Bluray [Hindi + English]",
+      "category": "Movie",
+      "genre": "Action, Adventure, MCU",
+      "year": "2015",
+      "thumb": "https://image.tmdb.org/t/p/original/g9JWRhdAhBWuM2SJn8qu2kccmZ2.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/g9JWRhdAhBWuM2SJn8qu2kccmZ2.jpg",
+      "stream": "https://1024terabox.com/s/1H5550_WhAMCCYnorx_2NBA",
+      "quality": "480p",
+      "size": "439.65 MB",
+      "versions": [
+        {
+          "quality": "480p",
+          "size": "439.65 MB",
+          "stream": "https://1024terabox.com/s/1H5550_WhAMCCYnorx_2NBA"
+        }
+      ]
+    },
+    {
+      "id": "m-guardians-of-the-galaxy-2014",
+      "title": "Guardians of the Galaxy (2014) 1080p 720p 480p Bluray [Hindi + English]",
+      "category": "Movie",
+      "genre": "Action, Science Fiction, MCU",
+      "year": "2014",
+      "thumb": "https://image.tmdb.org/t/p/original/29GPA8PGPwiVVSxNmuk0oPiAXNz.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/29GPA8PGPwiVVSxNmuk0oPiAXNz.jpg",
+      "stream": "https://1024terabox.com/s/1ZoPxV8BzkPltFnK1J9_XPw",
+      "quality": "1080p",
+      "size": "3.00 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "3.00 GB",
+          "stream": "https://1024terabox.com/s/1ZoPxV8BzkPltFnK1J9_XPw"
+        },
+        {
+          "quality": "720p",
+          "size": "1.09 GB",
+          "stream": "https://1024terabox.com/s/1c5DDtS5FHOHykc1v0vJtyQ"
+        },
+        {
+          "quality": "720p HEVC",
+          "size": "693.31 MB",
+          "stream": "https://1024terabox.com/s/1Gk-hp_Ac-mY9pXyzz7LR4Q"
+        },
+        {
+          "quality": "480p",
+          "size": "455.47 MB",
+          "stream": "https://1024terabox.com/s/1uXa9GQ9LqS7P8ZJ6Yl_Njg"
+        }
+      ]
+    },
+    {
+      "id": "m-ant-man-2015",
+      "title": "Ant-Man (2015) 1080p 720p Bluray [Hindi + English]",
+      "category": "Movie",
+      "genre": "Science Fiction, Adventure, MCU",
+      "year": "2015",
+      "thumb": "https://image.tmdb.org/t/p/original/ukIhDosxChjO2KtG0PgA0eL5EbT.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/ukIhDosxChjO2KtG0PgA0eL5EbT.jpg",
+      "stream": "https://1024terabox.com/s/1w4UyF2Vp1A1Cn--ZvqxmvA",
+      "quality": "1080p",
+      "size": "3.47 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "3.47 GB",
+          "stream": "https://1024terabox.com/s/1w4UyF2Vp1A1Cn--ZvqxmvA"
+        },
+        {
+          "quality": "720p",
+          "size": "1.17 GB",
+          "stream": "https://1024terabox.com/s/1j9jnMQa6UGz2cCJ4DUVOyA"
+        }
+      ]
+    },
+    {
+      "id": "m-captain-america-the-first-avenger-2011",
+      "title": "Captain America: The First Avenger (2011) 1080p 720p 480p Bluray [Hindi + English]",
+      "category": "Movie",
+      "genre": "Action, Adventure, MCU",
+      "year": "2011",
+      "thumb": "https://image.tmdb.org/t/p/original/89AW01kPjrDMBiDHMucHgi6IknO.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/89AW01kPjrDMBiDHMucHgi6IknO.jpg",
+      "stream": "https://1024terabox.com/s/1_R99sFBPSOBaZM3nPYRBuQ",
+      "quality": "1080p",
+      "size": "1.94 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "1.94 GB",
+          "stream": "https://1024terabox.com/s/1_R99sFBPSOBaZM3nPYRBuQ"
+        },
+        {
+          "quality": "720p",
+          "size": "1.25 GB",
+          "stream": "https://1024terabox.com/s/1-bBZtbR8PDxnowvXD9noYw"
+        },
+        {
+          "quality": "480p",
+          "size": "375.55 MB",
+          "stream": "https://1024terabox.com/s/1xFxgND04bwwiBN09S9-S_g"
+        }
+      ]
+    },
+    {
+      "id": "m-the-avengers-2012",
+      "title": "The Avengers (2012) 1080p 720p 480p Bluray [Hindi + English]",
+      "category": "Movie",
+      "genre": "Science Fiction, Action, MCU",
+      "year": "2012",
+      "thumb": "https://image.tmdb.org/t/p/original/agE0zlMnY7fFwH7SXD5zDXhwLhu.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/agE0zlMnY7fFwH7SXD5zDXhwLhu.jpg",
+      "stream": "https://1024terabox.com/s/1ciukygg807A2-9yQ4KNmJw",
+      "quality": "1080p",
+      "size": "2.28 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "2.28 GB",
+          "stream": "https://1024terabox.com/s/1ciukygg807A2-9yQ4KNmJw"
+        },
+        {
+          "quality": "720p",
+          "size": "1.43 GB",
+          "stream": "https://1024terabox.com/s/1W6Ek6uEZ5lqpbeY6xy5NvQ"
+        },
+        {
+          "quality": "480p",
+          "size": "432.10 MB",
+          "stream": "https://1024terabox.com/s/168UkE0QUj72lk-92lmOPXQ"
+        }
+      ]
+    },
+    {
+      "id": "m-captain-america-the-winter-soldier-2014",
+      "title": "Captain America: The Winter Soldier (2014) 1080p 480p Bluray [Hindi + English]",
+      "category": "Movie",
+      "genre": "Action, Adventure, MCU",
+      "year": "2014",
+      "thumb": "https://image.tmdb.org/t/p/original/8SQCVclNQZAiezeuvZFmLlGrmx1.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/8SQCVclNQZAiezeuvZFmLlGrmx1.jpg",
+      "stream": "https://1024terabox.com/s/1Gc5xrsUrdVfUHF8f_9l1PA",
+      "quality": "1080p",
+      "size": "1.93 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "1.93 GB",
+          "stream": "https://1024terabox.com/s/1Gc5xrsUrdVfUHF8f_9l1PA"
+        },
+        {
+          "quality": "480p",
+          "size": "478.49 MB",
+          "stream": "https://1024terabox.com/s/170PiAFh9V_1nJx_YRuNLSA"
+        }
+      ]
+    },
+    {
+      "id": "m-thor-the-dark-world-2013",
+      "title": "Thor: The Dark World (2013) 1080p Bluray [Hindi + English]",
+      "category": "Movie",
+      "genre": "Action, Adventure, MCU",
+      "year": "2013",
+      "thumb": "https://image.tmdb.org/t/p/original/U3wkpucmT1HkZBjPO9yoHie5Wa.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/U3wkpucmT1HkZBjPO9yoHie5Wa.jpg",
+      "stream": "https://1024terabox.com/s/1ZzdChJfMEC2MHYdjcvZjAA",
+      "quality": "1080p",
+      "size": "1.95 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "1.95 GB",
+          "stream": "https://1024terabox.com/s/1ZzdChJfMEC2MHYdjcvZjAA"
+        }
+      ]
+    },
+    {
+      "id": "m-iron-man-3-2013",
+      "title": "Iron Man 3 (2013) 1080p 480p Bluray [Hindi + English]",
+      "category": "Movie",
+      "genre": "Action, Adventure, MCU",
+      "year": "2013",
+      "thumb": "https://image.tmdb.org/t/p/original/rIUa56zPJ7RmkxvWAQGL8x86G6j.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/rIUa56zPJ7RmkxvWAQGL8x86G6j.jpg",
+      "stream": "https://1024terabox.com/s/1CHJuQfTgs6p64GQ7K6ym1g",
+      "quality": "1080p",
+      "size": "1.66 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "1.66 GB",
+          "stream": "https://1024terabox.com/s/1CHJuQfTgs6p64GQ7K6ym1g"
+        },
+        {
+          "quality": "480p",
+          "size": "394.74 MB",
+          "stream": "https://1024terabox.com/s/1xsroGMNjQL0WdURhBX6YVA"
+        }
+      ]
+    },
+    {
       "id": "m-captain-america--civil-war-2016",
       "title": "Captain America: Civil War (2016) 1080p 720p HDRip [Hindi + English]",
       "category": "Movie",
@@ -73,8 +275,8 @@
       ]
     },
     {
-      "id": "m-avengers--infinity-war-2018",
-      "title": "Avengers: Infinity War (2018) 720p HDRip [Hindi + English]",
+      "id": "m-avengers-infinity-war-2018",
+      "title": "Avengers: Infinity War (2018) 720p HDrip [Hindi + English]",
       "category": "Movie",
       "genre": "Adventure, Action, MCU",
       "year": "2018",
@@ -1540,12 +1742,13 @@
       ]
     },
     {
-      "id": "DCeJ2549",
-      "title": "Iron Man 2008 Full Movie Original Hindi DDP 5.1 Superhero Action Sci-Fi Watch Online Free Download HD",
+      "id": "m-iron-man-2008",
+      "title": "Iron Man (2008) 1080p 720p 480p Bluray [Hindi + English]",
       "category": "Movie",
-      "genre": "Action, Sci-Fi",
+      "genre": "Action, Science Fiction, MCU",
       "year": "2008",
       "thumb": "https://image.tmdb.org/t/p/original/A1m5BJznmmsDyj25AnhDyFbBSJJ.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/A1m5BJznmmsDyj25AnhDyFbBSJJ.jpg",
       "stream": "https://1024terabox.com/s/1ikdioNyG2QtT2WINX-APpA",
       "quality": "1080p",
       "size": "3.64 GB",
@@ -1557,42 +1760,71 @@
         },
         {
           "quality": "720p",
-          "size": "1.06 GB",
-          "stream": "https://1024terabox.com/s/123EJkUj7yr3cEv4uDkswog"
+          "size": "1.26 GB",
+          "stream": "https://freeterabox.com/s/10GwuFptacaYiq9hcnTo8VA"
+        },
+        {
+          "quality": "480p",
+          "size": "381.17 MB",
+          "stream": "https://freeterabox.com/s/1NpQBKR6esUhf0bLDvjcO7Q"
         }
       ]
     },
     {
-      "id": "Fjmf2554",
-      "title": "Iron Man 2 2010 Full Movie 720p BDRip Original Audio Hindi Tamil Telugu English Superhero Action Sci-Fi Watch Online Free Download HD",
+      "id": "m-iron-man-2-2010",
+      "title": "Iron Man 2 (2010) 1080p 720p 480p Bluray [Hindi + English]",
       "category": "Movie",
-      "genre": "Action, Sci-Fi",
+      "genre": "Adventure, Action, MCU",
       "year": "2010",
-      "thumb": "https://image.tmdb.org/t/p/original/u4UXTGu6mT0L6NrVZTlhbecEp26.jpg",
-      "stream": "https://1024terabox.com/s/1tK4UmvIgxRdfPTkHiwMkGg",
-      "quality": "720p",
-      "size": "1.17 GB"
-    },
-    {
-      "id": "Fqfi2556",
-      "title": "Thor 2011 Full Movie Hindi English Dual Audio Superhero Action Fantasy Watch Online Free Download HD",
-      "category": "Movie",
-      "genre": "Action, Fantasy",
-      "year": "2011",
-      "thumb": "https://image.tmdb.org/t/p/original/DJ05KEWIf3KdMmoj7qhU4wYxRv.jpg",
-      "stream": "https://1024terabox.com/s/1pgyJw5LgL4tn_igicobpeQ",
+      "thumb": "https://image.tmdb.org/t/p/original/wWu57zGqpAt7K746drOSjbwfIfe.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/wWu57zGqpAt7K746drOSjbwfIfe.jpg",
+      "stream": "https://freeterabox.com/s/1l79eDWvUvnI7SQpZqXo3NA",
       "quality": "1080p",
-      "size": "3.73 GB",
+      "size": "1.38 GB",
       "versions": [
         {
           "quality": "1080p",
-          "size": "3.73 GB",
-          "stream": "https://1024terabox.com/s/1pgyJw5LgL4tn_igicobpeQ"
+          "size": "1.38 GB",
+          "stream": "https://freeterabox.com/s/1l79eDWvUvnI7SQpZqXo3NA"
+        },
+        {
+          "quality": "720p",
+          "size": "1.25 GB",
+          "stream": "https://freeterabox.com/s/1aYj2J9w4TtAjkhQway_8IQ"
+        },
+        {
+          "quality": "480p",
+          "size": "376.65 MB",
+          "stream": "https://freeterabox.com/s/1ymqDZyxis31h_vW7jwrbrA"
+        }
+      ]
+    },
+    {
+      "id": "m-thor-2011",
+      "title": "Thor (2011) 1080p 720p 480p Bluray [Hindi + English]",
+      "category": "Movie",
+      "genre": "Adventure, Fantasy, MCU",
+      "year": "2011",
+      "thumb": "https://image.tmdb.org/t/p/original/DJ05KEWIf3KdMmoj7qhU4wYxRv.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/DJ05KEWIf3KdMmoj7qhU4wYxRv.jpg",
+      "stream": "https://freeterabox.com/s/16-DGx8sw3scqGKmpx4hhzQ",
+      "quality": "1080p",
+      "size": "1.96 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "1.96 GB",
+          "stream": "https://freeterabox.com/s/16-DGx8sw3scqGKmpx4hhzQ"
         },
         {
           "quality": "720p",
           "size": "1.31 GB",
           "stream": "https://1024terabox.com/s/1uPQ_RSPWLClRaLCUYDLANQ"
+        },
+        {
+          "quality": "480p",
+          "size": "347.45 MB",
+          "stream": "https://freeterabox.com/s/1APlQOJfzwUx4_kAQiXEhKA"
         }
       ]
     },
