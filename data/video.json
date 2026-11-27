@@ -1,6 +1,265 @@
 {
   "items": [
     {
+      "id": "m-captain-america--civil-war-2016",
+      "title": "Captain America: Civil War (2016) 1080p 720p HDRip [Hindi + English]",
+      "category": "Movie",
+      "genre": "Adventure, Action, MCU",
+      "year": "2016",
+      "thumb": "https://image.tmdb.org/t/p/original/qPghrh3RMB7qzxK66skhiH5RZvF.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/qPghrh3RMB7qzxK66skhiH5RZvF.jpg",
+      "stream": "https://1024terabox.com/s/1Yi1r_pLJ52HjdnvmyVatSA",
+      "quality": "1080p",
+      "size": "1.54 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "1.54 GB",
+          "stream": "https://1024terabox.com/s/1Yi1r_pLJ52HjdnvmyVatSA"
+        },
+        {
+          "quality": "720p",
+          "size": "1.42 GB",
+          "stream": "https://1024terabox.com/s/12ysFkHm8Fwcq6Ay2Fvwr_g"
+        }
+      ]
+    },
+    {
+      "id": "m-guardians-of-the-galaxy-vol--2-2017",
+      "title": "Guardians of the Galaxy Vol. 2 (2017) 1080p 480p HDRip [Hindi + English]",
+      "category": "Movie",
+      "genre": "Science Fiction, Adventure, MCU",
+      "year": "2017",
+      "thumb": "https://image.tmdb.org/t/p/original/h4hMBL0MRPYvWAB0hxGwgL6cqIW.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/h4hMBL0MRPYvWAB0hxGwgL6cqIW.jpg",
+      "stream": "https://1024terabox.com/s/1Q2n6QzFEe_4wbBHzMpS0uA",
+      "quality": "1080p",
+      "size": "1.83 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "1.83 GB",
+          "stream": "https://1024terabox.com/s/1Q2n6QzFEe_4wbBHzMpS0uA"
+        },
+        {
+          "quality": "480p",
+          "size": "410.43 MB",
+          "stream": "https://1024terabox.com/s/1xT3GLgtSMm013hnXmFDRiw"
+        }
+      ]
+    },
+    {
+      "id": "m-spider-man-homecoming-2017",
+      "title": "Spider-Man: Homecoming (2017) 720p 480p HDRip [Hindi + English]",
+      "category": "Movie",
+      "genre": "Action, Adventure, MCU",
+      "year": "2017",
+      "thumb": "https://image.tmdb.org/t/p/original/7PhC0zGZNRWNQSXJz9Y3kAooGer.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/7PhC0zGZNRWNQSXJz9Y3kAooGer.jpg",
+      "stream": "https://1024terabox.com/s/1OuPVx7cfi0KnV7vYqJWmZw",
+      "quality": "720p",
+      "size": "1.40 GB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "1.40 GB",
+          "stream": "https://1024terabox.com/s/1OuPVx7cfi0KnV7vYqJWmZw"
+        },
+        {
+          "quality": "480p",
+          "size": "466.12 MB",
+          "stream": "https://1024terabox.com/s/14dh2DV3Sf_iOL9hYpKsUNA"
+        }
+      ]
+    },
+    {
+      "id": "m-avengers--infinity-war-2018",
+      "title": "Avengers: Infinity War (2018) 720p HDRip [Hindi + English]",
+      "category": "Movie",
+      "genre": "Adventure, Action, MCU",
+      "year": "2018",
+      "thumb": "https://image.tmdb.org/t/p/original/icUSGFn22cP2BQ0tXCIsykWVCQ.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/icUSGFn22cP2BQ0tXCIsykWVCQ.jpg",
+      "stream": "https://1024terabox.com/s/1mX8cgqN4DgPcaMl94E3BQg",
+      "quality": "720p",
+      "size": "705.07 MB",
+      "versions": [
+        {
+          "quality": "720p HEVC",
+          "size": "705.07 MB",
+          "stream": "https://1024terabox.com/s/1mX8cgqN4DgPcaMl94E3BQg"
+        }
+      ]
+    },
+    {
+      "id": "m-ant-man-and-the-wasp-2018",
+      "title": "Ant-Man and the Wasp (2018) 1080p 720p HDRip [Hindi + English]",
+      "category": "Movie",
+      "genre": "Action, Adventure, MCU",
+      "year": "2018",
+      "thumb": "https://image.tmdb.org/t/p/original/36HLHFLHAlWMv9bYtnn8OmnFLgz.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/36HLHFLHAlWMv9bYtnn8OmnFLgz.jpg",
+      "stream": "https://1024terabox.com/s/1TWGLa1dWf2cnO4sxhrkH8A",
+      "quality": "1080p",
+      "size": "2.77 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "2.77 GB",
+          "stream": "https://1024terabox.com/s/1TWGLa1dWf2cnO4sxhrkH8A"
+        },
+        {
+          "quality": "720p",
+          "size": "1.18 GB",
+          "stream": "https://1024terabox.com/s/1lxF-d8vEajrgQVRZS9F2IA"
+        }
+      ]
+    },
+    {
+      "id": "m-captain-marvel-2019",
+      "title": "Captain Marvel (2019) 720p 480p HDRip [Hindi + English]",
+      "category": "Movie",
+      "genre": "Action, Adventure, MCU",
+      "year": "2019",
+      "thumb": "https://image.tmdb.org/t/p/original/k5V2cbDZvYIu6BKIK0Q0KGyAUDB.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/k5V2cbDZvYIu6BKIK0Q0KGyAUDB.jpg",
+      "stream": "https://1024terabox.com/s/1c2BYtqiCYuptrNtfALL-gA",
+      "quality": "720p",
+      "size": "1.08 GB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "1.08 GB",
+          "stream": "https://1024terabox.com/s/1c2BYtqiCYuptrNtfALL-gA"
+        },
+        {
+          "quality": "480p",
+          "size": "374.27 MB",
+          "stream": "https://1024terabox.com/s/1pSfz5kwEEd2XXggjpifQWw"
+        }
+      ]
+    },
+    {
+      "id": "m-spider-man--far-from-home-2019",
+      "title": "Spider-Man: Far From Home (2019) 1080p 720p HDRip [Hindi + English]",
+      "category": "Movie",
+      "genre": "Action, Adventure, MCU",
+      "year": "2019",
+      "thumb": "https://image.tmdb.org/t/p/original/d5E3qLwmU6TyCHfcya1c6kFJnUQ.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/d5E3qLwmU6TyCHfcya1c6kFJnUQ.jpg",
+      "stream": "https://1024terabox.com/s/19mfYy35uPL8rzQDvfvx0zQ",
+      "quality": "1080p",
+      "size": "2.93 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "2.93 GB",
+          "stream": "https://1024terabox.com/s/19mfYy35uPL8rzQDvfvx0zQ"
+        },
+        {
+          "quality": "720p",
+          "size": "1.30 GB",
+          "stream": "https://1024terabox.com/s/1uhGXNATn118S1CGzCX8tyA"
+        }
+      ]
+    },
+    {
+      "id": "m-shang-chi-and-the-legend-of-the-ten-rings-2021",
+      "title": "Shang-Chi and the Legend of the Ten Rings (2021) 1080p HDRip [Hindi + English]",
+      "category": "Movie",
+      "genre": "Action, Adventure, MCU",
+      "year": "2021",
+      "thumb": "https://image.tmdb.org/t/p/original/d3cxROd9PtmavG20P6e2WbrNxkg.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/d3cxROd9PtmavG20P6e2WbrNxkg.jpg",
+      "stream": "https://1024terabox.com/s/1V1kPN4pWZVQz8Vq2-uw1CQ",
+      "quality": "1080p",
+      "size": "2.63 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "2.63 GB",
+          "stream": "https://1024terabox.com/s/1V1kPN4pWZVQz8Vq2-uw1CQ"
+        }
+      ]
+    },
+    {
+      "id": "m-black-widow-2021",
+      "title": "Black Widow (2021) 1080p 720p HDRip [Hindi + English]",
+      "category": "Movie",
+      "genre": "Action, Adventure, MCU",
+      "year": "2021",
+      "thumb": "https://image.tmdb.org/t/p/original/uT6W6g2M7v50YzMbCUivFj6cdnC.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/uT6W6g2M7v50YzMbCUivFj6cdnC.jpg",
+      "stream": "https://1024terabox.com/s/1amPWTuF45K9dee9YyJj5kQ",
+      "quality": "1080p",
+      "size": "1.82 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "1.82 GB",
+          "stream": "https://1024terabox.com/s/1amPWTuF45K9dee9YyJj5kQ"
+        },
+        {
+          "quality": "720p",
+          "size": "1.10 GB",
+          "stream": "https://1024terabox.com/s/1l1E67be_BP0_B68WJZvjeg"
+        },
+        {
+          "quality": "720p HEVC",
+          "size": "777.83 MB",
+          "stream": "https://1024terabox.com/s/1WLDfwZF052UhYvx_UoZ4Og"
+        }
+      ]
+    },
+    {
+      "id": "m-eternals-2021",
+      "title": "Eternals (2021) 1080p 720p HDRip [Hindi + English]",
+      "category": "Movie",
+      "genre": "Science Fiction, Action, MCU",
+      "year": "2021",
+      "thumb": "https://image.tmdb.org/t/p/original/mNOHJmjwWnPGWHlB6Qf91EAdw7T.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/mNOHJmjwWnPGWHlB6Qf91EAdw7T.jpg",
+      "stream": "https://1024terabox.com/s/1vh7xKxWNAeFne79CFBa0SQ",
+      "quality": "1080p",
+      "size": "3.18 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "3.18 GB",
+          "stream": "https://1024terabox.com/s/1vh7xKxWNAeFne79CFBa0SQ"
+        },
+        {
+          "quality": "720p HEVC",
+          "size": "848.51 MB",
+          "stream": "https://1024terabox.com/s/16KOqXA4R_-9tsyQHgS-R0Q"
+        }
+      ]
+    },
+    {
+      "id": "m-doctor-strange-in-the-multiverse-of-madness-2022",
+      "title": "Doctor Strange in the Multiverse of Madness (2022) 1080p 720p HDRip [Hindi + English]",
+      "category": "Movie",
+      "genre": "Fantasy, Action, MCU",
+      "year": "2022",
+      "thumb": "https://image.tmdb.org/t/p/original/shDYfjtNFyZmf7uZNtOLaI6iJXM.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/shDYfjtNFyZmf7uZNtOLaI6iJXM.jpg",
+      "stream": "https://1024terabox.com/s/14yzX-lqw0_D3nXzMaC9e3w",
+      "quality": "1080p",
+      "size": "1.80 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "1.80 GB",
+          "stream": "https://1024terabox.com/s/14yzX-lqw0_D3nXzMaC9e3w"
+        },
+        {
+          "quality": "720p HEVC",
+          "size": "714.35 MB",
+          "stream": "https://1024terabox.com/s/1x2dOrklFHd27G65-1dc_NQ"
+        }
+      ]
+    },
+    {
       "id": "m-doctor-strange-2016",
       "title": "Doctor Strange (2016) 1080p 720p 480p HDRip [Hindi + English]",
       "category": "Movie",
