@@ -1,6 +1,51 @@
 {
   "items": [
     {
+      "id": "s-yakshini-2024",
+      "title": "Yakshini (2024) Season 1 [Hindi]",
+      "category": "Series",
+      "genre": "Mystery, Sci-Fi & Fantasy",
+      "year": "2024",
+      "thumb": "https://image.tmdb.org/t/p/original/2UERbPx1Fqv37nL3UkakCdsSUAY.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/2UERbPx1Fqv37nL3UkakCdsSUAY.jpg",
+      "kind": "series",
+      "seasons": [
+        {
+          "name": "Season 01",
+          "episodes": [
+            {
+              "no": 1,
+              "title": "E01",
+              "stream": "https://freeterabox.com/s/1BqvZYDmEqoU3lqg3Nc61nQ",
+              "quality": "720p",
+              "size": "383.50 MB"
+            },
+            {
+              "no": 2,
+              "title": "E02",
+              "stream": "https://freeterabox.com/s/13-qHenDoqD4nMEAgs7BM8g",
+              "quality": "720p",
+              "size": "371.40 MB"
+            },
+            {
+              "no": 4,
+              "title": "E04",
+              "stream": "https://freeterabox.com/s/1xUmTlwKAjImmxHqv5mKr7w",
+              "quality": "720p",
+              "size": "373.91 MB"
+            },
+            {
+              "no": 6,
+              "title": "E06",
+              "stream": "https://freeterabox.com/s/1aYPZSxe7MxiZteLl98avVQ",
+              "quality": "720p",
+              "size": "367.63 MB"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "s-loki-s1-2021",
       "title": "Loki (2021) Season 1",
       "category": "Series",

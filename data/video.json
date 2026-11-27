@@ -1,6 +1,78 @@
 {
   "items": [
     {
+      "id": "m-star-2024",
+      "title": "Star (2024) 1080p 720p HDRip [Tamil]",
+      "category": "Movie",
+      "genre": "Drama, Romance",
+      "year": "2024",
+      "thumb": "https://image.tmdb.org/t/p/original/nCRLG0OzsP4U5IddWCIZzDoAWLA.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/nCRLG0OzsP4U5IddWCIZzDoAWLA.jpg",
+      "stream": "https://freeterabox.com/s/1MpbksIR71DXhsK2uaC0UZg",
+      "quality": "1080p",
+      "size": "1.66 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "1.66 GB",
+          "stream": "https://freeterabox.com/s/1MpbksIR71DXhsK2uaC0UZg"
+        },
+        {
+          "quality": "720p",
+          "size": "939.19 MB",
+          "stream": "https://freeterabox.com/s/1auZGWWQ1AZqIKFupLHqD6Q"
+        }
+      ]
+    },
+    {
+      "id": "m-jumanji-the-next-level-2019",
+      "title": "Jumanji: The Next Level (2019) 1080p 720p BluRay [Hindi + English]",
+      "category": "Movie",
+      "genre": "Adventure, Comedy",
+      "year": "2019",
+      "thumb": "https://image.tmdb.org/t/p/original/xCzWBppNfjX9fgj8syHURioQw2r.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/xCzWBppNfjX9fgj8syHURioQw2r.jpg",
+      "stream": "https://freeterabox.com/s/1-rsrGj1lx5SD1NHEzQNjvg",
+      "quality": "1080p",
+      "size": "1.86 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "1.86 GB",
+          "stream": "https://freeterabox.com/s/1-rsrGj1lx5SD1NHEzQNjvg"
+        },
+        {
+          "quality": "720p",
+          "size": "1.23 GB",
+          "stream": "https://freeterabox.com/s/1HpgH4IWzkm0uji9U9-GJXQ"
+        }
+      ]
+    },
+    {
+      "id": "m-jumanji-welcome-to-the-jungle-2017",
+      "title": "Jumanji: Welcome to the Jungle (2017) 1080p 720p BluRay [Hindi + English]",
+      "category": "Movie",
+      "genre": "Adventure, Comedy",
+      "year": "2017",
+      "thumb": "https://image.tmdb.org/t/p/original/rrc7ybGw9bgl40yGZDNIVoJtXeK.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/rrc7ybGw9bgl40yGZDNIVoJtXeK.jpg",
+      "stream": "https://freeterabox.com/s/1rdxyvdEB6hf3qjhgzKx3Kw",
+      "quality": "1080p",
+      "size": "2.88 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "2.88 GB",
+          "stream": "https://freeterabox.com/s/1rdxyvdEB6hf3qjhgzKx3Kw"
+        },
+        {
+          "quality": "720p",
+          "size": "1.12 GB",
+          "stream": "https://freeterabox.com/s/1RvJOxYXCOyFq9IWrOcLnpw"
+        }
+      ]
+    },
+    {
       "id": "m-rustom-2016",
       "title": "Rustom (2016) 720p BluRay [Hindi]",
       "category": "Movie",
@@ -396,20 +468,25 @@
     },
     {
       "id": "m-cars-2-2011",
-      "title": "Cars 2 (2011) 720p 480p BluRay [Hindi + English]",
+      "title": "Cars (2006) 1080p 720p 480p BluRay [Hindi + English]",
       "category": "Movie",
       "genre": "Animation, Family",
       "year": "2011",
-      "thumb": "https://image.tmdb.org/t/p/original/jrlq8lWxB3OKjKwJ0kCjtg5fIII.jpg",
-      "landscape": "https://image.tmdb.org/t/p/original/jrlq8lWxB3OKjKwJ0kCjtg5fIII.jpg",
-      "stream": "https://freeterabox.com/s/1xQMb-jmaK7k_ohGNfbaTwQ",
-      "quality": "720p",
-      "size": "749.12 MB",
+      "thumb": "https://image.tmdb.org/t/p/original/w5nE0dUFEecbGIqXda00aaUTz0r.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/w5nE0dUFEecbGIqXda00aaUTz0r.jpg",
+      "stream": "https://freeterabox.com/s/1gtBWs6QBKhirRofCsNy6gw",
+      "quality": "1080p",
+      "size": "2.05 GB",
       "versions": [
         {
+          "quality": "1080p",
+          "size": "2.05 GB",
+          "stream": "https://freeterabox.com/s/1gtBWs6QBKhirRofCsNy6gw"
+        },
+        {
           "quality": "720p",
-          "size": "749.12 MB",
-          "stream": "https://freeterabox.com/s/1xQMb-jmaK7k_ohGNfbaTwQ"
+          "size": "917.03 MB",
+          "stream": "https://freeterabox.com/s/1Tds-xIsYxVIMXAD0zNeLlQ"
         },
         {
           "quality": "480p",
@@ -3193,19 +3270,14 @@
     },
     {
       "id": "eTeH2921",
-      "title": "Star (1977) 1080p 720p HEVC HDRip [Tamil]",
+      "title": "Star (1977) 720p HEVC HDRip [Tamil]",
       "category": "Indo",
       "genre": "Romance",
       "thumb": "https://image.tmdb.org/t/p/original/jKquaxnCRelAbibZVMdTsUEnkKm.jpg",
-      "stream": "https://freeterabox.com/s/1MpbksIR71DXhsK2uaC0UZg",
-      "quality": "1080p",
-      "size": "1.66 GB",
+      "stream": "https://freeterabox.com/s/1Jm7GpJsjtNE48HXSP8Z2zQ",
+      "quality": "720p HEVC",
+      "size": "734.30 MB",
       "versions": [
-        {
-          "quality": "1080p",
-          "size": "1.66 GB",
-          "stream": "https://freeterabox.com/s/1MpbksIR71DXhsK2uaC0UZg"
-        },
         {
           "quality": "720p HEVC",
           "size": "734.30 MB",
