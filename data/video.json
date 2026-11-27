@@ -1,6 +1,295 @@
 {
   "items": [
     {
+      "id": "SinghamR2014",
+      "title": "Singham Returns (2014) 720p 1080p HDRip",
+      "category": "Movie",
+      "genre": "Action, Crime",
+      "year": "2014",
+      "thumb": "https://image.tmdb.org/t/p/original/hnlz8e3ihoZDyKGrasaaCH1aqSn.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/hnlz8e3ihoZDyKGrasaaCH1aqSn.jpg",
+      "stream": "https://freeterabox.com/s/1ijfehnPqs0qbLxpA_bfmiA",
+      "quality": "1080p",
+      "size": "2.62 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "2.62 GB",
+          "stream": "https://freeterabox.com/s/1ijfehnPqs0qbLxpA_bfmiA"
+        },
+        {
+          "quality": "720p HEVC",
+          "size": "737.03 MB",
+          "stream": "https://freeterabox.com/s/1wZDiZyFi1gu5RNjvHOYFcg"
+        }
+      ]
+    },
+    {
+      "id": "SinghamA2024",
+      "title": "Singham Again (2024) 480p 720p HDRip",
+      "category": "Movie",
+      "genre": "Action, Crime",
+      "year": "2024",
+      "thumb": "https://image.tmdb.org/t/p/original/usDeiFr9VHCexsR36jhlYwCpV6o.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/usDeiFr9VHCexsR36jhlYwCpV6o.jpg",
+      "stream": "https://1024terabox.com/s/1GTB4t7c21zLm7LW_abOSig",
+      "quality": "720p",
+      "size": "1.10 GB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "1.10 GB",
+          "stream": "https://1024terabox.com/s/1GTB4t7c21zLm7LW_abOSig"
+        },
+        {
+          "quality": "480p",
+          "size": "476.53 MB",
+          "stream": "https://1024terabox.com/s/1UqWvkFcxfrOu8Zw0Jmsfxw"
+        }
+      ]
+    },
+    {
+      "id": "BhoolBhu2024",
+      "title": "Bhool Bhulaiyaa 3 (2024) 480p 720p HDRip",
+      "category": "Movie",
+      "genre": "Comedy, Horror",
+      "year": "2024",
+      "thumb": "https://image.tmdb.org/t/p/original/colyBZEggZVwow9olmzbgLQn0Vf.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/colyBZEggZVwow9olmzbgLQn0Vf.jpg",
+      "stream": "https://1024terabox.com/s/1uQAl-9Ow3ZNh-aFc_sBl1w",
+      "quality": "720p",
+      "size": "1.22 GB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "1.22 GB",
+          "stream": "https://1024terabox.com/s/1uQAl-9Ow3ZNh-aFc_sBl1w"
+        },
+        {
+          "quality": "480p",
+          "size": "531.72 MB",
+          "stream": "https://1024terabox.com/s/1nt2VRkiHokkx1hO4qiVfPw"
+        }
+      ]
+    },
+    {
+      "id": "BhoolBhu2007",
+      "title": "Bhool Bhulaiyaa (2007) 480p 720p HDRip",
+      "category": "Movie",
+      "genre": "Comedy, Horror",
+      "year": "2007",
+      "thumb": "https://image.tmdb.org/t/p/original/wBZKA7iyHl9hFZHMG7yDTuScPQS.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/wBZKA7iyHl9hFZHMG7yDTuScPQS.jpg",
+      "stream": "https://teraboxapp.com/s/1zjr3b0egA-SqUYnrjql6VA",
+      "quality": "720p",
+      "size": "1.34 GB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "1.34 GB",
+          "stream": "https://teraboxapp.com/s/1zjr3b0egA-SqUYnrjql6VA"
+        },
+        {
+          "quality": "480p",
+          "size": "488.81 MB",
+          "stream": "https://teraboxapp.com/s/1-vUaLmD9oM8FfzhLUbcvFw"
+        }
+      ]
+    },
+    {
+      "id": "BhoolBhu2022",
+      "title": "Bhool Bhulaiyaa 2 (2022) 720p HDRip",
+      "category": "Movie",
+      "genre": "Comedy, Horror",
+      "year": "2022",
+      "thumb": "https://image.tmdb.org/t/p/original/sJCh9letKDtetqh6rqahcuhpHBf.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/sJCh9letKDtetqh6rqahcuhpHBf.jpg",
+      "stream": "https://teraboxapp.com/s/1WrXg6EypkPZpu2mcvdGIXw",
+      "quality": "720p",
+      "size": "1.29 GB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "1.29 GB",
+          "stream": "https://teraboxapp.com/s/1WrXg6EypkPZpu2mcvdGIXw"
+        }
+      ]
+    },
+    {
+      "id": "Guardian2023",
+      "title": "Guardians of the Galaxy Vol. 3 (2023) 480p 720p HDRip",
+      "category": "Movie",
+      "genre": "Action, Sci-Fi",
+      "year": "2023",
+      "thumb": "https://image.tmdb.org/t/p/original/tqigwm15EruVfe5iwAv3VvhxPiH.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/tqigwm15EruVfe5iwAv3VvhxPiH.jpg",
+      "stream": "https://teraboxapp.com/s/1bFm0ztJhW6eVY3Wi90_i3Q",
+      "quality": "720p",
+      "size": "1.50 GB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "1.50 GB",
+          "stream": "https://teraboxapp.com/s/1bFm0ztJhW6eVY3Wi90_i3Q"
+        },
+        {
+          "quality": "720p HEVC",
+          "size": "983.32 MB",
+          "stream": "https://teraboxapp.com/s/1khAY_9mv55z8f7pxKFb_xw"
+        },
+        {
+          "quality": "480p",
+          "size": "567.86 MB",
+          "stream": "https://teraboxapp.com/s/1jtWhM1z7KX90M2RCcnNZ1g"
+        }
+      ]
+    },
+    {
+      "id": "Singham2011",
+      "title": "Singham (2011) 480p 720p 1080p BluRay",
+      "category": "Movie",
+      "genre": "Action, Crime",
+      "year": "2011",
+      "thumb": "https://image.tmdb.org/t/p/original/zaqcuV1XL5AT0rBvxBLphhWWSEz.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/zaqcuV1XL5AT0rBvxBLphhWWSEz.jpg",
+      "stream": "https://freeterabox.com/s/1nsYbvQW4VyN-UucNbSpdrA",
+      "quality": "1080p",
+      "size": "2.67 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "2.67 GB",
+          "stream": "https://freeterabox.com/s/1nsYbvQW4VyN-UucNbSpdrA"
+        },
+        {
+          "quality": "720p",
+          "size": "1.23 GB",
+          "stream": "https://freeterabox.com/s/1sf6R9aNgCnlUZ7yN8km3ZA"
+        },
+        {
+          "quality": "720p HEVC",
+          "size": "738.70 MB",
+          "stream": "https://freeterabox.com/s/13AxSjiu6l9CehnowRNubeQ"
+        },
+        {
+          "quality": "480p",
+          "size": "442.13 MB",
+          "stream": "https://freeterabox.com/s/19-xgoRAEcNlh1mDIAT1wkQ"
+        }
+      ]
+    },
+    {
+      "id": "AntManan2023",
+      "title": "Ant-Man and the Wasp Quantumania (2023) 480p 720p HDRip",
+      "category": "Movie",
+      "genre": "Action, Sci-Fi",
+      "year": "2023",
+      "thumb": "https://image.tmdb.org/t/p/original/xCa7gIEAIy66S2LSaME90QJEWHm.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/xCa7gIEAIy66S2LSaME90QJEWHm.jpg",
+      "stream": "https://1024terabox.com/s/1SK3kpA7yQ7Xr7W2XLWJ3HA",
+      "quality": "720p",
+      "size": "1.00 GB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "1.00 GB",
+          "stream": "https://1024terabox.com/s/1SK3kpA7yQ7Xr7W2XLWJ3HA"
+        },
+        {
+          "quality": "480p",
+          "size": "420.20 MB",
+          "stream": "https://1024terabox.com/s/1Pf35NArVM-PMRX3QyuYUCw"
+        }
+      ]
+    },
+    {
+      "id": "Guardian2022",
+      "title": "Guardians of the Galaxy Holiday Special (2022) 480p 720p 1080p HDRip",
+      "category": "Movie",
+      "genre": "Comedy, Sci-Fi",
+      "year": "2022",
+      "thumb": "https://image.tmdb.org/t/p/original/AtzSuOZ16Idwn5wibj5dNuqjPh5.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/AtzSuOZ16Idwn5wibj5dNuqjPh5.jpg",
+      "stream": "https://1024terabox.com/s/1TNj4xBtWVA-p3m7m1EpCHg",
+      "quality": "1080p",
+      "size": "2.33 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "2.33 GB",
+          "stream": "https://1024terabox.com/s/1TNj4xBtWVA-p3m7m1EpCHg"
+        },
+        {
+          "quality": "720p",
+          "size": "393.60 MB",
+          "stream": "https://1024terabox.com/s/1J58PARY6WfMSLEfPdHoh1A"
+        },
+        {
+          "quality": "480p",
+          "size": "141.01 MB",
+          "stream": "https://1024terabox.com/s/1pLv6CiwFN5P4ZTKLBqnr9A"
+        }
+      ]
+    },
+    {
+      "id": "BlackPan2022",
+      "title": "Black Panther Wakanda Forever (2022) 480p 720p HDRip",
+      "category": "Movie",
+      "genre": "Action, Adventure",
+      "year": "2022",
+      "thumb": "https://image.tmdb.org/t/p/original/scKJVENxSW3baJiDUP6h3nwcfP0.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/scKJVENxSW3baJiDUP6h3nwcfP0.jpg",
+      "stream": "https://1024terabox.com/s/1uXvW7GtWyedmY6H6ubHy6Q",
+      "quality": "720p",
+      "size": "1.49 GB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "1.49 GB",
+          "stream": "https://1024terabox.com/s/1uXvW7GtWyedmY6H6ubHy6Q"
+        },
+        {
+          "quality": "720p HEVC",
+          "size": "686.69 MB",
+          "stream": "https://1024terabox.com/s/1oeh-i16gXrQ5bDndJfpQrg"
+        },
+        {
+          "quality": "480p",
+          "size": "527.57 MB",
+          "stream": "https://1024terabox.com/s/16juhKFZjyRZpztz1y7fVUA"
+        }
+      ]
+    },
+    {
+      "id": "Werewolf2022",
+      "title": "Werewolf By Night (2022) 480p 720p 1080p HDRip",
+      "category": "Movie",
+      "genre": "Horror, Action",
+      "year": "2022",
+      "thumb": "https://image.tmdb.org/t/p/original/aJAZa8nNDeSFh8SxSaLzgah2u8Q.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/aJAZa8nNDeSFh8SxSaLzgah2u8Q.jpg",
+      "stream": "https://1024terabox.com/s/181ikmaZf1un6PsOYtXxB9w",
+      "quality": "1080p",
+      "size": "1.28 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "1.28 GB",
+          "stream": "https://1024terabox.com/s/181ikmaZf1un6PsOYtXxB9w"
+        },
+        {
+          "quality": "720p",
+          "size": "469.42 MB",
+          "stream": "https://1024terabox.com/s/1FiBrl1cMTy_SgBKAqWfQCA"
+        },
+        {
+          "quality": "480p",
+          "size": "210.57 MB",
+          "stream": "https://1024terabox.com/s/1ad0QrA8orX_JtLWapEv-tA"
+        }
+      ]
+    },
+    {
       "id": "Moana2016",
       "title": "Moana (2016) 720p HDRip",
       "category": "Movie",
