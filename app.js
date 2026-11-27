@@ -250,6 +250,33 @@
     });
     return g;
   }
+  // Netflix-style genre order: most titles first, then a fixed priority for ties.
+  // Avoids random first-seen order (e.g. Adventure/Animation randomly on top).
+  var GENRE_PRIORITY = [
+    "Action", "Adventure", "Animation", "Comedy", "Crime", "Drama",
+    "Family", "Fantasy", "Horror", "Mystery", "Romance", "Sci-Fi",
+    "Thriller", "War", "Western", "Documentary", "Music", "Sport",
+    "History", "Biography", "Musical", "Short", "Reality", "Talk"
+  ];
+  function genresSorted(pool) {
+    var counts = {};
+    pool.forEach(function (i) {
+      genreTags(i).forEach(function (t) {
+        if (!t) return;
+        counts[t] = (counts[t] || 0) + 1;
+      });
+    });
+    return Object.keys(counts).sort(function (a, b) {
+      var d = (counts[b] || 0) - (counts[a] || 0);
+      if (d) return d;
+      var ia = GENRE_PRIORITY.indexOf(a);
+      var ib = GENRE_PRIORITY.indexOf(b);
+      if (ia < 0) ia = 900;
+      if (ib < 0) ib = 900;
+      if (ia !== ib) return ia - ib;
+      return a.localeCompare(b);
+    });
+  }
 
   function homeSections() {
     return HOME_ORDER.map(function (name) {
@@ -274,10 +301,9 @@
       if (DIRECT_CATS.indexOf(t) > -1) {
         return [sec("C|" + t, t, pool, PREVIEW, true)];
       }
-      var gens = genresIn(pool);
+      var gens = genresSorted(pool);
       if (!gens.length) return [sec("C|" + t, t, shuffle(pool.slice()), PREVIEW, true)];
-      // Each genre row: random order (not fixed serial) so same multi-genre post
-      // is not always first in every section when scrolling down.
+      // Genre rows ordered by size; cards inside each row stay shuffled
       var rows = gens.map(function (g) {
         return sec("C|" + t + "|" + g, g, shuffle(byGenre(pool, g).slice()), PAGE);
       });
