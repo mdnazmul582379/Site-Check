@@ -8,54 +8,67 @@
       "year": "2023",
       "thumb": "https://image.tmdb.org/t/p/original/1sjZ9ZWQVwwzN40Scr83iLBzMsI.jpg",
       "landscape": "https://image.tmdb.org/t/p/original/1sjZ9ZWQVwwzN40Scr83iLBzMsI.jpg",
-      "stream": "https://1024terabox.com/s/1GxQ-9XuGZDk0a_xVD5doOA",
+      "stream": "https://1024terabox.com/s/1Y2GnFIPvumjveHauFYfHhQ",
       "quality": "720p",
       "size": "182.23 MB",
       "seasons": [
         {
-          "season": 2,
+          "name": "Season 02",
           "episodes": [
+            {
+              "no": 1,
+              "title": "What If...? S02E01 720p WEBRip",
+              "stream": "https://1024terabox.com/s/1Y2GnFIPvumjveHauFYfHhQ",
+              "quality": "720p",
+              "size": "150.44 MB"
+            },
             {
               "title": "What If...? S02E02 720p WEBRip",
               "stream": "https://1024terabox.com/s/1GxQ-9XuGZDk0a_xVD5doOA",
               "quality": "720p",
               "size": "182.23 MB",
-              "duration": "29m 54s"
+              "duration": "29m 54s",
+              "no": 2
             },
             {
               "title": "What If...? S02E03 720p WEBRip",
               "stream": "https://1024terabox.com/s/1HwtedMYyseXv23fAWTIAVg",
               "quality": "720p",
               "size": "193.54 MB",
-              "duration": "26m 59s"
+              "duration": "26m 59s",
+              "no": 3
             },
             {
               "title": "What If...? S02E04 720p WEBRip",
               "stream": "https://1024terabox.com/s/13qBpb7XWRBTdvNz8rOGPPQ",
               "quality": "720p",
               "size": "251.59 MB",
-              "duration": "31m 42s"
+              "duration": "31m 42s",
+              "no": 4
             },
             {
               "title": "What If...? S02E06 720p WEBRip",
               "stream": "https://1024terabox.com/s/1rPQZ42-BHTWNGFYoGt84jQ",
               "quality": "720p",
               "size": "208.46 MB",
-              "duration": "32m 2s"
+              "duration": "32m 2s",
+              "no": 6
             },
             {
               "title": "What If...? S02E07 720p WEBRip",
               "stream": "https://1024terabox.com/s/1t5PO2iTN_mfsSaUusCdHUw",
               "quality": "720p",
               "size": "176.78 MB",
-              "duration": "28m 44s"
+              "duration": "28m 44s",
+              "no": 7
             },
             {
               "title": "What If...? S02E09 720p WEBRip",
               "stream": "https://1024terabox.com/s/1A30RMtC4_mr9c740RtyA7w",
               "quality": "720p",
               "size": "221.76 MB",
-              "duration": "31m 24s"
+              "duration": "31m 24s",
+              "no": 9
             }
           ]
         }
@@ -67,42 +80,46 @@
       "category": "Series",
       "genre": "Action, Sci-Fi, Fantasy",
       "year": "2023",
-      "thumb": "",
-      "landscape": "",
+      "thumb": "https://image.tmdb.org/t/p/original/kXja7L9cRlsRmINMpxyWEdp9r3u.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/kXja7L9cRlsRmINMpxyWEdp9r3u.jpg",
       "stream": "https://1024terabox.com/s/1Yi9ia5X4idvQQwTfd8dnYw",
       "quality": "720p",
       "size": "299.09 MB",
       "seasons": [
         {
-          "season": 2,
+          "name": "Season 02",
           "episodes": [
             {
               "title": "Loki S02E02 720p WEBRip Hindi English",
               "stream": "https://1024terabox.com/s/1Yi9ia5X4idvQQwTfd8dnYw",
               "quality": "720p",
               "size": "299.09 MB",
-              "duration": "49m 18s"
+              "duration": "49m 18s",
+              "no": 2
             },
             {
               "title": "Loki S02E03 720p WEBRip Hindi English",
               "stream": "https://1024terabox.com/s/1mYSv9MedTYiDGm5Qh-Z9TQ",
               "quality": "720p",
               "size": "299.68 MB",
-              "duration": "53m 32s"
+              "duration": "53m 32s",
+              "no": 3
             },
             {
               "title": "Loki S02E04 720p WEBRip Hindi English",
               "stream": "https://1024terabox.com/s/1ksrw5brtGk1wrh19EmtZ_A",
               "quality": "720p",
               "size": "293.69 MB",
-              "duration": "48m 11s"
+              "duration": "48m 11s",
+              "no": 4
             },
             {
               "title": "Loki S02E05 720p WEBRip Hindi English",
               "stream": "https://1024terabox.com/s/1MkN37Zt0WebdkwN4M-QfLw",
               "quality": "720p",
               "size": "269.28 MB",
-              "duration": "44m 36s"
+              "duration": "44m 36s",
+              "no": 5
             }
           ]
         }

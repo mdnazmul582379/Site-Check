@@ -1,6 +1,30 @@
 {
   "items": [
     {
+      "id": "m-the-marvels-2023",
+      "title": "The Marvels (2023) 480p 720p HDRip",
+      "category": "Movie",
+      "genre": "Action, Adventure, Sci-Fi",
+      "year": "2023",
+      "thumb": "https://image.tmdb.org/t/p/original/72GXhgr70NnFuIDQStIuhWGo2FC.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/72GXhgr70NnFuIDQStIuhWGo2FC.jpg",
+      "stream": "https://1024terabox.com/s/121aC6DEpCkXcYpVkS3Innw",
+      "quality": "720p",
+      "size": "1012.56 MB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "1012.56 MB",
+          "stream": "https://1024terabox.com/s/121aC6DEpCkXcYpVkS3Innw"
+        },
+        {
+          "quality": "480p",
+          "size": "352.74 MB",
+          "stream": "https://1024terabox.com/s/1WOacQ13EV-Kz7l0Tt13LGg"
+        }
+      ]
+    },
+    {
       "id": "SinghamR2014",
       "title": "Singham Returns (2014) 720p 1080p HDRip",
       "category": "Movie",
