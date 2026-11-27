@@ -1,6 +1,147 @@
 {
   "items": [
     {
+      "id": "WhatIfS2",
+      "title": "What If...? Season 2 (2023)",
+      "category": "Series",
+      "genre": "Animation, Sci-Fi, Action",
+      "year": "2023",
+      "thumb": "https://image.tmdb.org/t/p/original/1sjZ9ZWQVwwzN40Scr83iLBzMsI.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/1sjZ9ZWQVwwzN40Scr83iLBzMsI.jpg",
+      "stream": "https://1024terabox.com/s/1GxQ-9XuGZDk0a_xVD5doOA",
+      "quality": "720p",
+      "size": "182.23 MB",
+      "seasons": [
+        {
+          "season": 2,
+          "episodes": [
+            {
+              "title": "What If...? S02E02 720p WEBRip",
+              "stream": "https://1024terabox.com/s/1GxQ-9XuGZDk0a_xVD5doOA",
+              "quality": "720p",
+              "size": "182.23 MB",
+              "duration": "29m 54s"
+            },
+            {
+              "title": "What If...? S02E03 720p WEBRip",
+              "stream": "https://1024terabox.com/s/1HwtedMYyseXv23fAWTIAVg",
+              "quality": "720p",
+              "size": "193.54 MB",
+              "duration": "26m 59s"
+            },
+            {
+              "title": "What If...? S02E04 720p WEBRip",
+              "stream": "https://1024terabox.com/s/13qBpb7XWRBTdvNz8rOGPPQ",
+              "quality": "720p",
+              "size": "251.59 MB",
+              "duration": "31m 42s"
+            },
+            {
+              "title": "What If...? S02E06 720p WEBRip",
+              "stream": "https://1024terabox.com/s/1rPQZ42-BHTWNGFYoGt84jQ",
+              "quality": "720p",
+              "size": "208.46 MB",
+              "duration": "32m 2s"
+            },
+            {
+              "title": "What If...? S02E07 720p WEBRip",
+              "stream": "https://1024terabox.com/s/1t5PO2iTN_mfsSaUusCdHUw",
+              "quality": "720p",
+              "size": "176.78 MB",
+              "duration": "28m 44s"
+            },
+            {
+              "title": "What If...? S02E09 720p WEBRip",
+              "stream": "https://1024terabox.com/s/1A30RMtC4_mr9c740RtyA7w",
+              "quality": "720p",
+              "size": "221.76 MB",
+              "duration": "31m 24s"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "LokiS2",
+      "title": "Loki Season 2 (2023)",
+      "category": "Series",
+      "genre": "Action, Sci-Fi, Fantasy",
+      "year": "2023",
+      "thumb": "",
+      "landscape": "",
+      "stream": "https://1024terabox.com/s/1Yi9ia5X4idvQQwTfd8dnYw",
+      "quality": "720p",
+      "size": "299.09 MB",
+      "seasons": [
+        {
+          "season": 2,
+          "episodes": [
+            {
+              "title": "Loki S02E02 720p WEBRip Hindi English",
+              "stream": "https://1024terabox.com/s/1Yi9ia5X4idvQQwTfd8dnYw",
+              "quality": "720p",
+              "size": "299.09 MB",
+              "duration": "49m 18s"
+            },
+            {
+              "title": "Loki S02E03 720p WEBRip Hindi English",
+              "stream": "https://1024terabox.com/s/1mYSv9MedTYiDGm5Qh-Z9TQ",
+              "quality": "720p",
+              "size": "299.68 MB",
+              "duration": "53m 32s"
+            },
+            {
+              "title": "Loki S02E04 720p WEBRip Hindi English",
+              "stream": "https://1024terabox.com/s/1ksrw5brtGk1wrh19EmtZ_A",
+              "quality": "720p",
+              "size": "293.69 MB",
+              "duration": "48m 11s"
+            },
+            {
+              "title": "Loki S02E05 720p WEBRip Hindi English",
+              "stream": "https://1024terabox.com/s/1MkN37Zt0WebdkwN4M-QfLw",
+              "quality": "720p",
+              "size": "269.28 MB",
+              "duration": "44m 36s"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SecInv23",
+      "title": "Secret Invasion (2023) Complete Series",
+      "category": "Series",
+      "genre": "Action, Sci-Fi, Thriller",
+      "year": "2023",
+      "thumb": "https://image.tmdb.org/t/p/original/8nmbwPqqRGCRQKiCiY7nU4oqlOs.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/8nmbwPqqRGCRQKiCiY7nU4oqlOs.jpg",
+      "stream": "https://1024terabox.com/s/1G-T9g3saTkqM5i6H1bb3fw",
+      "quality": "720p",
+      "size": "1.63 GB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "1.63 GB",
+          "stream": "https://1024terabox.com/s/1G-T9g3saTkqM5i6H1bb3fw"
+        }
+      ],
+      "seasons": [
+        {
+          "season": 1,
+          "episodes": [
+            {
+              "title": "Secret Invasion S01 Complete 720p",
+              "stream": "https://1024terabox.com/s/1G-T9g3saTkqM5i6H1bb3fw",
+              "quality": "720p",
+              "size": "1.63 GB",
+              "duration": "4h 18m"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "FamM2601",
       "title": "The Family Man",
       "category": "Series",
