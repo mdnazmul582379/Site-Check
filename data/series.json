@@ -1,6 +1,309 @@
 {
   "items": [
     {
+      "id": "s-loki-s1-2021",
+      "title": "Loki (2021) Season 1",
+      "category": "Series",
+      "genre": "Drama, Sci-Fi & Fantasy, MCU",
+      "year": "2021",
+      "thumb": "https://image.tmdb.org/t/p/original/kXja7L9cRlsRmINMpxyWEdp9r3u.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/kXja7L9cRlsRmINMpxyWEdp9r3u.jpg",
+      "stream": "https://1024terabox.com/s/15wWrNYutxFd4BzDviL42wA",
+      "quality": "720p",
+      "size": "424.13 MB",
+      "seasons": [
+        {
+          "name": "Season 01",
+          "episodes": [
+            {
+              "no": 1,
+              "title": "Loki S01E01",
+              "stream": "https://1024terabox.com/s/15wWrNYutxFd4BzDviL42wA",
+              "quality": "720p",
+              "size": "424.13 MB"
+            },
+            {
+              "no": 5,
+              "title": "Loki S01E05",
+              "stream": "https://1024terabox.com/s/1GGbmUuTIlvtO3E9RNOv1LQ",
+              "quality": "720p",
+              "size": "298.42 MB"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s-what-if-s1-2021",
+      "title": "What If...? (2021) Season 1",
+      "category": "Series",
+      "genre": "Animation, Action & Adventure, MCU",
+      "year": "2021",
+      "thumb": "https://image.tmdb.org/t/p/original/jfco4MSfKOyt4R9gjkrZ9cDCKFh.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/jfco4MSfKOyt4R9gjkrZ9cDCKFh.jpg",
+      "stream": "https://1024terabox.com/s/1ly5kBk8eh1bmkjE1KF-j0g",
+      "quality": "720p",
+      "size": "308.14 MB",
+      "seasons": [
+        {
+          "name": "Season 01",
+          "episodes": [
+            {
+              "no": 3,
+              "title": "What If...? S01E03",
+              "stream": "https://1024terabox.com/s/1ly5kBk8eh1bmkjE1KF-j0g",
+              "quality": "720p",
+              "size": "308.14 MB"
+            },
+            {
+              "no": 4,
+              "title": "What If...? S01E04",
+              "stream": "https://1024terabox.com/s/1Vt1hjGYPPddbm0ud0dj6TA",
+              "quality": "720p",
+              "size": "321.50 MB"
+            },
+            {
+              "no": 5,
+              "title": "What If...? S01E05",
+              "stream": "https://1024terabox.com/s/1hwPG8vl5YvgDzH8WGViaoQ",
+              "quality": "720p",
+              "size": "283.00 MB"
+            },
+            {
+              "no": 7,
+              "title": "What If...? S01E07",
+              "stream": "https://1024terabox.com/s/1fUQmQqhjZVDjMYl3WXWD7Q",
+              "quality": "720p",
+              "size": "309.70 MB"
+            },
+            {
+              "no": 8,
+              "title": "What If...? S01E08",
+              "stream": "https://1024terabox.com/s/1lcmX0KG-gyT3NuDZr62Qcw",
+              "quality": "720p",
+              "size": "171.64 MB"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s-hawkeye-2021",
+      "title": "Hawkeye (2021) Season 1",
+      "category": "Series",
+      "genre": "Drama, Comedy, MCU",
+      "year": "2021",
+      "thumb": "https://image.tmdb.org/t/p/original/mrCVSb6I3i2sL7de3L7lfu4OZms.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/mrCVSb6I3i2sL7de3L7lfu4OZms.jpg",
+      "stream": "https://1024terabox.com/s/1EZiF6RFk-eEzk-xNy4b6SA",
+      "quality": "720p",
+      "size": "639.29 MB",
+      "seasons": [
+        {
+          "name": "Season 01",
+          "episodes": [
+            {
+              "no": 1,
+              "title": "Hawkeye S01E01",
+              "stream": "https://1024terabox.com/s/1EZiF6RFk-eEzk-xNy4b6SA",
+              "quality": "720p",
+              "size": "639.29 MB"
+            },
+            {
+              "no": 2,
+              "title": "Hawkeye S01E02",
+              "stream": "https://1024terabox.com/s/1p1Gij-QvcciZUUjf0XFgFQ",
+              "quality": "720p",
+              "size": "664.43 MB"
+            },
+            {
+              "no": 3,
+              "title": "Hawkeye S01E03",
+              "stream": "https://1024terabox.com/s/1u35DxVC9ETKlZqq8yrXwKA",
+              "quality": "720p",
+              "size": "562.42 MB"
+            },
+            {
+              "no": 4,
+              "title": "Hawkeye S01E04",
+              "stream": "https://1024terabox.com/s/1x8gighbse3dki3Qoc1K0Hg",
+              "quality": "720p",
+              "size": "451.49 MB"
+            },
+            {
+              "no": 5,
+              "title": "Hawkeye S01E05",
+              "stream": "https://1024terabox.com/s/1sCZPaR0__vcvSOl1Qi-34A",
+              "quality": "720p",
+              "size": "580.25 MB"
+            },
+            {
+              "no": 6,
+              "title": "Hawkeye S01E06",
+              "stream": "https://1024terabox.com/s/1n_2USihLB1mAvwZNequx2A",
+              "quality": "720p",
+              "size": "535.34 MB"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s-moon-knight-2022",
+      "title": "Moon Knight (2022) Season 1",
+      "category": "Series",
+      "genre": "Sci-Fi & Fantasy, Mystery, MCU",
+      "year": "2022",
+      "thumb": "https://image.tmdb.org/t/p/original/8KZkp3PwfnmUNA7pgkyGjz4xWVC.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/8KZkp3PwfnmUNA7pgkyGjz4xWVC.jpg",
+      "stream": "https://1024terabox.com/s/1WSJEhWZPh_PgmLTAagLKbQ",
+      "quality": "720p",
+      "size": "304.14 MB",
+      "seasons": [
+        {
+          "name": "Season 01",
+          "episodes": [
+            {
+              "no": 3,
+              "title": "Moon Knight S01E03",
+              "stream": "https://1024terabox.com/s/1WSJEhWZPh_PgmLTAagLKbQ",
+              "quality": "720p",
+              "size": "304.14 MB"
+            },
+            {
+              "no": 5,
+              "title": "Moon Knight S01E05",
+              "stream": "https://1024terabox.com/s/1wtfOc6s7L4wXpOvkf-ENWw",
+              "quality": "720p",
+              "size": "257.58 MB"
+            },
+            {
+              "no": 6,
+              "title": "Moon Knight S01E06",
+              "stream": "https://1024terabox.com/s/1qubXcUwSz601ccKlOQp7Qw",
+              "quality": "720p",
+              "size": "253.47 MB"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s-ms-marvel-2022",
+      "title": "Ms. Marvel (2022) Season 1",
+      "category": "Series",
+      "genre": "Sci-Fi & Fantasy, Action & Adventure, MCU",
+      "year": "2022",
+      "thumb": "https://image.tmdb.org/t/p/original/vMIhCnnlhy9bkWDYzblaJjTW2fP.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/vMIhCnnlhy9bkWDYzblaJjTW2fP.jpg",
+      "stream": "https://1024terabox.com/s/1At1DDhiNLVaq6am8J5aHZg",
+      "quality": "720p",
+      "size": "398.31 MB",
+      "seasons": [
+        {
+          "name": "Season 01",
+          "episodes": [
+            {
+              "no": 1,
+              "title": "Ms. Marvel S01E01",
+              "stream": "https://1024terabox.com/s/1At1DDhiNLVaq6am8J5aHZg",
+              "quality": "720p",
+              "size": "398.31 MB"
+            },
+            {
+              "no": 2,
+              "title": "Ms. Marvel S01E02",
+              "stream": "https://1024terabox.com/s/1RfOaD0iubhRc2c4AH19oow",
+              "quality": "720p",
+              "size": "434.64 MB"
+            },
+            {
+              "no": 3,
+              "title": "Ms. Marvel S01E03",
+              "stream": "https://1024terabox.com/s/14-FnThzpsbyeOeFuGBpZ5A",
+              "quality": "720p",
+              "size": "281.92 MB"
+            },
+            {
+              "no": 4,
+              "title": "Ms. Marvel S01E04",
+              "stream": "https://1024terabox.com/s/1xU9bGkwheSpn_bcMDxdGAg",
+              "quality": "720p",
+              "size": "251.07 MB"
+            },
+            {
+              "no": 5,
+              "title": "Ms. Marvel S01E05",
+              "stream": "https://1024terabox.com/s/1PRVvzg_uuODfoKWKbTijAQ",
+              "quality": "720p",
+              "size": "221.65 MB"
+            },
+            {
+              "no": 6,
+              "title": "Ms. Marvel S01E06",
+              "stream": "https://1024terabox.com/s/1ee0TvhBGBUDRth5nZVfD9A",
+              "quality": "720p",
+              "size": "277.48 MB"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s-she-hulk-2022",
+      "title": "She-Hulk: Attorney at Law (2022) Season 1",
+      "category": "Series",
+      "genre": "Comedy, Sci-Fi & Fantasy, MCU",
+      "year": "2022",
+      "thumb": "https://image.tmdb.org/t/p/original/kat4QOmQTGnQf6KsGFzD0Zcl1xL.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/kat4QOmQTGnQf6KsGFzD0Zcl1xL.jpg",
+      "stream": "https://1024terabox.com/s/1UZP2cg4WZwSjkPwMDCV_DA",
+      "quality": "720p",
+      "size": "230.19 MB",
+      "seasons": [
+        {
+          "name": "Season 01",
+          "episodes": [
+            {
+              "no": 2,
+              "title": "She-Hulk: Attorney at Law S01E02",
+              "stream": "https://1024terabox.com/s/1UZP2cg4WZwSjkPwMDCV_DA",
+              "quality": "720p",
+              "size": "230.19 MB"
+            },
+            {
+              "no": 3,
+              "title": "She-Hulk: Attorney at Law S01E03",
+              "stream": "https://1024terabox.com/s/196xBrhrWirBkahdeYiDECA",
+              "quality": "720p",
+              "size": "197.80 MB"
+            },
+            {
+              "no": 6,
+              "title": "She-Hulk: Attorney at Law S01E06",
+              "stream": "https://1024terabox.com/s/1KBoZLziqrPgvGLua88dU4Q",
+              "quality": "720p",
+              "size": "232.86 MB"
+            },
+            {
+              "no": 7,
+              "title": "She-Hulk: Attorney at Law S01E07",
+              "stream": "https://1024terabox.com/s/1HJJVxk9Awmvk35fRuEsDjQ",
+              "quality": "720p",
+              "size": "270.00 MB"
+            },
+            {
+              "no": 9,
+              "title": "She-Hulk: Attorney at Law S01E09",
+              "stream": "https://1024terabox.com/s/18HPkdlhiiGG3AyDzFsU6PA",
+              "quality": "720p",
+              "size": "269.78 MB"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "WhatIfS2",
       "title": "What If...? Season 2 (2023)",
       "category": "Series",
@@ -47,6 +350,13 @@
               "no": 4
             },
             {
+              "no": 5,
+              "title": "What If...? S02E05 720p WEBRip",
+              "stream": "https://1024terabox.com/s/1srps8RMmnmxKxG5O0tEs5A",
+              "quality": "720p",
+              "size": "179.80 MB"
+            },
+            {
               "title": "What If...? S02E06 720p WEBRip",
               "stream": "https://1024terabox.com/s/1rPQZ42-BHTWNGFYoGt84jQ",
               "quality": "720p",
@@ -61,6 +371,13 @@
               "size": "176.78 MB",
               "duration": "28m 44s",
               "no": 7
+            },
+            {
+              "no": 8,
+              "title": "What If...? S02E08 720p WEBRip",
+              "stream": "https://1024terabox.com/s/140xfNYIGkVL5QuJRmI8UJA",
+              "quality": "720p",
+              "size": "175.20 MB"
             },
             {
               "title": "What If...? S02E09 720p WEBRip",
@@ -78,7 +395,7 @@
       "id": "LokiS2",
       "title": "Loki Season 2 (2023)",
       "category": "Series",
-      "genre": "Action, Sci-Fi, Fantasy",
+      "genre": "Drama, Sci-Fi & Fantasy, MCU",
       "year": "2023",
       "thumb": "https://image.tmdb.org/t/p/original/kXja7L9cRlsRmINMpxyWEdp9r3u.jpg",
       "landscape": "https://image.tmdb.org/t/p/original/kXja7L9cRlsRmINMpxyWEdp9r3u.jpg",
@@ -89,6 +406,13 @@
         {
           "name": "Season 02",
           "episodes": [
+            {
+              "no": 1,
+              "title": "Loki S02E01 720p WEBRip",
+              "stream": "https://1024terabox.com/s/1uzr5f3yN27OAqHjXibpkwg",
+              "quality": "720p",
+              "size": "278.21 MB"
+            },
             {
               "title": "Loki S02E02 720p WEBRip Hindi English",
               "stream": "https://1024terabox.com/s/1Yi9ia5X4idvQQwTfd8dnYw",

@@ -1,6 +1,146 @@
 {
   "items": [
     {
+      "id": "m-doctor-strange-2016",
+      "title": "Doctor Strange (2016) 1080p 720p 480p HDRip [Hindi + English]",
+      "category": "Movie",
+      "genre": "Fantasy, Adventure, MCU",
+      "year": "2016",
+      "thumb": "https://image.tmdb.org/t/p/original/brbkEQAe6BKmPCLdqBkVNNZqlql.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/brbkEQAe6BKmPCLdqBkVNNZqlql.jpg",
+      "stream": "https://1024terabox.com/s/1r8NyfESgUZTB1VksDVtw_A",
+      "quality": "1080p",
+      "size": "3.34 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "3.34 GB",
+          "stream": "https://1024terabox.com/s/1r8NyfESgUZTB1VksDVtw_A"
+        },
+        {
+          "quality": "720p",
+          "size": "1.15 GB",
+          "stream": "https://1024terabox.com/s/1XXvvVUFMiQSrJiriCmKqQw"
+        },
+        {
+          "quality": "480p",
+          "size": "403.31 MB",
+          "stream": "https://1024terabox.com/s/1m4iY1WDCg1fm76a2kthj4w"
+        }
+      ]
+    },
+    {
+      "id": "m-black-panther-2018",
+      "title": "Black Panther (2018) 1080p 720p 480p HDRip [Hindi + English]",
+      "category": "Movie",
+      "genre": "Action, Adventure, MCU",
+      "year": "2018",
+      "thumb": "https://image.tmdb.org/t/p/original/iwKlrK1FJJy6wnJVu8YQgNq3Ort.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/iwKlrK1FJJy6wnJVu8YQgNq3Ort.jpg",
+      "stream": "https://1024terabox.com/s/1XKkK4Jpzwabkzg5DXeURUA",
+      "quality": "1080p",
+      "size": "2.53 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "2.53 GB",
+          "stream": "https://1024terabox.com/s/1XKkK4Jpzwabkzg5DXeURUA"
+        },
+        {
+          "quality": "720p",
+          "size": "1.35 GB",
+          "stream": "https://1024terabox.com/s/1aLZolP8mnH4KQE8_h6n7BA"
+        },
+        {
+          "quality": "480p",
+          "size": "406.79 MB",
+          "stream": "https://1024terabox.com/s/1ApdUZzs7Z86705hl7foOzg"
+        }
+      ]
+    },
+    {
+      "id": "m-avengers-endgame-2019",
+      "title": "Avengers: Endgame (2019) 1080p 720p 480p HDRip [Hindi + English]",
+      "category": "Movie",
+      "genre": "Adventure, Science Fiction, MCU",
+      "year": "2019",
+      "thumb": "https://image.tmdb.org/t/p/original/AtAgl6RsRNFh2um6v3redR6LERb.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/AtAgl6RsRNFh2um6v3redR6LERb.jpg",
+      "stream": "https://1024terabox.com/s/1j_EurPnDYDzz0rwwxxC1GQ",
+      "quality": "1080p",
+      "size": "3.69 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "3.69 GB",
+          "stream": "https://1024terabox.com/s/1j_EurPnDYDzz0rwwxxC1GQ"
+        },
+        {
+          "quality": "720p",
+          "size": "1.34 GB",
+          "stream": "https://1024terabox.com/s/1_i_hvcY4TuU5rxOyC0WAdw"
+        },
+        {
+          "quality": "480p",
+          "size": "549.54 MB",
+          "stream": "https://1024terabox.com/s/1POplTwGPcgbLeaR-6wV-zQ"
+        }
+      ]
+    },
+    {
+      "id": "m-spider-man-no-way-home-2021",
+      "title": "Spider-Man: No Way Home (2021) 1080p 480p HDRip [Hindi + English]",
+      "category": "Movie",
+      "genre": "Action, Adventure, MCU",
+      "year": "2021",
+      "thumb": "https://image.tmdb.org/t/p/original/utxfKMtH91Q5uPvFMFDLnxohXHV.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/utxfKMtH91Q5uPvFMFDLnxohXHV.jpg",
+      "stream": "https://1024terabox.com/s/1lcXVNBVgcRR5ZyFLBu71vg",
+      "quality": "1080p",
+      "size": "1.92 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "1.92 GB",
+          "stream": "https://1024terabox.com/s/1lcXVNBVgcRR5ZyFLBu71vg"
+        },
+        {
+          "quality": "480p",
+          "size": "515.59 MB",
+          "stream": "https://1024terabox.com/s/1fplVLF_Fhbz7J8WXv2RjHg"
+        }
+      ]
+    },
+    {
+      "id": "m-thor-love-and-thunder-2022",
+      "title": "Thor: Love and Thunder (2022) 1080p 720p 480p HDRip [Hindi + English]",
+      "category": "Movie",
+      "genre": "Fantasy, Action, MCU",
+      "year": "2022",
+      "thumb": "https://image.tmdb.org/t/p/original/6eFDnvpsgPMrxcVnLCM12rBv8Fk.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/6eFDnvpsgPMrxcVnLCM12rBv8Fk.jpg",
+      "stream": "https://1024terabox.com/s/1wjbR6D6_HmknkpoGRWZWWA",
+      "quality": "1080p",
+      "size": "2.53 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "2.53 GB",
+          "stream": "https://1024terabox.com/s/1wjbR6D6_HmknkpoGRWZWWA"
+        },
+        {
+          "quality": "720p",
+          "size": "1.19 GB",
+          "stream": "https://1024terabox.com/s/1SMF2Tq956USG8maPNNI0MQ"
+        },
+        {
+          "quality": "480p",
+          "size": "412.98 MB",
+          "stream": "https://1024terabox.com/s/1x1fUv1r-OOK-7FVWkOaU7Q"
+        }
+      ]
+    },
+    {
       "id": "m-the-marvels-2023",
       "title": "The Marvels (2023) 480p 720p HDRip",
       "category": "Movie",
