@@ -1,6 +1,370 @@
 {
   "items": [
     {
+      "id": "GrandMas2013",
+      "title": "Grand Masti (2013) 720p 1080p HDRip",
+      "category": "Movie",
+      "genre": "Comedy",
+      "year": "2013",
+      "thumb": "https://image.tmdb.org/t/p/original/nxg72kFZAWSJ1NvhFDLwrHoTHsu.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/nxg72kFZAWSJ1NvhFDLwrHoTHsu.jpg",
+      "stream": "https://freeterabox.com/s/18T6lwM7fIxZc6UIWDHNRFg",
+      "quality": "1080p",
+      "size": "3.48 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "3.48 GB",
+          "stream": "https://freeterabox.com/s/18T6lwM7fIxZc6UIWDHNRFg"
+        },
+        {
+          "quality": "720p",
+          "size": "1.17 GB",
+          "stream": "https://freeterabox.com/s/1C08LP5AL4vtWs9Xd_tiSGA"
+        }
+      ]
+    },
+    {
+      "id": "Ajji2017",
+      "title": "Ajji (2017) 480p 720p HDRip",
+      "category": "Movie",
+      "genre": "Horror, Thriller",
+      "year": "2017",
+      "thumb": "https://image.tmdb.org/t/p/original/f6gCsxPdQSm4u0mFyC98g1KrLPa.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/f6gCsxPdQSm4u0mFyC98g1KrLPa.jpg",
+      "stream": "https://freeterabox.com/s/1UDLDmXEX_MieoWpuc_fAzg",
+      "quality": "720p",
+      "size": "823.96 MB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "823.96 MB",
+          "stream": "https://freeterabox.com/s/1UDLDmXEX_MieoWpuc_fAzg"
+        },
+        {
+          "quality": "480p",
+          "size": "491.01 MB",
+          "stream": "https://freeterabox.com/s/1iea-QcsaF9D0x-vsmGm8Ng"
+        }
+      ]
+    },
+    {
+      "id": "GreatGra2016",
+      "title": "Great Grand Masti (2016) 720p HDRip",
+      "category": "Movie",
+      "genre": "Comedy",
+      "year": "2016",
+      "thumb": "https://image.tmdb.org/t/p/original/3CY9cow0Oizei7pp5m2NgssHyCq.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/3CY9cow0Oizei7pp5m2NgssHyCq.jpg",
+      "stream": "https://freeterabox.com/s/1Zx4i9ZmuBvrK57XV5_m4qw",
+      "quality": "720p",
+      "size": "946.62 MB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "946.62 MB",
+          "stream": "https://freeterabox.com/s/1Zx4i9ZmuBvrK57XV5_m4qw"
+        }
+      ]
+    },
+    {
+      "id": "Neymar2023",
+      "title": "Neymar (2023) 480p 720p HDRip",
+      "category": "Movie",
+      "genre": "Comedy, Sports",
+      "year": "2023",
+      "thumb": "https://image.tmdb.org/t/p/original/yYKglcHssuu5OmBn9SYIxxZZ9if.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/yYKglcHssuu5OmBn9SYIxxZZ9if.jpg",
+      "stream": "https://freeterabox.com/s/1FJ2YidFR-84Le8XOe2Br0Q",
+      "quality": "720p",
+      "size": "1.47 GB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "1.47 GB",
+          "stream": "https://freeterabox.com/s/1FJ2YidFR-84Le8XOe2Br0Q"
+        },
+        {
+          "quality": "480p",
+          "size": "584.30 MB",
+          "stream": "https://freeterabox.com/s/1AnZ9RE3w8UIWCEy11dHJyw"
+        }
+      ]
+    },
+    {
+      "id": "LaalSing2022",
+      "title": "Laal Singh Chaddha (2022) 480p HDRip",
+      "category": "Movie",
+      "genre": "Drama, Comedy",
+      "year": "2022",
+      "thumb": "https://image.tmdb.org/t/p/original/5KICUY1tP3niINVgfiZO3NHyktg.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/5KICUY1tP3niINVgfiZO3NHyktg.jpg",
+      "stream": "https://freeterabox.com/s/12gennkft3tB7IWkRCbPc2w",
+      "quality": "480p",
+      "size": "507.96 MB",
+      "versions": [
+        {
+          "quality": "480p",
+          "size": "507.96 MB",
+          "stream": "https://freeterabox.com/s/12gennkft3tB7IWkRCbPc2w"
+        }
+      ]
+    },
+    {
+      "id": "AlitaBat2019",
+      "title": "Alita Battle Angel (2019) 480p 720p HDRip",
+      "category": "Movie",
+      "genre": "Action, Sci-Fi",
+      "year": "2019",
+      "thumb": "https://image.tmdb.org/t/p/original/AtS9MnXOnfndC8qdSzXPfZ5JbYX.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/AtS9MnXOnfndC8qdSzXPfZ5JbYX.jpg",
+      "stream": "https://freeterabox.com/s/1cT_AOWAOF9cJ98T_RJzSYA",
+      "quality": "720p HEVC",
+      "size": "596.71 MB",
+      "versions": [
+        {
+          "quality": "720p HEVC",
+          "size": "596.71 MB",
+          "stream": "https://freeterabox.com/s/1cT_AOWAOF9cJ98T_RJzSYA"
+        },
+        {
+          "quality": "720p",
+          "size": "1.12 GB",
+          "stream": "https://freeterabox.com/s/13pEgFxym04j5btxdU3u-SQ"
+        },
+        {
+          "quality": "480p",
+          "size": "444.71 MB",
+          "stream": "https://freeterabox.com/s/1NqwcGqLLZZ25BkwG16Fv8g"
+        }
+      ]
+    },
+    {
+      "id": "Dybbuk2021",
+      "title": "Dybbuk (2021) 720p HDRip",
+      "category": "Movie",
+      "genre": "Horror, Thriller",
+      "year": "2021",
+      "thumb": "https://image.tmdb.org/t/p/original/aWoinUH9xn78YTiPp8NFubBtBvF.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/aWoinUH9xn78YTiPp8NFubBtBvF.jpg",
+      "stream": "https://freeterabox.com/s/1aLNZdk6zBk2LU9Xoz1_bng",
+      "quality": "720p",
+      "size": "1.01 GB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "1.01 GB",
+          "stream": "https://freeterabox.com/s/1aLNZdk6zBk2LU9Xoz1_bng"
+        }
+      ]
+    },
+    {
+      "id": "Seetimaa2022",
+      "title": "Seetimaarr (2022) 720p HDRip",
+      "category": "Movie",
+      "genre": "Action, Comedy",
+      "year": "2022",
+      "thumb": "",
+      "landscape": "",
+      "stream": "https://freeterabox.com/s/15MRvyJXd5MPLLGaXsdM2cw",
+      "quality": "720p",
+      "size": "1.22 GB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "1.22 GB",
+          "stream": "https://freeterabox.com/s/15MRvyJXd5MPLLGaXsdM2cw"
+        }
+      ]
+    },
+    {
+      "id": "DryDay2023",
+      "title": "Dry Day (2023) 720p HDRip",
+      "category": "Movie",
+      "genre": "Comedy, Drama",
+      "year": "2023",
+      "thumb": "https://image.tmdb.org/t/p/original/5MtDBxh1y4BTkdMWyN6xPaaWnGH.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/5MtDBxh1y4BTkdMWyN6xPaaWnGH.jpg",
+      "stream": "https://freeterabox.com/s/1dtr00xAjVJN54-MrdnemjA",
+      "quality": "720p",
+      "size": "1.16 GB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "1.16 GB",
+          "stream": "https://freeterabox.com/s/1dtr00xAjVJN54-MrdnemjA"
+        }
+      ]
+    },
+    {
+      "id": "NaachGaG2024",
+      "title": "Naach Ga Ghuma (2024) 720p HDRip",
+      "category": "Movie",
+      "genre": "Comedy, Drama",
+      "year": "2024",
+      "thumb": "https://image.tmdb.org/t/p/original/90zpEAQPVPSlyqrOlx022aFyvIh.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/90zpEAQPVPSlyqrOlx022aFyvIh.jpg",
+      "stream": "https://freeterabox.com/s/1fhgEsXqR2xi80aKPV1GfQw",
+      "quality": "720p HEVC",
+      "size": "725.65 MB",
+      "versions": [
+        {
+          "quality": "720p HEVC",
+          "size": "725.65 MB",
+          "stream": "https://freeterabox.com/s/1fhgEsXqR2xi80aKPV1GfQw"
+        },
+        {
+          "quality": "720p",
+          "size": "1.06 GB",
+          "stream": "https://freeterabox.com/s/1-iC1aMywU18Z_aaglRHPaQ"
+        }
+      ]
+    },
+    {
+      "id": "KamaSutr1996",
+      "title": "Kama Sutra A Tale of Love (1996) 480p 720p HDRip",
+      "category": "Movie",
+      "genre": "Drama, Romance",
+      "year": "1996",
+      "thumb": "https://image.tmdb.org/t/p/original/6YXHshM95c0n4soR74RLlzbUhOQ.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/6YXHshM95c0n4soR74RLlzbUhOQ.jpg",
+      "stream": "https://freeterabox.com/s/1LzTCdGBtzfe4sAsztD20xg",
+      "quality": "720p HEVC",
+      "size": "721.59 MB",
+      "versions": [
+        {
+          "quality": "720p HEVC",
+          "size": "721.59 MB",
+          "stream": "https://freeterabox.com/s/1LzTCdGBtzfe4sAsztD20xg"
+        },
+        {
+          "quality": "480p",
+          "size": "391.08 MB",
+          "stream": "https://freeterabox.com/s/1CzZbDXfV2AZDxv7be9VYBg"
+        }
+      ]
+    },
+    {
+      "id": "Barfi2012",
+      "title": "Barfi (2012) 1080p HDRip",
+      "category": "Movie",
+      "genre": "Comedy, Romance",
+      "year": "2012",
+      "thumb": "https://image.tmdb.org/t/p/original/581O5n2p5I7Zz0SgKjIucslHPTA.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/581O5n2p5I7Zz0SgKjIucslHPTA.jpg",
+      "stream": "https://freeterabox.com/s/1-nPf8OUE9pcxViFgN3y3vQ",
+      "quality": "1080p",
+      "size": "2.99 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "2.99 GB",
+          "stream": "https://freeterabox.com/s/1-nPf8OUE9pcxViFgN3y3vQ"
+        }
+      ]
+    },
+    {
+      "id": "Kambakkh2009",
+      "title": "Kambakkht Ishq (2009) 480p 720p HDRip",
+      "category": "Movie",
+      "genre": "Comedy, Romance",
+      "year": "2009",
+      "thumb": "https://image.tmdb.org/t/p/original/hKpYjoxqchytSo69BbrmvGHCNcj.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/hKpYjoxqchytSo69BbrmvGHCNcj.jpg",
+      "stream": "https://freeterabox.com/s/1ht1QDM9ZY338n6c-GyTusA",
+      "quality": "720p HEVC",
+      "size": "951.14 MB",
+      "versions": [
+        {
+          "quality": "720p HEVC",
+          "size": "951.14 MB",
+          "stream": "https://freeterabox.com/s/1ht1QDM9ZY338n6c-GyTusA"
+        },
+        {
+          "quality": "720p",
+          "size": "1.16 GB",
+          "stream": "https://freeterabox.com/s/1Aw-nXbtG_R0QughZLT4a3g"
+        },
+        {
+          "quality": "480p",
+          "size": "359.43 MB",
+          "stream": "https://freeterabox.com/s/1FYbLP_n_X4-AfBSqPPErVg"
+        }
+      ]
+    },
+    {
+      "id": "NoString2011",
+      "title": "No Strings Attached (2011) 480p HDRip",
+      "category": "Movie",
+      "genre": "Comedy, Romance",
+      "year": "2011",
+      "thumb": "https://image.tmdb.org/t/p/original/6u0AA8np92wLp6VM0rVjfVMRkTN.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/6u0AA8np92wLp6VM0rVjfVMRkTN.jpg",
+      "stream": "https://freeterabox.com/s/1aGbFbpPGkFZZvzyv8qYaRg",
+      "quality": "480p",
+      "size": "384.40 MB",
+      "versions": [
+        {
+          "quality": "480p",
+          "size": "384.40 MB",
+          "stream": "https://freeterabox.com/s/1aGbFbpPGkFZZvzyv8qYaRg"
+        }
+      ]
+    },
+    {
+      "id": "HITTheFi2022",
+      "title": "HIT The First Case (2022) 480p 720p HDRip",
+      "category": "Movie",
+      "genre": "Thriller, Crime",
+      "year": "2022",
+      "thumb": "https://image.tmdb.org/t/p/original/ycOfz8GA1Fkm5Fym7uMFgp2wZ1k.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/ycOfz8GA1Fkm5Fym7uMFgp2wZ1k.jpg",
+      "stream": "https://freeterabox.com/s/19n8SIELCX456eL_XgMqxag",
+      "quality": "720p",
+      "size": "1.34 GB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "1.34 GB",
+          "stream": "https://freeterabox.com/s/19n8SIELCX456eL_XgMqxag"
+        },
+        {
+          "quality": "480p",
+          "size": "483.27 MB",
+          "stream": "https://freeterabox.com/s/1Bpuh7mkc1f2EctsA4XwTHg"
+        }
+      ]
+    },
+    {
+      "id": "Narayana2023",
+      "title": "Narayana & Co (2023) 480p 720p 1080p HDRip",
+      "category": "Movie",
+      "genre": "Comedy, Drama",
+      "year": "2023",
+      "thumb": "",
+      "landscape": "",
+      "stream": "https://freeterabox.com/s/1q7r3dnFJ8iLUGWExc-_XWQ",
+      "quality": "1080p",
+      "size": "2.47 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "2.47 GB",
+          "stream": "https://freeterabox.com/s/1q7r3dnFJ8iLUGWExc-_XWQ"
+        },
+        {
+          "quality": "720p",
+          "size": "1.14 GB",
+          "stream": "https://freeterabox.com/s/17EUgfHPvZUAUKK3vEzQE_Q"
+        },
+        {
+          "quality": "480p",
+          "size": "440.11 MB",
+          "stream": "https://freeterabox.com/s/1WtutLudxzvntPER9FsaKmw"
+        }
+      ]
+    },
+    {
       "id": "m-star-2024",
       "title": "Star (2024) 1080p 720p HDRip [Tamil]",
       "category": "Movie",
