@@ -1,6 +1,577 @@
 {
   "items": [
     {
+      "id": "m-rustom-2016",
+      "title": "Rustom (2016) 720p BluRay [Hindi]",
+      "category": "Movie",
+      "genre": "Thriller, Drama",
+      "year": "2016",
+      "thumb": "https://image.tmdb.org/t/p/original/kORYLDhUy8XGhfdhugigRXmFTIi.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/kORYLDhUy8XGhfdhugigRXmFTIi.jpg",
+      "stream": "https://1024terabox.com/s/1yn_Jdj60txHj7g3S1xMMMQ",
+      "quality": "720p",
+      "size": "1.29 GB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "1.29 GB",
+          "stream": "https://1024terabox.com/s/1yn_Jdj60txHj7g3S1xMMMQ"
+        }
+      ]
+    },
+    {
+      "id": "m-trisha-on-the-rocks-2024",
+      "title": "Trisha On The Rocks (2024) 1080p 720p 480p HDTS [Hindi]",
+      "category": "Movie",
+      "genre": "Comedy, Romance",
+      "year": "2024",
+      "thumb": "https://image.tmdb.org/t/p/original/jbFyzVCuJMcF3vkfG6sI95GYKRf.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/jbFyzVCuJMcF3vkfG6sI95GYKRf.jpg",
+      "stream": "https://1024terabox.com/s/1eD3EVKiFWCx7fVaHUNSRLw",
+      "quality": "1080p",
+      "size": "2.72 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "2.72 GB",
+          "stream": "https://1024terabox.com/s/1eD3EVKiFWCx7fVaHUNSRLw"
+        },
+        {
+          "quality": "720p",
+          "size": "1.28 GB",
+          "stream": "https://1024terabox.com/s/1p6oBsCiLB7vd2me0-0DsdA"
+        },
+        {
+          "quality": "480p",
+          "size": "557.11 MB",
+          "stream": "https://1024terabox.com/s/1HCFRK3NFNJri4xcX9hCSWQ"
+        }
+      ]
+    },
+    {
+      "id": "m-skyline-2010",
+      "title": "Skyline (2010) 480p BluRay [Hindi + English]",
+      "category": "Movie",
+      "genre": "Science Fiction, Action",
+      "year": "2010",
+      "thumb": "https://image.tmdb.org/t/p/original/22RHzAdZDXukBBFewCOT099jZWL.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/22RHzAdZDXukBBFewCOT099jZWL.jpg",
+      "stream": "https://1024terabox.com/s/18xtpA30Si2vlucIBjRRgmw",
+      "quality": "480p",
+      "size": "300.41 MB",
+      "versions": [
+        {
+          "quality": "480p",
+          "size": "300.41 MB",
+          "stream": "https://1024terabox.com/s/18xtpA30Si2vlucIBjRRgmw"
+        }
+      ]
+    },
+    {
+      "id": "m-el-dorado-city-of-gold-2018",
+      "title": "El Dorado: City of Gold (2018) 720p 480p BRRip [Hindi]",
+      "category": "Movie",
+      "genre": "Adventure, Action",
+      "year": "2018",
+      "thumb": "https://image.tmdb.org/t/p/original/kjEuAN3isnjGlxcNWmL7SStBa10.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/kjEuAN3isnjGlxcNWmL7SStBa10.jpg",
+      "stream": "https://freeterabox.com/s/1t9coFweG1Xsv3KP8nntcNw",
+      "quality": "720p",
+      "size": "1.06 GB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "1.06 GB",
+          "stream": "https://freeterabox.com/s/1t9coFweG1Xsv3KP8nntcNw"
+        },
+        {
+          "quality": "480p",
+          "size": "330.35 MB",
+          "stream": "https://freeterabox.com/s/1P4z0YFGKWPXIlrXKNq1Vxw"
+        }
+      ]
+    },
+    {
+      "id": "m-the-exorcism-of-god-2022",
+      "title": "The Exorcism of God (2022) 1080p BluRay [Hindi + English]",
+      "category": "Movie",
+      "genre": "Horror, Crime",
+      "year": "2022",
+      "thumb": "https://image.tmdb.org/t/p/original/8l3tekpQprF47G5bsRZ6VNts9c9.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/8l3tekpQprF47G5bsRZ6VNts9c9.jpg",
+      "stream": "https://freeterabox.com/s/19QExz05jP5uTekzagXSWgA",
+      "quality": "1080p",
+      "size": "1.97 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "1.97 GB",
+          "stream": "https://freeterabox.com/s/19QExz05jP5uTekzagXSWgA"
+        }
+      ]
+    },
+    {
+      "id": "m-ready-player-one-2018",
+      "title": "Ready Player One (2018) 720p 480p BluRay [Hindi + English]",
+      "category": "Movie",
+      "genre": "Adventure, Action",
+      "year": "2018",
+      "thumb": "https://image.tmdb.org/t/p/original/7ngkC5XeGgtSEOVc5dXmQPd1lUh.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/7ngkC5XeGgtSEOVc5dXmQPd1lUh.jpg",
+      "stream": "https://freeterabox.com/s/1fvR_4rRoHzqcz1fH6kUe6g",
+      "quality": "720p",
+      "size": "754.36 MB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "754.36 MB",
+          "stream": "https://freeterabox.com/s/1fvR_4rRoHzqcz1fH6kUe6g"
+        },
+        {
+          "quality": "480p",
+          "size": "582.38 MB",
+          "stream": "https://freeterabox.com/s/1BEs_ETXgeQmCmaSqe7A72Q"
+        }
+      ]
+    },
+    {
+      "id": "m-antony-2023",
+      "title": "Antony (2023) 1080p HDRip [Hindi + Malayalam]",
+      "category": "Movie",
+      "genre": "Thriller, Action",
+      "year": "2023",
+      "thumb": "https://image.tmdb.org/t/p/original/cOjW4svqhUwaSGKIwYGgOewQs90.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/cOjW4svqhUwaSGKIwYGgOewQs90.jpg",
+      "stream": "https://freeterabox.com/s/1WYZL0btSYb-_r0S3FisYQw",
+      "quality": "1080p",
+      "size": "2.92 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "2.92 GB",
+          "stream": "https://freeterabox.com/s/1WYZL0btSYb-_r0S3FisYQw"
+        }
+      ]
+    },
+    {
+      "id": "m-how-high-2001",
+      "title": "How High (2001) 1080p 720p 480p WEB-DL [Hindi + English]",
+      "category": "Movie",
+      "genre": "Comedy",
+      "year": "2001",
+      "thumb": "https://image.tmdb.org/t/p/original/O9VneadUXc1irQef9ZkjPtuWd.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/O9VneadUXc1irQef9ZkjPtuWd.jpg",
+      "stream": "https://freeterabox.com/s/1qZG1o_83GkR0jyRnoMpU2g",
+      "quality": "1080p",
+      "size": "3.75 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "3.75 GB",
+          "stream": "https://freeterabox.com/s/1qZG1o_83GkR0jyRnoMpU2g"
+        },
+        {
+          "quality": "720p",
+          "size": "802.97 MB",
+          "stream": "https://freeterabox.com/s/1KsKJYmSVmEGWyddk4b00Cw"
+        },
+        {
+          "quality": "480p",
+          "size": "290.53 MB",
+          "stream": "https://freeterabox.com/s/1QkXeQdPtpjTBfTsfKyuDzw"
+        }
+      ]
+    },
+    {
+      "id": "m-daagdi-chaawl-2015",
+      "title": "Daagdi Chaawl (2015) 1080p 720p 480p WebRip [Hindi]",
+      "category": "Movie",
+      "genre": "Drama",
+      "year": "2015",
+      "thumb": "https://image.tmdb.org/t/p/original/eoBlLFb9xRiQgFFLpaExcwsT9YZ.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/eoBlLFb9xRiQgFFLpaExcwsT9YZ.jpg",
+      "stream": "https://1024terabox.com/s/1_AwfEJ81GEUnOng368Nfrw",
+      "quality": "1080p",
+      "size": "3.30 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "3.30 GB",
+          "stream": "https://1024terabox.com/s/1_AwfEJ81GEUnOng368Nfrw"
+        },
+        {
+          "quality": "720p",
+          "size": "1.03 GB",
+          "stream": "https://1024terabox.com/s/1DgOX744zCjcEeobg0zeJzw"
+        },
+        {
+          "quality": "480p",
+          "size": "305.80 MB",
+          "stream": "https://1024terabox.com/s/1S9fT2P1fFxU-G-PEJcQq1g"
+        }
+      ]
+    },
+    {
+      "id": "m-3-ekka-2023",
+      "title": "3 Ekka (2023) 720p 720p HEVC 480p HDRip [Gujarati]",
+      "category": "Movie",
+      "genre": "Drama, Comedy",
+      "year": "2023",
+      "thumb": "https://image.tmdb.org/t/p/original/t2wDLYh7se0wJ7xBuM0artPpylS.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/t2wDLYh7se0wJ7xBuM0artPpylS.jpg",
+      "stream": "https://1024terabox.com/s/1I4Dra10Kgsqk2oVyfGorNA",
+      "quality": "720p",
+      "size": "1.26 GB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "1.26 GB",
+          "stream": "https://1024terabox.com/s/1I4Dra10Kgsqk2oVyfGorNA"
+        },
+        {
+          "quality": "720p HEVC",
+          "size": "825.62 MB",
+          "stream": "https://1024terabox.com/s/17Dr3nvDPGEJMWEj5XEifBQ"
+        },
+        {
+          "quality": "480p",
+          "size": "479.52 MB",
+          "stream": "https://1024terabox.com/s/1ykVxj2CmLs3uFttVdwHY4g"
+        }
+      ]
+    },
+    {
+      "id": "m-varalaru-mukkiyam-2022",
+      "title": "Varalaru Mukkiyam (2022) 480p HD [Hindi + Tamil]",
+      "category": "Movie",
+      "genre": "Romance, Comedy",
+      "year": "2022",
+      "thumb": "https://image.tmdb.org/t/p/original/2dh760AKCHSL4wxdpbMNggAiD3Z.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/2dh760AKCHSL4wxdpbMNggAiD3Z.jpg",
+      "stream": "https://freeterabox.com/s/1npSfbXbrU7865Nzjac-tXA",
+      "quality": "480p",
+      "size": "502.75 MB",
+      "versions": [
+        {
+          "quality": "480p",
+          "size": "502.75 MB",
+          "stream": "https://freeterabox.com/s/1npSfbXbrU7865Nzjac-tXA"
+        }
+      ]
+    },
+    {
+      "id": "m-the-big-bull-2021",
+      "title": "The Big Bull (2021) 1080p 720p 720p HEVC 480p Web-DL [Hindi]",
+      "category": "Movie",
+      "genre": "Crime, Drama",
+      "year": "2021",
+      "thumb": "https://image.tmdb.org/t/p/original/xCiV35AsbYtLuA0PGV9KacObIL.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/xCiV35AsbYtLuA0PGV9KacObIL.jpg",
+      "stream": "https://freeterabox.com/s/1Rqq0rxB26iLEsh39tsAWgw",
+      "quality": "1080p",
+      "size": "1.66 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "1.66 GB",
+          "stream": "https://freeterabox.com/s/1Rqq0rxB26iLEsh39tsAWgw"
+        },
+        {
+          "quality": "720p",
+          "size": "1.26 GB",
+          "stream": "https://freeterabox.com/s/18dP7n8kRN-L2242Mf4mGsw"
+        },
+        {
+          "quality": "720p HEVC",
+          "size": "874.37 MB",
+          "stream": "https://freeterabox.com/s/1PVH-BGS-vlN9RNMfS9YpzA"
+        },
+        {
+          "quality": "480p",
+          "size": "583.00 MB",
+          "stream": "https://freeterabox.com/s/1CkZmz0HNVJk-VxLQkvTc1w"
+        }
+      ]
+    },
+    {
+      "id": "m-baby-driver-2017",
+      "title": "Baby Driver (2017) 1080p 720p 480p BluRay [Hindi + English]",
+      "category": "Movie",
+      "genre": "Action, Crime",
+      "year": "2017",
+      "thumb": "https://image.tmdb.org/t/p/original/ltuJeVT7tM32ratdVHwcYGgONdU.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/ltuJeVT7tM32ratdVHwcYGgONdU.jpg",
+      "stream": "https://freeterabox.com/s/1bAiDCXM4nDuCZMRKj7EUTA",
+      "quality": "1080p",
+      "size": "1.97 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "1.97 GB",
+          "stream": "https://freeterabox.com/s/1bAiDCXM4nDuCZMRKj7EUTA"
+        },
+        {
+          "quality": "720p",
+          "size": "929.97 MB",
+          "stream": "https://freeterabox.com/s/1k_CeDdyNnQcikawdAePDzg"
+        },
+        {
+          "quality": "480p",
+          "size": "340.78 MB",
+          "stream": "https://freeterabox.com/s/1fu8Y07AbK8MMijDCMYB67g"
+        }
+      ]
+    },
+    {
+      "id": "m-exploits-of-a-young-don-juan-1986",
+      "title": "Exploits of a Young Don Juan (1986) 720p 720p HEVC 480p HDRip [English]",
+      "category": "Movie",
+      "genre": "Comedy, Drama",
+      "year": "1986",
+      "thumb": "https://image.tmdb.org/t/p/original/4cd9YihTHx1j8oRdlwEa1emKiAl.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/4cd9YihTHx1j8oRdlwEa1emKiAl.jpg",
+      "stream": "https://freeterabox.com/s/1I_YkhBi3h5v4Od1hQJLnFQ",
+      "quality": "720p",
+      "size": "1.39 GB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "1.39 GB",
+          "stream": "https://freeterabox.com/s/1I_YkhBi3h5v4Od1hQJLnFQ"
+        },
+        {
+          "quality": "720p HEVC",
+          "size": "801.30 MB",
+          "stream": "https://freeterabox.com/s/1u3Jn6GSM2ZveNdr6sBa54w"
+        },
+        {
+          "quality": "480p",
+          "size": "451.60 MB",
+          "stream": "https://freeterabox.com/s/1kzPzHi3E5pZR8mr__YzVww"
+        }
+      ]
+    },
+    {
+      "id": "m-maharaj-2024",
+      "title": "Maharaj (2024) 1080p HDRip [Hindi + Tamil + Telugu]",
+      "category": "Movie",
+      "genre": "Drama, History",
+      "year": "2024",
+      "thumb": "https://image.tmdb.org/t/p/original/9RdDCAdZ8PL2qo6pJGRU1vY0UYj.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/9RdDCAdZ8PL2qo6pJGRU1vY0UYj.jpg",
+      "stream": "https://freeterabox.com/s/1wv8rHewAMPD_Qa6LC0JIDA",
+      "quality": "1080p",
+      "size": "2.50 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "2.50 GB",
+          "stream": "https://freeterabox.com/s/1wv8rHewAMPD_Qa6LC0JIDA"
+        }
+      ]
+    },
+    {
+      "id": "m-the-exorcism-of-emily-rose-2005",
+      "title": "The Exorcism of Emily Rose (2005) 720p 480p BluRay [Hindi + English]",
+      "category": "Movie",
+      "genre": "Crime, Drama",
+      "year": "2005",
+      "thumb": "https://image.tmdb.org/t/p/original/3hsKSy0K6h4fMpGl1iWfSnAARFZ.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/3hsKSy0K6h4fMpGl1iWfSnAARFZ.jpg",
+      "stream": "https://freeterabox.com/s/16Wek5HLnJ4CYMbXmKk7PLw",
+      "quality": "720p",
+      "size": "1.21 GB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "1.21 GB",
+          "stream": "https://freeterabox.com/s/16Wek5HLnJ4CYMbXmKk7PLw"
+        },
+        {
+          "quality": "480p",
+          "size": "368.26 MB",
+          "stream": "https://freeterabox.com/s/1xmkmxECgoo690SR9o9f-4A"
+        }
+      ]
+    },
+    {
+      "id": "m-cars-2-2011",
+      "title": "Cars 2 (2011) 720p 480p BluRay [Hindi + English]",
+      "category": "Movie",
+      "genre": "Animation, Family",
+      "year": "2011",
+      "thumb": "https://image.tmdb.org/t/p/original/jrlq8lWxB3OKjKwJ0kCjtg5fIII.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/jrlq8lWxB3OKjKwJ0kCjtg5fIII.jpg",
+      "stream": "https://freeterabox.com/s/1xQMb-jmaK7k_ohGNfbaTwQ",
+      "quality": "720p",
+      "size": "749.12 MB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "749.12 MB",
+          "stream": "https://freeterabox.com/s/1xQMb-jmaK7k_ohGNfbaTwQ"
+        },
+        {
+          "quality": "480p",
+          "size": "254.24 MB",
+          "stream": "https://freeterabox.com/s/1wpaZWX3q1gOAeoUavoML-Q"
+        }
+      ]
+    },
+    {
+      "id": "m-naa-saami-ranga-2024",
+      "title": "Naa Saami Ranga (2024) 720p Hall Print [Telugu]",
+      "category": "Movie",
+      "genre": "Action",
+      "year": "2024",
+      "thumb": "https://image.tmdb.org/t/p/original/8cqK3U81FNBqtQNXxtRQOS7Iru5.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/8cqK3U81FNBqtQNXxtRQOS7Iru5.jpg",
+      "stream": "https://freeterabox.com/s/1WnLDBzHb8Sa4ym0oQYmF4A",
+      "quality": "720p",
+      "size": "1.12 GB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "1.12 GB",
+          "stream": "https://freeterabox.com/s/1WnLDBzHb8Sa4ym0oQYmF4A"
+        }
+      ]
+    },
+    {
+      "id": "m-ruslaan-2024",
+      "title": "Ruslaan (2024) 1080p 720p 480p HDTS [Hindi]",
+      "category": "Movie",
+      "genre": "Action",
+      "year": "2024",
+      "thumb": "https://image.tmdb.org/t/p/original/zI5wgXTTamzXSm1V9Fzjcz02Ggm.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/zI5wgXTTamzXSm1V9Fzjcz02Ggm.jpg",
+      "stream": "https://freeterabox.com/s/1vznVMzSDgMVc3D4ADB509Q",
+      "quality": "1080p",
+      "size": "2.18 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "2.18 GB",
+          "stream": "https://freeterabox.com/s/1vznVMzSDgMVc3D4ADB509Q"
+        },
+        {
+          "quality": "720p",
+          "size": "1.03 GB",
+          "stream": "https://freeterabox.com/s/1c4R7AnLRYPhVzDv3wBDv2A"
+        },
+        {
+          "quality": "480p",
+          "size": "446.94 MB",
+          "stream": "https://freeterabox.com/s/1HNuGrXR1hGMmgpXR7JBh1A"
+        }
+      ]
+    },
+    {
+      "id": "m-cars-3-2017",
+      "title": "Cars 3 (2017) 720p BluRay [Hindi + English]",
+      "category": "Movie",
+      "genre": "Animation, Drama",
+      "year": "2017",
+      "thumb": "https://image.tmdb.org/t/p/original/gqyTUMNrMjyIVNVIgGMdurrNPWb.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/gqyTUMNrMjyIVNVIgGMdurrNPWb.jpg",
+      "stream": "https://freeterabox.com/s/1YNxXJfztCuBS6QhqtCWPBA",
+      "quality": "720p",
+      "size": "977.63 MB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "977.63 MB",
+          "stream": "https://freeterabox.com/s/1YNxXJfztCuBS6QhqtCWPBA"
+        }
+      ]
+    },
+    {
+      "id": "m-maaran-2022",
+      "title": "Maaran (2022) 1080p 720p HEVC WEB-DL [Tamil + Telugu + Malayalam + Kannada]",
+      "category": "Movie",
+      "genre": "Action, Thriller",
+      "year": "2022",
+      "thumb": "https://image.tmdb.org/t/p/original/6EoqBrVN7LyZU7Mr2axjmtcbmkv.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/6EoqBrVN7LyZU7Mr2axjmtcbmkv.jpg",
+      "stream": "https://1024terabox.com/s/1EIyDl_0GuEa0dbv9Gpt2JQ",
+      "quality": "1080p",
+      "size": "1.61 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "1.61 GB",
+          "stream": "https://1024terabox.com/s/1EIyDl_0GuEa0dbv9Gpt2JQ"
+        },
+        {
+          "quality": "720p HEVC",
+          "size": "1.09 GB",
+          "stream": "https://1024terabox.com/s/1gVFkYKxWjc8QVmYhMqw2vQ"
+        }
+      ]
+    },
+    {
+      "id": "m-aquaman-and-the-lost-kingdom-2023",
+      "title": "Aquaman and the Lost Kingdom (2023) 720p Web-DL [Hindi + English]",
+      "category": "Movie",
+      "genre": "Action, Adventure",
+      "year": "2023",
+      "thumb": "https://image.tmdb.org/t/p/original/8qoUSqEmynrHFEANv4LWKaA1Npg.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/8qoUSqEmynrHFEANv4LWKaA1Npg.jpg",
+      "stream": "https://freeterabox.com/s/1cVGvqcVx0F-aG-xZMRCtBg",
+      "quality": "720p",
+      "size": "1.15 GB",
+      "versions": [
+        {
+          "quality": "720p",
+          "size": "1.15 GB",
+          "stream": "https://freeterabox.com/s/1cVGvqcVx0F-aG-xZMRCtBg"
+        }
+      ]
+    },
+    {
+      "id": "m-ramabanam-2023",
+      "title": "Ramabanam (2023) 720p HEVC 480p HD [Hindi + Telugu]",
+      "category": "Movie",
+      "genre": "Action, Comedy",
+      "year": "2023",
+      "thumb": "https://image.tmdb.org/t/p/original/q2G2S2p8ySPvJBdQcshEFAHQvY4.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/q2G2S2p8ySPvJBdQcshEFAHQvY4.jpg",
+      "stream": "https://freeterabox.com/s/113y5LhCKq8tQoEvCLhnGEA",
+      "quality": "720p HEVC",
+      "size": "766.65 MB",
+      "versions": [
+        {
+          "quality": "720p HEVC",
+          "size": "766.65 MB",
+          "stream": "https://freeterabox.com/s/113y5LhCKq8tQoEvCLhnGEA"
+        },
+        {
+          "quality": "480p",
+          "size": "463.87 MB",
+          "stream": "https://freeterabox.com/s/1HbVSRFjSSN3Zfoos6csnJQ"
+        }
+      ]
+    },
+    {
+      "id": "m-jumanji-1995",
+      "title": "Jumanji (1995) 480p BluRay [Hindi + English]",
+      "category": "Movie",
+      "genre": "Adventure, Fantasy",
+      "year": "1995",
+      "thumb": "https://image.tmdb.org/t/p/original/9hb3pXk0TXaLpTNbwQiLe54iCng.jpg",
+      "landscape": "https://image.tmdb.org/t/p/original/9hb3pXk0TXaLpTNbwQiLe54iCng.jpg",
+      "stream": "https://freeterabox.com/s/1IBttUf7ST2eRD28Z1NJHPw",
+      "quality": "480p",
+      "size": "316.77 MB",
+      "versions": [
+        {
+          "quality": "480p",
+          "size": "316.77 MB",
+          "stream": "https://freeterabox.com/s/1IBttUf7ST2eRD28Z1NJHPw"
+        }
+      ]
+    },
+    {
       "id": "m-kung-fu-hustle-2004",
       "title": "Kung Fu Hustle (2004) 720p 480p Bluray [Hindi + English]",
       "category": "Movie",
@@ -2622,13 +3193,26 @@
     },
     {
       "id": "eTeH2921",
-      "title": "START-375 Sudah Kubilang Pakai Kondom - Momona Koibuchi - Nonton Download JAV Subtitle Indonesia Full HD AREAJAV.COM",
+      "title": "Star (1977) 1080p 720p HEVC HDRip [Tamil]",
       "category": "Indo",
       "genre": "Romance",
-      "thumb": "https://cdn.teraviralhub.com/thumbnails/1ggARYczD9aVkB_WgVhAcuQ_START-375_Sudah_Kubilang_Pakai_Kondom_-_Momona_Koi.webp",
-      "stream": "https://1024terabox.com/s/1ggARYczD9aVkB_WgVhAcuQ",
-      "quality": "480p",
-      "size": "531.86 MB"
+      "thumb": "https://image.tmdb.org/t/p/original/jKquaxnCRelAbibZVMdTsUEnkKm.jpg",
+      "stream": "https://freeterabox.com/s/1MpbksIR71DXhsK2uaC0UZg",
+      "quality": "1080p",
+      "size": "1.66 GB",
+      "versions": [
+        {
+          "quality": "1080p",
+          "size": "1.66 GB",
+          "stream": "https://freeterabox.com/s/1MpbksIR71DXhsK2uaC0UZg"
+        },
+        {
+          "quality": "720p HEVC",
+          "size": "734.30 MB",
+          "stream": "https://freeterabox.com/s/1Jm7GpJsjtNE48HXSP8Z2zQ"
+        }
+      ],
+      "landscape": "https://image.tmdb.org/t/p/original/jKquaxnCRelAbibZVMdTsUEnkKm.jpg"
     },
     {
       "id": "beOW2928",
